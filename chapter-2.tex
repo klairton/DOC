@@ -1,0 +1,467 @@
+\chapter{Definições}
+
+Nesse capítulo, apresentamos as formas como representamos um genoma e como os eventos de rearrajo de genomas podem afetá-los. Além disso, definimos o formato das instâncias que serão utilizadas pelos problemas investigados nos capítulos seguintes e apresentamos definições, conceitos e grafos que serão amplamente utilizados para obtenção de resultados.
+
+% ------------------------------------------------------------------ %
+\section{Representação de Genomas}
+% ------------------------------------------------------------------ %
+
+Nessa seção, apresentamos três representações de genomas que diferem nas estruturas genéticas que são incorporadas na representação computacional.
+
+Dado um genoma $\mathcal{G}=(\mathcal{G}_1,\:\mathcal{G}_2,\allowbreak\:\dots,\:\mathcal{G}_n)$ com $n$ genes não repetidos, utilizamos uma representação através de uma permutação $\pi=(\pi_1~\pi_2~\dots~\pi_n)$, de forma que cada elemento $\pi_i$, com $1 \le i \le n$, da permutação $\pi$ representa o gene $\mathcal{G}_i$ do genoma $\mathcal{G}$. Caso a orientação dos genes no genome $\mathcal{G}$ seja conhecida, associamos um sinal ``$+$'' ou ``$-$'' em cada elemento $\pi_i$ de $\pi$ para representar a orientação de cada um dos genes de $\mathcal{G}$. Caso contrário, o sinal é simplesmente omitido. Quando representamos um genoma utilizando apenas as informações obtidas com base nas características dos genes denominamos de \emph{representação clássica}. Além disso, denotamos por \emph{representação clássica com sinais} quando a orientação dos genes é conhecida e \emph{representação clássica sem sinais} caso contrário. O Exemplo~\ref{example:AGNBBMYY} mostra uma representação clássica com sinais e sem sinais de genomas fictícios. Os elementos coloridos com letras no interior representam os genes, sendo que na parte supeior eles possuem orientação e na parte inferior não.
+
+\input{examples/AGNBBMYY}
+
+Dado um genoma $\mathcal{G}=(\mathcal{R}_1,\mathcal{G}_1,\mathcal{R}_2,\mathcal{G}_2\dots,\mathcal{R}_n,\mathcal{G}_n,\mathcal{R}_{n+1})$ com $n$ genes não repetidos $\{\mathcal{G}_1,\:\mathcal{G}_2,\:\dots,\:\mathcal{G}_n\}$ e $n+1$ regiões intergênicas $\{\mathcal{R}_1,\:\mathcal{R}_2,\:\dots,\:\mathcal{R}_{n+1}$\}, utilizamos essas duas características para representar um genoma. As regiões intergênicas estão presentes nas extremidades do genoma e entre cada par de genes consecutivos. Cada região intergênica possui uma quantidade específica de nucleotídeos, que chamamos de \emph{tamanho}. Dessa forma, denotamos o tamanho de uma região intergênica pela quantidade de nucleotídeos contida nela. Representamos o genoma $\mathcal{G}$ utilizando dois elementos, o primeiro elemento é uma permutação $\pi=(\pi_1~\pi_2~\dots~\pi_n)$, de forma que cada elemento $\pi_i$, com $1 \le i \le n$, da permutação $\pi$ representa o gene $\mathcal{G}_i$ do genoma $\mathcal{G}$. Caso a orientação dos genes no genome $\mathcal{G}$ seja conhecida, associamos um sinal ``$+$'' ou ``$-$'' em cada elemento $\pi_i$ de $\pi$ para representar a orientação de cada um dos genes de $\mathcal{G}$. Caso contrário, o sinal é simplesmente omitido. O segundo elemento é uma lista de inteiros não negativos $\breve\pi=(\breve\pi_1,\breve\pi_2,\dots,\breve\pi_{n+1})$, de forma que cada elemento $\breve\pi_i$, com $1 \le i \le {n+1}$, da lista $\breve\pi$ representa o tamanho da região intergênica $\mathcal{R}_i$ do genoma $\mathcal{G}$. Quando representamos um genoma utilizando a informação da estrutura genética dos genes e das regiões intergênicas denominamos de \emph{representação intergênica rígida}. Além disso, denotamos por \emph{representação intergênica rígida com sinais} quando a orientação dos genes é conhecida e \emph{representação intergênica rígida sem sinais} caso contrário. O Exemplo~\ref{example:ARGRKMMV} mostra uma representação intergênica rígida com sinais e sem sinais de genomas fictícios. Os elementos coloridos com letras no interior representam os genes, sendo que na parte supeior eles possuem orientação e na parte inferior não. Os retangulos com bordas arredondadas entre cada par de genes e nas extremidades respresentam as regiões intergênicas com o número no interior indicando seu tamanho.
+
+\input{examples/ARGRKMMV}
+
+Para tornar a especificação em relação ao tamanho de cada região intergênica menos rígida, criamos uma representação denominamos de \emph{representação intergênica flexível}. Para isso, representamos um genoma $\mathcal{G}=(\mathcal{R}_1,\mathcal{G}_1,\mathcal{R}_2,\mathcal{G}_2\dots,\mathcal{R}_n,\mathcal{G}_n,\mathcal{R}_{n+1})$ com $n$ genes não repetidos $\{\mathcal{G}_1,\:\mathcal{G}_2,\:\dots,\:\mathcal{G}_n\}$ e $n+1$ regiões intergênicas $\{\mathcal{R}_1,\:\mathcal{R}_2,\:\dots,\:\mathcal{R}_{n+1}$\} utilizando três elementos. O primeiro elemento é uma permutação $\pi=(\pi_1~\pi_2~\dots~\pi_n)$, de forma que cada elemento $\pi_i$, com $1 \le i \le n$, da permutação $\pi$ representa o gene $\mathcal{G}_i$ do genoma $\mathcal{G}$. Caso a orientação dos genes no genome $\mathcal{G}$ seja conhecida, associamos um sinal ``$+$'' ou ``$-$'' em cada elemento $\pi_i$ de $\pi$ para representar a orientação de cada um dos genes de $\mathcal{G}$. Caso contrário, o sinal é simplesmente omitido. Os demais elementos são duas listas de inteiros não negativos $\breve\pi^{\min}=(\breve\pi^{\min}_1,\breve\pi^{\min}_2,\dots,\breve\pi^{\min}_{n+1})$ e $\breve\pi^{\max}=(\breve\pi^{\max}_1,\breve\pi^{\max}_2,\dots,\breve\pi^{\max}_{n+1})$, de forma que $\breve\pi^{\min}_i \le \mathcal{R}_i \le \breve\pi^{\max}_i$, com $1 \le i \le {n+1}$. Isso faz com que o tamanho de cada região intergênica seja flexível, tornando possível especificar um intervalos de valores aceitáveis para o tamanho de cada uma delas ao invés de apenas um único valor. Por fim, denotamos por \emph{representação intergênica flexível com sinais} quando a orientação dos genes é conhecida e \emph{representação intergênica flexível sem sinais} caso contrário. O Exemplo~\ref{example:BIXCBOSI} mostra uma representação intergênica flexível com sinais e sem sinais de genomas fictícios. Os elementos coloridos com letras no interior representam os genes, sendo que na parte supeior eles possuem orientação e na parte inferior não. Os retangulos com bordas arredondadas entre cada par de genes e nas extremidades respresentam as regiões intergênicas. O número na parte superior de cada região intergênica indica o tamanho máximo permitido, enquanto o número na parte inferior indica o tamanho mínimo permitido.
+
+\input{examples/BIXCBOSI}
+
+Dada a representação $\mathcal{R}$ de um genoma $\mathcal{G}$, seja na forma clássica $\mathcal{R}=(\pi)$, intergênica rígida $\mathcal{R}=(\pi,\breve\pi)$ ou intergênica flexível $\mathcal{R}=(\pi,\breve\pi^{\min},\breve\pi^{\max})$, obtemos sua versão estendida adicionando dois novos elementos em $\pi$, com $\pi_0 = 0$ e $\pi_{n+1} = {n+1}$ inseridos no início e no fim da permutação $\pi$, respectivamente. Esses dois novos elementos adicionados em $\pi$ representam genes fictícios que não serão afetados por nenhum evento de rearranjo de genomas e serão utilizados apenas para tornar algumas definições, que serão apresentadas posteriormente, mais simples. De agora em diante assumimos que qualquer representação de genoma estará na sua forma estendida, a não ser que seja dito expressamente o contrário.
+
+% ------------------------------------------------------------------ %
+\section{Eventos de Rearranjo}
+% ------------------------------------------------------------------ %
+
+Nessa seção, apresentamos os eventos de rearrajo considerados nessa tese e como eles podem afetar o genoma dependendo da representação que é utilizada. 
+
+Os eventos de rearranjo de genomas são classificados em eventos conservativos ou não conservativos. O eventos de rearranjo conservativos não alteram a quantidade de material genético do genoma, enquanto os eventos de rearranjo não conservativos sim. Dado um evento de rearranjo $\gamma$ e uma representação $\mathcal{R}$ de um genoma, denotamos por $\mathcal{R} \cdot  \gamma$ como sendo o genoma resultante após a aplicação do evento de rearranjo $\gamma$ em $\mathcal{R}$. De maneira similar, quando temos uma sequência de eventos de rerranjo $S=\{\gamma_1,\gamma_2,\dots,\gamma_k\}$ e uma representação $\mathcal{R}$ de um genoma, denotamos por $\mathcal{R} \cdot S = \mathcal{R} \cdot \gamma_1 \cdot \gamma_2 \cdot \dots \cdot \gamma_k$ como sendo o genoma resultante após a aplicação da sequência $S$ em $\mathcal{R}$ de maneira ordenada. A seguir, mostramos como os eventos de rearranjo conservativos de reversão e transposição afetam a representação clássica de um genoma.
+
+\begin{definition}
+Dada uma representação clássica $\mathcal{R} = \pi$ de um genoma e sejam $i$ e $j$ números inteiros tal que $1 \le i \le j \le n$. Uma reversão $\rho^{(i,j)}$ inverte o segmento $(\pi_i~\pi_{i+1}~\dots~\pi_{j-1}~\pi_j)$ de $\pi$. Caso a representação $\mathcal{R}$ do genoma seja clássica com sinais, o sinal de cada elemento no segmento $(\pi_i~\pi_{i+1}~\dots~\pi_{j-1}~\pi_j)$ também é invertido.
+\end{definition}
+
+Os exemplos~\ref{example:BJBDRCHL} e~\ref{example:COJXWMAC} mostram uma reversão $\rho^{(i,j)}$ sendo aplicada em uma representação clássica $\mathcal{R} = (\pi)$ com e sem sinais de um genoma, respectivamente.
+
+\input{examples/BJBDRCHL}
+
+\input{examples/COJXWMAC}
+
+O Exemplo~\ref{example:DCRMAYUA} mostra uma uma reversão $\rho^{(2,4)}$ sendo aplicada em uma representação clássica com sinais $\mathcal{R} = \pi = ({+0}~{-3}~{+2}~{-4}~{+1}~{+5}~{+6})$ de um genoma, enquanto o Exemplo~\ref{example:DOFVIMRX} mostra uma uma reversão $\rho^{(1,5)}$ sendo aplicada em uma representação clássica sem sinais $\mathcal{R} = \pi = ({0}~{4}~{5}~{3}~{2}~{1}~{6})$ de um genoma.
+
+\input{examples/DCRMAYUA}
+
+\input{examples/DOFVIMRX}
+
+\begin{definition}
+Dada uma representação clássica $\mathcal{R} = \pi$ de um genoma e sejam $i$, $j$ e $k$ números inteiros tal que $1 \le i < j < k \le n + 1$. Uma transposição $\tau^{(i,j,k)}$ troca a posição dos segmentos consecutivos $(\pi_i~\pi_{i+1}~\dots~\pi_{j-1})$ e $(\pi_j~\pi_{j+1}~\dots~\pi_{k-1})$ de $\pi$.
+\end{definition}
+
+O Exemplo~\ref{example:EZZBDRDA} mostra uma uma transposição $\tau^{(i,j,k)}$ sendo aplicada em uma representação clássica $\mathcal{R} = (\pi)$ de um genoma. Note que a transposição pode ser aplicada em ambas as representações clássicas, com e sem sinais.
+
+\input{examples/EZZBDRDA}
+
+O Exemplo~\ref{example:HFLGUNSS} mostra uma uma transposição $\tau^{(1,3,5)}$ sendo aplicada em uma representação clássica com sinais $\mathcal{R} = \pi = ({+0}~{-4}~{-3}~{+1}~{+2}~{+5}~{+6})$ de um genoma, enquanto o Exemplo~\ref{example:HGHICRCG} mostra uma uma transposição $\tau^{(4,5,6)}$ sendo aplicada em uma representação clássica sem sinais $\mathcal{R} = \pi = ({0}~{3}~{2}~{1}~{5}~{4}~{6})$ de um genoma.
+
+\input{examples/HFLGUNSS}
+
+\input{examples/HGHICRCG}
+
+A seguir, mostramos como os eventos de rearranjo conservativos de reversão intergênica, transposição intergênica e move intergênico afetam a representação intergênica de um genoma. 
+
+\begin{definition}
+Dada uma representação intergênica rígida $\mathcal{R} = (\pi,\breve\pi)$ de um genoma e sejam $i$, $j$, $x$ e $y$ números inteiros tal que $1 \le i \le j \le n$, $0 \le x \le \breve\pi_i$ e $0 \le y \le \breve\pi_{j+1}$. Uma reversão intergênica $\rho^{(i, j)}_{(x, y)}$ divide as regiões intergênicas $\breve\pi_i$ e $\breve\pi_{j+1}$ da sequinte forma: $\breve\pi_i$ em partes com tamanho $x$ e $x^{\prime}$, com $x^{\prime}=\breve\pi_i-x$, e $\breve\pi_{j+1}$ em partes com tamanho $y$ e $y^{\prime}$, com $y^{\prime}=\breve\pi_{j+1}-y$. Em seguida, a sequência $(x^{\prime},\pi_i,\breve\pi_{i+1}\dots\breve\pi_j,\pi_j,y)$ do genoma é invertida. Caso a representação seja com sinais, o sinal dos elementos de $\pi_i$ até $\pi_{j}$ também é invertida. Por fim os segmentos do genoma são remontados com os pares de partes $(x,y)$ e $(x^{\prime},y^{\prime})$ fundindo-se e formando as novas regiões intergênicas $\breve\pi_i$ e $\breve\pi_{j+1}$ com tamanhos $x + y$ e $x^{\prime}+y^{\prime}$, respectivamente.
+\end{definition}
+
+O Exemplo~\ref{example:HJOTQJWJ} mostra uma reversão intergênica $\rho^{(i, j)}_{(x, y)}$ genérica sendo aplicada em uma representação intergênica rígida com sinais de um genoma.
+
+\input{examples/HJOTQJWJ}
+
+O Exemplo~\ref{example:KQWRJKOC} mostra uma reversão intergênica $\rho^{(i, j)}_{(x, y)}$ genérica sendo aplicada em uma representação intergênica rígida sem sinais de um genoma.
+
+\input{examples/KQWRJKOC}
+
+O Exemplo~\ref{example:KXVBWBTB} mostra uma reversão intergênica $\rho^{(2,4)}_{(2,0)}$ sendo aplicada em uma representação intergênica rígida com sinais $\mathcal{R} = (\pi,\breve\pi) = \allowbreak(({+0}~{-3}~{+2}~{-4}~{+1}~{+5}~{+6}),\allowbreak(1,4,4,2,0,3))$ de um genoma, enquanto o Exemplo~\ref{example:KXXIMDRH} mostra uma reversão intergênica $\rho^{(1,5)}_{(1,2)}$ sendo aplicada em uma representação intergênica rígida sem sinais $\mathcal{R} = (\pi,\breve\pi) = \allowbreak(({0}~{4}~{5}~{3}~{2}~{1}~{6}),\allowbreak(1,1,7,3,0,2))$ de um genoma. As regiões intergênicas marcadas com sobrescrito podem ter o tamanho alterado pelo evento, enquanto as regiões intergênicas marcadas com subscrito sofrem apenas uma troca de posição.
+
+\input{examples/KXVBWBTB}
+
+\input{examples/KXXIMDRH}
+
+\begin{definition}
+Dada uma representação intergênica rígida $\mathcal{R} = (\pi,\breve\pi)$ de um genoma e sejam $i$, $j$, $k$, $x$, $y$ e $z$ números inteiros tal que $1 \le i < j < k \le n+1$, $0 \le x \le \breve\pi_i$, $0 \le y \le \breve\pi_j$ e $0 \le z \le \breve\pi_k$. Uma transposição intergênica $\tau^{(i,j,k)}_{(x,y,z)}$ divide as regiões intergênicas $\breve\pi_i$, $\breve\pi_{j}$ e $\breve\pi_k$ da sequinte forma: $\breve\pi_i$ em partes com tamanho $x$ e $x^{\prime}$, com $x^{\prime}=\breve\pi_i-x$, $\breve\pi_{j}$ em partes com tamanho $y$ e $y^{\prime}$, com $y^{\prime}=\breve\pi_{j}-y$, e $\breve\pi_{k}$ em partes com tamanho $z$ e $z^{\prime}$, com $z^{\prime}=\breve\pi_{k}-z$. Em seguida, as sequências consecutivas $(x^{\prime},\pi_i,\breve\pi_{i+1},\dots \breve \pi_{j-1},\pi_{j-1},y)$ e $(y^{\prime},\pi_j,\breve\pi_{j+1}\dots \breve\pi_{k-1},\pi_{k-1},z)$ trocam de posição sem alterar a orientação dos genes contidos nos segmentos. Por fim os segmentos do genoma são remontados com os pares de partes $(x,y^{\prime})$, $(z,x^{\prime})$ e $(y,z^{\prime})$ fundindo-se e formando as novas regiões intergênicas $\breve\pi_{i}$, $\breve\pi_{k+i-j}$, e $\breve\pi_{k}$ com tamanhos $x + y^{\prime}$, $z + x^{\prime}$ e $y + z^{\prime}$, respectivamente.
+\end{definition}
+
+O Exemplo~\ref{example:LIZCKUBG} mostra uma transposição intergênica $\tau^{(i,j,k)}_{(x,y,z)}$ genérica sendo aplicada em uma representação intergênica rígida de um genoma. Note que caso a representação utilizada seja com sinais o evento não altera a orientação dos genes nos segmentos afetados.
+
+\input{examples/LIZCKUBG}
+
+O Exemplo~\ref{example:LLNCEMFB} mostra uma transposição intergênica $\tau^{(1,3,6)}_{(1,1,3)}$ sendo aplicada em uma representação intergênica rígida com sinais $\mathcal{R} = (\pi,\breve\pi) = \allowbreak(({+0}~{-4}~{-3}~{+1}~{+2}~{+5}~{+6}),\allowbreak(3,0,2,2,4,7))$ de um genoma, enquanto o Exemplo~\ref{example:LRYMWOFK} mostra uma transposição intergênica $\tau^{(4,5,6)}_{(0,0,1)}$ sendo aplicada em uma representação intergênica rígida sem sinais $\mathcal{R} = (\pi,\breve\pi) = \allowbreak(({0}~{3}~{2}~{1}~{5}~{4}~{6}),\allowbreak(3,2,4,1,0,2))$ de um genoma. As regiões intergênicas marcadas com sobrescrito podem ter o tamanho alterado pelo evento, enquanto as regiões intergênicas marcadas com subscrito sofrem apenas uma troca de posição.
+
+\input{examples/LLNCEMFB}
+
+\input{examples/LRYMWOFK}
+
+\begin{definition}
+Dada uma representação intergênica rígida $\mathcal{R} = (\pi,\breve\pi)$ de um genoma e sejam $i$, $j$ e $x$ números inteiros tal que $1 \le i, j \le n$ e $0 \le x \le \breve\pi_i$. Um move intergênico $\mu^{(i,j)}_{(x)}$ transfere $x$ nucleotídeos da região intergênica $\breve\pi_i$ para a região intergênica $\breve\pi_{j}$.
+\end{definition}
+
+O Exemplo~\ref{example:LZHMUNDG} mostra um move intergênico $\mu^{(2,5)}_{(3)}$ sendo aplicado em uma representação intergênica rígida com sinais $\mathcal{R} = (\pi,\breve\pi) = \allowbreak(({+0}~{-3}~{+2}~{-4}~{+1}~{+5}~{+6}),\allowbreak(1,4,4,2,0,3))$ de um genoma, enquanto o Exemplo~\ref{example:NLNYPHRB} mostra um indel intergênico $\mu^{(3,5)}_{(5)}$ sendo aplicado em uma representação intergênica rígida sem sinais $\mathcal{R} = (\pi,\breve\pi) = \allowbreak(({0}~{4}~{5}~{3}~{2}~{1}~{6}),\allowbreak(1,1,7,3,0,2))$ de um genoma. As regiões intergênicas marcadas com sobrescrito sofrem alteração no tamanho causado pelo evento.
+
+\input{examples/LZHMUNDG}
+
+\input{examples/NLNYPHRB}
+
+A seguir, mostramos como o evento de rearranjo não conservativo de indel intergênico afeta a representação intergênica de um genoma.
+
+\begin{definition}
+Dada uma representação intergênica rígida $\mathcal{R} = (\pi,\breve\pi)$ de um genoma e sejam $i$ e $x$ números inteiros tal que $1 \le i \le n$ e $x \ge -\breve\pi_i$. Um indel intergênico $\delta^{(i)}_{(x)}$ remove $x$ nucleotídeos da região intergênica $\breve\pi_i$ caso $x$ seja negativo. Caso contrário, um indel intergênico $\delta^{(i)}_{(x)}$ insere $x$ nucleotídeos na região intergênica $\breve\pi_i$.
+\end{definition}
+
+Note que o evento de rearranjo indel intergênico é uma forma compacta para definir os eventos de inserção e deleção utilizando a mesma notação. O Exemplo~\ref{example:ODSBTCQQ} mostra um indel intergênico $\delta^{(5)}_{(9)}$ sendo aplicado em uma representação intergênica rígida com sinais $\mathcal{R} = (\pi,\breve\pi) = \allowbreak(({+0}~{-3}~{+2}~{-4}~{+1}~{+5}~{+6}),\allowbreak(3,5,1,0,2,1))$ de um genoma, enquanto o Exemplo~\ref{example:OHVZBOMX} mostra um indel intergênico $\delta^{(6)}_{(-6)}$ sendo aplicado em uma representação intergênica rígida sem sinais $\mathcal{R} = (\pi,\breve\pi) = \allowbreak(({0}~{4}~{5}~{3}~{2}~{1}~{6}),\allowbreak(3,3,2,1,0,7))$ de um genoma. As regiões intergênicas marcadas com sobrescrito sofrem alteração no tamanho causado pelo evento.
+
+\input{examples/ODSBTCQQ}
+
+\input{examples/OHVZBOMX}
+
+% ------------------------------------------------------------------ %
+\section{Caracterização das Instâncias}
+% ------------------------------------------------------------------ %
+
+Os problemas investigados nessa tese tem como principal objetivo transformar uma representação de um genoma de origem $\mathcal{R}_{o}$ em uma representação de um genoma alvo $\mathcal{R}_{a}$ utilizando eventos de rearranjo de genoma para realizar essa tarefa. Um \emph{modelo de rearranjo} $\mathcal{M}$ é um conjunto de eventos de rearranjo que podem ser utilizados para transformar um genoma em outro. Os problemas de distância entre genomas buscam por a menor sequência de eventos de rearranjo $S=(\gamma_1, \gamma_2, \dots, \gamma_k)$ pertencentes a um modelo $\mathcal{M}$ de forma que $\mathcal{R}_{o} \cdot S = \mathcal{R}_{a}$. A \emph{distância} entre $\mathcal{R}_{o}$ e $\mathcal{R}_{a}$ no modelo $\mathcal{M}$ é o tamanho da menor sequência de eventos de rearranjo capaz de transformar $\mathcal{R}_{o}$ em $\mathcal{R}_{a}$, e é denotada por $d_{\mathcal{M}}(\mathcal{R}_{o},\mathcal{R}_{a})$. Os problemas de distância entre genomas assumem que cada evento de rearranjo em um modelo possui a mesma probabilidade de ocorrer em um cenário evolutivo. Entretanto, outra abordagem utiliza é associar um peso para cada tipo de evento de rearranjo pertencente a um modelo de rearranjo. Com isso, temos os problemas de distância ponderada entre genomas, que buscam por uma sequência de eventos de rearranjo $S=(\gamma_1, \gamma_2, \dots, \gamma_k)$ pertencentes a um modelo $\mathcal{M}$ de forma que $\mathcal{R}_{o} \cdot S = \mathcal{R}_{a}$ e que o valor de $\sum_{\gamma_i \in S} p(\gamma_i)$ seja mínimo, onde $p(\gamma_i)$ representa o peso associado ao tipo do evento $\gamma_i$ no modelo $\mathcal{M}$. A \emph{distância ponderada} entre $\mathcal{R}_{o}$ e $\mathcal{R}_{a}$ no modelo $\mathcal{M}$ é o menor valor de $\sum_{\gamma_i \in S} p(\gamma_i)$ para uma sequência de eventos de rearrajo S e que $\mathcal{R}_{o} \cdot S = \mathcal{R}_{a}$, e é denotada por $dp_{\mathcal{M}}(\mathcal{R}_{o},\mathcal{R}_{a})$. A seguir descrevemos os tipos de instâncias que os problemas investigados posteriormente podem receber como entrada.
+
+\begin{itemize}
+\item Uma \emph{instância clássica} é caracterizada por um par de representações clássicas de genomas $(\pi,\iota)$ que compartilham o mesmo conjunto de genes, sendo que ambas as representações podem ser com ou sem sinais. Por padrão, em uma instância clássica utilizaremos $\pi$ e $\iota$ como sendo a representação do genoma de origem e alvo, respectivamente. O objetivo principal dos problemas que utilizam esse tipo de instância consiste em transformar $\pi$ em $\iota$.
+\item Uma \emph{instância intergênica rígida} é caracterizada por um par de representações intergênicas rígidas de genomas $((\pi,\breve\pi),(\iota,\breve\iota))$ que compartilham o mesmo conjunto de genes, sendo que ambas as representações podem ser com ou sem sinais. Por padrão, em uma instância intergênica rígida utilizaremos $(\pi,\breve\pi)$ e $(\iota,\breve\iota)$ como sendo a representação do genoma de origem e alvo, respectivamente. O objetivo principal dos problemas que utilizam esse tipo de instância consiste em transformar $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$.
+\item Uma \emph{instância intergênica flexível} é caracterizada por um par de representações de genomas $((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$ que compartilham o mesmo conjunto de genes, sendo a primeira representação intergênica rígida e a segunda intergênica flexível. Ambas as representações podem ser com ou sem sinais. Por padrão, em uma instância intergênica flexível utilizaremos $(\pi,\breve\pi)$ e $(\iota,\breve\iota^{\min},\breve\iota^{\max})$ como sendo a representação do genoma de origem e alvo, respectivamente. O objetivo principal dos problemas que utilizam esse tipo de instância consiste em transformar $(\pi,\breve\pi)$ em $(\iota,\breve\pi^{\prime})$, tal que $\breve\iota^{\min}_i \le \breve\pi^{\prime}_i \le \breve\iota^{\max}_i$, com $1 \le i \le n+1$.
+\end{itemize}
+
+Pelo fato de utilizarmos a representação dos genes de um genoma através de uma permutação e os genomas origem e alvo compartilharem o mesmo conjunto de genes, podemos determinar uma permutação padrão $\iota$ para os genes do genoma alvo e mapear a permutação do genoma de origem $\pi$ de acordo com os valores utilizados em $\iota$. A permutação padrão para os genes do genoma alvo é $\iota=({+1}~{+2}~\dots~{+n})$ para uma representação com sinais e $\iota=(1~2~\dots~n)$ para uma representação sem sinais. O exemplo~\ref{example:OZBJAPOZ} mostram uma instância clássica com sinais.
+
+\input{examples/OZBJAPOZ}
+
+\begin{definition}
+  Dada uma instância intergênica rígida $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$, $\mathcal{I}$ é chamada de \emph{balanceada} se a seguinte igualdade é satisfeita: 
+  $$\sum_{\breve\pi_i~\in~\breve\pi}\breve\pi_i = \sum_{\breve\iota_i~\in~\breve\iota}\breve\iota_i.$$
+  Caso contrário, $\mathcal{I}$ é chamada de \emph{desbalanceada}.
+\end{definition}
+
+O exemplo~\ref{example:PHXDSEMJ} mostra uma instância intergênica rígida balanceada sem sinais.
+
+\input{examples/PHXDSEMJ}
+
+\begin{definition}
+  Dada uma instância intergênica flexível $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$, $\mathcal{I}$ é chamada de \emph{balanceada} se a seguinte desigualdade é satisfeita: 
+  $$\sum_{\breve\iota^{\min}_i~\in~\breve\iota^{\min}} \breve\iota^{\min}_i \le \sum_{\breve\pi_i~\in~\breve\pi} \breve\pi_i \le \sum_{\breve\iota^{\max}_i~\in~\breve\iota^{\max}}{\breve\iota^{\max}_i}.$$
+  Caso contrário, $\mathcal{I}$ é chamada de \emph{desbalanceada}.
+\end{definition}
+
+O exemplo~\ref{example:PJKASBXB} mostram uma instância intergênica flexível balanceada com sinais.
+
+\input{examples/PJKASBXB}
+
+Note que instâncias intergênicas rígidas e flexíveis balanceadas possuem, no genoma de origem, um total de nucleotídeos em que é possível atender todas as retrições referentes aos tamanhos permitidos para cada região intergênica no genoma alvo. Por outro lado, em instâncias intergênicas rígidas e flexíveis desbalanceadas é necessário inserir ou remover nucleotídeos do genoma de origem para tornar possível transformá-lo no genoma alvo.
+
+% ------------------------------------------------------------------ %
+\section{Breakpoints}
+% ------------------------------------------------------------------ %
+
+Nessa seção, apresentamos os conceitos de breakpoints em instâncias clássicas e intergênicas rígidas. Esses conceitos são importantes para obtenção de limitantes inferiores e desenvolvimento de algoritmos para problemas que serão investigados nos capítulos seguintes.
+
+% ------------------------------------------------------------------ %
+\subsection{Breakpoint Clássico}
+% ------------------------------------------------------------------ %
+
+Nessa seção, apresentamos o conceito de breakpoint clássico.
+
+\begin{definition}
+  Dada uma instância clássica $\mathcal{I} = (\pi,\iota)$, um par de elementos $(\pi_{i}, \pi_{i+1})$, de forma que $0 \le i \le n$, é um \emph{breakpoint clássico tipo um} se $|\pi_{i+1} - \pi_{i}| \ne 1$.
+\end{definition}
+
+\begin{definition}
+  Dada uma instância clássica $\mathcal{I} = (\pi,\iota)$, um par de elementos $(\pi_{i}, \pi_{i+1})$, de forma que $0 \le i \le n$, é um \emph{breakpoint clássico tipo dois} se $\pi_{i+1} - \pi_{i} \ne 1$.
+\end{definition}
+
+Dada uma instância clássica $\mathcal{I} = (\pi,\iota)$, o número total de breakpoints clássicos tipo um é denotado por $b_{1}(\mathcal{I})$. A variação no número de breakpoints clássicos tipo um após aplicar uma sequência de eventos de rearranjo $S$ em $\pi$ é denotada por  $\Delta b_1(\mathcal{I},S) = b_1(\mathcal{I}^{\prime}) - b_1(\mathcal{I})$, onde $\mathcal{I}^{\prime} = (\pi^{\prime},\iota)$ com $\pi^{\prime} = \pi \cdot S$. O número total de breakpoints clássicos tipo dois é denotado por $b_{2}(\mathcal{I})$. A variação no número de breakpoints clássicos tipo dois após aplicar uma sequência de eventos de rearranjo $S$ em $\pi$ é denotada por $\Delta b_2(\mathcal{I},S) = b_2(\mathcal{I}^{\prime}) - b_2(\mathcal{I})$, onde $\mathcal{I}^{\prime} = (\pi^{\prime},\iota)$ com $\pi^{\prime} = \pi \cdot S$.
+
+\begin{definition}
+  Dada uma instância clássica $\mathcal{I} = (\pi,\iota)$, \emph{strips} são sequências maximais de elementos de $\pi$ sem breakpoints clássicos.
+\end{definition}
+
+Uma strip obtida de uma instância clássica sem sinais $\mathcal{I} = (\pi,\iota)$ com apenas um elemento $\pi_i$ é chamada de \emph{singleton} e é definida como crescente caso  $i \in \{0,n\}$. Caso contrário, é definida como decrescente. Strips com mais de um elemento são chamadas de crescentes caso os elementos formem uma sequência crescente. Caso contrário, são chamadas de decrescentes. Uma strip obtida de uma instância clássica com sinais $\mathcal{I} = (\pi,\iota)$ é definida como positiva caso todos os elementos da stips tenham sinal positivo. Caso contrário, a strip é definida como negativa.
+
+O Exemplo~\ref{example:PMRHWAPA} mostra uma instância clássica sem sinais $\mathcal{I} = ((0~1~2~5~4~3~6),\allowbreak(0~1~2~3~4~5~6))$. Note que a instância possui dois breakpoints clássicos tipo um ($b_{1}(\mathcal{I}) = 2$), sendo eles $(\pi_2,\pi_3)$ e $(\pi_5,\pi_6)$. Além disso, obtemos as seguintes strips da instância $\mathcal{I}$: $(0~1~2)$, $(5~4~3)$ e $(6)$, sendo que $(0~1~2)$ e $(6)$ são strips crescentes enquanto $(5~4~3)$ é uma strip decrescente.
+
+\input{examples/PMRHWAPA}
+
+O Exemplo~\ref{example:POZIBUXA} mostra uma instância clássica com sinais $\mathcal{I} = \allowbreak(({+0}~{+1}~{+2}~{+5}~{-4}~{-3}\allowbreak~{+6}),\allowbreak({+0}~{+1}~{+2}~{+3}~{+4}~{+5}~{+6}))$. Note que a instância possui três breakpoints clássicos tipo dois ($b_{2}(\mathcal{I}) = 3$), sendo eles $(\pi_2,\pi_3)$, $(\pi_3,\pi_4)$ e $(\pi_5,\pi_6)$. As strips obtidas dessa instância com esses breakpoints clássicos tipo dois são: $({+0}~{+1}~{+2})$, $({+5})$, $({-4}~{-3})$ e $({+6})$. Sendo que $({+0}~{+1}~{+2})$, $({+5})$ e $({+6})$ são strips positivas enquanto $({-4}~{-3})$ é uma strip negativa.
+
+\input{examples/POZIBUXA}
+
+% ------------------------------------------------------------------ %
+\subsection{Breakpoint Intergênico}
+% ------------------------------------------------------------------ %
+
+Nessa seção, apresentamos o conceito de breakpoint intergênico.
+
+\begin{definition}
+  Dada uma instância intergênica rígida $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$, um par de elementos $(\pi_{i}, \pi_{i+1})$, de forma que $0 \le i \le n$, é um \emph{breakpoint intergênico tipo um} se um dos seguintes casos ocorrer:
+  \begin{itemize}
+    \item $|\pi_{i+1} - \pi_{i}| \ne 1$
+    \item $|\pi_{i+1} - \pi_{i}| = 1$ e $\breve\pi_{i+1} \ne \breve\iota_{x}$, tal que $x = \max(\pi_{i}, \pi_{i+1})$.
+  \end{itemize}
+\end{definition}
+
+\begin{definition}
+  Dada uma instância intergênica rígida $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$, um par de elementos $(\pi_{a}, \pi_{b})$ é uma \emph{adjacência intergênica} se $|a-b|=1$ e o par $(\pi_{\min(a,b)}, \pi_{\max(a,b)})$ não é um breakpoint intergênico tipo um.
+\end{definition}
+
+Note que um breakpoint intergênico tipo um indica um ponto no genoma de origem que deve ser afeto por algum rearranjo de genoma com o objetivo de transformá-lo no genoma alvo. Por outro lado, uma adjacência intergênica mostra um ponto no genoma de origem em que o par de genes considerados também são consecutivos no genoma alvo. Além disso, a região integênica entre os genes tem o mesmo tamanho no genoma origem e alvo.
+
+\begin{definition}
+  Dada uma instância intergênica rígida $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ e breakpoint intergênico tipo um $(\pi_{i}, \pi_{i+1})$, tal que $|\pi_{i+1} - \pi_{i}| = 1$, é chamado de \emph{sobrecarregado} se $\breve\pi_{i+1} > \breve\iota_{x}$, com $x = \max(\pi_{i}, \pi_{i+1})$. Caso contrário, o breakpoint intergênico tipo um $(\pi_{i}, \pi_{i+1})$ é chamado de \emph{subcarregado}.
+\end{definition}
+
+Observe que um breakpoint intergênico sobrecarregado é formado por um par de genes que são consecutivos no genoma de origem e alvo. Contudo, o tamanho da região intergênica entre o par de genes do genoma origem é maior do que entre o mesmo par de genes no genoma alvo. Já um breakpoint intergênico subcarregado é justamente o cenário oposto, o par de genes são consecutivos no genoma origem e alvo, mas a região intergênica entre o par de genes do genoma origem é menor do que entre o mesmo par de genes no genoma alvo.
+
+\begin{definition}
+  Um breakpoint intergênico tipo um $(\pi_{i}, \pi_{i+1})$ é chamado de \emph{forte} se $(\pi_{i}, \pi_{i+1})$ é um breakpoint intergênico sobrecarregado ou subcarregado. Caso contrário, o breakpoint intergênico tipo um $(\pi_{i}, \pi_{i+1})$ é chamado de \emph{suave}.
+\end{definition}
+
+\begin{definition}
+  Um breakpoint intergênico forte $(\pi_{i}, \pi_{i+1})$ é chamado de \emph{super forte} se um dos seguintes casos ocorrer:
+  \begin{itemize}
+    \item $i \in \{0,n\}$
+    \item $(\pi_{i-1}, \pi_{i})$ ou $(\pi_{i+1}, \pi_{i+2})$ são um breakpoint intergênico forte ou uma adjacência intergênica.
+  \end{itemize}
+\end{definition}
+
+Note que um breakpoint intergênico super forte está em uma das extremidades do genoma de origem ou imediatamente antes ou depois existe um breakpoint intergênico forte ou uma adjacência intergênica.
+
+\begin{definition}
+  Dada uma instância intergênica rígida $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$, um par de breakpoints intergênicos tipo um $(\pi_{i},\pi_{i+1})$ e $(\pi_{j},\pi_{j+1})$ é chamado de \emph{conectado} se ambas as condições a seguir são satisfeitas:
+  \begin{enumerate}
+    \item O par de elementos $(\pi_{i},\pi_{i+1})$, $(\pi_{j},\pi_{j+1})$, $(\pi_{i},\pi_{j})$, $(\pi_{i},\pi_{j+1})$, $(\pi_{i+1},\pi_{j})$ ou $(\pi_{i+1},\pi_{j+1})$ são consecutivos em $\iota$ e não forma uma adjacência intergênica.
+    \item $\breve\pi_{i+1} + \breve\pi_{j+1} \ge \breve\iota_{k}$, tal que $\breve\iota_{k}$ é o tamanho da região intergênica entre o par de elementos consecutivos (que satisfaz a condição 1) em $\iota$.
+  \end{enumerate}
+\end{definition}
+
+Um par de breakpoints intergênicos conectados indica a possibilidade de criar uma adjacência intergênica utilizando apenas o material de ambos os breakpoints intergênicos tipo um (genes e nucleotídeos das regiões intergênicas).
+
+\begin{definition}
+Dada uma instância intergênica rígida $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$, um par de breakpoints intergênicos conectados $(\pi_{i},\pi_{i+1})$ e $(\pi_{j},\pi_{j+1})$ é chamado de \emph{suavemente conectado} se ambos os breakpoints intergênicos são suaves.
+\end{definition}
+
+\begin{definition}
+  Dada uma instância intergênica rígida $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$, \emph{strips suaves} são sequências maximais de elementos de $\pi$ sem breakpoints intergênicos suaves.
+\end{definition}
+
+Uma strip suave com apenas um elemento $\pi_i$ é chamada de \emph{singleton} e é definida como crescente caso  $i \in \{0,n\}$. Caso contrário, é definida como decrescente. Strips suaves com mais de um elemento são chamadas de crescentes caso os elementos formem uma sequência crescente. Caso contrário, são chamadas de decrescentes.
+
+\begin{definition}
+  Dada uma instância intergênica rígida $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$, um par de elementos $(\pi_{i}, \pi_{i+1})$, de forma que $0 \le i \le n$, é um \emph{breakpoint intergênico tipo dois} se um dos seguintes casos ocorrer:
+  \begin{itemize}
+    \item $\pi_{i+1} - \pi_{i} \ne 1$
+    \item $\pi_{i+1} - \pi_{i} = 1$ e $\breve\pi_{i+1} \ne \breve\iota_{x}$, tal que $x = \max(|\pi_{i}|, |\pi_{i+1}|)$.
+  \end{itemize}
+\end{definition}
+
+Os breakpoints intergênicos tipo um e dois são utilizados dependendo do tipo da instância intergênica rígida (com o sem sinais) e do modelo de rearranjo que é considerado, mas ambos os conceitos indicam a mesma informação: os pontos que devem ser afetados no genoma de origem para transformá-lo no genoma alvo.
+
+Dada uma instância intergênica rígida $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$, o número total de breakpoints fortes e suaves são denotados por $ib_f(\mathcal{I})$ e $ib_s(\mathcal{I})$, respectivamente. O número total de breakpoints intergênicos tipo um é denotado por $ib_{1}(\mathcal{I}) = ib_f(\mathcal{I}) + ib_s(\mathcal{I})$. A variação no número de breakpoints intergênicos tipo um após aplicar uma sequência de eventos de rearranjo $S$ em $(\pi,\breve\pi)$ é denotada por  $\Delta ib_1(\mathcal{I},S) = ib_1(\mathcal{I}^{\prime}) - ib_1(\mathcal{I})$, onde $\mathcal{I}^{\prime} = ((\pi^{\prime}, \breve\pi^{\prime}),(\iota,\breve\iota))$ com $(\pi^{\prime}, \breve\pi^{\prime}) = (\pi, \breve\pi) \cdot S$. O número total de breakpoints intergênicos tipo dois é denotado por $ib_{2}(\mathcal{I})$. A variação no número de breakpoints intergênicos tipo dois após aplicar uma sequência de eventos de rearranjo $S$ em $(\pi,\breve\pi)$ é denotada por  $\Delta ib_2(\mathcal{I},S) = ib_2(\mathcal{I}^{\prime}) - ib_2(\mathcal{I})$, onde $\mathcal{I}^{\prime} = ((\pi^{\prime}, \breve\pi^{\prime}),(\iota,\breve\iota))$ com $(\pi^{\prime}, \breve\pi^{\prime}) = (\pi, \breve\pi) \cdot S$.
+
+O Exemplo~\ref{example:RADQRLJI} mostra uma instância intergênica rígida sem sinais $\mathcal{I} = (((0~1~2~5~4~3\allowbreak~6),\allowbreak(5,5,3,1,1,2)),\allowbreak((0~1~2~3~4~5~6),\allowbreak(5,0,6,4,1,1)))$. Note que a instância possui quatro breakpoints intergênicos tipo um ($ib_{1}(\mathcal{I}) = 4$), sendo que $ib_f(\mathcal{I}) = 2$ e $ib_s(\mathcal{I}) = 2$. Os breakpoints intergênicos tipo um $(\pi_1,\pi_2)$ e $(\pi_4,\pi_5)$ são fortes, sendo que $(\pi_1,\pi_2)$ é super forte e sobrecarregado enquanto $(\pi_4,\pi_5)$ é subcarregado. Os breakpoints intergênicos tipo um $(\pi_2,\pi_3)$ e $(\pi_5,\pi_6)$ são suaves. Entre os pares de breakpoints intergênicos que estão conectados na instância, podemos citar o par de breakpoints intergênicos tipo um $((\pi_1,\pi_2),(\pi_2,\pi_3))$, que está conectado, e o par de breakpoints intergênicos tipo um $((\pi_1,\pi_2),(\pi_4,\pi_5))$, que está suavemente conectado. Além disso, obtemos as seguintes strips suaves da instância $\mathcal{I}$: $(0~1~2)$, $(5~4~3)$ e $(6)$, sendo que $(0~1~2)$ e $(6)$ são strips suaves crescentes enquanto $(5~4~3)$ é uma strip suave decrescente.
+
+\input{examples/RADQRLJI}
+
+O Exemplo~\ref{example:RCRLXZXC} mostra uma instância intergênica rígida com sinais $\mathcal{I} = \allowbreak((({+0}~{+1}~{+2}~\allowbreak{+5}~{-4}~{-3}~{+6}),\allowbreak(5,5,3,1,4,2)),\allowbreak(({+0}~{+1}~{+2}~{+3}~{+4}~{+5}~{+6}),\allowbreak(2,5,6,4,1,2)))$. Note que a instância possui quatro breakpoints intergênicos tipo dois ($ib_{2}(\mathcal{I}) = 4$), sendo eles $(\pi_0,\pi_1)$, $(\pi_2,\pi_3)$, $(\pi_3,\pi_4)$ e $(\pi_5,\pi_6)$.
+
+\input{examples/RCRLXZXC}
+
+% ------------------------------------------------------------------ %
+\section{Regiões Intergênicas}
+% ------------------------------------------------------------------ %
+
+Nessa seção apresentamos alguns conceitos relacionados a regiões intergênicas em instâncias intergênicas flexíveis. Esses conceitos são importantes para o desenvolvimento de algoritmos e limitantes inferiores para os problemas investigados nos capítulos seguintes.
+
+\begin{definition}
+  Dada uma instância intergênica flexível $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$, uma região intergênica $\breve\pi_i$ é chamada de \emph{durável} se $\breve\iota^{\min}_k \le \breve\pi_i \le \breve\iota^{\max}$, tal que $k = \max(\pi_{i-1}, \pi_i)$. Caso contrário, a região intergênica $\breve\pi_i$ é chamada de \emph{temporária}. 
+\end{definition}
+
+Uma região intergênica temporária deve necessariamente ser afetada por um evento de rearranjo, seja para unir genes que são consecutivos no genoma alvo ou para alterar a quantidade de nucleotídeos na região intergênica. Os conjuntos de regiões intergênicas duráveis e temporárias são definidos como $\mathcal{D}$ e $\mathcal{T}$, respectivamente. Dada uma instância intergênica flexível $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$, o número total de regiões intergênicas temporárias é denotado por $t(\mathcal{I})$. A variação no número de regiões intergênicas temporárias após aplicar uma sequência de eventos de rearranjo $S$ em $(\pi,\breve\pi)$ é denotada por  $\Delta t(\mathcal{I},S) = t(\mathcal{I}^{\prime}) - t(\mathcal{I})$, onde $\mathcal{I}^{\prime} = ((\pi^{\prime}, \breve\pi^{\prime}),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$ com $(\pi^{\prime}, \breve\pi^{\prime}) = (\pi, \breve\pi) \cdot S$.
+
+Dada uma instância intergênica flexível $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$ e seja $\breve\pi_i$ uma região intergênica durável, denotamos por $gap_{\min}(\breve\pi_i) = \breve\pi_i - \breve\iota^{\min}_k$ e $gap_{\max}(\breve\pi_i) = \breve\iota^{\max}_k - \breve\pi_i$, tal que $k = \max(\pi_{i-1}, \pi_i)$. Os valores de $gap_{\min}$ e $gap_{\max}$ indicam, para cada região intergênica durável, a quantidade de nucleotídeos que podem ser removidos ou adicionados, respectivamente, ainda mantendo-a durável.
+
+De agora em diante, as definições e conceitos que serão apresentados referem-se à instâncias intergênicas flexíveis balanceadas. Note que dada uma instância intergênica flexível $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$ e utilizando um modelo apenas com eventos de rearranjo conservativos, todos as regiões intergênicas temporárias precisam ser removidas para transformar $(\pi,\breve\pi)$ em $(\iota,\breve\pi^{\prime})$, tal que $\forall \breve\pi^{\prime}_i \in \breve\pi^{\prime}, \breve\iota^{\min}_i \le \breve\pi^{\prime}_i \le \breve\iota^{\max}_i$. Além disso, algumas regiões intergênicas duráveis podem ser afetadas com esse objetivo dependendo do total de nucleotídeos nas regiões intergênicas temporárias. Regiões intergênicas duráveis devem obrigatoriamente ser afetadas por algum evento de rearranjo se algum dos seguintes cenários ocorrer:
+
+$$\texttt{(i)}~\sum_{\breve\pi_i \in \mathcal{T}} \breve\pi_i < \sum_{\breve\iota_{i}^{\min}  \in \breve\iota^{\min}} \breve\iota_{i}^{\min} - \sum_{\breve\pi_i \in \mathcal{D}} (\breve\pi_i - gap_{\min}(\breve\pi_i))$$
+$$\texttt{(ii)}\sum_{\breve\pi_i \in \mathcal{T}} \breve\pi_i > \sum_{\breve\iota_{i}^{\max}  \in \breve\iota^{\max}} \breve\iota_{i}^{\max} - \sum_{\breve\pi_i \in \mathcal{D}} (\breve\pi_i + gap_{\max}(\breve\pi_i))$$
+
+No cenário \texttt{(i)}, chamado de \emph{fonte}, a quantidade de nucleotídeos nas regiões intergênicas temporárias não é suficiente para torná-las duráveis. Dessa forma, nucleotídeos das regiões intergênicas duráveis devem ser transferidos para as regiões intergênicas temporárias. No cenário \texttt{(ii)}, chamado de \emph{sorvedouro}, a quantidade de nucleotídeos nas regiões intergênicas temporárias excede o limite total permitido para essas regiões intergênicas. Dessa forma, nucleotídeos nucleotídeos das regiões intergênicas temporárias devem ser transferidos para as regiões intergênicas duráveis. Perceba que uma instância intergênica flexível pode não pertencer a nenhum desses cenários. Entretanto, não existe uma instância intergênica flexível que pertence aos dois cenários. Dada uma instância intergênica flexível que pertence ao cenário fonte ou sorvedouro, temos a seguinte definição.
+
+\begin{definition}
+  Dada uma instância intergênica flexível $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$ que pertence ao cenário fonte ou sorvedouro, uma região intergênica durável $\breve\pi_i$ é chamada de \emph{auxiliar} se deve receber nucleotídeos de regiões intergênicas temporárias ou transferir nucleotídeos para regiões intergênicas temporárias. 
+\end{definition}
+
+O número total de regiões intergênicas auxiliares depende do cenário da instância. No caso do cenário fonte, o conjunto de regiões intergênicas auxiliares $\mathcal{A}$ é tal que seu tamanho é mínimo e a seguinte restrição é satisfeita:
+
+$$\sum_{\breve\pi_i \in \mathcal{A}} gap_{\min}(\breve\pi_i) \ge \sum_{\breve\iota_{i}^{\min}  \in \breve\iota^{\min}} \breve\iota_{i}^{\min} - \sum_{\breve\pi_i \in \mathcal{D}} (\breve\pi_i - gap_{\min}(\breve\pi_i)) - \sum_{\breve\pi_i \in \mathcal{T}} \breve\pi_i$$
+
+Note que o conjunto $\mathcal{A}$ com tamanho mínimo pode ser facilmente obtido ordenando as regiões intergênicas duráveis em ordem decrescente por $gap_{\min}(\breve\pi_i)$ e rotulando-os como auxiliares até que a restrição anterior seja satisfeita. No caso do cenário sorvedouro, o conjunto de regiões intergênicas auxiliares $\mathcal{A}$ é tal que seu tamanho é mínimo e a seguinte
+restrição é satisfeita:
+
+$$\sum_{\breve\pi_i \in \mathcal{A}} gap_{\max}(\breve\pi_i) \ge \sum_{\breve\pi_i \in \mathcal{T}} \breve\pi_i - \sum_{\breve\iota_{i}^{\max}  \in \breve\iota^{\max}} \breve\iota_{i}^{\max} - \sum_{\breve\pi_i \in \mathcal{D}} (\breve\pi_i + gap_{\max}(\breve\pi_i))$$
+
+Semelhante ao caso anterior, o conjunto $\mathcal{A}$ com tamanho mínimo pode ser facilmente obtido classificando as regiões intergênicas estáveis em ordem decrescente de $gap_{\max}(\breve\pi_i)$ e rotulando-as como auxiliares até que a restrição seja satisfeita. 
+
+Dada uma instância intergênica flexível $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$, o número total de regiões intergênicas auxiliares é denotado por $a(\mathcal{I})$. A variação no número de regiões intergênicas auxiliares após aplicar uma sequência de eventos de rearranjo $S$ em $(\pi,\breve\pi)$ é denotada por  $\Delta a(\mathcal{I},S) = a(\mathcal{I}^{\prime}) - a(\mathcal{I})$, onde $\mathcal{I}^{\prime} = ((\pi^{\prime}, \breve\pi^{\prime}),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$ com $(\pi^{\prime}, \breve\pi^{\prime}) = (\pi, \breve\pi) \cdot S$.
+
+O Exemplo~\ref{example:RDGJHSWZ} mostra uma instância intergênica flexível sem sinais $\mathcal{I} = (((0~1~2~5~4\break3~6),(5,0,3,1,6,2)),((0~1~2~3~4~5~6),(4,3,3,2,2,1),(6,4,8,7,3,3)))$ que pertence ao cenário fonte. Note que a instância $\mathcal{I}$ possui quatro regiões intergênicas temporárias ($t(\mathcal{I}) = 4$, com $\mathcal{T}=\{\breve\pi_2,\breve\pi_3,\breve\pi_4,\breve\pi_6\}$) e duas regiões intergênicas duráveis ($\mathcal{D}=\{\breve\pi_1,\breve\pi_5\}$). No exemplo, temos apenas uma região intergênica auxiliar ($a(\mathcal{I}) = 1$, com $\mathcal{A}=\{\breve\pi_5\}$). Note que $gap_{\min}(\breve\pi_1) = 1$ e $gap_{\min}(\breve\pi_5) = 4$.
+
+\input{examples/RDGJHSWZ}
+
+O Exemplo~\ref{example:SCUCIMVA} mostra uma instância intergênica flexível sem sinais $\mathcal{I} = \allowbreak(((0~1~2~5~4~3\allowbreak~6),\allowbreak(5,5,3,1,2,8)),\allowbreak((0~1~2~3~4~5~6),\allowbreak(4,3,1,2,0,1),\allowbreak(6,4,3,7,1,3)))$ que pertence ao cenário sorvedouro. Note que a instância $\mathcal{I}$ possui quatro regiões intergênicas temporárias ($t(\mathcal{I}) = 4$, com $\mathcal{T}=\{\breve\pi_2,\breve\pi_3,\breve\pi_4,\breve\pi_6\}$) e duas regiões intergênicas duráveis ($\mathcal{D}=\{\breve\pi_1,\breve\pi_5\}$). No exemplo, temos duas região intergênica auxiliar ($a(\mathcal{I}) = 2$, com $\mathcal{A}=\{\breve\pi_1,\breve\pi_5\}$). Note que $gap_{\max}(\breve\pi_1) = 1$ e $gap_{\max}(\breve\pi_5) = 5$.
+
+\input{examples/SCUCIMVA}
+
+O Exemplo~\ref{example:TUDHODFC} mostra uma instância intergênica flexível sem sinais $\mathcal{I} = (((0~1~2~5~4\break3~6),(5,5,3,1,2,8)),((0~1~2~3~4~5~6),(4,4,1,5,1,4),(4,6,3,7,3,6)))$ que não pertence ao cenário fonte ou sorvedouro. Note que por esse motivo a instância não possui regiões intergênicas auxiliares, ou seja, $a(\mathcal{I}) = 0$ e $\mathcal{A}=\varnothing$. A instância $\mathcal{I}$ possui cinco regiões intergênicas temporárias ($t(\mathcal{I}) = 5$, com $\mathcal{T}=\{\breve\pi_1,\breve\pi_3,\breve\pi_4,\breve\pi_5,\breve\pi_6\}$) e uma região intergênica durável ($\mathcal{D}=\{\breve\pi_2\}$).
+
+\input{examples/TUDHODFC}
+
+% ------------------------------------------------------------------ %
+\section{Grafo de Ciclos}
+% ------------------------------------------------------------------ %
+
+Grafos são estruturas amplamentes utilizadas em problemas de rearranjo de genomas para obtenção de limitantes inferiores e algoritmos. Nessa seção, apresentamos os grafos de ciclos clássico, ponderado e poderado flexível.
+
+% ------------------------------------------------------------------ %
+\subsection{Grafo de Ciclos Clássico}
+% ------------------------------------------------------------------ %
+
+O grafo de ciclos clássico, também chamado de grafo de breakpoints, tem seu uso bastante difundido em problemas de rearranjo de genomas que utilizam instâncias clássicas. Esse grafo evidência em uma mesma estrutura as adjacências presentes no genoma de origem e as adjacências desejadas no genoma alvo. A seguir definimos formalmente o grafo de ciclos clássico.
+
+Dada uma instância clássica $\mathcal{I} = (\pi,\iota)$, definimos o gráfico de ciclos clássico por $G(\mathcal{I}) = (V, E, \ell)$, tal $V$, $E$ e $\ell$ representam o conjunto de vértices, o conjunto de arestas e uma função de rotulação de arestas, respectivamente. O conjunto de vértices $V$ é dado por $\{{+\pi_0}, {-\pi_1}, {+\pi_1}, {-\pi_2}, {+\pi_2}, \dots, {-\pi_n}, {+\pi_n}, {-\pi_{n+1}}\}$. Note que para cada elemento $\pi_i$, com $0 < i < n+1$, adicionamos em $V$ os vértices ${-\pi_i}$ e ${+\pi_i}$. Por fim, adicionamos em $V$ os vértices ${+\pi_0}$ e ${-\pi_{n+1}}$. O conjunto de arestas $E = E_p \cup E_c$ é divido nos conjuntos de arestas pretas ($E_p$) e arestas cinzas ($E_c$), onde $E_p = \{(-\pi_i, +\pi_{i-1}) \,|\, 1 \leq i \leq n+1\}$ e $E_c = \{(+(i-1), -i) \,|\, 1 \leq i \leq n + 1\}$. Perceba que as arestas pretas representam os elementos que são adjacentes na permutação $\pi$, enquanto as arestas cinzas representam os elementos que são adjacentes em $\iota$.
+
+Existem diferentes formas de desenhar o grafo de ciclos clássico. Entretanto, utilizaremos a forma que chamamos de \emph{padrão}. Para essa forma de desenhar o grafo os vértices são posicionados horizontalmente da esquerda para direita e seguindo a ordem ${+\pi_0}, {-\pi_1}, {+\pi_1}, {-\pi_2}, {+\pi_2}, \dots, {-\pi_n}, {+\pi_n}, {-\pi_{n+1}}$. As arestas pretas são desenhadas formando uma linha horizontal contínua, enquanto as arestas cinzas formam arcos com linhas tracejadas sobre os vértices. O Exemplo~\ref{example:UKGIKUAH} mostra o grafo de ciclos clássico construído a partir da instância clássica $\mathcal{I} = (({+0}~{+4}~{+3}~{-1}~{+2}~{+5}~{+6}),({+0}~{+1}~{+2}~{+3}~{+4}~{+5}~{+6}))$.
+
+\input{examples/UKGIKUAH}
+
+Pelo Exemplo~\ref{example:UKGIKUAH}, podemos perceber que o grafo de ciclos clássico possui $2n+2$ vértices e $2n+2$ arestas ($n+1$ pretas e $n+1$ cinzas), sendo que em cada vértice duas arestas são incidentes, uma preta e uma cinza. Por esse motivo, há uma decomposição única de $G(\mathcal{I})$ em ciclos com arestas de cores alternadas. 
+
+A função de rotulação $\ell : E_p \rightarrow \{-(n+1),-n,\dots,-2,-1,1,2,\dots,n,(n+1)\}$ atribui um rótuĺo para cada aresta preta no grafo em função da direção em que a aresta é percorrida. Dada uma aresta preta $e_p = (-\pi_i, +\pi_{i-1}) \in E_p$, a função $\ell$ atribui o rótulo $i$ em $e_p$ caso ela seja percorrida de $-\pi_i$ até $+\pi_{i-1}$. Caso contrário, $e_p$ é rotulada com $-i$. Por padrão, cada ciclo de $G(\mathcal{I})$ é representado pela sequência de rótulos de suas arestas pretas na ordem em que elas são percorridas, sendo que a primeira aresta preta de um ciclo é aquela que encontra-se mais a direita no grafo e é percorrida da direita para esquerda, ou seja, de $-\pi_i$ até $+\pi_{i-1}$. Essa representação utilizada para os ciclos faz com que eles sejam representados unicamente. No Exemplo~\ref{example:UKGIKUAH}, $G(\mathcal{I})$ possui três ciclos: $C_1=(4,-1,-3)$, $C_2 = (5,2)$ e $C_3 = (6)$.
+
+O tamanho de um ciclo $C\in G(\mathcal{I})$ é dado pela quantidade de arestas pretas do ciclo. Um ciclo de tamanho um é chamado de \emph{trivial}. Um Ciclo com tamanho menor que três é chamado de \emph{curto}. Caso contrário, é chamado de \emph{longo}. 
+
+\begin{definition}
+Duas arestas pretas de um ciclo $C\in G(\mathcal{I})$ são chamadas de \emph{divergentes} se elas são percorridas em direções opostas. Caso contrário, são chamadas de \emph{convergentes}.
+\end{definition}
+\begin{definition}
+Um ciclo $C\in G(\mathcal{I})$ é chamado de \emph{divergente} se pelo menos uma par de arestas pretas de $C$ são divergentes. Caso contrário, $C$ é chamado de \emph{convergente}.
+\end{definition}
+
+Podemos ainda classificar ciclos convergentes como \emph{orientados} ou \emph{não orientados}. 
+
+\begin{definition}
+Um ciclo convergente $C = (c_1,c_2,\dots,c_k) \in G(\mathcal{I})$ é classificado como \emph{não orientado} se $c_i > c_{i+1}$, para todo $i$ com $1 \le i < k$. Caso contrário, $C$ é classificado como \emph{orientado}.
+\end{definition}
+
+Dois ciclos $C = (c_1, c_2, \ldots, c_k)$ e $D = (d_1, d_2, \ldots, d_k)$, ambos pertencentes ao grafo $G(\mathcal{I})$, são entrelaçados se $|c_1| > |d_1| > |c_2|  > |d_2| > \ldots > |c_k| > |d_k|$ ou $|d_1| > |c_1| > |d_2|  > |c_2| > \ldots > |d_k| > |c_k|$. Seja $g_1$ uma aresta cinza adjacente às arestas pretas com rótulos $x_1$ e $y_1$, tal que $|x_1| < |y_1|$ e que $g_2$ seja uma aresta cinza adjacente às arestas pretas com rótulos $x_2$ e $y_2$, tal que $|x_2| < |y_2|$. Dizemos que duas arestas cinzas $g_1$ e $g_2$ cruzam-se caso $|x_1| < |x_2| \le |y_1| < |y_2|$. Dois ciclos $C$ e $D$ cruzam-se caso uma aresta cinza de $C$ cruza-se com uma aresta cinza de $D$. Um \emph{open gate} é uma aresta cinza de um ciclo não trivial $C \in G(\mathcal{I})$ que não se cruza com nenhuma outra aresta cinza de $C$. Um open gate $g_1$ de $C$ é fechado se outra aresta cinza (que não seja de $C$) cruza com $g_1$.
+
+\begin{remark}
+Todos os open gates de ciclos não tiviais em $G(\mathcal{I})$ são fechados~\cite{2019a-oliveira-etal}.
+\end{remark}
+
+No Exemplo~\ref{example:UKGIKUAH}, os ciclos $C_1=(4,-1,-3)$, $C_2 = (5,2)$ e $C_3 = (6)$ são, respectivamente, longo divergente, curto convergente orientado e trivial. Note que o ciclo $C_1$ possui o open gate $({+3},{-4})$, enquanto o ciclo $C_2$ possui os seguintes open gates: $({+2},{-3})$ e $({+4},{-5})$.
+
+Dada uma instância clássica $\mathcal{I} = (\pi,\iota)$, denotamos por $c(G(\mathcal{I}))$ o número de ciclos em $G(\mathcal{I})$. Dada uma sequência de eventos de rearranjo $S$, denotamos por $\Delta c(G(\mathcal{I}), S) = c(G(\mathcal{I^{\prime}})) - c(G(\mathcal{I}))$, tal que $\mathcal{I^{\prime}} = (\pi \cdot S,\iota)$, a variação no número de ciclos após aplicar a sequência $S$ no genoma de origem $\pi$ de $\mathcal{I}$.
+
+\begin{remark}
+  A única instância clássica $\mathcal{I}$ com $c(G(\mathcal{I})) = n + 1$ é $\mathcal{I} = (\iota,\iota)$.
+\end{remark}
+
+% ------------------------------------------------------------------ %
+\subsection{Grafo de Ciclos Ponderado Rígido}
+% ------------------------------------------------------------------ %
+
+O grafo de ciclos ponderado rígido é uma extensão do grafo de ciclos clássico. O grafo de ciclos ponderado rígido incorpora na sua estrutura, através de pesos nas arestas, informações referentes ao tamanho das regiões intergênicas do genoma de origem e alvo. A seguir definimos formalmente o grafo de ciclos poderado.
+
+Dada uma instância intergênica rígida $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$, definimos o gráfico de ciclos ponderado rígido por $G(\mathcal{I}) = (V, E=E_p \cup E_c, \ell, w_p, w_c)$, tal que $V$, $E$ e $\ell$ representam, respectivamente, o conjunto de vértices, o conjunto de arestas e uma função de rotulação de arestas, $w_p$ e $w_c$ são funções de peso. Pelo fato do grafo de ciclos ponderado rígido tratar-se de uma extensão do grafo de ciclos clássico, $V$, $E$ e $\ell$ comportam-se exatamente como descrito no grafo de ciclos clássico. Além disso, todos os conceitos, definições e representações que foram apresentados no contexto de grafo de ciclos clássico também são válidas e utilizadas no grafo de ciclos ponderado rígido.
+
+A função de peso $w_p : E_p \rightarrow \mathbb{N}_0$ associa os tamanhos das regiões intergênicas no genoma de origem com pesos nas arestas pretas do grafo. A função de peso $w_c : E_c \rightarrow \mathbb{N}_0$ funciona de uma maneira similar, mas associando os tamanhos das regiões intergênicas no genoma alvo com pesos nas arestas cinzas do grafo. Para cada aresta preta $e_i = (-\pi_i, +\pi_{i-1}) \in E_p$, temos que $w_p(e_i) = \breve\pi_i$. Para cada aresta cinza $e^{\prime}_i = (+(i-1), -i) \in E_c$, temos que $w_c(e^{\prime}_i) = \breve\iota_i$. Dado um ciclo $C \in G(\mathcal{I})$, denotamos por $E_p(C)$ e $E_c(C)$, respectivamente, os conjuntos de arestas pretas e cinzas que pertencem ao ciclo $C$. 
+
+\begin{definition}
+Um ciclo $C \in G(\mathcal{I})$ é chamado de \emph{balanceado} caso $\sum_{e^{\prime}_i \in E_c(C)} [w_c(e^{\prime}_i)] - \sum_{e_i \in E_p(C)} [w_p(e_i)] = 0$. Caso contrário, o ciclo $C$ é chamado de \emph{desbalanceado}.
+\end{definition}
+
+Em outras palavras, um ciclo balanceado indica que a soma dos pesos em suas aretas pretas é a mesma que a soma dos pesos em suas arestas cinzas. 
+
+\begin{definition}
+Um ciclo desbalanceado $C \in G(\mathcal{I})$ é chamado de \emph{negativo} quando $\sum_{e^{\prime}_i \in E_c(C)} [w_c(e^{\prime}_i)] - \sum_{e_i \in E_p(C)} [w_p(e_i)] < 0$. Caso contrário, o ciclo $C$ é chamado de \emph{positivo}.
+\end{definition}
+
+Note que um ciclo negativo possui a soma dos pesos em suas arestas pretas maior que a soma dos pesos em suas arestas cinzas, já é um ciclo positivo acontece justamento o oposto. Dada uma instância intergênica rígida $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$, denotamos por $c(G(\mathcal{I}))$ e $c_b(G(\mathcal{I}))$ o número de ciclos e ciclos balanceados em $G(\mathcal{I})$, respectivamente. Dada uma sequência de eventos de rearranjo $S$, denotamos por $\Delta c(G(\mathcal{I}), S) = c(G(\mathcal{I^{\prime}})) - c(G(\mathcal{I}))$ e $\Delta c_b(G(\mathcal{I}), S) = c_b(G(\mathcal{I^{\prime}})) - c_b(G(\mathcal{I}))$, tal que $\mathcal{I^{\prime}} = ((\pi,\breve\pi) \cdot S,(\iota,\breve\iota))$, a variação no número de ciclos e ciclos balanceados, respectivamente, após aplicar a sequência $S$ no genoma de origem $(\pi,\breve\pi)$ de $\mathcal{I}$.
+
+O Exemplo~\ref{example:UMWQHOBI} mostra o grafo de ciclos ponderado rígido construído a partir da instância intergênica rígida $\mathcal{I} = ((({+0}~{+4}~{+3}~{-1}~{+2}~{+5}~{+6}),(0,6,2,5,1,3)),(({+0}~{+1}~{+2}\break{+3}~{+4}~{+5}~{+6}),(3,3,4,2,3,2)))$.
+
+\input{examples/UMWQHOBI}
+
+No Exemplo~\ref{example:UMWQHOBI}, os ciclos $C_1=(4,-1,-3)$, $C_2 = (5,2)$ e $C_3 = (6)$ são, respectivamente, longo positivo, curto balanceado e trivial negativo.
+
+\begin{remark}
+  A única instância intergênica rígida $\mathcal{I}$ com $c(G(\mathcal{I})) = n + 1$ e $c_b(G(\mathcal{I})) = n + 1$ é $\mathcal{I} = ((\iota,\breve\iota),(\iota,\breve\iota))$.
+\end{remark}
+
+% ------------------------------------------------------------------ %
+\subsection{Grafo de Ciclos Ponderado Flexível}
+% ------------------------------------------------------------------ %
+
+O grafo de ciclos ponderado flexível é uma extensão do grafo de ciclos clássico. O grafo de ciclos ponderado rígido incorpora na sua estrutura, através de pesos nas arestas, informações referentes ao tamanho das regiões intergênicas do genoma de origem e os tamanhos mínimos e máximos permitidos para cada região intergênica no genoma alvo. A seguir definimos formalmente o grafo de ciclos poderado flexível.
+
+Dada uma instância intergênica flexível $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$, definimos o gráfico de ciclos ponderado flexível por $G(\mathcal{I}) = (V, E=E_p \cup E_c, \ell, w_p, w^{\min}_c, w^{\max}_c)$, tal que $V$, $E$ e $\ell$ representam, respectivamente, o conjunto de vértices, o conjunto de arestas e uma função de rotulação de arestas, $w_p$, $w^{\min}_c$ e $w^{\max}_c$ são funções de peso. Pelo fato do grafo de ciclos ponderado flexível também tratar-se de uma extensão do grafo de ciclos clássico, $V$, $E$ e $\ell$ comportam-se exatamente como descrito no grafo de ciclos clássico. Além disso, todos os conceitos, definições e representações que foram apresentados no contexto de grafo de ciclos clássico também são válidas e utilizadas no grafo de ciclos ponderado flexível.
+
+A função de peso $w_p : E_p \rightarrow \mathbb{N}_0$ associa os tamanhos das regiões intergênicas no genoma de origem com pesos nas arestas pretas do grafo. As funções de peso $w^{\min}_c : E_c \rightarrow \mathbb{N}_0$ e $w^{\max}_c : E_c \rightarrow \mathbb{N}_0$ associam, respectivamente, os tamanhos mínimos e máximos permitidos para as regiões intergênicas no genoma alvo com pesos nas arestas cinzas do grafo. Para cada aresta preta $e_i = (-\pi_i, +\pi_{i-1}) \in E_p$, temos que $w_p(e_i) = \breve\pi_i$. Para cada aresta cinza $e^{\prime}_i = (+(i-1), -i) \in E_c$, temos que $w^{\min}_c(e^{\prime}_i) = \breve\iota^{\min}_i$ e $w^{\max}_c(e^{\prime}_i) = \breve\iota^{\max}_i$. Dado um ciclo $C \in G(\mathcal{I})$, denotamos por $E_p(C)$ e $E_c(C)$, respectivamente, os conjuntos de arestas pretas e cinzas que pertencem ao ciclo $C$. Dado um ciclo $C \in G(\mathcal{I})$, denotamos por $W_p(C)=\sum_{e_i \in E_p(C)} w_p(e_i)$, $W^{\min}_c(C)=\sum_{e^{\prime}_i \in E_c(C)} w^{\min}_c(e^{\prime}_i)$ e $W^{\max}_c(C)=\sum_{e^{\prime}_i \in E_c(C)} w^{\max}_c(e^{\prime}_i)$ o \emph{peso total}, \emph{peso mínimo total} e \emph{peso máximo total} de $C$, respectivamente. Note que o peso total de um ciclo é a soma dos pesos em suas arestas pretas, já os pesos mínimo total e máximo total são a soma dos pesos mínimos e máximos em suas arestas cinzas, respectivamente.
+
+\begin{definition}
+Um ciclo $C \in G(\mathcal{I})$ é chamado de \emph{verdadeiro} caso $W^{\min}_g(C) \le W_b(C) \le W^{\max}_g(C)$. Caso contrário, o ciclo $C$ é chamado de \emph{falso}.
+\end{definition}
+
+Em outras palavras, um ciclo verdadeiro indica que o peso total é suficiente para satisfazer as restrições relativas aos pesos mínimos e máximos em cada uma de suas arestas cinzas. Definimos os conjuntos de ciclos verdadeiros e falsos em $G(\mathcal{I})$ como $\mathcal{V}$ e $\mathcal{F}$, respectivamente. Dado um ciclo $C \in G(\mathcal{I})$, denotamos por $gap_{\min}(C) = W_b(C) - W^{\min}_g(C)$ e $gap_{\max}(C) = W^{\max}_g(C) - W_b(C)$ como valores que se subtraídos e adicionados do peso total de $C$ resultam, respectivamente, nos pesos mínimo total e máximo total de $C$.
+
+O Exemplo~\ref{example:VBQSYHZS} mostra o grafo de ciclos ponderado flexível construído a partir da instância intergênica flexível $\mathcal{I} = ((({+0}~{+4}~{+3}~{-1}~{+2}~{+5}~{+6}),(0,6,2,5,1,3)),(({+0}~{+1}~{+2}\break{+3}~{+4}~{+5}~{+6}),(5,4,2,0,1,2),(6,6,2,2,2,4)))$.
+
+\input{examples/VBQSYHZS}
+
+No Exemplo~\ref{example:VBQSYHZS}, os ciclos $C_1=(4,-1,-3)$, $C_2 = (5,2)$ e $C_3 = (6)$ são, respectivamente, longo falso, curto falso e trivial verdadeiro.
+
+De agora em diante, as definições e conceitos que serão apresentados referem-se à instâncias intergênicas flexíveis balanceadas. Note que dada uma instância intergênica flexível $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$ e utilizando um modelo apenas com eventos de rearranjo conservativos, todos os ciclos falsos devem ser removidos e $G(\mathcal{I})$ deve possuir $n+1$ ciclos verdadeiros para transformar $(\pi,\breve\pi)$ em $(\iota,\breve\pi^{\prime})$, tal que $\forall \breve\pi^{\prime}_i \in \breve\pi^{\prime}, \breve\iota^{\min}_i \le \breve\pi^{\prime}_i \le \breve\iota^{\max}_i$. Dependendo da distribuição dos nucleotídeos e das restrições de tamanho mínimo e máximo nas arestas cinzas, alguns dos ciclos verdadeiros também devem ser afetados para realizar essa tarefa. Na verdade, existem dois casos em que isso ocorre:
+
+$$\texttt{(i)}~\sum_{C \in \mathcal{F}} W_p(C) < \sum_{C \in \mathcal{F}} W^{\min}_c(C)$$
+$$\texttt{(ii)}\sum_{C \in \mathcal{F}} W_p(C) > \sum_{C \in \mathcal{F}} W^{\max}_c(C)$$
+
+No caso \texttt{(i)}, a soma do peso total de todos os ciclos falsos é menor que a soma do peso mínimo total dos mesmos ciclos, ou seja, não é possível atender todas as retrições de peso mínimo e máximo nas arestas cinzas dos ciclos falsos sem que alguns ciclos verdadeiros transfiram uma determinada quantidade de peso de suas arestas pretas para os ciclos falsos. No caso \texttt{(ii)}, a soma do peso total de todos os ciclos falsos é maior que a soma do peso máximo total dos mesmos ciclos. Nesse caso, alguns ciclos falsos precisam transferir uma determinada quantidade de peso de suas arestas pretas para alguns os ciclos verdadeiros.
+
+\begin{definition}
+Um ciclo verdadeiro $C \in G(\mathcal{I})$ é chamado de \emph{ruim} se ele deve receber ou transferir peso de suas arestas pretas para outro ciclo, e é chamado de \emph{bom} caso contrário.
+\end{definition}
+
+Definimos os conjuntos de ciclos ruins e bons em $G(\mathcal{I})$ como $\mathcal{R}$ e $\mathcal{B}$, respectivamente. Observe que os casos \texttt{(i)} e \texttt{(ii)} podem não acorrer se $\sum_{C \in \mathcal{F}} W^{\min}_c(C) \le \sum_{C \in \mathcal{F}} W_p(C) \le \sum_{C \in \mathcal{F}} W^{\max}_c(C)$, em ambos os casos temos que $\mathcal{R} = \varnothing$ e $\mathcal{B} = \mathcal{V}$ (Exemplo~\ref{example:VBQSYHZS}). Note que se o caso \texttt{(i)} ou \texttt{(ii)} ocorrer é necessário determinar os conjuntos $\mathcal{R}$ e $\mathcal{B}$, e isso depende do caso em que a instância se encaixa. 
+
+Se for o caso \texttt{(i)}, então um conjunto $\mathcal{R}$ de tamanho mínimo pode ser composto do menor número de ciclos em que a seguinte restrição seja cumprida:
+
+$$\sum_{C \in \mathcal{R}} gap_{\min}(C) + \sum_{C \in \mathcal{F}} gap_{\min}(C) \ge 0$$
+
+Se for o caso \texttt{(ii)}, então um conjunto $\mathcal{R}$ de tamanho mínimo pode ser composto do menor número de ciclos em que a seguinte restrição seja cumprida:
+
+$$\sum_{C \in \mathcal{R}} gap_{\max}(C) + \sum_{C \in \mathcal{F}} gap_{\max}(C) \ge 0$$
+
+Observe que em ambos os casos, o conjunto $\mathcal{R}$ pode ser facilmente obtido após a ordenação, de forma decrescente, dos ciclos verdadeiros pelos valores $gap_{\min}$ e $gap_{\max}$ considerando os casos \texttt{(i)} e \texttt{(ii)}, respectivamente. Então, seguindo a ordem decrescente, os ciclos são rotulados como ruins até satisfazerem a restrição. O conjunto de ciclos bons $\mathcal{B}$ é obtido por $\mathcal{V}-{R}$.
+
+Dada uma instância intergênica flexível $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$, denotamos por $c_v(G(\mathcal{I}))$ e $c_b(G(\mathcal{I}))$ o número de ciclos verdadeiros e bons em $G(\mathcal{I})$, respectivamente. Dada uma sequência de eventos de rearranjo $S$, denotamos por $\Delta c_v(G(\mathcal{I}), S) = c_v(G(\mathcal{I^{\prime}}))\break - c_v(G(\mathcal{I}))$ e $\Delta c_b(G(\mathcal{I}), S) = c_b(G(\mathcal{I^{\prime}})) - c_b(G(\mathcal{I}))$, tal que $\mathcal{I^{\prime}} = ((\pi,\breve\pi) \cdot S,(\iota,\breve\iota))$, a variação no número de ciclos verdadeiros e bons, respectivamente, após aplicar a sequência $S$ no genoma de origem $(\pi,\breve\pi)$ de $\mathcal{I}$.
+
+O Exemplo~\ref{example:SSQOHQDY} mostra o grafo de ciclos ponderado flexível construído a partir da instância intergênica flexível $\mathcal{I} = ((({+0}~{+3}~{+2}~{+1}~{+4}~{+5}~{+6}),(1,2,0,2,6,2)),(({+0}~{+1}~{+2}\break{+3}~{+4}~{+5}~{+6}),(3,2,4,0,2,1),(4,3,5,4,6,2)))$.
+
+\input{examples/SSQOHQDY}
+
+No Exemplo~\ref{example:SSQOHQDY}, $G(\mathcal{I})$ possui quatro ciclos, sendo eles: $C_1 = (3,1)$, $C_2 = (4,2)$, $C_3 = (5)$ e $C_4=(6)$. Além disso, temos os conjuntos $\mathcal{F} = \{C_1\}$ e $\mathcal{V} = \{C_2,C_3,C_4\}$. Observe que a instância intergênica flexível $\mathcal{I}$ do Exemplo~\ref{example:SSQOHQDY} pertence ao caso \texttt{(i)}: $1 = W_b(C_1) < W^{\min}_g(C_1) = 7$, onde apenas o ciclo falso $C_1$ precisa aumentar o seu peso total para ser transformado em um ciclo verdadeiro. Note que $gap_{\min}(C_2) = 2$, $gap_{\min}(C_3) = 4$ e $gap_{\min}(C_4) = 1$. Portanto, temos que $\mathcal{R} = \{C_2, C_3\}$ e $\mathcal{B} = \{C_4\}$.
+
+O Exemplo~\ref{example:XSRSUPBR} mostra o grafo de ciclos ponderado flexível construído a partir da instância intergênica flexível $\mathcal{I} = ((({+0}~{+5}~{+4}~{+3}~{+2}~{+1}~{+6}),(1,2,4,2,6,2)),(({+0}~{+1}~{+2}\break{+3}~{+4}~{+5}~{+6}),(3,2,1,0,2,1),(4,3,1,4,3,4)))$.
+
+\input{examples/XSRSUPBR}
+
+No Exemplo~\ref{example:XSRSUPBR}, $G(\mathcal{I})$ possui dois ciclos, sendo eles: $C_1 = (5,3,1)$ e $C_2 = (6,4,2)$. Além disso, temos os conjuntos $\mathcal{F} = \{C_1\}$ e $\mathcal{V} = \{C_2\}$. Observe que a instância intergênica flexível $\mathcal{I}$ do Exemplo~\ref{example:XSRSUPBR} pertence ao caso \texttt{(ii)}: $11 = W_b(C_1) > W^{\max}_g(C_1) = 8$, onde apenas o ciclo falso $C_1$ precisa reduzir o seu peso total para ser transformado em um ciclo verdadeiro. Note que $gap_{\max}(C_2) = 5$. Portanto, temos que $\mathcal{R} = \{C_2\}$ e $\mathcal{B} = \varnothing$.
+
+\begin{remark}
+Uma instância intergênica flexível $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$ tal que $c_v(G(\mathcal{I}) = c_b(G(\mathcal{I}) = n+1$ implica que $\pi = \iota$ e $\breve\iota^{\min}_i \le \breve\pi_i \le \breve\iota^{\max}_i$ para todo $\breve\pi_i \in \breve\pi$.
+\end{remark}

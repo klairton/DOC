@@ -1,0 +1,229 @@
+% Escolha: Portugues ou Ingles ou Espanhol.
+% Para a versão final do texto, após a defesa, acrescente Final:
+
+\documentclass[Portugues]{ic-tese-v3}
+%\documentclass[Portugues,Final]{ic-tese-v3}
+
+\usepackage[latin1,utf8]{inputenc}
+
+% Para acrescentar comentários ao PDF descomente:
+\usepackage
+%  [pdfauthor={nome do autor},
+%   pdftitle={titulo},
+%   pdfkeywords={palavra-chave, palavra-chave},
+%   pdfproducer={Latex with hyperref},
+%   pdfcreator={pdflatex}]
+{hyperref}
+
+\usepackage{graphicx}
+
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\usepackage{xcolor}
+\newcommand{\todo}[1]{{\color{red}{\large TODO:} #1}}
+
+
+\usepackage{amsthm}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definição}[section]
+
+\theoremstyle{remark}
+\newtheorem{remark}{Observação}[section]
+
+\theoremstyle{example}
+\newtheorem{example}{Exemplo}[section]
+
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{positioning, shapes.arrows, shapes.geometric, shapes.misc, backgrounds}
+\usetikzlibrary{fit}
+
+
+
+\tikzset{ 
+signed gene/.style = { single arrow, draw = black, fill = white, minimum size = 10mm, single arrow head extend = 1mm },
+unsigned gene/.style = { circle, draw = black, fill = white, minimum size = 10mm },
+ir/.style = { rectangle, draw = black, fill = white, minimum size = 10mm, rounded corners = 5pt},
+}
+
+
+\tikzset{
+pics/right gene/.style args={#1, #2}{
+        code = {
+        % \path[draw = black, fill = #2] (0.5, 0.0) -- (0.3, -0.5) -- (-0.5, -0.5) -- (-0.3, 0.0) -- (-0.5, 0.5) -- (0.3, 0.5) -- cycle;
+        \path[draw = black, fill = #2] (0.5, 0.0) -- (0.3, -0.5) -- (-0.5, -0.5) -- (-0.5, 0.5) -- (0.3, 0.5) -- cycle;
+        \node[black, draw = none, fill = none, minimum size = 10mm] at (0.0, 0.0) {#1};
+        }
+    },
+pics/left gene/.style args={#1, #2}{
+        code = {
+        % \path[draw = black, fill = #2] (-0.5, 0.0) -- (-0.3, 0.5) -- (0.5, 0.5) -- (0.3, 0.0) -- (0.5, -0.5) -- (-0.3, -0.5) -- cycle;
+        \path[draw = black, fill = #2] (-0.5, 0.0) -- (-0.3, 0.5) -- (0.5, 0.5) -- (0.5, -0.5) -- (-0.3, -0.5) -- cycle;
+        \node[black, draw = none, fill = none, minimum size = 10mm] at (0.0, 0.0) {#1};
+        }
+    },
+pics/gene/.style args={#1, #2}{
+        code = {
+        \node[black, circle, draw = black, fill = #2, minimum size = 10mm] at (0.0, 0.0) {#1};
+        }
+    },
+pics/ir/.style args={#1, #2}{
+        code = {
+        \node[rectangle, draw = black, fill = #2, minimum size = 10mm, rounded corners = 5pt] at (0.0, 0.0) {#1};
+        }
+    },
+pics/flex ir/.style args={#1, #2, #3}{
+        code = {
+        \node[rectangle, draw = black, fill = #3, minimum size = 10mm, rounded corners = 5pt] at (0.0, 0.0) {};
+        \node [black] at (0.0, 0.25) {#2};
+        \node [black] at (0.0, -0.25) {#1};
+        }
+    }
+}
+
+
+
+
+\begin{document}
+
+% Escolha entre autor ou autora:
+\autor{Klairton de Lima Brito}
+%\autora{Nome da Autora}
+
+% Sempre deve haver um título em português:
+\titulo{Modelos com Proporção entre Operações e Regiões Intergênicas Rígidas e Flexíveis}
+
+% Se a língua for o inglês ou o espanhol defina:
+\title{Models with a Proportion Ratio between Operations and Rigid and Flexible Intergenic Regions}
+
+% Escolha entre orientador ou orientadora. Inclua os títulos acadêmicos:
+\orientador{Prof. Dr. Zanoni Dias}
+%\orientadora{Profa. Dra. Nome da Orientadora}
+
+% Escolha entre coorientador ou coorientadora, se houver.  Inclua os títulos acadêmicos:
+\coorientador{Prof. Dr. Ulisses Martins Dias}
+%\coorientadora{Profa. Dra. Eng. Lic. Nome da Co-Orientadora}
+
+% Escolha entre mestrado ou doutorado:
+% \mestrado
+\doutorado
+
+% Se houve cotutela, defina:
+%\cotutela{Universidade Nova de Plutão}
+
+\datadadefesa{22}{04}{1500}
+
+% Para a versão final defina:
+%\avaliadorA{Prof. Dr. Primeiro Avaliador}{Instituição do primeiro avaliador}
+%\avaliadorB{Profa. Dra. Segunda Avaliadora}{Instituição da segunda avaliadora}
+%\avaliadorC{Dr. Terceiro Avaliador}{Instituição do terceiro avaliador}
+%\avaliadorD{Prof. Dr. Quarto Avaliador}{Instituição do quarto avaliador}
+%\avaliadorE{Prof. Dr. Quinto Avaliador}{Instituição do quinto avaliador}
+%\avaliadorF{Prof. Dr. Sexto Avaliador}{Instituição do sexto avaliador}
+%\avaliadorG{Prof. Dr. Sétimo Avaliador}{Instituição do sétimo avaliador}
+%\avaliadorH{Prof. Dr. Oitavo Avaliador}{Instituição do oitavo avaliador}
+
+
+% Para incluir a ficha catalográfica em PDF na versão final, descomente e ajuste:
+%\fichacatalografica{arquivo.pdf}
+
+
+% Este comando deve ficar aqui:
+\paginasiniciais
+
+
+% Se houver dedicatória, descomente:
+%\prefacesection{Dedicatória}
+%A dedicatória deve ocupar uma única página.
+
+
+% Se houver epígrafe, descomente e edite:
+% \begin{epigrafe}
+% {\it
+% Vita brevis,\\
+% ars longa,\\
+% occasio praeceps,\\
+% experimentum periculosum,\\
+% iudicium difficile.}
+%
+% \hfill (Hippocrates)
+% \end{epigrafe}
+
+
+% Agradecimentos ou Acknowledgements ou Agradecimientos
+\prefacesection{Agradecimentos}
+Os agradecimentos devem ocupar uma única página.
+
+
+% Sempre deve haver um resumo em português:
+\begin{resumo}
+O resumo deve ter no máximo 500 palavras e deve ocupar uma única página.
+\end{resumo}
+
+
+% Sempre deve haver um abstract:
+\begin{abstract}
+The abstract must have at most 500 words and must fit in a single page.
+\end{abstract}
+
+
+% Se houver um resumo em espanhol, descomente:
+%\begin{resumen}
+% A mesma regra aplica-se.
+%\end{resumen}
+
+
+% A lista de figuras é opcional:
+\listoffigures
+
+% A lista de tabelas é opcional:
+\listoftables
+
+% A lista de abreviações e siglas é opcional:
+% \prefacesection{Lista de Abreviações e Siglas}
+
+% A lista de símbolos é opcional:
+% \prefacesection{Lista de Símbolos}
+
+% Quem usa o pacote nomencl pode incluir:
+%\renewcommand{\nomname}{Lista de Abreviações e Siglas}
+%\printnomenclature[3cm]
+
+
+% O sumário vem aqui:
+\tableofcontents
+
+
+% E esta linha deve ficar bem aqui:
+\fimdaspaginasiniciais
+
+
+% O corpo da dissertação ou tese começa aqui:
+\input{chapter-1}
+\input{chapter-2}
+\input{chapter-3}
+\input{chapter-4}
+\input{chapter-5}
+\input{chapter-6}
+\input{chapter-7}
+
+
+
+% As referências:
+\bibliographystyle{plain}
+\bibliography{bibfile}
+
+
+% Os anexos, se houver, vêm depois das referências:
+% \appendix
+% \chapter{Anexo 1}
+% \chapter{Anexo 2}
+
+\end{document}

@@ -8,8 +8,8 @@
 
 % Para acrescentar comentários ao PDF descomente:
 \usepackage
-%  [pdfauthor={nome do autor},
-%   pdftitle={titulo},
+ % [pdfauthor={nome do autor},
+  % pdftitle={titulo},
 %   pdfkeywords={palavra-chave, palavra-chave},
 %   pdfproducer={Latex with hyperref},
 %   pdfcreator={pdflatex}]
@@ -39,13 +39,72 @@
 \theoremstyle{example}
 \newtheorem{example}{Exemplo}[section]
 
+% Classic
+\newcommand{\SbT}{\textbf{SbT}}
+\newcommand{\SbR}{\textbf{SbR}}
+\newcommand{\SbRT}{\textbf{SbRT}}
+% Weighted
+\newcommand{\SbWRT}{\textbf{Sb\textsubscript{W}RT}}
+\newcommand{\SbWRTIT}{\textbf{Sb\textsubscript{W}RTIT}}
+% Proportion
+\newcommand{\SbPRT}{\textbf{Sb\textsubscript{P}RT}}
+% Intergenic
+\newcommand{\SbIT}{\textbf{Sb\textsubscript{I}T}}
+\newcommand{\SbIR}{\textbf{Sb\textsubscript{I}R}}
+\newcommand{\SbIRM}{\textbf{Sb\textsubscript{I}RM}}
+\newcommand{\SbIRT}{\textbf{Sb\textsubscript{I}RT}}
+\newcommand{\SbIRTM}{\textbf{Sb\textsubscript{I}RTM}}
+% Flexible
+\newcommand{\SbFR}{\textbf{Sb\textsubscript{F}R}}
+\newcommand{\SbFT}{\textbf{Sb\textsubscript{F}T}}
+\newcommand{\SbFRT}{\textbf{Sb\textsubscript{F}RT}}
+
+\usepackage{environ}
+
+\makeatletter
+\newcommand{\problemtitle}[1]{\gdef\@problemtitle{#1}}% Store problem title
+\newcommand{\probleminput}[1]{\gdef\@probleminput{#1}}% Store problem input
+\newcommand{\problemtask}[1]{\gdef\@problemtask{#1}}% Store problem task
+\newcommand{\problemquestion}[1]{\gdef\@problemquestion{#1}}% Store problem question
+
+% Problem task enviroment
+\NewEnviron{task}{
+  \problemtitle{}\probleminput{}\problemtask{}% Default input is empty
+  \BODY
+  \begin{center}
+  \fbox{
+    \begin{minipage}{0.9\linewidth}
+      \raggedright
+      \parskip=1ex
+      \textbf{\@problemtitle}          \\% Title
+      \textbf{Entrada:} \@probleminput \\% Input
+      \textbf{Objetivo:} \@problemtask \\% Goal
+    \end{minipage}
+  } 
+  \end{center}
+}
+\NewEnviron{decision}{
+  \problemtitle{}\probleminput{}\problemquestion{}% Default input is empty
+  \BODY
+  \begin{center}
+  \fbox{
+    \begin{minipage}{0.9\linewidth}
+      \raggedright
+      \parskip=1ex
+      \@problemtitle                   \\% Title
+      \textbf{Entrada:} \@probleminput \\% Input
+      \textbf{Pergunta:} \@problemquestion \\% Goal
+    \end{minipage}
+  } 
+  \end{center}
+}
+\makeatother
+
 \usepackage{tikz}
 \usetikzlibrary{arrows}
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{positioning, shapes.arrows, shapes.geometric, shapes.misc, backgrounds}
 \usetikzlibrary{fit}
-
-
 
 \tikzset{ 
 signed gene/.style = { single arrow, draw = black, fill = white, minimum size = 10mm, single arrow head extend = 1mm },

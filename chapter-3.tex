@@ -20,13 +20,15 @@ O Exemplo~\ref{example:MODRXOJQ} mostra uma solução ótima $S'$ para a mesma i
 
 \input{examples/MODRXOJQ}
 
-Dada uma sequência de eventos de rearranjo $S$, denotamos por $|S|$ o tamanho da sequência $S$, ou seja, a quantidade de eventos em $S$. Além disso, denotamos por $|S_{\rho}|$ pela quantidade de eventos de reversão em $S$. A seguir, descrevemos formalmente o problema de Ordenção de Permutações por Reversões e Transposições com Restrição de Proporção.
+Dada uma sequência de eventos de rearranjo $S$, denotamos por $|S|$ o tamanho da sequência $S$, ou seja, a quantidade de eventos em $S$. Além disso, denotamos por $|S_{\rho}|$ a quantidade de eventos de reversão em $S$. A seguir, descrevemos formalmente o problema de Ordenção de Permutações por Reversões e Transposições com Restrição de Proporção.
 
 \begin{task}
   \problemtitle{Ordenção de Permutações por Reversões e Transposições com Restrição de Proporção (\SbPRT)}
   \probleminput{Uma instância clássica com ou sem sinais $\mathcal{I}=(\pi,\iota)$ e um número racional $k \in [0..1]$.}
-  \problemtask{Com base no modelo de rearranjo $\mathcal{M}=\{\rho,\tau\}$, determinar uma sequência de eventos de rearranjo $S$ de tamanho mínimo capaz de transformar $\pi$ em $\iota$ e $\frac{|S_{\rho}|}{|S|} \ge k$.}
+  \problemtask{Com base no modelo de rearranjo $\mathcal{M}=\{\rho,\tau\}$, determinar uma sequência de eventos de rearranjo $S$ de tamanho mínimo capaz de transformar $\pi$ em $\iota$, tal que $\frac{|S_{\rho}|}{|S|} \ge k$.}
 \end{task}
+
+Dada uma instância clássica com ou sem sinais $\mathcal{I}=(\pi,\iota)$ e um número racional $k \in [0..1]$, a \emph{distância de propoção} entre $\pi$ e $\iota$, denotada por $dp_{k}(\mathcal{I})$, é o tamanho da menor sequências de eventos de rearranjo $S$, tal que todo evento de $S$ pertence ao modelo $\mathcal{M}=\{\rho,\tau\}$, $\pi \cdot S = \iota$ e $\frac{|S_{\rho}|}{|S|} \ge k$.
 
 Nesse capítulo, provamos que o problema \SbPRT{} pertence à classe NP-difícil em instâncias clássicas sem sinais para qualquer valor de $k$. Em instâncias clássicas com sinais mostramos que existe um algoritmo exato polinomial para o problema quando $k=1$ e provamos que o problema pertence à classe NP-difícil quando $k < 1$. Para as variações com e sem sinais do problema \SbPRT{} apresentamos algoritmos de aproximação com fatores $3 - \frac{3k}{2}$ e $3-k$, respectivamente. Além disso, apresentamos um algoritmo de aproximação assintótico com um fator teórico melhor para instâncias clássicas com sinais. Por fim, realizamos experimentos comparando o desempenho práticos dos algoritmo propostos.  
 
@@ -34,10 +36,103 @@ Nesse capítulo, provamos que o problema \SbPRT{} pertence à classe NP-difícil
 \section{Análise de Complexidade}
 % ------------------------------------------------------------------ %
 
-Nessa seção, apresentamos uma análise sobre a complexidade do problema \SbPRT{} em instâncias com e sem sinais para todos os possível valores de $k$.
+Nessa seção, apresentamos uma análise sobre a complexidade do problema \SbPRT{} em instâncias clássicas com e sem sinais para todos os possível valores de $k$. A seguir descrevemos formalmente a versão de decisão do problema \SbPRT{}.
 
 \begin{decision}
   \problemtitle{\SbPRT (Versão de Decisão)}
   \probleminput{Uma instância clássica com ou sem sinais $\mathcal{I}=(\pi,\iota)$, um número racional $k \in [0..1]$ e um número natural $t$.}
-  \problemquestion{Existe uma sequência de eventos de rearranjo $S$, com base no modelo de rearranjo $\mathcal{M}=\{\rho,\tau\}$, capaz de transformar $\pi$ em $\iota$, com $\frac{|S_{\rho}|}{|S|} \ge k$ e $|S| \le t$.}
+  \problemquestion{Existe uma sequência de eventos de rearranjo $S$, com base no modelo de rearranjo $\mathcal{M}=\{\rho,\tau\}$, capaz de transformar $\pi$ em $\iota$, tal que $\frac{|S_{\rho}|}{|S|} \ge k$ e $|S| = t$?}
 \end{decision}
+
+Note que para o problema \SbPRT{} é possível fornecer como entrada diferentes valores para $k$. Entretanto, quando utilizamos o valor de $k=0$ obtemos o problema \SbRT{}, uma vez que estipulamos que em uma solução não é necessário obter uma porcentagem mínima de eventos de reversão em comparação ao tamanho da sequência de eventos de rearranjo. Por outro lado, quando adotamos o valor de $k=1$, obtemos o problema \SbR{}. Note que nesse caso toda solução pra o problema deve ser composta exclusivamente por eventos de reversão. Com base nessa característica do problema obtemos os seguintes lemmas.
+
+\begin{lemma}
+O problema \SbPRT{} em instâncias clássicas com sinais pertence à classe NP-difícil quando $k=1$ e existe um algoritmo exato polinomial quando $k=0$.
+\end{lemma}
+\begin{proof}
+Quando $k=0$ o problema \SbPRT{} em instâncias clássicas com sinais torna-se a variação com sinais do problema \SbRT{}, que é NP-difícil~\cite{2019b-oliveira-etal}. Por outro lado, quando $k=1$ o problema \SbPRT{} em instâncias clássicas com sinais torna-se a variação com sinais do problema \SbR{}, que possui um algoritmo exato polinomial~\cite{1999-hannenhalli-pevzner}.
+\end{proof}
+
+\begin{lemma}
+O problema \SbPRT{} em instâncias clássicas sem sinais pertence à classe NP-difícil quando $k \in \{0,1\}$.
+\end{lemma}
+\begin{proof}
+Quando $k=0$ e $k=1$ o problema \SbPRT{} em instâncias clássicas sem sinais torna-se a variação sem sinais dos problemas \SbRT{} e \SbR{}, respectivamente. Ambos os problemas pertencem à classe NP-difícil~\cite{2019b-oliveira-etal,1999-caprara}.
+\end{proof}
+
+A seguir investigamos a complexidade do problema \SbPRT{} quando $k$ pertence ao intervalo $(0..1)$. Para isso, apresentamos definições que serão utilizadas para provar a complexidade do problema para esse intervalo de valores de $k$. As transformações de \emph{duplicação}, \emph{orientação}, \emph{extensão bridge} e \emph{extensão gadget} descritas a seguir utilizam uma representação clássica de um genoma na sua forma não estendida. Caso a representação esteja na forma estendida, os elementos $\pi_0$ e $\pi_{n+1}$ são ignorados, a transformação é aplicada e a nova representação clássica resultante é então estendida.
+
+\begin{definition}
+Dada uma representação clássica sem sinais $\pi$ de tamanho $n$, a \emph{duplicação} cria uma representação clássica sem sinais $\pi'$ de tamanho $2n$ de forma que cada elemento $\pi_i \in \pi$ é mapeado em dois novos valores, com $\pi'_{2i-1} = 2\pi_i-1$ e $\pi'_{2i} = 2\pi_i$, para $i \in [1..n]$.
+\end{definition}
+
+O Exemplo~\ref{example:QJCKPQSS} mostra o transformação de duplicação sendo aplicado na representação clássica sem sinais $\pi=(4~1~5~3~2)$.
+
+\input{examples/QJCKPQSS}
+
+\begin{definition}
+Dada uma representação clássica sem sinais $\pi$ de tamanho $n$, a \emph{orientação} cria uma representação clássica com sinais $\pi'$ também de tamanho $n$ de forma que $\pi'_{i} = +\pi_i$, para $i \in [1..n]$.
+\end{definition}
+
+O Exemplo~\ref{example:GUELXUJE} mostra a transformação de orientação sendo aplicado na representação clássica sem sinais $\pi=(4~1~5~3~2)$.
+
+\input{examples/GUELXUJE}
+
+\begin{definition}
+Dada uma representação clássica com ou sem sinais $\pi$ de tamanho $n$, a \emph{extensão bridge} cria uma representação clássica $\pi'$ de tamanho $n + 3$. Caso $\pi$ seja uma representação com sinais, $\pi'$ é gerado da seguinte forma: (i) $\pi'_{i} = \pi_i$ e (ii) $\pi'_{n+j} = +(n{+j})$, para $i \in [1..n]$ e $j \in [1..3]$. Caso contrário, $\pi'$ é gerado da seguinte forma: (i) $\pi'_{i} = \pi_i$ e (ii) $\pi'_{n+j} = n{+j}$, para $i \in [1..n]$ e $j \in [1..3]$.
+\end{definition}
+
+O Exemplo~\ref{example:AWNIOTEZ} mostra a transformação de extensão bridge sendo aplicada na representação clássica com sinais $\pi=({+4}~{+1}~{+5}~{-3}~{-2})$.
+
+\input{examples/AWNIOTEZ}
+
+O Exemplo~\ref{example:BYQQHUAS} mostra a transformação de extensão bridge sendo aplicada na representação clássica sem sinais $\pi=(4~1~5~3~2)$.
+
+\input{examples/BYQQHUAS}
+
+\begin{definition}
+Dada uma representação clássica com ou sem sinais $\pi$ de tamanho $n$, a \emph{extensão gadget} cria uma representação clássica $\pi'$ de tamanho $n + 6$. Caso $\pi$ seja uma representação com sinais, $\pi'$ é gerado da seguinte forma: (i) $\pi'_{i} = \pi_i$; (ii) $\pi'_j = -(n+4-j)$; (iii) $\pi'_{n+k} = +(n{+k})$, para $i \in [1..n]$, $j \in [1..3]$ e $k \in [4..6]$. Caso contrário, $\pi'$ é gerado da seguinte forma: (i) $\pi'_{i} = \pi_i$; (ii) $\pi'_j = n+4-j$; (iii) $\pi'_{n+k} = n{+k}$, para $i \in [1..n]$, $j \in [1..3]$ e $k \in [4..6]$.
+\end{definition}
+
+O Exemplo~\ref{example:TCTQPMWV} mostra a transformação de extensão gadget sendo aplicada na representação clássica com sinais $\pi=({+4}~{+1}~{+5}~{-3}~{-2})$.
+
+\input{examples/TCTQPMWV}
+
+O Exemplo~\ref{example:ZMGTJRFE} mostra a transformação de extensão gadget sendo aplicada na representação clássica sem sinais $\pi=(4~1~5~3~2)$.
+
+\input{examples/ZMGTJRFE}
+
+A seguir descrevemos formalmente a versão de decisão do problema de Ordenação de Permutações por 3-Transposições (\textbf{B3T}).
+
+\begin{decision}
+  \problemtitle{\textbf{B3T} (Versão de Decisão)}
+  \probleminput{Uma instância clássica sem sinais $\mathcal{I}=(\pi,\iota)$, tal que $b_2(\mathcal{I}) = 3s$ e $s$ é um número natural não nulo.}
+  \problemquestion{Existe uma sequência de eventos de rearranjo $S$, com base no modelo de rearranjo $\mathcal{M}=\{\tau\}$, capaz de transformar $\pi$ em $\iota$, tal que $|S| = \frac{b_2(\mathcal{I})}{3}$?}
+\end{decision}
+
+Bulteau e coautores~\cite{2012-bulteau-etal} provaram que o problem \textbf{B3T} pertence à classe NP-difícil. Utilizaremos uma redução do problema \textbf{B3T} para provar que o problema \SbPRT{} é NP-difícil quando $k$ pertence ao intervalo $(0..1)$.
+
+\begin{theorem}
+O problema \SbPRT{} em instâncias clássicas com sinais pertence à classe NP-difícil quando $k \in (0..1)$.
+\end{theorem}
+\begin{proof}
+Dada uma instância clássica sem sinais $\mathcal{I}=(\pi,\iota)$ para o problema \textbf{B3T}, definimos $\ell = \frac{b_2(\mathcal{I})}{3} \ge 1$. Criamos uma instância clássica com sinais $\mathcal{I'}=(\pi',\iota')$ para o problema \SbPRT{} da seguinte maneira:
+
+\begin{enumerate}
+  \item Seja $\sigma$ uma representação clássica com sinais de tamanho $n+3$ obtida através do processo de orientação aplicado em $\pi$ e seguido da extenção bridge.
+  \item Seja $k$ um número racional no intervalo $(0..1)$, definimos $p = \lceil\frac{\ell k}{1-k}\rceil \ge 1$, ou seja, $p$ é o menor número inteiro tal que $\frac{p}{p+\ell} \ge k$.
+  \item Seja $\pi'$ uma representação clássica com sinais de tamanho $n+3+6p$ obtida através da aplicação consecutiva de $p$ extenções gadget em $\sigma$.
+  \item Seja $\iota'$ uma representação clássica com sinais de tamanho $n+3+6p$. Caso $\pi$ esteja na sua forma estendida, $\iota'_i = +i$ para $i \in [1..(n+3+6p)]$. Caso contrário,  $\iota'_i = +i$ para $i \in [0..(n+3+6p-1)]$.
+\end{enumerate}
+
+O Exemplo~\ref{example:NDFPEMFC} mostra o processo de criação de uma instância clássica com sinais $\mathcal{I'}=(\pi',\iota')$ para o problema \SbPRT{} a partir de uma instância clássica sem sinais $\mathcal{I}=(\pi,\iota)$ para o problema \textbf{B3T}. Note que em ambas as instâncias os genomas de origem e alvo são representados na forma estendida. Além disso, é importante lembrar que o problema \textbf{B3T} e a variação com sinais do problema \SbPRT{} utilizam breakpoints tipo dois. Note que a transformação de orientação preserva o número de breakpoints tipo dois, já que adicionamos apenas um sinal positivo aos elementos da permutação. A extensão bridge também preserva o número breakpoints tipo dois, já que adiciona apenas três elementos consecutivos ao final da permutação. Por outro lado, cada extensão gadget adiciona dois novos breakpoints tipo dois (ou seja, as extremidades de cada strip negativa), então $b_2(\mathcal{I'}) = b_2(\mathcal{I}) +2p$.
+
+\input{examples/NDFPEMFC}
+
+Agora mostramos que a instância $\mathcal{I}$ do problema \textbf{B3T} é satisfeita se e somente se $dp_k(\mathcal{I'}) \le \ell+p$.
+
+($\Rightarrow$)
+
+($\Leftarrow$)
+
+\end{proof}

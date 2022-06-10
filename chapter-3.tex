@@ -32,11 +32,89 @@ Dada uma instância clássica com ou sem sinais $\mathcal{I}=(\pi,\iota)$ e um n
 
 Nesse capítulo, provamos que o problema \SbPRT{} pertence à classe NP-difícil em instâncias clássicas sem sinais para qualquer valor de $k$. Em instâncias clássicas com sinais mostramos que existe um algoritmo exato polinomial para o problema quando $k=1$ e provamos que o problema pertence à classe NP-difícil quando $k < 1$. Para as variações com e sem sinais do problema \SbPRT{} apresentamos algoritmos de aproximação com fatores $3 - \frac{3k}{2}$ e $3-k$, respectivamente. Além disso, apresentamos um algoritmo de aproximação assintótico com um fator teórico melhor para instâncias clássicas com sinais. Por fim, realizamos experimentos comparando o desempenho práticos dos algoritmo propostos.  
 
+
+% ------------------------------------------------------------------ %
+\section{Limitantes Inferiores}
+% ------------------------------------------------------------------ %
+
+Nessa seção, apresentamos limitantes inferiores para as variações com e sem sinais do problema \SbPRT{}.
+
+\begin{lemma}[Kececioglu e Sankoff~\cite{1995-kececioglu-sankoff}]\label{lemma:QIRAVPQT}
+Dada uma instância clássica sem sinais $\mathcal{I} = (\pi,\iota)$, para qualquer reversão $\rho$ temos que $\Delta b_1(\mathcal{I}, S = (\rho)) \ge -2$.
+\end{lemma}
+
+\begin{lemma}[Walter \textit{et al.}~\cite{1998-walter-etal}]\label{lemma:NJATEDCC}
+Dada uma instância clássica sem sinais $\mathcal{I} = (\pi,\iota)$, para qualquer transposição $\tau$ temos que $\Delta b_1(\mathcal{I}, S = (\tau)) \ge -3$.
+\end{lemma}
+
+\begin{lemma}\label{lemma:JYYZBREC}
+Dada uma instância clássica sem sinais $\mathcal{I} = (\pi,\iota)$ para o problema $\SbPRT{}$ considerando a proporção $k \in [0..1]$ e seja $S$ uma sequência ótima de eventos de rearranjo para o problema. O número de breakpoints tipo um removidos por cada evento de $S$, em média, é menor ou igual a $3-k$.
+\end{lemma}
+\begin{proof}
+Como $S$ é uma sequência ótima para a instância $\mathcal{I}$ com base na proporção $k$, temos que pelo menos $|S|k$ eventos presentes em $S$ são reversões. Pelos lemas~\ref{lemma:QIRAVPQT} e \ref{lemma:NJATEDCC}, temos que uma reversão pode remover até dois breakpoints tipo um enquanto uma transposição pode remover até três. Seja $\phi b(S)$ o número médio de breakpoints tipo um removidos por um evento de $S$, temos que:
+$$\phi b(S) \le \frac{(2 |S| k) + (3 |S| (1 - k))}{|S|} = 2k + 3(1 - k) = 3 - k.$$ 
+\end{proof}
+
+\begin{lemma}[Hannenhalli e Pevzner~\cite{1999-hannenhalli-pevzner}]\label{lemma:MYFTFTWE}
+Dada uma instância clássica com sinais $\mathcal{I} = (\pi,\iota)$, para qualquer reversão $\rho$ temos que $\Delta b_2(\mathcal{I}, S = (\rho)) \ge -2$.
+\end{lemma}
+
+\begin{lemma}\label{lemma:AKEQRMOY}
+Dada uma instância clássica com sinais $\mathcal{I} = (\pi,\iota)$, para qualquer transposição $\tau$ temos que $\Delta b_2(\mathcal{I}, S = (\tau)) \ge -3$.
+\end{lemma}
+\begin{proof}
+Note que uma transposição pode afetar no máximo três breakpoints tipo dois de $\mathcal{I}$. Logo, no melhor cenário, os três breakpoints são removidos e o lema segue.
+\end{proof}
+
+\begin{lemma}\label{lemma:ZZLNPRWJ}
+Dada uma instância clássica com sinais $\mathcal{I} = (\pi,\iota)$ para o problema $\SbPRT{}$ considerando a proporção $k \in [0..1]$ e seja $S$ uma sequência ótima de eventos de rearranjo para o problema. O número de breakpoints tipo dois removidos por cada evento de $S$, em média, é menor ou igual a $3-k$.
+\end{lemma}
+\begin{proof}
+A prova é similar a descrita no Lema~\ref{lemma:JYYZBREC}, mas considerando os lemas~\ref{lemma:MYFTFTWE} e \ref{lemma:AKEQRMOY}.
+\end{proof}
+
+\begin{lemma}[Hannenhalli e Pevzner~\cite{1999-hannenhalli-pevzner}]\label{lemma:WMUBEYJS}
+Dada uma instância clássica com sinais $\mathcal{I} = (\pi,\iota)$, para qualquer reversão $\rho$ temos que $\Delta c(G(\mathcal{I}), S = (\rho)) \le 1$.
+\end{lemma}
+
+\begin{lemma}[Bafna e Pevzner~\cite{1995b-bafna-pevzner}; Walter \textit{et al.}~\cite{1998-walter-etal}]\label{lemma:WITSEXYZ}
+Dada uma instância clássica com ou sem sinais $\mathcal{I} = (\pi,\iota)$, para qualquer transposição $\tau$ temos que $\Delta c(G(\mathcal{I}), S = (\tau)) \le 2$.
+\end{lemma}
+
+\begin{lemma}\label{lemma:IMSCPWKN}
+Dada uma instância clássica com sinais $\mathcal{I} = (\pi,\iota)$ para o problema $\SbPRT{}$ considerando a proporção $k \in [0..1]$ e seja $S$ uma sequência ótima de eventos de rearranjo para o problema. A variação no número de ciclos para cada evento de $S$, em média, é menor ou igual a $2-k$.
+\end{lemma}
+\begin{proof}
+Como $S$ é uma sequência ótima para a instância $\mathcal{I}$ com base na proporção $k$, temos que pelo menos $|S|k$ eventos presentes em $S$ são reversões. Pelos lemas~\ref{lemma:WMUBEYJS} e \ref{lemma:WITSEXYZ}, temos que uma reversão pode criar até um novo ciclo enquanto uma transposição pode criar até dois. Seja $\phi c(S)$ o número médio de ciclos criados por um evento de $S$, temos que:
+$$\phi c(S) \leq \frac{(1 |S| k) + (2 |S| (1 - k))}{|S|} = 1k + 2(1 - k) = 2 - k.$$
+\end{proof}
+
+\begin{theorem}\label{theorem:KJXGKJIP}
+Dada uma instância clássica sem sinais $\mathcal{I} = (\pi,\iota)$ para o problema $\SbPRT{}$ e uma proporção $k \in [0..1]$, temos que $dp_{k}(\mathcal{I}) \ge \frac{b_1(\mathcal{I})}{3-k}$.
+\end{theorem}
+\begin{proof}
+Como $b_1(\mathcal{I})$ breakpoints tipo um devem ser removidos para transformar $\pi$ em $\iota$ e, pelo Lema~\ref{lemma:JYYZBREC}, até $3-k$ breakpoints tipo um são removidos, em média, por cada operação de uma sequência ótima para o problema. Logo, o teorema segue.
+\end{proof}
+
+\begin{theorem}\label{theorem:ABGZQHIL}
+Dada uma instância clássica com sinais $\mathcal{I} = (\pi,\iota)$ para o problema $\SbPRT{}$ e uma proporção $k \in [0..1]$, temos que $dp_{k}(\mathcal{I}) \ge \frac{b_2(\mathcal{I})}{3-k}$.
+\end{theorem}
+\begin{proof}
+A prova é similar a descrita no Teorema~\ref{theorem:KJXGKJIP}, mas considerando o número de breakpoints tipo dois em $\mathcal{I}$ e o Lema~\ref{lemma:ZZLNPRWJ}.
+\end{proof}
+
+\begin{theorem}\label{theorem:ABGZQHIL}
+Dada uma instância clássica com sinais $\mathcal{I} = (\pi,\iota)$ para o problema $\SbPRT{}$ e uma proporção $k \in [0..1]$, temos que $dp_{k}(\mathcal{I}) \ge \frac{n + 1 - c(G(\mathcal{I}))}{2-k}$.
+\end{theorem}
+\begin{proof}
+Note que, pela Obervação~\ref{remark:OYRVGHTB}, $n+1 - c(G(\mathcal{I}))$ novos ciclos precisam ser criados para transformar $\pi$ em $\iota$. Pelo Lema~\ref{lemma:IMSCPWKN}, até $2-k$ novos ciclos são criados, em média, por cada operação de uma sequência ótima para o problema. Logo, o teorema segue.
+\end{proof}
+
 % ------------------------------------------------------------------ %
 \section{Análise de Complexidade}
 % ------------------------------------------------------------------ %
 
-Nessa seção, apresentamos uma análise sobre a complexidade do problema \SbPRT{} em instâncias clássicas com e sem sinais para todos os possível valores de $k$. A seguir descrevemos formalmente a versão de decisão do problema \SbPRT{}.
+Nessa seção, apresentamos uma análise de complexidade do problema \SbPRT{} em instâncias clássicas com e sem sinais para todos os possível valores de $k$. A seguir descrevemos formalmente a versão de decisão do problema \SbPRT{}.
 
 \begin{decision}
   \problemtitle{\SbPRT (Versão de Decisão)}
@@ -112,6 +190,10 @@ A seguir descrevemos formalmente a versão de decisão do problema de Ordenaçã
 
 Bulteau e coautores~\cite{2012-bulteau-etal} provaram que o problem \textbf{B3T} pertence à classe NP-difícil. Utilizaremos uma redução do problema \textbf{B3T} para provar que o problema \SbPRT{} é NP-difícil quando $k$ pertence ao intervalo $(0..1)$.
 
+\begin{lemma}[Oliveira~\textit{et al.}~\cite{2019b-oliveira-etal}]\label{lemma:CWNRJAPM}
+Se uma instância clássica com sinais $\mathcal{I}=(\pi,\iota)$ possui apenas strips positivas, para qualquer reversão $\rho$ temos que $\Delta b_2(\mathcal{I}, S=(\rho)) \ge 0$.
+\end{lemma}
+
 \begin{theorem}
 O problema \SbPRT{} em instâncias clássicas com sinais pertence à classe NP-difícil quando $k \in (0..1)$.
 \end{theorem}
@@ -121,7 +203,7 @@ Dada uma instância clássica sem sinais $\mathcal{I}=(\pi,\iota)$ para o proble
 \begin{enumerate}
   \item Seja $\sigma$ uma representação clássica com sinais de tamanho $n+3$ obtida através do processo de orientação aplicado em $\pi$ e seguido da extenção bridge.
   \item Seja $k$ um número racional no intervalo $(0..1)$, definimos $p = \lceil\frac{\ell k}{1-k}\rceil \ge 1$, ou seja, $p$ é o menor número inteiro tal que $\frac{p}{p+\ell} \ge k$.
-  \item Seja $\pi'$ uma representação clássica com sinais de tamanho $n+3+6p$ obtida através da aplicação consecutiva de $p$ extenções gadget em $\sigma$.
+  \item Seja $\pi'$ uma representação clássica com sinais de tamanho $n+3+6p$ obtida através da aplicação consecutiva de $p$ extensões gadget em $\sigma$.
   \item Seja $\iota'$ uma representação clássica com sinais de tamanho $n+3+6p$. Caso $\pi$ esteja na sua forma estendida, $\iota'_i = +i$ para $i \in [1..(n+3+6p)]$. Caso contrário,  $\iota'_i = +i$ para $i \in [0..(n+3+6p-1)]$.
 \end{enumerate}
 
@@ -131,8 +213,21 @@ O Exemplo~\ref{example:NDFPEMFC} mostra o processo de criação de uma instânci
 
 Agora mostramos que a instância $\mathcal{I}$ do problema \textbf{B3T} é satisfeita se e somente se $dp_k(\mathcal{I'}) \le \ell+p$.
 
-($\Rightarrow$)
+($\Rightarrow$) Suponha que existe uma sequência $S$ com $\ell$ transposições, tal que $\pi \cdot S = \iota$. Isso significa que cada transposição de $S$ remove exatamente três breakpoints tipo dois de $\mathcal{I}$. Considere a sequência $S'$ como sendo uma cópia de $S$ e incluindo $p$ reversões, de forma que cada reversão é aplicada sobre uma strip negativa de $\mathcal{I'}$. Como $\pi'_i = +\pi_i$ para $i \in [1..n]$, cada transposição de $S'$ também remove exatamente três breakpoints tipo dois, restando apenas $2p$ breakpoints tipo dois para serem removidos. Contúdo, cada reversão $\rho \in S'$ remove dois breakpoints tipo dois (criados pela extensão gadget). Logo, $|S'| = \ell+p$, $\pi' \cdot S' = \iota'$ e $\frac{|S_{\rho}'|}{|S'|}$.
 
-($\Leftarrow$)
+($\Leftarrow$) Pelo Teorema~\ref{theorem:ABGZQHIL}, temos que $dp_k(\mathcal{I'}) \ge \frac{b_2(\mathcal{I'})}{3-k} = \frac{b_2(\mathcal{I})+2p}{3-k}$. Como temos por construção que $b_2(\mathcal{I}) = 3\ell$ e $\frac{p-1}{\ell+(p-1)} < k \leq \frac{p}{\ell+p}$, segue que $dp_k(\mathcal{I'}) > \frac{(\ell+p-1)(3\ell+2p)}{3\ell+2p-2}$. Além disso, $\ell \geq 1$ e $p \geq 1$, então $\frac{3\ell+2p}{3\ell+2p-2} > 1$ e $dp_k(\mathcal{I'}) > \ell+p-1$, o que resulta em $d_k(\mathcal{I'}) \ge \ell + p$. Suponha que existe uma sequência de eventos de rearranjo $S'$ de tamanho $\ell + p$, tal que $\pi' \cdot S' = \iota'$ e $\frac{|S_{\rho}'|}{|S'|} \ge k$.
 
+Como $b_2(\mathcal{I'}) = 3\ell+2p$, então deve existir pelo menos $\ell$ transposições em $S'$ com cada uma removendo três breakpoints tipo dois. Caso contrário, $S'$ não seria capaz de transformar $\pi'$ em $\iota'$. Além disso, deve exitir no máximo $\ell$ transpositions in $S'$. Caso contrário, a proporção $\frac{|S_{\rho}'|}{|S'|}$ não seria satisfeita. Dessa forma, temos que existe $\ell$ transposições em $S'$ com cada uma removendo três breakpoints tipo dois. Logo, restam $|S'| - \ell = \ell+p - \ell = p$ reversões em $S'$, e cada reversão deve remover dois breakpoints tipo dois. Caso contrário, $S'$ não seria capaz de transformar $\pi'$ em $\iota'$.
+
+Vamos definir três tipos de elementos em $\pi'$. Dizemos que um dado elemento $\pi'_i$ é (i) original se $i \in [1..n]$; (ii) transitório se $i \in [n{+1}..n{+3}]$; e (iii) estendido se $i > n{+3}$. Como os elementos originais e transitórios são todos positivos, as strips nas primeiras $n+3$ posições são todas positivas. Pelo Lemma~\ref{lemma:CWNRJAPM}, nenhuma reversão $\rho$ aplicada nesses elementos remove breakpoints tipo dois, e isto permanece verdadeiro enquanto as transposições afetam apenas os elementos originais.
+
+Como não é aplicada nenhuma reversão aos elementos originais, os $3\ell$ breakpoints tipo dois $(\pi'_i,\pi'_{i+1})$, tal que pelo menos $\pi'_i$ é um elemento original, devem ser removidos por transposições. Dessa forma, $S'$ possui $\ell$ transposições $\tau^{(i,j,k)}$ de tal maneira que $1 \le i < j < k \le n+1$ (ou seja, as transposições afetam apenas os elementos originais). 
+
+Os restantes eventos de rearranjo de $S'$, ou seja, as $p$ reversões, devem remover $2p$ breakpoints tipo dois $(\pi'_i,\pi'_{i+1})$, de tal forma que pelo menos $\pi'_{i+1}$ seja um elemento estendido (ou seja, $i \ge n+3$). A cada iteração, as únicas reversões que removem dois breakpoints tipo dois são aquelas aplicadas nas duas extremidades de uma strip negativa, implicando que cada reversão de $S'$ é aplicada em uma das $p$ strips negativas adicionadas pelas extensões gadget.
+
+Perceba que $S'$ possui $\ell$ transposições que removem $3\ell$ breakpoints tipo dois $(\pi'_i,\pi'_{i+1})$, tal que $i \le n$. Seja $S$ uma sequência de transposições criada a partir das transposições de $S'$ mantendo a mesma ordem relativa. Como $\pi'_i = +\pi_i$ para $i \in [1..n]$, $\pi \cdot S = \iota$, e o teorema segue.
 \end{proof}
+
+\begin{lemma}[Oliveira~\textit{et al.}~\cite{2019b-oliveira-etal}]\label{lemma:PXXMRMWO}
+Se uma instância clássica sem sinais $\mathcal{I}=(\pi,\iota)$ possui apenas strips crescentes, para qualquer reversão $\rho$ temos que $\Delta b_1(\mathcal{I}, S=(\rho)) \ge 0$.
+\end{lemma}

@@ -359,7 +359,7 @@ Um ciclo convergente $C = (c_1,c_2,\dots,c_k) \in G(\mathcal{I})$ é classificad
 
 Dois ciclos $C = (c_1, c_2, \ldots, c_k)$ e $D = (d_1, d_2, \ldots, d_k)$, ambos pertencentes ao grafo $G(\mathcal{I})$, são entrelaçados se $|c_1| > |d_1| > |c_2|  > |d_2| > \ldots > |c_k| > |d_k|$ ou $|d_1| > |c_1| > |d_2|  > |c_2| > \ldots > |d_k| > |c_k|$. Seja $g_1$ uma aresta cinza adjacente às arestas pretas com rótulos $x_1$ e $y_1$, tal que $|x_1| < |y_1|$ e que $g_2$ seja uma aresta cinza adjacente às arestas pretas com rótulos $x_2$ e $y_2$, tal que $|x_2| < |y_2|$. Dizemos que duas arestas cinzas $g_1$ e $g_2$ cruzam-se caso $|x_1| < |x_2| \le |y_1| < |y_2|$. Dois ciclos $C$ e $D$ cruzam-se caso uma aresta cinza de $C$ cruza-se com uma aresta cinza de $D$. Um \emph{open gate} é uma aresta cinza de um ciclo não trivial $C \in G(\mathcal{I})$ que não se cruza com nenhuma outra aresta cinza de $C$. Um open gate $g_1$ de $C$ é fechado se outra aresta cinza (que não seja de $C$) cruza com $g_1$.
 
-\begin{remark}
+\begin{remark}\label{remark:JBJWNCKF}
 Todos os open gates de ciclos não tiviais em $G(\mathcal{I})$ são fechados~\cite{2019a-oliveira-etal}.
 \end{remark}
 
@@ -367,7 +367,7 @@ No Exemplo~\ref{example:UKGIKUAH}, os ciclos $C_1=(4,-1,-3)$, $C_2 = (5,2)$ e $C
 
 Dada uma instância clássica $\mathcal{I} = (\pi,\iota)$, denotamos por $c(G(\mathcal{I}))$ o número de ciclos em $G(\mathcal{I})$. Dada uma sequência de eventos de rearranjo $S$, denotamos por $\Delta c(G(\mathcal{I}), S) = c(G(\mathcal{I^{\prime}})) - c(G(\mathcal{I}))$, tal que $\mathcal{I^{\prime}} = (\pi \cdot S,\iota)$, a variação no número de ciclos após aplicar a sequência $S$ no genoma de origem $\pi$ de $\mathcal{I}$.
 
-\begin{remark}
+\begin{remark}\label{remark:OYRVGHTB}
   A única instância clássica $\mathcal{I}$ com $c(G(\mathcal{I})) = n + 1$ é $\mathcal{I} = (\iota,\iota)$.
 \end{remark}
 
@@ -399,7 +399,7 @@ O Exemplo~\ref{example:UMWQHOBI} mostra o grafo de ciclos ponderado rígido cons
 
 No Exemplo~\ref{example:UMWQHOBI}, os ciclos $C_1=(4,-1,-3)$, $C_2 = (5,2)$ e $C_3 = (6)$ são, respectivamente, longo positivo, curto balanceado e trivial negativo.
 
-\begin{remark}
+\begin{remark}\label{remark:WVLFPRDL}
   A única instância intergênica rígida $\mathcal{I}$ com $c(G(\mathcal{I})) = n + 1$ e $c_b(G(\mathcal{I})) = n + 1$ é $\mathcal{I} = ((\iota,\breve\iota),(\iota,\breve\iota))$.
 \end{remark}
 
@@ -462,6 +462,6 @@ O Exemplo~\ref{example:XSRSUPBR} mostra o grafo de ciclos ponderado flexível co
 
 No Exemplo~\ref{example:XSRSUPBR}, $G(\mathcal{I})$ possui dois ciclos, sendo eles: $C_1 = (5,3,1)$ e $C_2 = (6,4,2)$. Além disso, temos os conjuntos $\mathcal{F} = \{C_1\}$ e $\mathcal{V} = \{C_2\}$. Observe que a instância intergênica flexível $\mathcal{I}$ do Exemplo~\ref{example:XSRSUPBR} pertence ao caso \texttt{(ii)}: $11 = W_b(C_1) > W^{\max}_g(C_1) = 8$, onde apenas o ciclo falso $C_1$ precisa reduzir o seu peso total para ser transformado em um ciclo verdadeiro. Note que $gap_{\max}(C_2) = 5$. Portanto, temos que $\mathcal{R} = \{C_2\}$ e $\mathcal{B} = \varnothing$.
 
-\begin{remark}
+\begin{remark}\label{remark:HLVDQLCE}
 Uma instância intergênica flexível $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$ tal que $c_v(G(\mathcal{I}) = c_b(G(\mathcal{I}) = n+1$ implica que $\pi = \iota$ e $\breve\iota^{\min}_i \le \breve\pi_i \le \breve\iota^{\max}_i$ para todo $\breve\pi_i \in \breve\pi$.
 \end{remark}

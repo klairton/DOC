@@ -194,7 +194,7 @@ Bulteau e coautores~\cite{2012-bulteau-etal} provaram que o problem \textbf{B3T}
 Se uma instância clássica com sinais $\mathcal{I}=(\pi,\iota)$ possui apenas strips positivas, para qualquer reversão $\rho$ temos que $\Delta b_2(\mathcal{I}, S=(\rho)) \ge 0$.
 \end{lemma}
 
-\begin{theorem}
+\begin{theorem}\label{theorem:NSWQYFLG}
 O problema \SbPRT{} em instâncias clássicas com sinais pertence à classe NP-difícil quando $k \in (0..1)$.
 \end{theorem}
 \begin{proof}
@@ -208,8 +208,6 @@ Dada uma instância clássica sem sinais $\mathcal{I}=(\pi,\iota)$ para o proble
 \end{enumerate}
 
 O Exemplo~\ref{example:NDFPEMFC} mostra o processo de criação de uma instância clássica com sinais $\mathcal{I'}=(\pi',\iota')$ para o problema \SbPRT{} a partir de uma instância clássica sem sinais $\mathcal{I}=(\pi,\iota)$ para o problema \textbf{B3T}. Note que em ambas as instâncias os genomas de origem e alvo são representados na forma estendida. Além disso, é importante lembrar que o problema \textbf{B3T} e a variação com sinais do problema \SbPRT{} utilizam breakpoints tipo dois. Note que a transformação de orientação preserva o número de breakpoints tipo dois, já que adicionamos apenas um sinal positivo aos elementos da permutação. A extensão bridge também preserva o número breakpoints tipo dois, já que adiciona apenas três elementos consecutivos ao final da permutação. Por outro lado, cada extensão gadget adiciona dois novos breakpoints tipo dois (ou seja, as extremidades de cada strip negativa), então $b_2(\mathcal{I'}) = b_2(\mathcal{I}) +2p$.
-
-\input{examples/NDFPEMFC}
 
 Agora mostramos que a instância $\mathcal{I}$ do problema \textbf{B3T} é satisfeita se e somente se $dp_k(\mathcal{I'}) \le \ell+p$.
 
@@ -228,6 +226,70 @@ Os restantes eventos de rearranjo de $S'$, ou seja, as $p$ reversões, devem rem
 Perceba que $S'$ possui $\ell$ transposições que removem $3\ell$ breakpoints tipo dois $(\pi'_i,\pi'_{i+1})$, tal que $i \le n$. Seja $S$ uma sequência de transposições criada a partir das transposições de $S'$ mantendo a mesma ordem relativa. Como $\pi'_i = +\pi_i$ para $i \in [1..n]$, $\pi \cdot S = \iota$, e o teorema segue.
 \end{proof}
 
+\input{examples/NDFPEMFC}
+
 \begin{lemma}[Oliveira~\textit{et al.}~\cite{2019b-oliveira-etal}]\label{lemma:PXXMRMWO}
 Se uma instância clássica sem sinais $\mathcal{I}=(\pi,\iota)$ possui apenas strips crescentes, para qualquer reversão $\rho$ temos que $\Delta b_1(\mathcal{I}, S=(\rho)) \ge 0$.
 \end{lemma}
+
+\begin{theorem}\label{theorem:QMHEKDLW}
+O problema \SbPRT{} em instâncias clássicas sem sinais pertence à classe NP-difícil quando $k \in (0..1)$.
+\end{theorem}
+\begin{proof}
+Dada uma instância clássica sem sinais $\mathcal{I}=(\pi,\iota)$ para o problema \textbf{B3T}, definimos $\ell = \frac{b_2(\mathcal{I})}{3} \ge 1$. Criamos uma instância clássica com sinais $\mathcal{I'}=(\pi',\iota')$ para o problema \SbPRT{} da seguinte maneira:
+
+\begin{enumerate}
+  \item Seja $\sigma$ uma representação clássica sem sinais de tamanho $2n+3$ obtida através do processo de duplicação aplicado em $\pi$ e seguido da extenção bridge.
+  \item Seja $k$ um número racional no intervalo $(0..1)$, definimos $p = \lceil\frac{\ell k}{1-k}\rceil \ge 1$, ou seja, $p$ é o menor número inteiro tal que $\frac{p}{p+\ell} \ge k$.
+  \item Seja $\pi'$ uma representação clássica sem sinais de tamanho $2n+3+6p$ obtida através da aplicação consecutiva de $p$ extensões gadget em $\sigma$.
+  \item Seja $\iota'$ uma representação clássica com sinais de tamanho $2n+3+6p$. Caso $\pi$ esteja na sua forma estendida, $\iota'_i = i$ para $i \in [1..(n+3+6p)]$. Caso contrário,  $\iota'_i = i$ para $i \in [0..(n+3+6p-1)]$.
+\end{enumerate}
+
+O Exemplo~\ref{example:QBULCCOI} mostra o processo de criação de uma instância clássica sem sinais $\mathcal{I'}=(\pi',\iota')$ para o problema \SbPRT{} a partir de uma instância clássica sem sinais $\mathcal{I}=(\pi,\iota)$ para o problema \textbf{B3T}. Note que em ambas as instâncias os genomas de origem e alvo são representados na forma estendida. Note que, exceto por $\sigma_0$, cada elemento em posições pares de $\sigma$ é igual ao elemento à sua esquerda mais um. Isto significa que (i) exceto para a primeira e última strip, qualquer outra strip em $\sigma$ deve ter pelo menos dois elementos, ou seja, não existem singletons, e (ii) cada strip de $\sigma$ é crescente. Estas observações também são válidas para as primeiras $2n+3$ posições de $\pi'$. Além disso, é importante lembrar que o problema \textbf{B3T} utiliza breakpoints tipo dois enquanto a variação sem sinais do problema \SbPRT{} utiliza breakpoints tipo um. Note que (i) para cada breakpoint tipo dois $(\pi_i,\pi_{i+1})$ de $\mathcal{I}$ existe um breakpoint tipo um $(\pi'_{2i},\pi'_{2i+1})$ em $\mathcal{I'}$ (criado durante a transformação de duplicação), (ii) os pares $(\pi'_{2i-1},\pi'_{2i})$ não são breakpoints tipo um, para $i \in [1..n]$ e (iii) os pares $(\pi'_{2n+j},\pi'_{2n+j+1})$ não são breakpoints tipo um, para $j \in [1..3]$. Por outro lado, cada extensão gadget adiciona dois novos breakpoints tipo um (ou seja, as extremidades de cada strip decrescente), então $b_2(\mathcal{I'}) = b_1(\mathcal{I}) +2p$.
+
+Agora mostramos que a instância $\mathcal{I}$ do problema \textbf{B3T} é satisfeita se e somente se $dp_k(\mathcal{I'}) \le \ell+p$.
+
+($\Rightarrow$) Suponha que existe uma sequência $S$ com $\ell$ transposições, tal que $\pi \cdot S = \iota$. Isso significa que cada transposição de $S$ remove exatamente três breakpoints tipo dois de $\mathcal{I}$. Considere a sequência $S'$ criada da seguinte forma: (i) para cada transposição $\tau^{(i,j,k)}$ de $S$, seguindo a ordem relativa, adicione em $S'$ a transposição $\tau^{(2i-1,2j-1,2k-1)}$; (ii) Em seguida, adicione $p$ reversões em $S'$, de forma que cada reversão é aplicada sobre uma strip decrescente de $\mathcal{I'}$. Note que cada transposição de $S$ remove três breakpoints tipo dois de $\mathcal{I}$. Como temos que para cada breakpoint tipo dois $(\pi_i,\pi_{i+1})$ em $\mathcal{I}$ temos um breakpoint tipo um $(\pi'_{2i},\pi'_{2i+1})$ em $\mathcal{I'}$, isso significa que cada transposição de $S'$ remove três breakpoints tipo um de $\mathcal{I'}$. Com isso, restam apenas $2p$ breakpoints tipo um para serem removidos em $\mathcal{I'}$. Contúdo, cada reversão $\rho \in S'$ remove dois breakpoints tipo dois (criados pela extensão gadget). Logo, $|S'| = \ell+p$, $\pi' \cdot S' = \iota'$ e $\frac{|S_{\rho}'|}{|S'|}$.
+
+($\Leftarrow$) Pelo Teorema~\ref{theorem:KJXGKJIP}, temos que $dp_k(\mathcal{I'}) \ge \frac{b_1(\mathcal{I'})}{3-k} = \frac{b_2(\mathcal{I})+2p}{3-k}$. Como temos por construção que $b_2(\mathcal{I}) = 3\ell$ e $\frac{p-1}{\ell+(p-1)} < k \leq \frac{p}{\ell+p}$, segue que $dp_k(\mathcal{I'}) > \frac{(\ell+p-1)(3\ell+2p)}{3\ell+2p-2}$. Além disso, $\ell \geq 1$ e $p \geq 1$, então $\frac{3\ell+2p}{3\ell+2p-2} > 1$ e $dp_k(\mathcal{I'}) > \ell+p-1$, o que resulta em $d_k(\mathcal{I'}) \ge \ell + p$. Suponha que existe uma sequência de eventos de rearranjo $S'$ de tamanho $\ell + p$, tal que $\pi' \cdot S' = \iota'$ e $\frac{|S_{\rho}'|}{|S'|} \ge k$.
+
+Como $b_1(\mathcal{I'}) = 3\ell+2p$, então deve existir pelo menos $\ell$ transposições em $S'$ com cada uma removendo três breakpoints tipo um. Caso contrário, $S'$ não seria capaz de transformar $\pi'$ em $\iota'$. Além disso, deve exitir no máximo $\ell$ transpositions in $S'$. Caso contrário, a proporção $\frac{|S_{\rho}'|}{|S'|}$ não seria satisfeita. Dessa forma, temos que existe $\ell$ transposições em $S'$ com cada uma removendo três breakpoints tipo um. Logo, restam $|S'| - \ell = \ell+p - \ell = p$ reversões em $S'$, e cada reversão deve remover dois breakpoints tipo um. Caso contrário, $S'$ não seria capaz de transformar $\pi'$ em $\iota'$.
+
+Vamos definir três tipos de elementos em $\pi'$. Dizemos que um dado elemento $\pi'_i$ é (i) original se $i \in [1..2n]$; (ii) transitório se $i \in [2n{+1}..2n{+3}]$; e (iii) estendido se $i > 2n{+3}$. Como todos elementos originais e transitórios fazem parte de uma strip crescente, pelo Lemma~\ref{lemma:PXXMRMWO}, nenhuma reversão $\rho$ aplicada nesses elementos remove breakpoints tipo um, e isto permanece verdadeiro enquanto as transposições afetam breakpoints tipo um entre os elementos originais.
+
+Como não é aplicada nenhuma reversão aos elementos originais, os $3\ell$ breakpoints tipo um $(\pi'_i,\pi'_{i+1})$, tal que pelo menos $\pi'_i$ é um elemento original, devem ser removidos por transposições. Dessa forma, $S'$ possui $\ell$ transposições $\tau^{(i,j,k)}$ de tal maneira que $1 \le i < j < k \le 2n+1$ (ou seja, as transposições afetam apenas os elementos originais). 
+
+Os restantes eventos de rearranjo de $S'$, ou seja, as $p$ reversões, devem remover $2p$ breakpoints tipo um $(\pi'_i,\pi'_{i+1})$, de tal forma que pelo menos $\pi'_{i+1}$ seja um elemento estendido (ou seja, $i \ge 2n+3$). A cada iteração, as únicas reversões que removem dois breakpoints tipo um são aquelas aplicadas nas duas extremidades de uma strip decrescente, implicando que cada reversão de $S'$ é aplicada em uma das $p$ strips decrescentes adicionadas pelas extensões gadget.
+
+Perceba que $S'$ possui $\ell$ transposições que removem $3\ell$ breakpoints tipo um $(\pi'_i,\pi'_{i+1})$, tal que $i \le 2n$. Seja $S$ uma sequência de transposições criada a partir das transposições de $S'$ da seguinte forma: (i) mantendo a mesma ordem relativa, para cada transposição $\tau^{(i,j,k)}$ de $S'$ adicione em $S$ a transposição $\tau^{(\frac{i+1}{2},\frac{j+1}{2},\frac{k+1}{2})}$. Como mapeamento feito reflete que cada transposição em $S$ remove três breakpoints tipo dois de $\mathcal{I}$, temos que $\pi \cdot S = \iota$, e o teorema segue.
+\end{proof}
+
+\input{examples/QBULCCOI}
+
+% ------------------------------------------------------------------ %
+\section{Algoritmos de Aproximação}
+% ------------------------------------------------------------------ %
+
+% ------------------------------------------------------------------ %
+\subsection{Instâncias sem Sinais}
+% ------------------------------------------------------------------ %
+
+% ------------------------------------------------------------------ %
+\subsection{Instâncias com Sinais}
+% ------------------------------------------------------------------ %
+
+% ------------------------------------------------------------------ %
+\section{Resultados Práticos}
+% ------------------------------------------------------------------ %
+
+% ------------------------------------------------------------------ %
+\subsection{Algoritmos Comparados}
+% ------------------------------------------------------------------ %
+
+% ------------------------------------------------------------------ %
+\subsection{Base de Dados}
+% ------------------------------------------------------------------ %
+
+% ------------------------------------------------------------------ %
+\subsection{Resultados}
+% ------------------------------------------------------------------ %

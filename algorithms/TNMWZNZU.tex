@@ -1,0 +1,17 @@
+\begin{algorithm}[!tbh]
+  \caption{Um algoritmo de aproximação para problema \SbPRT{} em instâncias clássicas com sinais e $k \in [0..1]$.\label{algorithm:TNMWZNZU}}
+  \Entrada{Uma instância clássica com sinais $\mathcal{I} = (\pi,\iota)$ e um valor de $k \in [0..1]$}
+  \Saida{Uma sequência de reversões e transposições $S$, tal que $\pi \cdot S = \iota$ e $\frac{|S_{\rho}|}{|S|} \ge k$}
+    Seja $S \gets ()$ \\
+    \Enqto{$\pi \ne \iota$}{
+      \Se {$\frac{|S_{\rho}|}{|S| + 1} \ge k$ e existe uma transposição $\tau$ que $\Delta c(G(\mathcal{I}), (\tau)) \ge 1$}{
+        $\pi \gets \pi \cdot \tau$ \\
+        $S \gets S + (\tau)$ \\
+      }\Senao{
+        Seja $S'$ uma sequência de reversões (de tamanho no máximo três), onde cada operação aumenta, em média, o número de ciclos em pelo menos $2/3$ unidades (Lema~\ref{lemma:ZUHMXSRH}) \\
+        $\pi \gets \pi \cdot S'$ \\
+        $S \gets S + S'$ \\
+      }
+    }
+  \Retorna{S}
+\end{algorithm}

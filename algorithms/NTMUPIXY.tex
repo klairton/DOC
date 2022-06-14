@@ -1,0 +1,22 @@
+\begin{algorithm}[!tbh]
+  \caption{Um algoritmo de aproximação assintótica para problema \SbPRT{} em instâncias clássicas com sinais e $k \in [0..1]$.\label{algorithm:NTMUPIXY}}
+  \Entrada{Uma instância clássica com sinais $\mathcal{I} = (\pi,\iota)$ e um valor de $k \in [0..1]$}
+  \Saida{Uma sequência de reversões e transposições $S$, tal que $\pi \cdot S = \iota$ e $\frac{|S_{\rho}|}{|S|} \ge k$}
+    Seja $S \gets ()$ \\
+    \Enqto{$|\mathcal{A}_\rho(\mathcal{I})| > k(|S| + |\mathcal{A}_\rho(\mathcal{I})|)$}{
+      \Se {em $G(\mathcal{I})$ existe um ciclo divergente}{
+        Seja $\rho$ uma reversão que aumenta o número de ciclos em uma unidade (Teorema 5 de~\cite{1998-walter-etal}) \\
+        $\mathcal{I} = (\pi \cdot \rho, \iota)$ \\
+        $S \gets S + (\rho)$ \\
+      }\Senao{
+        Seja $S'$ uma sequência de no máximo duas transposições que aumenta o número de ciclos em duas unidade (Teorema 3.4 de~\cite{1998-bafna-pevzner})\\
+        $\mathcal{I} = (\pi \cdot S', \iota)$ \\
+        $S \gets S + S'$ \\
+      }
+    }
+    $S \gets S + \mathcal{A}_\rho(\mathcal{I})$ \\
+    \Se{$|S_\rho| < k|S|$}{
+      Substitua até duas transposições de $S$ por uma sequência equivalente de reversões (Observação~\ref{remark:DNLEDNKT}) \\
+    }
+  \Retorna{S}
+\end{algorithm}

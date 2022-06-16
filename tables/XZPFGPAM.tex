@@ -1,23 +1,24 @@
-\begin{table}[]\label{table:XZPFGPAM}
-\centering
-\begin{tabular}{|p{8cm}|p{3cm}|p{3cm}|}
-\hline
-\multicolumn{3}{|c|}{Representação Clássica sem Sinais}       \\ \hline
-Modelo                  & Complexidade & Aproximação          \\ \hline
-Reversão                &              &                      \\ \hline
-Transposição            &              &                      \\ \hline
-DCJ                     &              &                      \\ \hline
-Reversão e Transposição &              &                      \\ \hline
-\end{tabular}
+\begin{table}[!htb]\label{table:XZPFGPAM}
+  \caption[Sumarização dos resultados conhecidos considerando a representação clássica de um genoma.]{Resultados conhecidos considerando a representação clássica e adotando um modelo de rearranjo composto pela combinação dos eventos de reversão, transposição e DCJ.}
+  \centering
+  \begin{tabular}{|p{8cm}|p{3cm}|p{3cm}|}
+    \hline
+    \multicolumn{3}{|c|}{Representação Clássica com Sinais}                                                                      \\ \hline
+    Modelo                  & Complexidade                                 & Aproximação                                         \\ \hline
+    DCJ                     & P~\cite{2005-yancopoulos-etal}               & Exato~\cite{2005-yancopoulos-etal}                  \\ \hline
+    Reversão                & P~\cite{1999-hannenhalli-pevzner}            & Exato~\cite{1999-hannenhalli-pevzner}               \\ \hline
+    Reversão e Transposição & NP-difícil~\cite{2019b-oliveira-etal}        & $2$~\cite{1998-walter-etal}                         \\ \hline
+  \end{tabular}
 
-\hfill \break
+  \hfill \break
 
-\begin{tabular}{|p{8cm}|p{3cm}|p{3cm}|}
-\hline
-\multicolumn{3}{|c|}{Representação Clássica com Sinais}       \\ \hline
-Modelo                  & Complexidade & Aproximação          \\ \hline
-Reversão                &              &                      \\ \hline
-DCJ                     &              &                      \\ \hline
-Reversão e Transposição &              &                      \\ \hline
-\end{tabular}
+  \begin{tabular}{|p{8cm}|p{3cm}|p{3cm}|}
+    \hline
+    \multicolumn{3}{|c|}{Representação Clássica sem Sinais}                                                                      \\ \hline
+    Modelo                  & Complexidade                                 & Aproximação                                         \\ \hline
+    DCJ                     & NP-difícil~\cite{2013-chen}                  & $\frac{17}{12}+\epsilon$~\cite{2013-chen}           \\ \hline
+    Reversão                & NP-difícil~\cite{1999-caprara}               & $1.375$~\cite{2002-berman-etal}                     \\ \hline
+    Transposição            & NP-difícil~\cite{2012-bulteau-etal}          & $1.375$~\cite{2006-elias-hartman,2022-silva-etal}   \\ \hline
+    Reversão e Transposição & NP-difícil~\cite{2019b-oliveira-etal}        & $2k$~\cite{2008-rahman-etal,2013-chen}              \\ \hline
+  \end{tabular}
 \end{table}

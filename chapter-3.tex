@@ -1,4 +1,4 @@
-\chapter{Modelos com Porporção entre Operações}
+\chapter{Modelos com Porporção entre Operações}\label{chapter:JWIGFELF}
 
 Os problemas de distância entre genomas podem utilizar uma abordagem \emph{não ponderada}, ou seja, cada evento de rearranjo utilizado para transformar o genoma de origem no genoma alvo contribui em uma unidade para a distância. Essa abordagem tem como característica que cada tipo de evento de rearranjo, pertencente ao modelo de rearranjo adotado, possui a mesma probabilidade de ocorrer em um cenário evolutivo. Outra abordagem que surgiu para possibilitar uma contribuição diferente para cada evento de rearranjo é chamada de \emph{ponderada}. Nesse abordagem, cada tipo de evento de rearranjo possui um peso associado que é contabilizado na distância evolutiva entre os genomas. A abordagem ponderada geralmente é utilizada para mapear um cenário em que queremos que determinado eventos de rearrajo tenham uma possibilidade maior de ocorrer do que outros. Para isso, basta atribuir um peso menor nos eventos de rearranjo que esperados que ocorram mais. Esses pesos podem ser atribuídos com base em observações empíricas de determinados organismos ou através de análises realizadas especificamente para esse objetivo~\cite{2008-bader-etal,2001-eriksen}. 
 
@@ -104,7 +104,7 @@ Dada uma instância clássica com sinais $\mathcal{I} = (\pi,\iota)$ para o prob
 A prova é similar a descrita no Teorema~\ref{theorem:KJXGKJIP}, mas considerando o número de breakpoints tipo dois em $\mathcal{I}$ e o Lema~\ref{lemma:ZZLNPRWJ}.
 \end{proof}
 
-\begin{theorem}\label{theorem:ABGZQHIL}
+\begin{theorem}\label{theorem:WSTPPSMD}
 Dada uma instância clássica com sinais $\mathcal{I} = (\pi,\iota)$ para o problema $\SbPRT{}$ e uma proporção $k \in [0..1]$, temos que $dp_{k}(\mathcal{I}) \ge \frac{n + 1 - c(G(\mathcal{I}))}{2-k}$.
 \end{theorem}
 \begin{proof}
@@ -123,7 +123,7 @@ Nessa seção, apresentamos uma análise de complexidade do problema \SbPRT{} em
   \problemquestion{Existe uma sequência de eventos de rearranjo $S$, com base no modelo de rearranjo $\mathcal{M}=\{\rho,\tau\}$, capaz de transformar $\pi$ em $\iota$, tal que $\frac{|S_{\rho}|}{|S|} \ge k$ e $|S| = t$?}
 \end{decision}
 
-Note que para o problema \SbPRT{} é possível fornecer como entrada diferentes valores para $k$. Entretanto, quando utilizamos o valor de $k=0$ obtemos o problema \SbRT{}, uma vez que estipulamos que em uma solução não é necessário obter uma porcentagem mínima de eventos de reversão em comparação ao tamanho da sequência de eventos de rearranjo. Por outro lado, quando adotamos o valor de $k=1$, obtemos o problema \SbR{}. Note que nesse caso toda solução pra o problema deve ser composta exclusivamente por eventos de reversão. Com base nessa característica do problema obtemos os seguintes lemmas.
+Note que para o problema \SbPRT{} é possível fornecer como entrada diferentes valores para $k$. Entretanto, quando utilizamos o valor de $k=0$ obtemos o problema \SbRT{}, uma vez que estipulamos que em uma solução não é necessário obter uma porcentagem mínima de eventos de reversão em comparação ao tamanho da sequência de eventos de rearranjo. Por outro lado, quando adotamos o valor de $k=1$, obtemos o problema de Ordenação de Permutações por Reversões (\SbR{}). Note que, nesse caso, toda solução para o problema deve ser composta exclusivamente por eventos de reversão. Com base nessa característica do problema obtemos os seguintes lemmas.
 
 \begin{lemma}
 O problema \SbPRT{} em instâncias clássicas com sinais pertence à classe NP-difícil quando $k=1$ e existe um algoritmo exato polinomial quando $k=0$.
@@ -274,7 +274,7 @@ Perceba que $S'$ possui $\ell$ transposições que removem $3\ell$ breakpoints t
 Nessa seção, apresentamos algoritmos de aproximação para as variações com e sem sinais do problema \SbPRT{}.
 
 % ------------------------------------------------------------------ %
-\subsection{Instâncias sem Sinais}
+\subsection{Instâncias Clássicas sem Sinais}
 % ------------------------------------------------------------------ %
 
 Com base no conceito de breakpoint, apresentamos algoritmos de aproximação com fatores de $3-k$ para o problema \SbPRT{} em instâncias clássicas sem sinais.
@@ -297,7 +297,7 @@ Note que o algoritmo de aproximação resultante do Teorema~\ref{theorem:FTRSGXO
 Observe que o Algoritmo~\ref{algorithm:INBRWKCH} aplica uma transposição $\tau$ se duas restrições forem satisfeitas: (i) $\frac{|S_{\rho}|}{|S| + 1} \ge k$, que garante que a sequência de eventos de rearranjo $S$ construída pelo algoritmo obedecerá à restrição do problema que $\frac{|S_{\rho}|}{|S|} \ge k$; e (ii) $\Delta b_1(\mathcal{I}, (\tau)) \le -1$, que garante que a sequência de ordenação conterá no máximo $b_1(\mathcal{I})$ operações, pois cada sequência de reversões adicionada da sequência $S$ remove, em média, um ou mais breakpoints tipo um por operação. Como o Algoritmo~\ref{algorithm:INBRWKCH} remove, em média, um ou mais breakpoints tipo um por iteração, ele garante que $\pi$ será transformada em $\iota$. Além disso, não mais do que $b_1(\mathcal{I})$ operações serão usadas para isso, mantendo o fator de aproximação de $3-k$. Como a transposição $\tau$ (linhas 3-5) e a sequência de no máximo duas reversões $S^{\prime}$ (linhas 6-9) podem ser encontradas em tempo linear, o tempo de execução do Algoritmo~\ref{algorithm:INBRWKCH} é $\mathcal{O}(n^2)$, considerando que $|S|~\le~b_1(\pi)~\le~{n + 1}$.
 
 % ------------------------------------------------------------------ %
-\subsection{Instâncias com Sinais}
+\subsection{Instâncias Clássicas com Sinais}
 % ------------------------------------------------------------------ %
 
 Com base na estrutura de grafo de ciclos clássico, apresentamos um algoritmo de aproximação com fator de $3-\frac{3k}{2}$ para o problema \SbPRT{} em instâncias clássicas com sinais.
@@ -333,7 +333,7 @@ O Lema~\ref{lemma:ZUHMXSRH} resulta em uma sequência de reversões que sempre a
 Existe um algoritmo de aproximação com fator $3-\frac{3k}{2}$ para o problema \SbPRT{} em instâncias clássicas com sinais e para uma proporção $k \in [0..1]$.
 \end{theorem}
 \begin{proof}
-Pelo Lema~\ref{lemma:KZHQWACX}, dada uma instância clássica com sinais $\mathcal{I} = (\pi,\iota)$, é possível transformar $\pi$ em $\iota$ utilizando no máximo $\frac{3(n + 1 -c(G(\mathcal{I})))}{2}$ reversões. Como somente reversões são utilizadas na sequência de rearranjo $S$, então a restrição $\frac{|S_{\rho}|}{|S|} \ge k$ nunca é violada. Além disso, pelo Teorema~\ref{theorem:ABGZQHIL}, temos que $dp_{k}(\mathcal{I}) \ge \frac{n + 1 - c(G(\mathcal{I}))}{2-k}$. Logo,
+Pelo Lema~\ref{lemma:KZHQWACX}, dada uma instância clássica com sinais $\mathcal{I} = (\pi,\iota)$, é possível transformar $\pi$ em $\iota$ utilizando no máximo $\frac{3(n + 1 -c(G(\mathcal{I})))}{2}$ reversões. Como somente reversões são utilizadas na sequência de rearranjo $S$, então a restrição $\frac{|S_{\rho}|}{|S|} \ge k$ nunca é violada. Além disso, pelo Teorema~\ref{theorem:WSTPPSMD}, temos que $dp_{k}(\mathcal{I}) \ge \frac{n + 1 - c(G(\mathcal{I}))}{2-k}$. Logo,
 $$\frac{\frac{3(n + 1 - c(G(\mathcal{I})))}{2}}{\frac{n + 1 - c(G(\mathcal{I}))}{2-k}} = 3-\frac{3k}{2}.$$
 \end{proof}
 
@@ -374,7 +374,7 @@ Seja $S$ a sequência de operações gerada pelo Algoritmo~\ref{algorithm:NTMUPI
 O Algoritmo~\ref{algorithm:NTMUPIXY} é uma $\frac{2-k}{1-k/3}$-aproximação assintótica para o problema \SbPRT{} em instâncias clássicas com sinais e para uma proporção $k \in [0..1]$.
 \end{theorem}
 \begin{proof}
-Pelo Lema~\ref{lemma:THMUHLVK} e Teorema~\ref{theorem:ABGZQHIL}, a sequência de operações $S$ obtida através do Algoritmo~\ref{algorithm:NTMUPIXY} satisfaz as seguintes condições: $\pi \cdot S = \iota$, $\frac{|S_{\rho}|}{|S|} \ge k$ e $|S| \le (n+1-c(G(\mathcal{I}))) / (1-k/3) + 4 \le \frac{2-k}{1-k/3} dp_k(\mathcal{I}) + 4$. Logo, o teorema segue.
+Pelo Lema~\ref{lemma:THMUHLVK} e Teorema~\ref{theorem:WSTPPSMD}, a sequência de operações $S$ obtida através do Algoritmo~\ref{algorithm:NTMUPIXY} satisfaz as seguintes condições: $\pi \cdot S = \iota$, $\frac{|S_{\rho}|}{|S|} \ge k$ e $|S| \le (n+1-c(G(\mathcal{I}))) / (1-k/3) + 4 \le \frac{2-k}{1-k/3} dp_k(\mathcal{I}) + 4$. Logo, o teorema segue.
 \end{proof}
 
 % ------------------------------------------------------------------ %
@@ -438,7 +438,7 @@ Considerando os resultados de URT, podemos observar que a razão média de aprox
 
 Observando os resultados do algoritmo UPRT, podemos ver que a razão de aproximação média tende a diminuir à medida que o valor de $k$ aumenta e, em comparação com os demais algoritmos, sofre menor variação. Considerando a maior e a menor taxa de aproximação média entre todos os grupos, temos 1.56 e 1.24, respectivamente. Esta é uma variação de 0.32, o que mostra que o algoritmo é robusto independente da proporção adotada para o cenário. Observe que a variação da aproximação média mostra o quanto o algoritmo oscila de acordo com as diferentes proporções. Deseja-se obter uma variação tão pequena quanto possível. Isso ajuda a obter resultados práticos estáveis, independentemente da proporção desejada. A razão de aproximação média fornecida pelo algoritmo foi melhor que as demais, exceto no grupo onde $k = 0,0$. Isso provavelmente ocorre porque quando $k = 0,0$, uma sequência composta exclusivamente por transposições se enquadra na restrição de proporção. Considerando a razão de aproximação máxima (pior caso prático), podemos observar que em todos os grupos o valor foi menor ou igual a 1.94. Outra característica interessante dos resultados desse algoritmo está relacionada às proporções obtidas nas soluções. A proporção média para todos os grupos é sempre muito próxima do valor mínimo especificado para a instância.
 
-A Tabela~\ref{table:CLTLBDUJ} mostra os resultados dos algoritmos SR, SRT, SWRT e SPRT aplicados em instâncias clássicas com sinais da base de dados DB1. Considerando todas as instâncias da base de dados, um total de 3.65\% e 39.11\% das soluções fornecidas por SRT e SWRT, respectivamente, foram modificadas para se adequarem à proporção mínima entre a quantidade de reversões e tamanho da sequência de rearranjo. A razão de aproximação foi calculada adotando-se o limite inferior apresentado no Teorema~\ref{theorem:ABGZQHIL}.
+A Tabela~\ref{table:CLTLBDUJ} mostra os resultados dos algoritmos SR, SRT, SWRT e SPRT aplicados em instâncias clássicas com sinais da base de dados DB1. Considerando todas as instâncias da base de dados, um total de 3.65\% e 39.11\% das soluções fornecidas por SRT e SWRT, respectivamente, foram modificadas para se adequarem à proporção mínima entre a quantidade de reversões e tamanho da sequência de rearranjo. A razão de aproximação foi calculada adotando-se o limite inferior apresentado no Teorema~\ref{theorem:WSTPPSMD}.
 
 \input{tables/CLTLBDUJ}
 
@@ -450,14 +450,14 @@ O algoritmo SPRT apresentou a aproximação média mais consistente para os dife
 
 As tabelas~\ref{table:GZLFZWZB} e \ref{table:YDCKQRVK} mostram, respectivamente, os resultados dos algoritmos SWRT e SPRT considerando o cenário de proporção específico onde $k=0.6$. Como o algoritmo SWRT adota pesos 2 e 3 para eventos de reversão e transposição, respectivamente, uma forma indireta de fornecer uma comparação justa é usar a proporção $k=0.6$ (o número de reversões em uma solução para o problema \SbPRT{} é pelo menos 50\% maior que o número de transposições).
 
-A Tabela~\ref{table:GZLFZWZB} mostra os resultados do algoritmo SWRT aplicado em instâncias clássicas com sinais da base de dados DB2. A coluna OP mostra o número de operações para criar as instâncias. Considerando os grupos de instâncias de tamanho 100, 200, 300, 400 e 500, um total de 37.00\%, 69.46\%, 79.98\%, 84.81\% e 87.59\% das soluções fornecidas pelo algoritmo SWRT foram modificadas, respectivamente. Considerando todas as instâncias, um total de 71.76\% das soluções fornecidas pelo algoritmo SWRT foram modificadas. A razão de aproximação foi calculada adotando-se o limite inferior apresentado no Teorema~\ref{theorem:ABGZQHIL}.
+A Tabela~\ref{table:GZLFZWZB} mostra os resultados do algoritmo SWRT aplicado em instâncias clássicas com sinais da base de dados DB2. A coluna OP mostra o número de operações para criar as instâncias. Considerando os grupos de instâncias de tamanho 100, 200, 300, 400 e 500, um total de 37.00\%, 69.46\%, 79.98\%, 84.81\% e 87.59\% das soluções fornecidas pelo algoritmo SWRT foram modificadas, respectivamente. Considerando todas as instâncias, um total de 71.76\% das soluções fornecidas pelo algoritmo SWRT foram modificadas. A razão de aproximação foi calculada adotando-se o limite inferior apresentado no Teorema~\ref{theorem:WSTPPSMD}.
 
 \input{tables/GZLFZWZB}
 
 Pela Tabela~\ref{table:GZLFZWZB}, é possível notar que a variação da razão de aproximação média é muito pequena independente do tamanho da permutação ou do número de operações utilizadas para criar a instância. Considerando a maior e a menor razão de aproximação média, temos os valores $1.12$ e $1.03$, respectivamente. Além disso, a razão de aproximação máxima foi de $1.70$, observada no grupo de instâncias com tamanho 100. Note que o algoritmo apresenta bons resultados mesmo com 71.76\% das instâncias sendo modificadas para satisfazer a restrição de proporção mínima. Isso mostra que o processo de modificação pode produzir bons resultados dependendo do algoritmo utilizado.
 
 
-A Tabela~\ref{table:YDCKQRVK} mostra os resultados do algoritmo SPRT aplicado aplicado em instâncias clássicas com sinais da base de dados DB2. A coluna OP mostra o número de operações para criar as instâncias. A razão de aproximação foi calculada adotando-se o limite inferior apresentado no Teorema~\ref{theorem:ABGZQHIL}.
+A Tabela~\ref{table:YDCKQRVK} mostra os resultados do algoritmo SPRT aplicado aplicado em instâncias clássicas com sinais da base de dados DB2. A coluna OP mostra o número de operações para criar as instâncias. A razão de aproximação foi calculada adotando-se o limite inferior apresentado no Teorema~\ref{theorem:WSTPPSMD}.
 
 \input{tables/YDCKQRVK}
 

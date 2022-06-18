@@ -1,1 +1,98 @@
 \chapter{Modelos Intergênicos Rígidos}\label{chapter:DOVAEMLI}
+
+A representação de um genoma por meio de uma sequência de genes é bastante útil e amplamente utilizada em problemas de rearranjo de genomas. Entretanto, informações que não estão presentes ou associadas diretamente aos genes são descartadas, o que implica em uma perda de informação. Em particular, informações referente às regiões intergênicas, que são regiões entre cada par consecutivo de genes e nas extremidades de um genoma linear, acabam não sendo consideradas pelos modelos que adotam uma representação clássica de um genoma. Estudos~\cite{2016a-biller-etal, 2016b-biller-etal} sugerem que incorporar tais estruturas aos modelos pode resultar em resultados mais realistas para a distância evolutiva entre os organismos. Cada região intergênica possui uma quantidade de nucleotídeos, essa quantidade de nucleotídeos é denominada de \emph{tamanho}. Nesse capítulo, investigaremos as variações com e sem sinais dos seguintes problemas que consideram a informação dos genes e do tamanho das regiões intergênicas de um genoma:
+
+\begin{itemize}
+  \item Ordenação de Permutações por Reversões Intergênicas (\SbIR)
+  \item Ordenação de Permutações por Operações Intergênicas de Reversão e Indel (\SbIRI)
+  \item Ordenação de Permutações por Operações Intergênicas de Reversão e Move \break (\SbIRM)
+  \item Ordenação de Permutações por Operações Intergênicas de Reversão, Move e Indel (\SbIRMI)
+  \item Ordenação de Permutações por Operações Intergênicas de Reversão e Transposição (\SbIRT)
+  \item Ordenação de Permutações por Operações Intergênicas de Reversão, Transposição e Indel (\SbIRTI)
+  \item Ordenação de Permutações por Operações Intergênicas de Reversão, Transposição e Move (\SbIRTM)
+  \item Ordenação de Permutações por Operações Intergênicas de Reversão, Transposição, Move e Indel (\SbIRTMI)
+\end{itemize}
+
+Neste capítulo, iremos nos referenciar aos eventos de rearranjo de reversão intergênica, transposição intergênica, move intergênico e indel intergênico simplesmente por reversão, transposição, move e indel, respectivamente. Além disso, iremos nos referir a um breakpoint intergênico simplesmente como um breakpoint.
+
+Dada uma instância intergênica rígida com ou sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, a \emph{distância} entre $(\pi,\breve\pi)$ e $(\iota,\breve\iota)$, denotada por $d_{\mathcal{M}}(\mathcal{I})$, é o tamanho da menor sequências de eventos de rearranjo $S$, tal que todo evento de $S$ pertence ao modelo $\mathcal{M}$ e $(\pi,\breve\pi) \cdot S = (\iota,\breve\iota)$. Os modelos de rearranjo considerados neste capítulo são identificados por siglas apresentadas na Tabela~\ref{table:YQWDTZTK}.
+
+\input{tables/YQWDTZTK} 
+
+Parte dos resultados que serão apresentados neste capítulo foram publicados nas revistas \emph{Journal of Computational Biology}~\cite{2020a-brito-etal} e \emph{Algorithms for Molecular Biology}~\cite{2021b-brito-etal} em 2020 e 2021, respectivamente.
+
+% ------------------------------------------------------------------ %
+\section{Limitantes Inferiores}
+% ------------------------------------------------------------------ %
+
+Nesta seção, apresentaremos limitantes inferiores para as variações com e sem sinais dos problemas investigados neste capítulo.
+
+Em instâncias intergênicas rígidas com e sem sinais utilizaremos o conceito de breakpoint tipo dois e um, respectivamente. Os eventos de rearranjo de reversão, transposição, move e indel afetam, respectivamente, a seguinte quantidade de regiões intergênicas: duas, três, duas e uma. No melhor cenário, cada uma das regiões intergênicas faz parte de um breakpoint que é removido após o evento de rearranjo ser aplicado. Com isso, obtemos os seguintes lemas.
+
+\begin{lemma}\label{lemma:KFFPUBQG}
+Dada uma instância intergênica rígida sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, para qualquer reversão $\rho$ temos que $\Delta ib_1(\mathcal{I}, S = (\rho)) \ge -2$.
+\end{lemma}
+
+\begin{lemma}\label{lemma:IUJZCMMV}
+Dada uma instância intergênica rígida sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, para qualquer transposição $\tau$ temos que $\Delta ib_1(\mathcal{I}, S = (\tau)) \ge -3$.
+\end{lemma}
+
+\begin{lemma}\label{lemma:SYXLGTAP}
+Dada uma instância intergênica rígida sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, para qualquer move $\mu$ temos que $\Delta ib_1(\mathcal{I}, S = (\mu)) \ge -2$.
+\end{lemma}
+
+\begin{lemma}\label{lemma:KWIVENLG}
+Dada uma instância intergênica rígida sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, para qualquer indel $\delta$ temos que $\Delta ib_1(\mathcal{I}, S = (\delta)) \ge -1$.
+\end{lemma}
+
+\begin{lemma}\label{lemma:IKBNJWMY}
+Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, para qualquer reversão $\rho$ temos que $\Delta ib_2(\mathcal{I}, S = (\rho)) \ge -2$.
+\end{lemma}
+
+\begin{lemma}\label{lemma:MYVALTSG}
+Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, para qualquer transposição $\tau$ temos que $\Delta ib_2(\mathcal{I}, S = (\tau)) \ge -3$.
+\end{lemma}
+
+\begin{lemma}\label{lemma:LSPSMYMM}
+Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, para qualquer move $\mu$ temos que $\Delta ib_2(\mathcal{I}, S = (\mu)) \ge -2$.
+\end{lemma}
+
+\begin{lemma}\label{lemma:KXIYYHHL}
+Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, para qualquer indel $\delta$ temos que $\Delta ib_2(\mathcal{I}, S = (\delta)) \ge -1$.
+\end{lemma}
+
+\begin{theorem}\label{theorem:MPFPKHQO}
+Dada uma instância intergênica rígida sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, temos que:
+
+\begin{tabular}{lll}
+$d_{\SbIR}(\mathcal{I})$      & $ \ge $ & $\frac{ib_1(\mathcal{I})}{2}$, \\ 
+$d_{\SbIRI}(\mathcal{I})$     & $ \ge $ & $\frac{ib_1(\mathcal{I})}{2}$, \\
+$d_{\SbIRM}(\mathcal{I})$     & $ \ge $ & $\frac{ib_1(\mathcal{I})}{2}$, \\
+$d_{\SbIRMI}(\mathcal{I})$    & $ \ge $ & $\frac{ib_1(\mathcal{I})}{2}$, \\
+$d_{\SbIRT}(\mathcal{I})$     & $ \ge $ & $\frac{ib_1(\mathcal{I})}{3}$, \\
+$d_{\SbIRTI}(\mathcal{I})$    & $ \ge $ & $\frac{ib_1(\mathcal{I})}{3}$, \\
+$d_{\SbIRTM}(\mathcal{I})$    & $ \ge $ & $\frac{ib_1(\mathcal{I})}{3}$  \\
+e $d_{\SbIRTMI}(\mathcal{I})$ & $ \ge $ & $\frac{ib_1(\mathcal{I})}{3}$. \\
+\end{tabular}
+\end{theorem}
+\begin{proof}
+Pela Obervação~\ref{remark:UDYJTHAH}, para transformar $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ é necessário remover os $ib_1(\mathcal{I})$ breakpoints tipo um de $\mathcal{I}$. Dessa forma, obtemos um limitante inferior para cada um dos modelos através da divisão de $ib_1(\mathcal{I})$ pela maior quantidade de breakpoints tipo um que podem ser removidos por um evento permitido no modelo de rearranjo. Os lemas~\ref{lemma:KFFPUBQG}, \ref{lemma:IUJZCMMV}, \ref{lemma:SYXLGTAP} e \ref{lemma:KWIVENLG} mostram a quantidade máxima de breakpoints tipo um que podem ser removidos de uma instância intergênica rígida sem sinais pelos eventos de reversão, transposição, move e indel, respectivamente. Logo, o teorema segue.
+\end{proof}
+
+\begin{theorem}\label{theorem:NFVKZGKW}
+Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, temos que:
+
+\begin{tabular}{lll}
+$d_{\SbIR}(\mathcal{I})$      & $ \ge $ & $\frac{ib_2(\mathcal{I})}{2}$, \\ 
+$d_{\SbIRI}(\mathcal{I})$     & $ \ge $ & $\frac{ib_2(\mathcal{I})}{2}$, \\
+$d_{\SbIRM}(\mathcal{I})$     & $ \ge $ & $\frac{ib_2(\mathcal{I})}{2}$, \\
+$d_{\SbIRMI}(\mathcal{I})$    & $ \ge $ & $\frac{ib_2(\mathcal{I})}{2}$, \\
+$d_{\SbIRT}(\mathcal{I})$     & $ \ge $ & $\frac{ib_2(\mathcal{I})}{3}$, \\
+$d_{\SbIRTI}(\mathcal{I})$    & $ \ge $ & $\frac{ib_2(\mathcal{I})}{3}$, \\
+$d_{\SbIRTM}(\mathcal{I})$    & $ \ge $ & $\frac{ib_2(\mathcal{I})}{3}$  \\
+e $d_{\SbIRTMI}(\mathcal{I})$ & $ \ge $ & $\frac{ib_2(\mathcal{I})}{3}$. \\
+\end{tabular}
+\end{theorem}
+\begin{proof}
+A prova é similar a descrita no Teorema~\ref{theorem:MPFPKHQO}, mas considerando os lemas~\ref{lemma:IKBNJWMY}, \ref{lemma:MYVALTSG}, \ref{lemma:LSPSMYMM} e \ref{lemma:KXIYYHHL}.
+\end{proof}

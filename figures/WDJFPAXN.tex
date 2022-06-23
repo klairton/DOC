@@ -4,32 +4,7 @@
     \begin{tikzpicture}
       %%%%% a)
 
-      \node[draw=none,fill=none, minimum height=1cm, minimum width=1cm] at (-3.0, 1.0) {a)};
-
-      % intergenic regions
-      \node[rectangle,draw,fill=white!20, minimum height=.7cm, minimum width=3cm, rounded corners=5pt] at (0.0, 0.0) {$\cdots$};
-      \node[rectangle,draw,fill=white!20, minimum height=.7cm, minimum width=1cm, rounded corners=5pt] at (3.0, 0.0) {$\breve\pi_{i+1}$};
-      \node[rectangle,draw,fill=white!20, minimum height=.7cm, minimum width=1cm, rounded corners=5pt] at (5.0, 0.0) {$\cdots$};
-      \node[rectangle,draw,fill=white!20, minimum height=.7cm, minimum width=1cm, rounded corners=5pt] at (7.0, 0.0) {$\breve\pi_{j+1}$};
-      \node[rectangle,draw,fill=white!20, minimum height=.7cm, minimum width=3cm, rounded corners=5pt] at (10.0, 0.0) {$\cdots$};
-
-      % genes
-      \node[draw, circle, minimum height=1.2cm, minimum width=1.2cm, fill=white!20] at ({(2*0 - 2)}, 0.0) {$\pi_{0}$};
-      \node[draw, circle, minimum height=1.2cm, minimum width=1.2cm, fill=black!20] at ({(2*2 - 2)}, 0.0) {$\pi_{i}$};
-      \node[draw, circle, minimum height=1.2cm, minimum width=1.2cm, fill=black!50] at ({(2*3 - 2)}, 0.0) {$\pi_{i+1}$};
-      \node[draw, circle, minimum height=1.2cm, minimum width=1.2cm, fill=black!20] at ({(2*4 - 2)}, 0.0) {$\pi_{j}$};
-      \node[draw, circle, minimum height=1.2cm, minimum width=1.2cm, fill=black!50] at ({(2*5 - 2)}, 0.0) {$\pi_{j+1}$};
-      \node[draw, circle, minimum height=1.2cm, minimum width=1.2cm, fill=white!20] at ({(2*7 - 2)}, 0.0) {$\pi_{n+1}$};
-
-      % indexes
-      \draw (3.0, 0.7) -- (3.0, 1.0);
-      \draw (7.0, 0.7) -- (7.0, 1.0);
-      \draw (3.0, 1.0) -- (7.0, 1.0);
-      \node[draw=none,fill=none] at (2.75, 0.85) {$\rho_1$};
-
-      %%%%% b)
-
-      \node[draw=none,fill=none, minimum height=1cm, minimum width=1cm] at (-3.0, -2.0) {b)};
+      \node[draw=none,fill=none, minimum height=1cm, minimum width=1cm] at (-3.0, -2.0) {a)};
 
       % intergenic regions
       \node[rectangle,draw,fill=white!20, minimum height=.7cm, minimum width=1cm, rounded corners=5pt] at (-1.0, -3.0) {$\cdots$};
@@ -53,17 +28,13 @@
       % indexes
       \draw (1.0, -2.3) -- (1.0, -2.0);
       \draw (5.0, -2.3) -- (5.0, -2.0);
-      \draw (1.0, -2.0) -- (5.0, -2.0);
-      \node[draw=none,fill=none] at (0.75, -2.15) {$\rho_1$};
+      \draw (9.0, -2.3) -- (9.0, -2.0);
+      \draw (1.0, -2.0) -- (9.0, -2.0);
+      \node[draw=none,fill=none] at (0.75, -2.15) {$\tau_1$};
 
-      \draw (9.0, -1.8) -- (9.0, -1.5);
-      \draw (1.0, -1.8) -- (1.0, -1.5);
-      \draw (1.0, -1.5) -- (9.0, -1.5);
-      \node[draw=none,fill=none] at (0.75, -1.65) {$\rho_2$};
+      %%%%% b)
 
-      %%%%% c)
-
-      \node[draw=none,fill=none, minimum height=1cm, minimum width=1cm] at (-3.0, -5.0) {c)};
+      \node[draw=none,fill=none, minimum height=1cm, minimum width=1cm] at (-3.0, -5.0) {b)};
 
       % intergenic regions
       \node[rectangle,draw,fill=white!20, minimum height=.7cm, minimum width=1cm, rounded corners=5pt] at (-1.0, -6.0) {$\cdots$};
@@ -85,19 +56,15 @@
       \node[draw, circle, minimum height=1.2cm, minimum width=1.2cm, fill=white!20] at ({(2*7 - 2)}, -6.0) {$\pi_{n+1}$};
 
       % indexes
+      \draw (1.0, -5.3) -- (1.0, -5.0);
       \draw (5.0, -5.3) -- (5.0, -5.0);
       \draw (9.0, -5.3) -- (9.0, -5.0);
-      \draw (5.0, -5.0) -- (9.0, -5.0);
-      \node[draw=none,fill=none] at (9.35, -5.2) {$\rho_1$};
+      \draw (1.0, -5.0) -- (9.0, -5.0);
+      \node[draw=none,fill=none] at (0.75, -5.15) {$\tau_1$};
 
-      \draw (9.0, -4.8) -- (9.0, -4.5);
-      \draw (1.0, -4.8) -- (1.0, -4.5);
-      \draw (1.0, -4.5) -- (9.0, -4.5);
-      \node[draw=none,fill=none] at (9.35, -4.7) {$\rho_2$};
+      %%%%% c)
 
-      %%%%% d)
-
-      \node[draw=none,fill=none, minimum height=1cm, minimum width=1cm] at (-3.0, -8.0) {d)};
+      \node[draw=none,fill=none, minimum height=1cm, minimum width=1cm] at (-3.0, -8.0) {c)};
 
       % intergenic regions
       \node[rectangle,draw,fill=white!20, minimum height=.7cm, minimum width=1cm, rounded corners=5pt] at (-1.0, -9.0) {$\cdots$};
@@ -120,46 +87,12 @@
 
       % indexes
       \draw (1.0, -8.3) -- (1.0, -8.0);
-      \draw (4.9, -8.3) -- (4.9, -8.0);
-      \draw (1.0, -8.0) -- (4.9, -8.0);
-      \node[draw=none,fill=none] at (0.75, -8.15) {$\rho_1$};
-
-      \draw (5.1, -8.3) -- (5.1, -8.0);
+      \draw (5.0, -8.3) -- (5.0, -8.0);
       \draw (9.0, -8.3) -- (9.0, -8.0);
-      \draw (5.1, -8.0) -- (9.0, -8.0);
-      \node[draw=none,fill=none] at (9.35, -8.15) {$\rho_2$};
-
-      %%%%% e)
-
-      \node[draw=none,fill=none, minimum height=1cm, minimum width=1cm] at (-3.0, -11.0) {e)};
-
-      % intergenic regions
-      \node[rectangle,draw,fill=white!20, minimum height=.7cm, minimum width=3cm, rounded corners=5pt] at (0.0, -12.0) {$\cdots$};
-      \node[rectangle,draw,fill=white!20, minimum height=.7cm, minimum width=1cm, rounded corners=5pt] at (3.0, -12.0) {$\breve\pi_{i+1}$};
-      \node[rectangle,draw,fill=white!20, minimum height=.7cm, minimum width=1cm, rounded corners=5pt] at (5.0, -12.0) {$\cdots$};
-      \node[rectangle,draw,fill=white!20, minimum height=.7cm, minimum width=1cm, rounded corners=5pt] at (7.0, -12.0) {$\breve\pi_{j+1}$};
-      \node[rectangle,draw,fill=white!20, minimum height=.7cm, minimum width=3cm, rounded corners=5pt] at (10.0, -12.0) {$\cdots$};
-
-      % genes
-      \node[draw, circle, minimum height=1.2cm, minimum width=1.2cm, fill=white!20] at ({(2*0 - 2)}, -12.0) {$\pi_{0}$};
-      \node[draw, circle, minimum height=1.2cm, minimum width=1.2cm, fill=black!50] at ({(2*2 - 2)}, -12.0) {$\pi_{i}$};
-      \node[draw, circle, minimum height=1.2cm, minimum width=1.2cm, fill=black!50] at ({(2*3 - 2)}, -12.0) {$\pi_{i+1}$};
-      \node[draw, circle, minimum height=1.2cm, minimum width=1.2cm, fill=black!20] at ({(2*4 - 2)}, -12.0) {$\pi_{j}$};
-      \node[draw, circle, minimum height=1.2cm, minimum width=1.2cm, fill=black!20] at ({(2*5 - 2)}, -12.0) {$\pi_{j+1}$};
-      \node[draw, circle, minimum height=1.2cm, minimum width=1.2cm, fill=white!20] at ({(2*7 - 2)}, -12.0) {$\pi_{n+1}$};
-
-      % indexes
-      \draw (3.0, -11.3) -- (3.0, -11.0);
-      \draw (7.0, -11.3) -- (7.0, -11.0);
-      \draw (3.0, -11.0) -- (7.0, -11.0);
-      \node[draw=none,fill=none] at (2.75, -11.15) {$\rho_1$};
-
-      \draw (3.0, -10.8) -- (3.0, -10.5);
-      \draw (7.0, -10.8) -- (7.0, -10.5);
-      \draw (3.0, -10.5) -- (7.0, -10.5);
-      \node[draw=none,fill=none] at (2.75, -10.65) {$\rho_2$};
+      \draw (1.0, -8.0) -- (9.0, -8.0);
+      \node[draw=none,fill=none] at (0.75, -8.15) {$\tau_1$};
     \end{tikzpicture}
   }
-  \caption[Possibilidades de remoção de pelo menos um breakpoint tipo um a partir de pares de breakpoints conectados.]{As possibilidades que podem surgir quando existe um par de breakpoints conectados e as reversões que podem ser aplicadas para remover pelo menos um breakpoint tipo um. O par de elementos que são consecutivos no genoma alvo é representado com uma cor em tons de cinza.}
-  \label{figure:EMTPDAVS}
+  \caption[Exemplo de remoção de pelo menos um breakpoint tipo um após a aplicação de uma transposição $\tau$.]{Exemplo de remoção de pelo menos um breakpoint tipo um após a aplicação de uma transposição $\tau$.}
+  \label{figure:WDJFPAXN}
 \end{figure}

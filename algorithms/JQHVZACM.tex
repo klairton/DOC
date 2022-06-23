@@ -1,0 +1,35 @@
+\begin{algorithm}[!tbh]
+  \caption{Um algoritmo de aproximação para o problema \SbIRT{}.\label{algorithm:JQHVZACM}}
+  \Entrada{Uma instância intergênica rígida balanceada sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$}
+  \Saida{Uma sequência de reversões e transposições $S$, tal que $(\pi,\breve\pi) \cdot S = (\iota,\breve\iota)$}
+    Seja $S \gets ()$ \\
+    \Enqto{$ib(\mathcal{I}) > 1$}{
+      \Se{existir pelo menos dois breakpoints sobrecarregados em $\mathcal{I}$}{
+        \tcp{Lema~\ref{lemma:FSGHLWJU}}
+        $S' \gets (\tau_1,\tau_2)$ \\
+      }
+      \SenaoSe{existir apenas um breakpoints sobrecarregado $(\pi_i,\pi_{i+1})$ em $\mathcal{I}$}{
+        \Se{existir um breakpoints subcarregado $(\pi_j,\pi_{j+1})$ em $\mathcal{I}$, tal que $\breve\pi_{i+1} + \breve\pi_{j+1} \ge \breve\iota_{\max(\pi_i,\pi_{i+1})} + \breve\iota_{\max(\pi_j,\pi_{j+1})}$}{
+          \tcp{Lema~\ref{lemma:RHTVEKOL}}
+          $S' \gets (\tau_1,\tau_2)$ \\
+        }\Senao{
+          \tcp{Lema~\ref{lemma:ICDGSTEE}}
+          $S' \gets (\rho_1,\rho_2)$ \\
+        }
+      }\Senao{
+        \tcp{Lemas~\ref{lemma:GZNXMCLB} e~\ref{lemma:LRCEAVRZ}}
+        $(\pi_i,\pi_{i+1})$, $(\pi_j,\pi_{j+1}) \gets $ encontre um par suavemente conectado de breakpoints \\
+        \Se{$(\pi_i,\pi_{i+1})$, $(\pi_j,\pi_{j+1})$ pertence ao caso $i$}{
+          $S' \gets (\rho_1)$ \\
+        }\SenaoSe{$(\pi_i,\pi_{i+1})$, $(\pi_j,\pi_{j+1})$ pertence ao caso $ii$}{
+          $S' \gets (\tau_1)$ \\
+        }\SenaoSe{$(\pi_i,\pi_{i+1})$, $(\pi_j,\pi_{j+1})$ pertence ao caso $iii$}{
+          $S' \gets (\tau_1)$ \\
+        }
+      }
+      $S \gets S + S'$ \\
+      $\mathcal{I} \gets ((\pi, \breve\pi) \cdot S',(\iota,\breve\iota))$ \\
+
+    }
+  \Retorna{S}
+\end{algorithm}

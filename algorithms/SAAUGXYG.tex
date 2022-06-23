@@ -1,0 +1,23 @@
+\begin{algorithm}[!tbh]
+  \caption{Um algoritmo de aproximação para o problema \SbIR{}.\label{algorithm:SAAUGXYG}}
+  \Entrada{Uma instância intergênica rígida balanceada sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$}
+  \Saida{Uma sequência de reversões e transposições $S$, tal que $(\pi,\breve\pi) \cdot S = (\iota,\breve\iota)$}
+    Seja $S \gets ()$ \\
+    \Enqto{$ib(\mathcal{I}) > 1$}{
+      \tcp{Lema~\ref{lemma:WYEZMYTM}}
+      $(\pi_i,\pi_{i+1})$, $(\pi_j,\pi_{j+1}) \gets $ encontre um par de breakpoints conectados \\
+      \tcp{Lema~\ref{lemma:SIAFJFDO}}
+      \Se{$(\pi_i,\pi_{i+1})$, $(\pi_j,\pi_{j+1})$ pertence ao caso $i$}{
+        $S' \gets (\rho_1)$ \\
+      }\SenaoSe{$(\pi_i,\pi_{i+1})$, $(\pi_j,\pi_{j+1})$ pertence ao caso $ii$}{
+        $S' \gets (\tau_1)$ \\
+      }\SenaoSe{$(\pi_i,\pi_{i+1})$, $(\pi_j,\pi_{j+1})$ pertence ao caso $iii$}{
+        $S' \gets (\tau_1)$ \\
+      }\SenaoSe{$(\pi_i,\pi_{i+1})$, $(\pi_j,\pi_{j+1})$ pertence ao caso $iv$}{
+        $S' \gets (\rho_1,\rho_2)$ \\
+      }
+      $S \gets S + S'$ \\
+      $\mathcal{I} \gets ((\pi, \breve\pi) \cdot S',(\iota,\breve\iota))$ \\
+    }
+  \Retorna{S}
+\end{algorithm}

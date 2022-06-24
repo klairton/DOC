@@ -1,0 +1,28 @@
+\begin{algorithm}[!tbh]
+  \caption{Um algoritmo de aproximação para o problema \SbIRT{}.\label{algorithm:LCPCUFNZ}}
+  \Entrada{Uma instância intergênica rígida balanceada sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$}
+  \Saida{Uma sequência de reversões e transposições $S$, tal que $(\pi,\breve\pi) \cdot S = (\iota,\breve\iota)$}
+    Seja $S \gets ()$ \\
+    \Enqto{$ib(\mathcal{I}) > 1$}{
+      \Se{existir pelo menos dois breakpoints sobrecarregados em $\mathcal{I}$}{
+        \tcp{Lema~\ref{lemma:FSGHLWJU}}
+        Seja $S'$ uma sequência com duas transposições que remove pelo menos dois dois breakpoints tipo um de $\mathcal{I}$\\
+      }
+      \SenaoSe{existir um par suavemente conectado de breakpoints em $\mathcal{I}$}{
+        \tcp{Lema~\ref{lemma:LRCEAVRZ}}
+        Seja $S'$ uma sequência com uma reversão ou uma transposição que remove pelo menos um breakpoint tipo um de $\mathcal{I}$\\
+      }\Senao{
+        \tcp{Pelo menos um breakpoint sobrecarregado deve existir (Lema~\ref{lemma:XPQZERDR}) }
+        \Se{existir pelo menos um breakpoint subcarregado em $\mathcal{I}$}{
+          \tcp{Lema~\ref{lemma:QSQPQMYH}}
+          Seja $S'$ uma sequência com duas transposições que remove pelo menos dois dois breakpoints tipo um de $\mathcal{I}$\\
+        }\Senao{
+          \tcp{Lema~\ref{lemma:WGHTDURW}}
+          Seja $S'$ uma sequência com no máximo três operações que remove pelo menos dois breakpoints tipo um de $\mathcal{I}$ ou uma sequência com no máximo quatro operações que remove pelo menos três breakpoints tipo um de $\mathcal{I}$\\
+        }
+      }
+      $S \gets S + S'$ \\
+      $\mathcal{I} \gets ((\pi, \breve\pi) \cdot S',(\iota,\breve\iota))$ \\
+    }
+  \Retorna{S}
+\end{algorithm}

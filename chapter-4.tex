@@ -389,7 +389,6 @@ Dada uma instância intergênica rígida sem sinais $\mathcal{I}=((\pi,\breve\pi
 Pelo Lema~\ref{lemma:SINGKSVU}, o Algoritmo~\ref{algorithm:JAJGNYWD} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando no máximo $2ib_1(\mathcal{I})$ eventos de reversão, move e indel. Pelo Teorema~\ref{theorem:MPFPKHQO}, temos o seguinte limitante inferior $d_{\SbIRMI}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{2}$. Logo, o teorema segue. 
 \end{proof}
 
-
 % ------------------------------------------------------------------ %
 \subsection{Reversão e Transposição}
 % ------------------------------------------------------------------ %
@@ -433,7 +432,7 @@ Dada uma instância intergênica rígida balanceada sem sinais $\mathcal{I}=\bre
 Pelo Lema~\ref{lemma:QMLCZMMK}, o Algoritmo~\ref{algorithm:SAAUGXYG} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando no máximo $2ib_1(\mathcal{I})$ eventos de reversão e transposição. Pelo Teorema~\ref{theorem:MPFPKHQO}, temos o seguinte limitante inferior $d_{\SbIRT}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{3}$. Logo, o teorema segue. 
 \end{proof}
 
-A seguir apresentaremos lemas que serão utilizados para obtermos algoritmos com melhores fatores de aproximação.
+A seguir apresentaremos lemas que serão utilizados para obtermos um algoritmo de aproximação com fator $4.5$ para a variação sem sinais do problema \SbIRT{}.
 
 \begin{lemma}\label{lemma:RAJPFOWJ}
 Dada uma representação intergênica rígida $(\pi,\breve\pi)$ e duas transposições consecutivas no formato:
@@ -480,14 +479,14 @@ Agora, observe que deve existir um terceiro breakpoint tipo um $(\pi_k,\pi_{k+1}
 \end{proof}
 
 \begin{lemma}\label{lemma:RHTVEKOL}
-Dada uma instância intergênica rígida balanceada sem sinais $\mathcal{I}=((\pi,\breve\pi),\break(\iota,\breve\iota))$ com pelo menos um breakpoint sobrecarregado $(\pi_i,\pi_{i+1})$ e pelo menos um breakpoint subcarregado $(\pi_j,\pi_{j+1})$, tal que $\breve\pi_{i+1} + \breve\pi_{j+1} \ge \breve\iota_{\max(\pi_i,\pi_{i+1})} + \breve\iota_{\max(\pi_j,\pi_{j+1})}$, então existe uma sequência de duas transposições que remove pelo menos dois breakpoints tipo um de $\mathcal{I}$.
+Dada uma instância intergênica rígida balanceada sem sinais $\mathcal{I}=((\pi,\breve\pi),\break(\iota,\breve\iota))$ com apenas um breakpoint sobrecarregado $(\pi_i,\pi_{i+1})$ e pelo menos um breakpoint subcarregado $(\pi_j,\pi_{j+1})$, tal que $\breve\pi_{i+1} + \breve\pi_{j+1} \ge \breve\iota_{x} + \breve\iota_{y}$, onde $x = \max(\pi_i,\pi_{i+1})$ e $y=\max(\pi_j,\pi_{j+1})$, então existe uma sequência de duas transposições que remove pelo menos dois breakpoints tipo um de $\mathcal{I}$.
 \end{lemma}
 \begin{proof}
-Note que o excesso de nucleotídeos na região intergênica $\breve\pi_{i+1}$ é maior ou igual a quantidade de nucleotídeos que falta na região intergênica $\breve\pi_{j+1}$. Caso exista um terceiro breakpoint tipo um $(\pi_k,\pi_{k+1})$ em $\mathcal{I}$, então aplicamos o mesmo processo descrito no Lema~\ref{lemma:FSGHLWJU}. Caso contrário, selecionamos uma região intergênica $\breve\pi_{k+1}$ de forma que $k+1 \notin \{i+1,j+1\}$ e, pelo Lema~\ref{lemma:RAJPFOWJ}, realizamos a redistribuição do tamanho das regiões intergênicas $\breve\pi_{i+1}$, $\breve\pi_{j+1}$ e $\breve\pi_{k+1}$ para $\breve\iota_{\max(\pi_i,\pi_{i+1})}$, $\breve\iota_{\max(\pi_j,\pi_{j+1})}$ e $\breve\pi_{k+1}$, respectivamente. Note que a região intergênica $\breve\pi_{k+1}$ é utilizada apenas para transferir o excesso de nucleotídeos de $\breve\pi_{i+1}$ para $\breve\pi_{j+1}$, mas após a aplicação das duas transposições consecutivas seu tamanho permanece o mesmo. Como resultado, pelo menos dois breakpoints tipo um são removidos após a aplicação de duas transposições, e o lema segue.
+Note que o excesso de nucleotídeos na região intergênica $\breve\pi_{i+1}$ é maior ou igual a quantidade de nucleotídeos que falta na região intergênica $\breve\pi_{j+1}$. Caso $ib_1(\mathcal{I} \ge 3)$, utilizaremos, para selecionar o terceiro breakpoint tipo um $(\pi_k,\pi_{k+1})$ ($k \notin \{i,j\}$), a seguinte ordem de prioridade: breakpoint suave, breakpoint sobrecarregado e breakpoint subcarregado. Note que o terceiro breakpoint tipo um deve obrigatoriamente ser de um dos tipos da lista de prioridade. Em seguida, aplicamos o mesmo processo descrito no Lema~\ref{lemma:FSGHLWJU}. Caso contrário, selecionamos uma região intergênica $\breve\pi_{k+1}$ de forma que $k+1 \notin \{i+1,j+1\}$ e, pelo Lema~\ref{lemma:RAJPFOWJ}, realizamos a redistribuição do tamanho das regiões intergênicas $\breve\pi_{i+1}$, $\breve\pi_{j+1}$ e $\breve\pi_{k+1}$ para $\breve\iota_{\max(\pi_i,\pi_{i+1})}$, $\breve\iota_{\max(\pi_j,\pi_{j+1})}$ e $\breve\pi_{k+1}$, respectivamente. Note que a região intergênica $\breve\pi_{k+1}$ é utilizada apenas para transferir o excesso de nucleotídeos de $\breve\pi_{i+1}$ para $\breve\pi_{j+1}$, mas após a aplicação das duas transposições consecutivas seu tamanho permanece o mesmo. Como resultado, pelo menos dois breakpoints tipo um são removidos após a aplicação de duas transposições, e o lema segue.
 \end{proof}
 
 \begin{lemma}\label{lemma:ICDGSTEE}
-Dada uma instância intergênica rígida balanceada sem sinais $\mathcal{I}=((\pi,\breve\pi),\break(\iota,\breve\iota))$ com apenas um breakpoint sobrecarregado $(\pi_i,\pi_{i+1})$ e sem breakpoints subcarregados $(\pi_j,\pi_{j+1})$, tal que $\breve\pi_{i+1} + \breve\pi_{j+1} \ge \breve\iota_{\max(\pi_i,\pi_{i+1})} + \breve\iota_{\max(\pi_j,\pi_{j+1})}$, então existe uma sequência de duas reversões que remove o breakpoint sobrecarregado $(\pi_i,\pi_{i+1})$ de $\mathcal{I}$ e não gera nenhum outro.
+Dada uma instância intergênica rígida balanceada sem sinais $\mathcal{I}=((\pi,\breve\pi),\break(\iota,\breve\iota))$ com apenas um breakpoint sobrecarregado $(\pi_i,\pi_{i+1})$ e sem nenhum breakpoint subcarregado $(\pi_j,\pi_{j+1})$, tal que $\breve\pi_{i+1} + \breve\pi_{j+1} \ge \breve\iota_{x} + \breve\iota_{y}$, onde $x = \max(\pi_i,\pi_{i+1})$ e $y=\max(\pi_j,\pi_{j+1})$, então existe uma sequência de duas reversões que remove o breakpoint sobrecarregado $(\pi_i,\pi_{i+1})$ de $\mathcal{I}$ e não gera nenhum outro.
 \end{lemma}
 \begin{proof}
 Note que um breakpoint sobrecarregado sempre vai estar conectado com qualquer outro breakpoint tipo um. Além disso, um segundo breakpoint tipo um $(\pi_k,\pi_{k+1})$ deve existir (subcarregado ou suave). Dessa forma, pelo caso $iv$ do Lema~\ref{lemma:IMYFBWDY}, temos que os breakpoints $(\pi_i,\pi_{i+1})$ e $(\pi_k,\pi_{k+1})$ estão conectados e o breakpoint sobrecarregado $(\pi_i,\pi_{i+1})$ é removido por uma sequência de duas reversões. Como não existe nenhum breakpoint subcarregado $(\pi_j,\pi_{j+1})$ em $\mathcal{I}$, tal que $\breve\pi_{i+1} + \breve\pi_{j+1} \ge \breve\iota_{\max(\pi_i,\pi_{i+1})} + \breve\iota_{\max(\pi_j,\pi_{j+1})}$, isso implica que a aplicação das duas reversões não gera breakpoints sobrecarregados, e o lema segue.
@@ -525,10 +524,102 @@ Note que, a cada iteração do Algoritmo~\ref{algorithm:JQHVZACM}, pelo menos um
 
 Note que as fases de remoção de breakpoints sobrecarregados e suaves podem ser realizadas em tempo linear. Como a quantidade máxima de breakpoints tipo um em uma instância é $n+1$ e algoritmo, a cada iteração, remove pelo menos um breakpoint tipo um, então o tempo de execução do Algoritmo~\ref{algorithm:JQHVZACM} é $\mathcal{O}(n^2)$.
 
-
 \begin{theorem}\label{theorem:QKJNIMOI}
 Dada uma instância intergênica rígida balanceada sem sinais $\mathcal{I}=\break((\pi,\breve\pi),(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:JQHVZACM} é uma $4.5$-aproximação para o problema \SbIRT{}.
 \end{theorem}
 \begin{proof}
 Pelo Lema~\ref{lemma:RNJHXOWZ}, o Algoritmo~\ref{algorithm:JQHVZACM} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando no máximo $\frac{3ib_1(\mathcal{I})}{2}$ eventos de reversão e transposição. Pelo Teorema~\ref{theorem:MPFPKHQO}, temos o seguinte limitante inferior $d_{\SbIRT}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{3}$. Logo, o teorema segue. 
 \end{proof}
+
+A seguir apresentaremos lemas que serão utilizados para obtermos um algoritmo de aproximação com fator $4$ para a variação sem sinais do problema \SbIRT{}.
+
+\begin{lemma}\label{lemma:XPQZERDR}
+Dada uma instância intergênica rígida balanceada sem sinais $\mathcal{I}=((\pi,\breve\pi),\break(\iota,\breve\iota))$, se $ib_1(\mathcal{I}) > 0$ e não existir nenhum par suavemente conectado de breakpoints em $\mathcal{I}$, então deve existir pelo menos um breakpoint sobrecarregado em $\mathcal{I}$.
+\end{lemma}
+\begin{proof}
+Suponha por contradição que não existe um breakpoint sobrecarregado em $\mathcal{I}$. Note que $\mathcal{I}$ não pode ter apenas breakpoints subcarregados, pois isso implica que $\sum_{i=1}^{n+1}\breve\pi_i < \sum_{i=1}^{n+1}\breve\iota_i$, o que contradiz a suposição de que $\mathcal{I}$ é uma instância intergênica rígida balanceada. Neste caso, devem existir pelo menos dois breakpoints suaves. Entretanto, como não existe em  $\mathcal{I}$ um par suavemente conectado de breakpoints, isso significa que os nucleotídeos presentes nas regiões intergênicas dos breakpoints suaves não é suficiente para removê-los sem torná-los em breakpoints subcarregados. Logo, temos que $\sum_{i=1}^{n+1}\breve\pi_i < \sum_{i=1}^{n+1}\breve\iota_i$, o que contradiz a suposição de que $\mathcal{I}$ é uma instância intergênica rígida balanceada.
+\end{proof}
+
+\begin{lemma}\label{lemma:DWXIBBXO}
+Dada uma instância intergênica rígida balanceada sem sinais $\mathcal{I}=((\pi,\breve\pi),\break(\iota,\breve\iota))$, se $\mathcal{I}$ possui apenas um breakpoint sobrecarregado $(\pi_i,\pi_{i+1})$, pelo menos um breakpoint subcarregado $(\pi_j,\pi_{j+1})$ e nenhum par suavemente conectado de breakpoints, então $\breve\pi_{i+1} + \breve\pi_{j+1} \ge \breve\iota_{x} + \breve\iota_{y}$, onde $x = \max(\pi_i,\pi_{i+1})$ e $y=\max(\pi_j,\pi_{j+1})$.
+\end{lemma}
+\begin{proof}
+Suponha por contradição que $\breve\pi_{i+1} + \breve\pi_{j+1} < \breve\iota_{x} + \breve\iota_{y}$. Como não existe nenhum par suavemente conectado de breakpoints em $\mathcal{I}$, temos que $\mathcal{I}$ não possui breakpoints suaves ou a quantidade de nucleotídeos presente em suas regiões intergênicas é insuficiente para removê-los. Em ambos os casos, ao mover o excesso de nucleotídeos da região intergênica $\breve\pi_{i+1}$ do breakpoint sobrecarregado $(\pi_i,\pi_{i+1})$ para a região intergênica $\breve\pi_{j+1}$ do breakpoint subcarregado $(\pi_j,\pi_{j+1})$, temos que $\mathcal{I}$ ainda permanece com pelo menos um breakpoint subcarregado e possivelmente breakpoits suaves que não estão suavemente conectados. Logo, temos que $\sum_{i=1}^{n+1}\breve\pi_i < \sum_{i=1}^{n+1}\breve\iota_i$, o que contradiz a suposição de que $\mathcal{I}$ é uma instância intergênica rígida balanceada.
+\end{proof}
+
+\begin{lemma}\label{lemma:QSQPQMYH}
+Dada uma instância intergênica rígida balanceada sem sinais $\mathcal{I}=((\pi,\breve\pi),\break(\iota,\breve\iota))$, se $\mathcal{I}$ possui apenas um breakpoint sobrecarregado $(\pi_i,\pi_{i+1})$, pelo menos um breakpoint subcarregado $(\pi_j,\pi_{j+1})$ e nenhum par suavemente conectado de breakpoints, então existe uma sequência de duas transposições que remove pelo menos dois breakpoints tipo um de $\mathcal{I}$.
+\end{lemma}
+\begin{proof}
+Pelo Lema~\ref{lemma:DWXIBBXO}, sabemos que $\breve\pi_{i+1} + \breve\pi_{j+1} \ge \breve\iota_{x} + \breve\iota_{y}$. Logo, podemos aplicar o Lema~\ref{lemma:RHTVEKOL}, e o lema segue.
+\end{proof}
+
+Note que a sequência de transposições aplicadas pelo Lema~\ref{lemma:QSQPQMYH}, gera no máximo um breakpoint sobrecarregado. Entretanto, se isso ocorrer implica que a instância $\mathcal{I}$ não possui breakpoints suaves. Este fato é decorrente da lista de prioridade para a seleção do terceito breakpoint no Lema~\ref{lemma:RHTVEKOL}. Uma vez que adicionar ou remover nucleotídeos em uma região intergênica de um breakpoint suave não transforma-o em um breakpoint forte.
+
+\begin{remark}\label{remark:QVNWZDDQ}
+Nenhum breakpoint super forte pode ser removido por uma operação de reversão ou transposição resultante do Lema~\ref{lemma:LRCEAVRZ}.
+\end{remark}
+
+\begin{lemma}\label{lemma:OJTODIFY}
+Dada uma instância intergênica rígida balanceada sem sinais $\mathcal{I}=((\pi,\breve\pi),\break(\iota,\breve\iota))$, se $\mathcal{I}$ não possui um par suavemente conectado de breakpoints, então é possível, após aplicar uma reversão ou um transposição, criar um breakpoint subcarregado mantendo $\mathcal{I}$ sem um par suavemente conectado de breakpoints ou criar um breakpoint super forte subcarregado.
+\end{lemma}
+\begin{proof}
+Se houver pelo menos uma strip suave decrescente em $\mathcal{I}$, deve existir um par de breakpoints suaves $(\pi_{i},\pi_{i+1})$ e $(\pi_{j},\pi_ {j+1})$, com $i <j$, tal que $(\pi_{i},\pi_{j})$ ou $(\pi_{i+1},\pi_{j+1} )$ são consecutivos em $\iota$~\cite{1995-kececioglu-sankoff}. Se $(\pi_{i},\pi_{j})$ são consecutivos em $\iota$, então aplicamos uma reversão $\rho_{(\breve\pi_{i+1},\breve\pi_{j +1})}^{(i+1, j)}$. Caso contrário, aplicamos uma reversão $\rho_{(0, 0)}^{(i+1, j)}$. Observe que em ambos os casos todos os nucleotídeos são movidos para o breakpoint forte subcarregado criado, o que garante que a instância permaneça sem um par suavemente conectado de breakpoints. Se não houver uma strip decrescente em $\mathcal{I}$, sempre é possível encontrar três breakpoints suaves $(\pi_{i},\pi_{i+1})$, $(\pi_{j},\pi_{ j+1})$ e $(\pi_{k},\pi_{k+1})$, de modo que uma transposição $\tau_{(0,0,0)}^{(i+1,j +1,k+1)}$ cria um breakpoint forte subcarregado e nenhum breakpoint forte é removido~\cite{1998-walter-etal}. Além disso, como a instância possui apenas strips suaves crescentes, temos a garantia de que o breakpoint forte subcarregado criado (unindo duas strips suaves crescentes) seja um breakpoint super forte subcarregado, e o lema segue.
+\end{proof}
+
+\begin{lemma}\label{lemma:WGHTDURW}
+Dada uma instância intergênica rígida balanceada sem sinais $\mathcal{I}=((\pi,\breve\pi),\break(\iota,\breve\iota))$ com apenas um breakpoint sobrecarregado, sem nenhum breakpoint subcarregado e não existe nenhum par suavemente conectado de breakpoints em $\mathcal{I}$, então existe uma sequência com no máximo três operações que remove pelo menos dois breakpoints tipo um ou uma sequência com no máximo quatro operações que remove pelo menos três breakpoints tipo um.
+\end{lemma}
+\begin{proof}
+Inicialmente podemos notar que $ib_1(\mathcal{I}) \ge 3$, uma vez que é impossível criar uma instância intergênica rígida balanceada com apenas um breakpoint sobrecarregado e um breakpoint suave. Aplicando o Lema~\ref{lemma:OJTODIFY}, temos duas possibilidades: (i) um breakpoint subcarregado é criado mantendo $\mathcal{I}$ sem um par suavemente conectado de breakpoints, então podemos aplicar o Lema~\ref{lemma:QSQPQMYH} (resultando em uma sequência com três operações que remove pelo menos dois breakpoints tipo um); (ii) um breakpoint super forte subcarregado é criado. Neste caso, se $\mathcal{I}$ continuar sem nenhum par suavemente conectado de breakpoints, então podemos aplicar o Lema~\ref{lemma:QSQPQMYH} (resultando também em uma sequência com três operações que remove pelo menos dois breakpoints tipo um). Caso contrário, o Lema~\ref{lemma:LRCEAVRZ} pode ser aplicado. Pela Observação~\ref{remark:QVNWZDDQ}, nenhum breakpoint super forte pode ser removido por uma operação de reversão ou transposição resultante do Lema~\ref{lemma:LRCEAVRZ}. Logo um dos seguintes casos pode ocorrer:
+\begin{itemize}
+  \item Um novo breakpoint sobrecarregado é criado, e podemos aplicar o Lema~\ref{lemma:FSGHLWJU} (resultando em uma sequência com quatro operações que remove pelo menos três breakpoints tipo um).
+  \item Um par suavemente conectado de breakpoints é criado, e o Lema~\ref{lemma:LRCEAVRZ} é aplicado (resultando em uma sequência com três operações que remove pelo menos dois breakpoints tipo um).
+  \item Não existe nenhum par suavemente conectado de breakpoints em $\mathcal{I}$, e o Lema~\ref{lemma:QSQPQMYH} é aplicado (resultando em uma sequência com quatro operações que remove pelo menos três breakpoints tipo um).
+\end{itemize}
+\end{proof}
+
+\begin{remark}\label{remark:GWXLDIIV}
+Note que se apenas dois breakpoints tipo um forem removidos pelo Lema~\ref{lemma:WGHTDURW}, então isso implica que o genoma alvo ainda não foi alcançado, ou seja, $(\pi,\breve\pi)$ é diferente de $(\iota,\breve\iota)$.
+\end{remark}
+
+Agora considere Algoritmo~\ref{algorithm:LCPCUFNZ}, que consiste em quatro casos dependendo do número de breakpoints sobrecarregados ou da existência de um par suavemente conectado de breakpoints.
+
+\input{algorithms/LCPCUFNZ}
+
+\begin{lemma}\label{lemma:HIIRAXUH}
+Dada uma instância intergênica rígida balanceada sem sinais $\mathcal{I}=((\pi,\breve\pi),\break(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:LCPCUFNZ} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando no máximo $\frac{4b_1(\mathcal{I})}{3}$ eventos de reversão e transposição.
+\end{lemma}
+\begin{proof}
+O Algoritmo~\ref{algorithm:LCPCUFNZ} pode ser analisado considerando os seguintes casos:
+\begin{itemize}
+  \item $\mathcal{I}$ tem pelo menos dois breakpoints sobrecarregados (linhas 3-4).
+  \item $\mathcal{I}$ tem pelo menos um par suavemente conectado de breakpoints (linhas 5-6).
+  \item $\mathcal{I}$ tem apenas um breakpoint sobrecarregado, pelo menos um breakpoint subcarregado e sem nenhum um par suavemente conectado de breakpoints (linhas 8-9).
+  \item $\mathcal{I}$ tem apenas um breakpoint sobrecarregado, nenhum breakpoint subcarregado e sem nenhum um par suavemente conectado de breakpoints (linhas 10-11).
+\end{itemize}
+Note que, a cada iteração do Algoritmo~\ref{algorithm:JQHVZACM}, pelo menos um dos quatro casos deve obrigatoriamente ser aplicado e pelo menos um breakpoint tipo um é removido. Dessa forma, o genoma alvo eventualmente será alcançado e o algoritmo para. Observe que, se o algoritmo atingir os casos 3 ou 4, há exatamente um breakpoint sobrecarregado em $\mathcal{I}$ (Lema~\ref{lemma:XPQZERDR}) e sem nenhum um par suavemente conectado de breakpoints. Caso contrário, o caso 1 ou 2 seria aplicado.
+
+Os casos 1, 2 e 3 removem, em média, um breakpoint tipo um por operação. No pior cenário do caso 4 (onde dois breakpoints tipo um são removidos com três operações), temos pela Observação~\ref{remark:GWXLDIIV} que $(\pi,\breve\pi) \neq (\iota ,\breve\iota)$, e o caso 1, 2 ou 3 será aplicado posteriormente, com todos eles garantindo uma sequência de operações que remove, em média, um breakpoint tipo um por operação. Assim, em média, cada breakpoint tipo um é removido usando no máximo $\frac{4}{3}$ operações, e segue o lema.
+\end{proof}
+
+Note que cada caso do Algoritmo~\ref{algorithm:LCPCUFNZ} é realizado em tempo linear utilizando as estruturas auxiliares de lista de breakpoints e a permutação inversa de $\pi$ (ou seja, uma permutação que indica a posição de cada elemento $i$ em $\pi$). Como $ib_1(\mathcal{I}) \le n + 1$, o tempo de execução do Algoritmo~\ref{algorithm:LCPCUFNZ} é $\mathcal{O}(n^2)$.
+
+\begin{theorem}\label{theorem:USRSHCGH}
+Dada uma instância intergênica rígida balanceada sem sinais $\mathcal{I}=\break((\pi,\breve\pi),(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:JQHVZACM} é uma $4$-aproximação para o problema \SbIRT{}.
+\end{theorem}
+\begin{proof}
+Pelo Lema~\ref{lemma:HIIRAXUH}, o Algoritmo~\ref{algorithm:LCPCUFNZ} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando no máximo $\frac{4ib_1(\mathcal{I})}{3}$ eventos de reversão e transposição. Pelo Teorema~\ref{theorem:MPFPKHQO}, temos o seguinte limitante inferior $d_{\SbIRT}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{3}$. Logo, o teorema segue. 
+\end{proof}
+
+% ------------------------------------------------------------------ %
+\subsection{Reversão, Transposição e Indel}
+% ------------------------------------------------------------------ %
+
+% ------------------------------------------------------------------ %
+\subsection{Reversão, Transposição e Move}
+% ------------------------------------------------------------------ %
+
+% ------------------------------------------------------------------ %
+\subsection{Reversão, Transposição, Move e Indel}
+% ------------------------------------------------------------------ %

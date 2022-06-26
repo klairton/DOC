@@ -13,10 +13,10 @@
         Seja $S$ um sequência de operações fornecida pelo Algoritmo~\ref{algorithm:LCPCUFNZ} para a instância $\mathcal{I}$ \\
         \Retorna{$(\delta_1) + S$} \\
       }\Senao{
-        $\mathcal{I'} \gets ((\iota \circ \pi^{-1},\breve\iota),(\pi \circ \pi^{-1},\breve\pi))$ \\
+        $\mathcal{I'} \gets ((\pi^{-1} \circ \iota,\breve\iota),(\pi^{-1} \circ \pi,\breve\pi))$ \\
         \tcp{Lema~\ref{lemma:QGOIQLZD}}
         Seja $\delta_1$ um indel que torna $\mathcal{I'}$ em uma instância balanceada \\
-        $\mathcal{I'} \gets ((\iota \circ \pi^{-1},\breve\iota) \cdot \delta_1,(\pi \circ \pi^{-1},\breve\pi))$ \\
+        $\mathcal{I'} \gets ((\pi^{-1} \circ  \iota,\breve\iota) \cdot \delta_1,(\pi^{-1} \circ \pi,\breve\pi))$ \\
         Seja $S$ um sequência de operações fornecida pelo Algoritmo~\ref{algorithm:LCPCUFNZ} para a instância $\mathcal{I'}$ \\
         $S \gets (\delta_1) + S$ \\
         \tcp{Lema~\ref{lemma:UWWIFTBQ}}

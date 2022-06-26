@@ -81,6 +81,13 @@ Dada uma instância intergênica rígida sem sinais $\mathcal{I}=((\pi,\breve\pi
 Pela Obervação~\ref{remark:UDYJTHAH}, para transformar $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ é necessário remover os $ib_1(\mathcal{I})$ breakpoints tipo um de $\mathcal{I}$. Dessa forma, obtemos um limitante inferior para cada um dos modelos através da divisão de $ib_1(\mathcal{I})$ pela maior quantidade de breakpoints tipo um que podem ser removidos por um evento permitido no modelo de rearranjo. Os lemas~\ref{lemma:KFFPUBQG}, \ref{lemma:IUJZCMMV}, \ref{lemma:SYXLGTAP} e \ref{lemma:KWIVENLG} mostram a quantidade máxima de breakpoints tipo um que podem ser removidos de uma instância intergênica rígida sem sinais pelos eventos de reversão, transposição, move e indel, respectivamente. Logo, o teorema segue.
 \end{proof}
 
+\begin{theorem}\label{theorem:JDOIUJLE}
+Dada uma instância intergênica rígida sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$. Se $\mathcal{I}$ for balanceada, então temos que $d_{\SbIRTI}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{3}$. Caso contrário, temos que $d_{\SbIRTI}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I}) + 2}{3}$.
+\end{theorem}
+\begin{proof}
+Pela Obervação~\ref{remark:UDYJTHAH}, para transformar $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ é necessário remover os $ib_1(\mathcal{I})$ breakpoints tipo um de $\mathcal{I}$. Note que se $\mathcal{I}$ for balanceada, então podemos aplicar o Teorema~\ref{theorem:MPFPKHQO}. Caso contrário, sabemos que para ser possível transformar $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ pelo menos um indel deve ser utilizado. Pelo Lema~\ref{lemma:KWIVENLG}, temos que no máximo um breakpoint tipo um pode ser removido utilizando uma operação de indel. No melhor caso, após aplicar apenas um indel, $\mathcal{I}$  torna-se uma instância balanceada e um breakpoint tipo um é removido. Assim, restam $ib_1(\mathcal{I}) - 1$ breakpoints para serem removidos de $\mathcal{I}$. Considerando os eventos de reversão, transposição e indel, no máximo três breakpoints tipo um podem ser removidos por operação (Lemas~\ref{lemma:KFFPUBQG}, \ref{lemma:IUJZCMMV} e \ref{lemma:KWIVENLG}). Logo, pelo menos $\frac{ib_1(\mathcal{I}) - 1}{3}$ eventos de reversão, transposição ou indel são necessários para remover o restante dos breakpoints tipo um. Dessa forma, pelo menos $\frac{ib_1(\mathcal{I}) - 1}{3} + 1 = \frac{ib_1(\mathcal{I}) + 2}{3}$ eventos de reversão, transposição e indel são necessários para transformar $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$, e o teorema segue.
+\end{proof}
+
 \begin{theorem}\label{theorem:NFVKZGKW}
 Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, temos que:
 
@@ -112,6 +119,8 @@ Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi
 \begin{proof}
 Note que para atingir o genoma alvo é necessário aumentar tanto o número de ciclos quanto o de ciclos balanceados em $G(\mathcal{I})$ para $n+1$ (Observação~\ref{remark:WVLFPRDL}). Reversões, moves e indels podem aumentar $c(G(\mathcal{I})) + c_b(G(\mathcal{I}))$ em no máximo duas unidades, então o Teorema segue.
 \end{proof}
+
+
 
 
 % ------------------------------------------------------------------ %
@@ -615,6 +624,28 @@ Pelo Lema~\ref{lemma:HIIRAXUH}, o Algoritmo~\ref{algorithm:LCPCUFNZ} transforma 
 % ------------------------------------------------------------------ %
 \subsection{Reversão, Transposição e Indel}
 % ------------------------------------------------------------------ %
+
+
+\begin{lemma}\label{lemma:UWWIFTBQ}
+Dada uma instância intergênica rígida sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ e seja $S$ uma sequência de reversões, transposições e indels que transforma $(\iota,\breve\iota)$ em $(\pi,\breve\pi)$, então é possível construir uma sequência $S'$ que transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$, tal que $|S| = |S'|$.
+\end{lemma}
+\begin{proof}
+Criaremos a sequência $S'$ com base nas operações da sequência $S$. Para cada evento de rearranjo $\beta$ em $S$, mantendo a ordem relativa, utilize o seguinte mapeamento:
+\begin{itemize}
+  \item Se $\beta$ for um reversão $\rho^{(i,j)}_{(x,y)}$, então adicione em $S'$ a reversão $\rho^{(i,j)}_{(x,x^{\prime})}$.
+  \item Se $\beta$ for um transposição $\tau^{(i,j,k)}_{(x,y,z)}$, então adicione em $S'$ a transposição $\rho^{(i,i+k-j,k)}_{(x,z,y)}$.
+  \item Se $\beta$ for um indel $\delta^{(i)}_{(x)}$, então adicione em $S'$ o indel $\delta^{(i)}_{(-x)}$. 
+\end{itemize}  
+Por fim, inverta a a sequência $S'$. Note que cada operação adicionada na sequência $S'$ desfaz a mudança realizada por sua respectiva operação $\beta$ da sequência $S$. Além disso, ao inverter a sequência $S'$ temos que a ordem em que as operações são aplicadas também são invertidas. Logo, $(\pi,\breve\pi) \cdot S' = (\iota,\breve\iota)$ e $|S| = |S'|$, e o lema segue.
+\end{proof}
+
+A Figura~\ref{figure:MINEYNFC} mostra um exemplo de uma sequência $S'=(\tau^{(3,6,7)}_{(1,1,0)},\rho^{(1,5)}_{(0,1)},\delta^{(0)}_{({+5})})$ sendo construída a partir de uma instância $\mathcal{I} = (((0,5,4,2,1,6,3,7),(3,3,1,2,3,3,0)),\break((0,1,2,3,4,5,6,7),(6,2,0,3,3,5,1)))$ e uma sequência $S=(\delta^{(0)}_{({-5})},\rho^{(1,5)}_{(0,3)},\tau^{(3,4,7)}_{(1,0,1)})$ que transforma o genoma alvo no genoma de origem.
+
+\input{figures/MINEYNFC}
+
+Agora considere Algoritmo~\ref{algorithm:YIZYUGZZ}.
+
+\input{algorithms/YIZYUGZZ}
 
 % ------------------------------------------------------------------ %
 \subsection{Reversão, Transposição e Move}

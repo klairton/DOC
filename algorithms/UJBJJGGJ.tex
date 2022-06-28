@@ -1,0 +1,11 @@
+\begin{algorithm}[!tbh]
+  \caption{Estrutura base para algoritmos considerando instâncias intergênicas rígidas com sinais.\label{algorithm:UJBJJGGJ}}
+  \Entrada{Uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$}
+  \Saida{Uma sequência de eventos de reversão, transposição, move e indel $S$, tal que $(\pi,\breve\pi) \cdot S = (\iota,\breve\iota)$}
+  \tcp{Lema~\ref{lemma:FKOCCOYY}}
+  $\mathcal{I'} \gets \mathcal{F}(\mathcal{I})$ \\
+  Seja $S'$ uma sequência de eventos de reversão, transposição, move e indel, fornecida por um algoritmo $\mathcal{A}$, e que nenhum evento de $S'$ afeta as adjacências intergênicas de $\mathcal{I'}$ \\
+  \tcp{Lema~\ref{lemma:GTTULLOM}}
+  $S\gets \mathcal{G}(S')$ \\
+  \Retorna{S}
+\end{algorithm}

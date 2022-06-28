@@ -1,0 +1,43 @@
+\begin{example}\label{example:DUIOZNOU}
+  \hfill \break
+  \scriptsize
+  \begin{tikzpicture}
+    \draw (2, 6) pic{ir = {$5$, black!10}};
+    \draw (4, 6) pic{ir = {$3$, black!10}};
+    \draw (6, 6) pic{ir = {$1$, black!10}};
+    \draw (8, 6) pic{ir = {$2$, black!10}};
+    \draw (1, 6) pic{right gene = {${+0}$, red!50}};
+    \draw (3, 6) pic{right gene = {${+1}$, blue!50}};
+    \draw (5, 6) pic{left gene  = {${-3}$, orange!50}};
+    \draw (7, 6) pic{left gene  = {${-2}$, green!50}};
+    \draw (9, 6) pic{right gene = {${+4}$, teal!50}};
+  \end{tikzpicture}
+  \hfill \break
+  \begin{tabular}{lll}
+    $\pi$ & $=$ & $({+0}~{-3}~{+1}~{+2}~{+4})$\\
+    $\breve\pi$ & $=$ & $(5,3,1,2)$\\
+  \end{tabular}
+  \hfill \break
+  \begin{tikzpicture}
+    \draw  (2, 6) pic{ir = {$5$, black!10}};
+    \draw  (4, 6) pic{ir = {$0$, black!10}};
+    \draw  (6, 6) pic{ir = {$3$, black!10}};
+    \draw  (8, 6) pic{ir = {$0$, black!10}};
+    \draw (10, 6) pic{ir = {$1$, black!10}};
+    \draw (12, 6) pic{ir = {$0$, black!10}};
+    \draw (14, 6) pic{ir = {$2$, black!10}};
+    \draw  (1, 6) pic{gene = {${0}$, red!50}};
+    \draw  (3, 6) pic{gene = {${1}$, blue!50}};
+    \draw  (5, 6) pic{gene = {${2}$, blue!50}};
+    \draw  (7, 6) pic{gene = {${6}$, orange!50}};
+    \draw  (9, 6) pic{gene = {${5}$, orange!50}};
+    \draw (11, 6) pic{gene = {${4}$, green!50}};
+    \draw (13, 6) pic{gene = {${3}$, green!50}};
+    \draw (15, 6) pic{gene = {${7}$, teal!50}};
+  \end{tikzpicture}
+  \hfill \break
+  \begin{tabular}{lll}
+    $\pi'$ & $=$ & $(0~1~2~6~5~4~3~7)$\\
+    $\breve\pi'$ & $=$ & $(5,0,3,0,1,0,2)$\\
+  \end{tabular}
+\end{example}

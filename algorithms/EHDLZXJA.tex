@@ -1,0 +1,21 @@
+\begin{algorithm}[!tbh]
+  \caption{Um algoritmo de aproximação para o problema \SbIRM{}.\label{algorithm:EHDLZXJA}}
+  \Entrada{Uma instância intergênica rígida balanceada com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$}
+  \Saida{Uma sequência de reversões e moves $S$, tal que $(\pi,\breve\pi) \cdot S = (\iota,\breve\iota)$}
+    Seja $S \gets ()$ \\
+    \Enqto{$c(G(\mathcal{I})) < {n+1}$ e $c_b(G(\mathcal{I})) < {n+1}$}{
+      \Se{existir um ciclo trivial negativo em $G(\mathcal{I})$}{
+        \tcp{Lemas~\ref{lemma:UXFNYAGI} e~\ref{lemma:NTNBEHIO}}
+        $S^{\prime} \gets (\mu_1)$ \\
+      }\SenaoSe{existir um ciclo divergente negativo ou balanceado em $G(\mathcal{I})$}{
+        \tcp{Lema~\ref{lemma:IWIAXMBS}}
+        $S^{\prime} \gets (\rho_1)$ \\
+      }\Senao{
+        \tcp{Lema~\ref{lemma:ZLLUMKJN}}
+        $S^{\prime} \gets(\rho_1,\rho_2)$ \\
+      }
+      $S \gets S + S'$ \\
+      $\mathcal{I} \gets ((\pi, \breve\pi) \cdot S',(\iota,\breve\iota))$ \\
+    }
+  \Retorna{S}
+\end{algorithm}

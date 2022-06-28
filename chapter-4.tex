@@ -124,7 +124,7 @@ Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi
 \end{tabular}
 \end{theorem}
 \begin{proof}
-Note que para atingir o genoma alvo é necessário aumentar tanto o número de ciclos quanto o de ciclos balanceados em $G(\mathcal{I})$ para $n+1$ (Observação~\ref{remark:WVLFPRDL}). Reversões, moves e indels podem aumentar $c(G(\mathcal{I})) + c_b(G(\mathcal{I}))$ em no máximo duas unidades, então o Teorema segue.
+Note que para atingir o genoma alvo é necessário aumentar tanto o número de ciclos quanto o de ciclos balanceados em $G(\mathcal{I})$ para $n+1$ (Observação~\ref{remark:WVLFPRDL}). Reversões, moves e indels podem aumentar $c(G(\mathcal{I})) + c_b(G(\mathcal{I}))$ em no máximo duas unidades, então o teorema segue.
 \end{proof}
 
 % ------------------------------------------------------------------ %
@@ -848,9 +848,99 @@ A prova é similar a descrita no Teorema~\ref{theorem:TRRZCTJT}, mas considerand
 \subsection{Reversão e Move}
 % ------------------------------------------------------------------ %
 
+Nesta seção iremos apresentar um algoritmo de aproximação com um fator de aproximação $2$ para a variação com sinais do problema \SbIRM{} baseado na estrutura de grafo de ciclos ponderado rígido.
+
+\begin{lemma}\label{lemma:UXFNYAGI}
+Dada uma instância intergênica rígida balanceada com sinais $\mathcal{I}=((\pi,\breve\pi),\break(\iota,\breve\iota))$, tal que em $G(\mathcal{I})$ existe pelo menos um ciclo negativo $C=(c^1)$, então deve existir em $G(\mathcal{I})$ pelo menos um ciclo positivo.
+\end{lemma}
+\begin{proof}
+Suponha por contradição que $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ é uma instância intergênica rígida balanceada com sinais, tal que em $G(\mathcal{I})$ existe pelo menos um ciclo negativo $C=(c^1)$ e não existe nenhum ciclo positivo. Como em $G(\mathcal{I})$ existe pelo menos um ciclos negativo em os ciclos restantes só podem ser negativos ou balanceados, temos que $\sum_{i=1}^{n+1}\breve\pi_i > \sum_{i=1}^{n+1}\breve\iota_i$, o que contradiz a suposição de que $\mathcal{I}$ é uma instância intergênica rígida balanceada.
+\end{proof}
+
+\begin{lemma}\label{lemma:NTNBEHIO}
+Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, tal que em $G(\mathcal{I})$ existe pelo menos um ciclo trivial negativo $C=(c^1)$ e pelo menos um ciclo $D=(d^1,\dots,d^k)$ desbalanceado, então é possível aumentar o número de cilos balanceados de $G(\mathcal{I})$ em pelo menos uma unidade após aplicar uma operação de move.
+\end{lemma}
+\begin{proof}
+Neste caso basta transferir o peso extra da aresta preta $c^1$ para a primeira aresta preta do ciclo $D$ utilizando uma operação de move. Como $C$ é um ciclo trivial, após aplicação da operação de move ele torna-se balanceado, e o lema segue.
+\end{proof}
+
+\begin{lemma}\label{lemma:IWIAXMBS}
+Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, tal que em $G(\mathcal{I})$ existe pelo menos um ciclo divergente negativo ou balanceado $C$, então é possível aumentar o número de cilos de $G(\mathcal{I})$ em uma unidade e o número de cilos balanceados de $G(\mathcal{I})$ em uma unidade após aplicar uma operação de reversão.
+\end{lemma}
+\begin{proof}
+Direto do Lema 5 de Oliveira \textit{et al.}~\cite{2021b-oliveira-etal}.
+\end{proof}
+
+\begin{lemma}\label{lemma:ZLLUMKJN}
+Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, tal que todos os ciclos não triviais negativos ou balanceados de $G(\mathcal{I})$ são convergentes, então é possível aumentar o número de cilos de $G(\mathcal{I})$ em uma unidade e o número de cilos balanceados de $G(\mathcal{I})$ em uma unidade após aplicar uma sequência de duas reversões.
+\end{lemma}
+\begin{proof}
+Direto do Lema 6 de Oliveira \textit{et al.}~\cite{2021b-oliveira-etal}.
+\end{proof}
+
+Agora considere o Algoritmo~\ref{algorithm:EHDLZXJA} e observe que ele possui três passos: (i) operações de move aplicadas a ciclos negativos triviais (Lemas~\ref{lemma:UXFNYAGI} e~\ref{lemma:NTNBEHIO}); (ii) reversões aplicadas em ciclos divergentes negativos ou balanceados (Lema~\ref{lemma:IWIAXMBS}); (iii) duas reversões consecutivas aplicadas em ciclos convergentes negativos ou balanceados (Lema~\ref{lemma:ZLLUMKJN}).
+
+\input{algorithms/EHDLZXJA}
+
+Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ e uma sequência de eventos de rearranjo $S$, seja $\Delta_{c+c_b} (\mathcal{I},S) = \frac{\Delta c(G(\mathcal{I}),S) + \Delta c_b(G(\mathcal{I}),S)}{|S|}$ o número médio de ciclos mais ciclos balanceados criados por uma operação de $S$. Note que nas sequências geradas pelos passos (i), (ii) e (iii) temos que $\Delta_{c+c_b}(\mathcal{I},S) \ge 1$.
+
+\begin{lemma}\label{lemma:APHTXLZC}
+Dada uma instância intergênica rígida balanceada com sinais $\mathcal{I}=((\pi,\breve\pi),\break(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:EHDLZXJA} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando no máximo $2(n + 1) - (c(G(\mathcal{I})) + c_b(G(\mathcal{I})))$ eventos de reversão e move.
+\end{lemma}
+\begin{proof}
+Pela Observação~\ref{remark:WVLFPRDL}, sabemos que se $c(G(\mathcal{I})) = {n + 1}$ e $c_b(G(\mathcal{I})) = {n + 1}$, então o genoma alvo foi alcançado. Note que enquanto essa condição não for satisfeita o Algoritmo~\ref{algorithm:EHDLZXJA} garante que todo ciclo trivial negativo seja transformado em balanceado pelos lemas~\ref{lemma:UXFNYAGI} e~\ref{lemma:NTNBEHIO}. Se não existir nenhum ciclo trivial negativo, qualquer ciclo divergente negativo ou balanceado é dividido em dois ciclos com a garantia de que pelo menos um deles seja balanceado (Lema~\ref{lemma:IWIAXMBS}). Se nenhuma dessas duas situações anteriores ocorrer, $G(\mathcal{I})$ pode ter ciclos triviais positivos ou balanceados, ciclos divergentes positivos e ciclos convergentes (positivos, negativos ou balanceados). Assim, todos os ciclos não triviais negativos e balanceados em $G(\mathcal{I})$ são convergentes e o Lema~\ref{lemma:ZLLUMKJN} pode ser aplicado. Observe que o Algoritmo~\ref{algorithm:EHDLZXJA}, em cada iteração, sempre executa um dos passos (i), (ii) ou (iii). Além disso, cada passo aumenta em pelo menos uma unidade o número de ciclos ou em pelo menos uma unidade o número de ciclos balanceados. Esse processo se repete até $G(\mathcal{I})$ possuir ${n+1}$ ciclos e ${n+1}$ ciclos balanceados, que consequentemente transforma $(\pi, \breve\pi)$ em $(\iota,\breve\iota)$ e o algoritmo encerra sua execução.  Como $\Delta_{c+c_b}(\mathcal{I},S) \ge 1$ para as sequências geradas pelos passos (i), (ii) e (iii), no máximo, $2(n + 1) - (c(G(\mathcal{I})) + c_b(G(\mathcal{I})))$ eventos de reversão e move são utilizados. Assim, o lema segue.
+\end{proof}
+
+Perceba que os passos (i) e (ii) do Algoritmo~\ref{algorithm:EHDLZXJA} podem ser realizados em tempo linear. Entretanto, o tempo de execução do passo (iii) é $\mathcal{O}(n^2)$, uma vez que é necessário verificar o cruzamento dos ciclos para determinar a sequência de duas reversões. Como o laço da linha 2 repete-se no máximo $2n$ vezes, então o tempo de execução do Algoritmo~\ref{algorithm:EHDLZXJA} é $\mathcal{O}(n^3)$.
+
+\begin{theorem}\label{theorem:JYTYUTQA}
+Dada uma instância intergênica rígida balanceada com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:EHDLZXJA} é uma $2$-aproximação para o problema \SbIRM{}.
+\end{theorem}
+\begin{proof}
+Pelo Lema~\ref{lemma:APHTXLZC}, o Algoritmo~\ref{algorithm:EHDLZXJA} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando no máximo $2(n + 1) - (c(G(\mathcal{I})) + c_b(G(\mathcal{I})))$ eventos de reversão e move. Pelo Teorema~\ref{theorem:OCNPWYNL}, temos o seguinte limitante inferior $d_{\SbIRM}(\mathcal{I}) \ge {n + 1} - \frac{c(G(\mathcal{I})) + c_b(G(\mathcal{I}))}{2}$. Assim, o teorema segue.
+\end{proof}
+
 % ------------------------------------------------------------------ %
 \subsection{Reversão, Move e Indel}
 % ------------------------------------------------------------------ %
+
+Nesta seção iremos apresentar um algoritmo de aproximação com um fator de aproximação $2$ para a variação com sinais do problema \SbIRMI{} baseado na estrutura de grafo de ciclos ponderado rígido.
+
+\begin{lemma}\label{lemma:BZLJHNFF}
+Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, tal que em $G(\mathcal{I})$ existe pelo menos um ciclo trivial negativo $C=(c^1)$, então é possível aumentar o número de cilos balanceados de $G(\mathcal{I})$ em uma unidade após aplicar uma operação de indel.
+\end{lemma}
+\begin{proof}
+Note que o ciclo $C$ é trivial, então ele possui apenas uma areta preta e uma areta cinza. Neste caso, basta aplica um indel aresta preta $c^1$ do ciclo $C$ removendo $|\sum_{e^{\prime}_i \in E_c(C)} [w_c(e^{\prime}_i)] - \sum_{e_i \in E_p(C)} [w_p(e_i)]|$ nucleotídeos. Dessa forma, o ciclo $C$ é transformado em balanceado, e o lema segue.
+\end{proof}
+
+\begin{lemma}\label{lemma:HOGGQNJN}
+Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, tal que em $G(\mathcal{I})$ existe pelo menos um ciclo positivo $C$, então é possível aumentar o número de cilos balanceados de $G(\mathcal{I})$ em uma unidade após aplicar uma operação de indel.
+\end{lemma}
+\begin{proof}
+Neste caso, basta aplica um indel na primeira aresta preta do ciclo $C$ inserindo $\sum_{e^{\prime}_i \in E_c(C)} [w_c(e^{\prime}_i)] - \sum_{e_i \in E_p(C)} [w_p(e_i)]$ nucleotídeos. Dessa forma, o ciclo $C$ é transformado em balanceado, e o lema segue. 
+\end{proof}
+
+Agora considere o Algoritmo~\ref{algorithm:RYNLKYUJ} e observe que ele possui quatro passos: (i) operações de move ou indel aplicadas em ciclos negativos triviais (Lemas~\ref{lemma:NTNBEHIO} e~\ref{lemma:BZLJHNFF}); (ii) reversões aplicadas em ciclos divergentes negativos ou balanceados (Lema~\ref{lemma:IWIAXMBS}); (iii) duas reversões consecutivas aplicadas em ciclos convergentes negativos ou balanceados (Lema~\ref{lemma:ZLLUMKJN}); (iv) indels aplicados em ciclos positivos (Lema~\ref{lemma:HOGGQNJN}).
+
+\input{algorithms/RYNLKYUJ}
+
+Note que nas sequências geradas pelos passos (i), (ii), (iii) e (iv) do Algoritmo~\ref{algorithm:RYNLKYUJ}, também temos que $\Delta_{c+c_b}(\mathcal{I},S) \ge 1$.
+
+\begin{lemma}\label{lemma:PBDEKMXG}
+Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:RYNLKYUJ} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando no máximo $2(n + 1) - (c(G(\mathcal{I})) + c_b(G(\mathcal{I})))$ eventos de reversão, move e indel.
+\end{lemma}
+\begin{proof}
+Pela Observação~\ref{remark:WVLFPRDL}, sabemos que se $c(G(\mathcal{I})) = {n + 1}$ e $c_b(G(\mathcal{I})) = {n + 1}$, então o genoma alvo foi alcançado. Note que enquanto essa condição não for satisfeita o Algoritmo~\ref{algorithm:RYNLKYUJ} garante que todo ciclo trivial negativo seja transformado em balanceado pelos lemas~\ref{lemma:NTNBEHIO} e~\ref{lemma:BZLJHNFF}. Se não existir nenhum ciclo trivial negativo, qualquer ciclo divergente negativo ou balanceado é dividido em dois ciclos com a garantia de que pelo menos um deles seja balanceado (Lema~\ref{lemma:IWIAXMBS}). Se nenhuma dessas duas situações anteriores ocorrer, $G(\mathcal{I})$ pode ter ciclos triviais positivos ou balanceados, ciclos divergentes positivos e ciclos convergentes (positivos, negativos ou balanceados). Se existir pelo menos um ciclo convergente negativo ou balanceado, então o Lema~\ref{lemma:ZLLUMKJN} pode ser aplicado. Caso o passo (iii) não seja aplicado, então isso implica que deve existir pelo menos um ciclo positivo em $G(\mathcal{I})$ e o passo (iv) pode ser aplicado, aumentando o número de ciclos balanceado em uma unidade (Lema~\ref{lemma:HOGGQNJN}). Observe que o Algoritmo~\ref{algorithm:RYNLKYUJ}, em cada iteração, sempre executa um dos passos (i), (ii), (iii) ou (iv). Além disso, cada passo aumenta em pelo menos uma unidade o número de ciclos ou em pelo menos uma unidade o número de ciclos balanceados. Esse processo se repete até $G(\mathcal{I})$ possuir ${n+1}$ ciclos e ${n+1}$ ciclos balanceados, que consequentemente transforma $(\pi, \breve\pi)$ em $(\iota,\breve\iota)$ e o algoritmo encerra sua execução.  Como $\Delta_{c+c_b}(\mathcal{I},S) \ge 1$ para as sequências geradas pelos passos (i), (ii), (iii) e (iv), no máximo, $2(n + 1) - (c(G(\mathcal{I})) + c_b(G(\mathcal{I})))$ eventos de reversão, move e indel são utilizados. Assim, o lema segue.
+\end{proof}
+
+Note que o Algoritmo~\ref{algorithm:RYNLKYUJ} difere do Algoritmo~\ref{algorithm:EHDLZXJA} apenas pelos passos (i) e (iv), que podem ser realizados em tempo linear. Logo, o tempo de execução do Algoritmo~\ref{algorithm:RYNLKYUJ} também é $\mathcal{O}(n^3)$.
+
+\begin{theorem}\label{theorem:ICVGEGVZ}
+Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:RYNLKYUJ} é uma $2$-aproximação para o problema \SbIRMI{}.
+\end{theorem}
+\begin{proof}
+Pelo Lema~\ref{lemma:PBDEKMXG}, o Algoritmo~\ref{algorithm:RYNLKYUJ} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando no máximo $2(n + 1) - (c(G(\mathcal{I})) + c_b(G(\mathcal{I})))$ eventos de reversão, move e indel. Pelo Teorema~\ref{theorem:OCNPWYNL}, temos o seguinte limitante inferior $d_{\SbIRMI}(\mathcal{I}) \ge {n + 1} - \frac{c(G(\mathcal{I})) + c_b(G(\mathcal{I}))}{2}$. Assim, o teorema segue.
+\end{proof}
 
 % ------------------------------------------------------------------ %
 \section{Conclusões}

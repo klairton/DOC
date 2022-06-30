@@ -1,0 +1,19 @@
+\begin{algorithm}[!tbh]
+  \caption{Estratégia gulosa.\label{algorithm:XPAWWVSJ}}
+  \Entrada{Uma instância intergênica rígida sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ e um modelo de rearranjo $\mathcal{M}$}
+  \Saida{Uma sequência vazia ou com apenas um evento de reversão, transposição ou move}
+    $S \gets ()$ \\
+    \Se{$\tau \in \mathcal{M}$ e existe uma transposição $\tau$ que remove três breakpoints tipo um}{
+      $S \gets (\tau_1)$ \\
+    }
+    \Se{$\tau \in \mathcal{M}$ e existe uma transposição $\tau$ que remove dois breakpoints tipo um}{
+      $S \gets (\tau_1)$ \\
+    }
+    \Se{$\rho \in \mathcal{M}$ e existe uma reversão $\rho$ que remove dois breakpoints tipo um}{
+      $S \gets (\rho_1)$ \\
+    }
+    \Se{$\mu \in \mathcal{M}$ e existe um move $\mu$ que remove dois breakpoints tipo um}{
+      $S \gets (\mu_1)$ \\
+    }
+    \Retorna $S$
+\end{algorithm}

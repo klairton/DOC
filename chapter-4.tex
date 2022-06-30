@@ -133,7 +133,13 @@ Note que para atingir o genoma alvo é necessário aumentar tanto o número de c
 
 Nesta seção realizamos uma análise de complexidade considerando as variações dos problemas resultantes dos modelos de rearranjo investigados neste capítulo.
 
-Inicialmente descrevemos a versão de decisão da variação sem sinais dos problemas de Ordenação de Permutações por Reversões (\SbR) e Ordenação de Permutações por Reversões e Transposições(\SbRT), que pertencem à classe NP-difícil~\cite{1999-caprara,2019b-oliveira-etal}.
+Inicialmente descrevemos a versão de decisão de alguns problemas, sendo eles:
+\begin{itemize}
+  \item A variação sem sinais do problema de Ordenação de Permutações por Reversões (\SbR)
+  \item As variações com e sem sinais do problema Ordenação de Permutações por Reversões e Transposições(\SbRT)
+  \item O problema $3$-Partição.
+\end{itemize}
+Esses problemas que pertencem à classe NP-difícil~\cite{1999-caprara,2019b-oliveira-etal,1990-garey-johnson}.
 
 \begin{decision}
   \problemtitle{Ordenação de Permutações por Reversões (\SbR) (Versão de Decisão)}
@@ -143,60 +149,67 @@ Inicialmente descrevemos a versão de decisão da variação sem sinais dos prob
 
 \begin{decision}
   \problemtitle{Ordenação de Permutações por Reversões e Transposições (\SbRT) (Versão de Decisão)}
-  \probleminput{Uma instância clássica sem sinais $\mathcal{I}=(\pi,\iota)$ e um número natural $d$.}
+  \probleminput{Uma instância clássica com ou sem sinais $\mathcal{I}=(\pi,\iota)$ e um número natural $d$.}
   \problemquestion{Existe uma sequência de eventos de rearranjo $S$, com base no modelo de rearranjo $\mathcal{M}=\{\rho,\tau\}$, capaz de transformar $\pi$ em $\iota$, tal que $|S| \le d$?}
 \end{decision}
 
-A seguir descrevemos a versão de decisão das variações sem sinais dos problemas que investigaremos neste capítulo.
+\begin{decision}
+  \problemtitle{$3$-Partição (\textbf{3-PART}) (Versão de Decisão)}
+  \probleminput{Um conjunto de números inteiros positivos $A=\{a_1,a_2,\dots,a_{3n}\}$, tal que $\sum_{i=1}^{3n}a_i = Bn$ e $B \in \mathbb{Z}^{+}$. Além disso, $\frac{B}{4} < a_i < \frac{B}{2}$, com $1 \le i \le 3n$.}
+  \problemquestion{Existe uma partição do conjunto $A$ em triplas $A_1,A_2,\dots,A_n$, tal que $\sum_{a_i \in A_j} a_i = B$ para cada tripla $A_j$, com $1\le j \le n$?}
+\end{decision}
+
+A seguir descrevemos a versão de decisão das variações com e sem sinais dos problemas que investigaremos neste capítulo.
 
 \begin{decision}
   \problemtitle{\SbIR (Versão de Decisão)}
-  \probleminput{Uma instância intergênica rígida sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ e um número natural $t$.}
+  \probleminput{Uma instância intergênica rígida com ou sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ e um número natural $t$.}
   \problemquestion{Existe uma sequência de eventos de rearranjo $S$, com base no modelo de rearranjo $\mathcal{M}=\{\rho\}$, capaz de transformar $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$, tal que $|S| \le t$?}
 \end{decision}
 
 \begin{decision}
   \problemtitle{\SbIRI (Versão de Decisão)}
-  \probleminput{Uma instância intergênica rígida sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ e um número natural $t$.}
+  \probleminput{Uma instância intergênica rígida com ou sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ e um número natural $t$.}
   \problemquestion{Existe uma sequência de eventos de rearranjo $S$, com base no modelo de rearranjo $\mathcal{M}=\{\rho,\delta\}$, capaz de transformar $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$, tal que $|S| \le t$?}
 \end{decision}
 
 \begin{decision}
   \problemtitle{\SbIRM (Versão de Decisão)}
-  \probleminput{Uma instância intergênica rígida sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ e um número natural $t$.}
+  \probleminput{Uma instância intergênica rígida com ou sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ e um número natural $t$.}
   \problemquestion{Existe uma sequência de eventos de rearranjo $S$, com base no modelo de rearranjo $\mathcal{M}=\{\rho,\mu\}$, capaz de transformar $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$, tal que $|S| \le t$?}
 \end{decision}
 
 \begin{decision}
   \problemtitle{\SbIRMI (Versão de Decisão)}
-  \probleminput{Uma instância intergênica rígida sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ e um número natural $t$.}
+  \probleminput{Uma instância intergênica rígida com ou sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ e um número natural $t$.}
   \problemquestion{Existe uma sequência de eventos de rearranjo $S$, com base no modelo de rearranjo $\mathcal{M}=\{\rho,\mu,\delta\}$, capaz de transformar $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$, tal que $|S| \le t$?}
 \end{decision}
 
 \begin{decision}
   \problemtitle{\SbIRT (Versão de Decisão)}
-  \probleminput{Uma instância intergênica rígida sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ e um número natural $t$.}
+  \probleminput{Uma instância intergênica rígida com ou sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ e um número natural $t$.}
   \problemquestion{Existe uma sequência de eventos de rearranjo $S$, com base no modelo de rearranjo $\mathcal{M}=\{\rho,\tau\}$, capaz de transformar $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$, tal que $|S| \le t$?}
 \end{decision}
 
 \begin{decision}
   \problemtitle{\SbIRTI (Versão de Decisão)}
-  \probleminput{Uma instância intergênica rígida sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ e um número natural $t$.}
+  \probleminput{Uma instância intergênica rígida com ou sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ e um número natural $t$.}
   \problemquestion{Existe uma sequência de eventos de rearranjo $S$, com base no modelo de rearranjo $\mathcal{M}=\{\rho,\tau,\delta\}$, capaz de transformar $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$, tal que $|S| \le t$?}
 \end{decision}
 
 \begin{decision}
   \problemtitle{\SbIRTM (Versão de Decisão)}
-  \probleminput{Uma instância intergênica rígida sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ e um número natural $t$.}
+  \probleminput{Uma instância intergênica rígida com ou sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ e um número natural $t$.}
   \problemquestion{Existe uma sequência de eventos de rearranjo $S$, com base no modelo de rearranjo $\mathcal{M}=\{\rho,\tau,\mu\}$, capaz de transformar $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$, tal que $|S| \le t$?}
 \end{decision}
 
 \begin{decision}
   \problemtitle{\SbIRTMI (Versão de Decisão)}
-  \probleminput{Uma instância intergênica rígida sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ e um número natural $t$.}
+  \probleminput{Uma instância intergênica rígida com ou sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ e um número natural $t$.}
   \problemquestion{Existe uma sequência de eventos de rearranjo $S$, com base no modelo de rearranjo $\mathcal{M}=\{\rho,\tau,\mu,\delta\}$, capaz de transformar $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$, tal que $|S| \le t$?}
 \end{decision}
 
+A seguir mostramos que todas as variações sem sinais dos problemas investigados nesse capítulo pertencem à classe NP-difícil.
 
 \begin{theorem}\label{theorem:YARJETHG}
 Os problemas \SbIR{}, \SbIRI{}, \SbIRM{} e \SbIRMI{} em instâncias intergênicas rígidas sem sinais pertencem à classe NP-difícil.
@@ -214,6 +227,67 @@ Os problemas \SbIRT, \SbIRTI, \SbIRTM{} e \SbIRTMI{} em instâncias intergênica
 \end{theorem}
 \begin{proof}
 A prova é similar a descrita no Teorema~\ref{theorem:YARJETHG}, mas utilizando uma redução da versão de decisão da variação sem sinais do problema \SbRT{} e considerando que a sequência $S'$ para a instância $(\mathcal{I'},t)$ do problema \SbIRT{}, \SbIRTI{}, \SbIRTM{} ou \SbIRTMI{} é composta por reversões intergênicas e transposições intergênicas ao invés de reversões intergênicas exclusivamente.
+\end{proof}
+
+Os problemas \SbIR{}, \SbIRT{} e \SbIRTM{} em instâncias intergênicas rígidas com sinais pertencem à classe NP-difícil~\cite{2021a-oliveira-etal,2021b-oliveira-etal}. A seguir mostramos que a variação com sinais dos problemas \SbIRM{}, \SbIRMI{}, \SbIRTI{} e \SbIRTMI{} também pertencem à classe NP-difícil. Para a variação com sinais dos problemas \SbIRM{} e \SbIRMI{} iremos realizar uma redução do problema \textbf{3-PART}, enquanto para a variação com sinais dos problemas \SbIRTI{} e \SbIRTMI{} utilizaremos um redução da variação com sinais do problema \SbRT{}.
+
+\begin{theorem}\label{theorem:FETVDCDT}
+Os problemas \SbIRM{} e \SbIRMI{} em instâncias intergênicas rígidas com sinais pertencem à classe NP-difícil.
+\end{theorem}
+\begin{proof}
+Dada uma instância $A=\{a_1,a_2,\dots,a_{3n}\}$ do problema \textbf{3-PART}, criamos uma instância assinada $\mathcal{I} = ((\pi,\breve\pi ),(\iota,\breve\iota))$ do problema \SbIRM{} ou \SbIRMI{} da seguinte forma:
+\begin{itemize}
+    \item[i)] $\pi = \iota = ({+0}~{+1}~{+2}~\dots~{+4n})$.
+    \item[ii)] Atribua o valor $\breve\pi_i = a_i$, para $1 \le i \le 3n$, e o valor $\breve\pi_j = 0$, para $3n+1 \le j \le 4n$.
+    \item[iii)] Atribua o valor $\breve\iota_i = 0$, para $1 \le i \le 3n$, e o valor $\breve\iota_j = B$, para $3n+1 \le j \le 4n$.
+\end{itemize}
+
+O Exemplo~\ref{example:ZVSSIKRT} ilustra o processo de criação de uma instância $\mathcal{I}$ do problema \SbIRM{} ou \SbIRMI{} com base na instância $A$ do problema \textbf{3-PART}. Note que o grafo de ciclos ponderado rígido $G(\mathcal{I})$ é composto exclusivamente por ciclos triviais.
+
+\input{examples/ZVSSIKRT}
+
+Agora, mostramos que a instância $A$ da \textbf{3-PART} é satisfeita $\iff$ $d_{\SbIRM}(\mathcal{I}) \le 3n$ e $d_{\SbIRMI}(\mathcal{I}) \le 3n$.
+
+($\Rightarrow$) Suponha que seja possível particionar a instância $A=\{a_1,a_2,\dots,a_{3n}\}$ do problema \textbf{3-PART} em $n$ triplas, tal que $\ sum_{a_i \in A_j} a_i = B$ para cada tripla $A_j$, com $1\le j \le n$. Então, é possível transformar o genoma de origem $(\pi, \breve\pi)$ no genoma alvo $(\iota, \breve\iota)$ usando $3n$ operações de move. Para cada tripla $A_j$, com $1\le j \le n$, aplique as seguintes operações de move $\mu_{(a_i)}^{(i,3n+j)}$, para $a_i \in A_j$. Repeta este procedimento em todas as $n$ triplas produzindo uma sequência de $3n$ operações de move que resulta em $c(G(\mathcal{I})) = 4n$ e $c_b(G(\mathcal{I})) = 4n$. Assim, $d_{\SbIRM}(\mathcal{I}) \le 3n$ e $d_{\SbIRMI}(\mathcal{I}) \le 3n$.
+
+($\Leftarrow$) Agora suponha que $d_{\SbIRM}(\mathcal{I}) \le 3n$ e $d_{\SbIRMI}(\mathcal{I}) \le 3n$. Observe que, para atingir o genoma alvo desejado, os ciclos triviais com aresta pretas rotuladas com o valor $0$ até $3n$ devem formar ciclos triviais com peso zero em suas arestas pretas.
+
+Note que $G(\mathcal{I})$ tem $4n$ ciclos triviais, onde: os primeiros $3n$ ciclos triviais (da esquerda para a direita usando a representação padrão de $G(\mathcal{I})$) têm peso positivo em suas arestas pretas; e os últimos $n$ ciclos triviais têm peso zero em suas arestas pretas.
+
+Dizemos que um ciclo $C=(c^1)$ é \emph{alpha} se $C$ for trivial e tiver peso zero em suas arestas preta e cinza. Denotamos por $c_{\alpha}(G(\mathcal{I}))$ o número de ciclos alpha em $G(\mathcal{I})$. Observe que qualquer sequência de operações de rearranjo que transforme o genoma de origem no genoma alvo deve necessariamente afetar os primeiros $3n$ ciclos triviais para alterar o peso em suas arestas pretas para zero. Consequentemente, ao alcançar o genoma alvo temos que $c_{\alpha}(G(\mathcal{I})) = 3n$.
+
+Dada uma sequência $S$ de operações, denotamos por: $$\Delta c_{\alpha}(G(\mathcal{I}), S) = \frac{c_{\alpha}(G(\mathcal{I'})) - c_{\alpha}(G(\mathcal{I}))}{|S|},$$ tal que $\mathcal{I'} = ((\pi,\breve\pi) \cdot S,(\iota,\breve\iota))$, a variação média no número de ciclos alpha gerados pela sequência $S$.
+
+Um move $\mu_{(x)}^{(i,j)}$ atua em no máximo dois ciclos. Se o movimento $\mu$ atua em duas arestas pretas do mesmo ciclo, então o peso desse ciclo permanece inalterado ($\Delta c_{\alpha}(G(\mathcal{I}), S=(\mu)) = 0$). Quando atua em dois ciclos, temos os seguintes casos:
+\begin{itemize}
+  \item Se nenhum dos ciclos for trivial, então $\Delta c_{\alpha}(G(\mathcal{I}), S=(\mu)) = 0$. Observe que a operação de move não altera o tamanho dos ciclos.
+  \item Se pelo menos um dos ciclos for trivial, então o movimento pode transferir o peso em sua aresta preta para outro ciclo e, na melhor das hipóteses, $\Delta c_{\alpha}(G(\mathcal{I}), S=(\mu)) \le 1$.
+  \item Se ambos os ciclos são alpha, então $\Delta c_{\alpha}(G(\mathcal{I}), S=(\mu)) = 0$. Observe que, neste caso, as arestas pretas de ambos os ciclos têm peso zero. Consequentemente, o peso da aresta preta dos ciclos permanece inalterado.
+\end{itemize}
+
+Uma reversão $\rho_{(x,y)}^{(i,j)}$ pode criar no máximo dois ciclos alpha ($\Delta c_{\alpha}(G(\mathcal{I}), S=(\rho)) \le 2$). No entanto, isso ocorre apenas no caso particular em que uma reversão divide um ciclo de tamanho dois em que ambas as arestas pretas têm peso zero. Dado que uma operação de move não altera o tamanho dos ciclos, para obter um ciclo de tamanho dois com tal característica, temos que uma reversão $\rho$ que acaba unindo dois ciclos deve ser aplicada previamente. Observe que qualquer reversão que une ciclos não cria ciclos alpha ($\Delta c_{\alpha}(G(\mathcal{I}), S=(\rho)) \le 0$), pois esta operação resulta em um ciclo não trivial. Para obter um ciclo de tamanho dois onde ambas as arestas pretas tenham peso zero, temos três possibilidades:
+
+\begin{itemize}
+  \item O primeiro caso consiste em uma reversão $\rho_1$ que une dois ciclos alpha (diminuindo o número de ciclos alpha em duas unidades) seguido por uma reversão $\rho_2$ que divide esse ciclo de tamanho dois que foi gerado em dois ciclos alpha novamente. Observe que neste caso a reversão $\rho_2$ desfaz o que $\rho_1$ criou, então $\Delta c_{\alpha}(G(\mathcal{I}), S=(\rho_1,\rho_2)) = 0 $, uma vez que $\Delta c_{\alpha}(G(\mathcal{I}), S=(\rho_1)) = -2$ e $\Delta c_{\alpha}(G(\mathcal{I}), S=(\rho_2)) = 2$.
+  \item No segundo caso, temos uma reversão $\rho_1$ que une dois ciclos triviais onde ambas as arestas pretas têm peso maior que zero. Pela construção do ciclo de tamanho dois, temos que pelo menos uma de suas arestas pretas tem peso maior que zero. Para remover o peso nas arestas pretas do ciclo de tamanho dois, pelo menos um move $\mu_1$ deve ser aplicado (uma reversão para realizar esta tarefa deve primeiro dividir ou unir o ciclo). Observe que o move $\mu_1$ não cria ciclos alpha ($\Delta c_{\alpha}(G(\mathcal{I}), s=(\mu_1)) \le 0$), pois transfere o peso de uma aresta preta de um ciclo de tamanho dois para outro ciclo. Por fim, é aplicada uma reversão $\rho_2$ que divide o ciclo de tamanho dois gerando dois ciclos alpha. Observe que $\Delta c_{\alpha}(G(\mathcal{I}), S=(\rho_1,\mu_1,\rho_2)) \le \frac{2}{3}$, uma vez que $\Delta c_{ \alpha}(G(\mathcal{I}), S=(\rho_1)) = 0$, $\Delta c_{\alpha}(G(\mathcal{I}), S=(\mu_1)) \le 0$ e $\Delta c_{\alpha}(G(\mathcal{I}), S=(\rho_2)) = 2$.
+  \item A última possibilidade é quando uma reversão $\rho_1$ une um ciclo trivial cuja aresta preta tem peso maior que zero com um ciclo alpha, diminuindo o número de ciclos alpha em uma unidade. Semelhante ao caso anterior, pelo menos uma das arestas pretas no ciclo de tamanho dois tem peso maior que zero, e pelo menos uma operação de move $\mu_1$ deve ser aplicada. No final, uma reversão $\rho_2$ é aplicada no ciclo de tamanho dois gerando dois ciclos alpha. Este caso resulta em $\Delta c_{\alpha}(G(\mathcal{I}), S=(\rho_1,\mu_1,\rho_2)) \le \frac{1}{3}$, uma vez que $\Delta c_{\alpha}(G(\mathcal{I}), S=(\rho_1)) = -1$, $\Delta c_{\alpha}(G(\mathcal{I}), S=(\mu_1)) \le 0$ e $\Delta c_{\alpha}(G(\mathcal{I}), S=(\rho_2)) = 2$.
+\end{itemize}
+
+Considerando o cenário em que uma reversão cria apenas um ciclo alpha, também temos o fato de que uma reversão que une ciclos deve ser aplicada previamente. Assim, temos que $\Delta c_{\alpha}(G(\mathcal{I}), S=(\rho_1,\rho_2)) \le \frac{1}{2}$. Isto implica que se qualquer reversão for usada em uma sequência $S$ que transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$, então $|S| > 3n$.
+
+Para indels, notamos que depois que removemos peso de uma resta preta, ela pode aumentar o número de ciclos alpha em uma unidade, no entanto, após qualquer indel que remove peso de arestas pretas, pelo menos um indel que insere peso é necessária para balancear a instância $\mathcal{I}$ novamente e, como esse indel não pode aumentar o número de ciclos alpha resulta em mais de $3n$ operações em uma sequência $S$ que transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$. 
+
+Neste caso, para a instância $\mathcal{I}$ do problema \SbIRM{} ou \SbIRMI{}, temos que uma sequência $S$, tal que $|S| \le 3n$ e $(\pi,\breve\pi) \cdot S = (\iota,\breve\iota)$, deve ser composta exclusivamente por moves.
+
+As $3n$ operações de move transferirão todo o peso das $3n$ arestas pretas com rótulos de $1$ até $3n$ para as arestas pretas com rótulos de $3n+1$ até $4n$, criando um ciclo alpha cada. As arestas pretas com rótulos de $3n+1$ até $4n$ devem receber um peso total que corresponda à soma dos pesos de exatamente três arestas pretas com rótulos $1$ até $3n$, pois $\frac{B}{2} > a_i > \frac{B}{4}$. Ao final do processo, basta rastrear o peso que foi transferido para criar cada ciclo alpha.
+\end{proof}
+
+
+\begin{theorem}\label{theorem:YACBNPHO}
+Os problemas \SbIRTI{} e \SbIRTMI{} em instâncias intergênicas rígidas com sinais pertencem à classe NP-difícil.
+\end{theorem}
+\begin{proof}
+A prova é similar a descrita no Teorema~\ref{theorem:YARJETHG}, mas utilizando uma redução da versão de decisão da variação com sinais do problema \SbRT{} e considerando que a sequência $S'$ para a instância $(\mathcal{I'},t)$ do problema \SbIRTI{} ou \SbIRTMI{} é composta por reversões intergênicas e transposições intergênicas ao invés de reversões intergênicas exclusivamente.
 \end{proof}
 
 % ------------------------------------------------------------------ %
@@ -744,6 +818,23 @@ Pelo Lema~\ref{lemma:GCEWGEBP}, o Algoritmo~\ref{algorithm:FMDPGQTJ} transforma 
 \end{proof}
 
 % ------------------------------------------------------------------ %
+\subsection{Heurística Gulosa}
+% ------------------------------------------------------------------ %
+
+Visando obter resultados práticos melhores pelos algoritmos apresentados para a variação sem sinais dos problemas investigados neste capítulo, nos propomos uma heurística baseada em uma estratégia gulosa. A heurística consiste em verificar se existe em instância intergênica sem sinais $\mathcal{I}$ uma operação de reversão, transposição ou move que remove dois ou mais breakpoints tipo um e aplicá-la. O Algoritmo~\ref{algorithm:XPAWWVSJ} mostra os passos da heurística que devem ser executados seguindo uma ordem de prioridade.  
+
+\input{algorithms/XPAWWVSJ}
+
+Os algoritmos propostos para a variação sem sinais dos problemas \SbIR{}, \SbIRI{}, \SbIRM{}, \SbIRMI{}, \SbIRT{}, \SbIRTI{}, \SbIRTM{} e \SbIRTMI{} devem, a cada iteração, verificar se a heurística fornece uma sequência não vazia. Caso a resposta seja positiva, então o aloritmo deve incluir a operação fornecida pela heurística na sua sequência de eventos e atualizar a instância intergênica sem sinais $\mathcal{I}$. Após isso, uma nova iteração deve ser realizada pelo algoritmo. Caso contrário, o algoritmo segue aplicando normalmente os demais passos previstos.
+
+Note que caso a heurística forneça alguma operação, então sabemos que pelo menos dois breakpoints tipo um de $\mathcal{I}$ são removidos. Logo, a utilização da heurística pelos algoritmos indicados não altera o fator de aproximação teórico garantido pelos mesmos.
+
+
+% ------------------------------------------------------------------ %
+\subsection{Resultados Práticos}
+% ------------------------------------------------------------------ %
+
+% ------------------------------------------------------------------ %
 \section{Instâncias Intergênicas Rígidas com Sinais}
 % ------------------------------------------------------------------ %
 
@@ -788,12 +879,24 @@ Note que as funções $\mathcal{F}$ e $\mathcal{G}$ podem ser computadas em temp
 
 Note que o tempo de execução do Algoritmo~\ref{algorithm:UJBJJGGJ} será igual ao tempo de execução do algoritmo $\mathcal{A}$, uma vez que para ler os dados de entrada é necessário um tempo linear e as funções $\mathcal{F}$ e $\mathcal{G}$ executam também em tempo linear.
 
+% ------------------------------------------------------------------ %
+\subsection{Reversão}
+% ------------------------------------------------------------------ %
+
+Nesta seção, com base na estrutura do Algoritmo~\ref{algorithm:UJBJJGGJ}, apresentaremos um algoritmo de aproximação com fator $4$ para a variação com sinais do problema \SbIR{}.
+
 \begin{theorem}\label{theorem:DGTASCUU}
 Dada uma instância intergênica rígida balanceada com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:UJBJJGGJ} é uma $4$-aproximação para o problema \SbIR{} adotando $\mathcal{A}=$Algoritmo~\ref{algorithm:AKKUXQNR}.
 \end{theorem}
 \begin{proof}
 Note que o Algoritmo~\ref{algorithm:AKKUXQNR} fornece um sequência de reversões que afetam apenas breakpoints tipo um. Logo, nunhuma adjacência intergênica de $\mathcal{I'}$ é afetada. Além disso, pelo Lema~\ref{lemma:RBHACFIP}, Algoritmo~\ref{algorithm:AKKUXQNR} utiliza no máximo $2ib_1(\mathcal{I'})$ reversões para transformar $(\pi',\breve\pi')$ em $(\iota',\breve\iota')$. Pelo Lema~\ref{lemma:GTTULLOM}, temos que $(\pi,\breve\pi) \cdot S = (\iota,\breve\iota)$ e $|S| = |S'| \le 2ib_1(\mathcal{I'})$. Pelo Lema~\ref{lemma:FKOCCOYY}, temos que $ib_1(\mathcal{I'}) = ib_2(\mathcal{I})$. Logo, $|S| \le 2ib_2(\mathcal{I})$. Pelo Teorema~\ref{theorem:NFVKZGKW}, temos o seguinte limitante inferior $d_{\SbIR}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I})}{2}$. Logo, o teorema segue.
 \end{proof}
+
+% ------------------------------------------------------------------ %
+\subsection{Reversão e Indel}
+% ------------------------------------------------------------------ %
+
+Nesta seção, com base na estrutura do Algoritmo~\ref{algorithm:UJBJJGGJ}, apresentaremos um algoritmo de aproximação com fator $4$ para a variação com sinais do problema \SbIRI{}.
 
 \begin{theorem}\label{theorem:CLXFCZMR}
 Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:UJBJJGGJ} é uma $4$-aproximação para o problema \SbIRI{} adotando $\mathcal{A}=$Algoritmo~\ref{algorithm:LHOPSFVN}.
@@ -802,6 +905,12 @@ Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi
 A prova é similar a descrita no Teorema~\ref{theorem:DGTASCUU}, mas considerando que o Algoritmo~\ref{algorithm:LHOPSFVN} utiliza no máximo $2ib_1(\mathcal{I'})$ eventos de reversão e indel para transformar $(\pi',\breve\pi')$ em $(\iota',\breve\iota')$ (Lema~\ref{lemma:XUDIVWPC}).
 \end{proof}
 
+% ------------------------------------------------------------------ %
+\subsection{Reversão e Move}
+% ------------------------------------------------------------------ %
+
+Nesta seção apresentaremos algoritmos de aproximação com fatores de aproximação $4$ e $2$ para a variação com sinais do problema \SbIRM{}.
+
 \begin{theorem}\label{theorem:KJSCUFTB}
 Dada uma instância intergênica rígida balanceada com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:UJBJJGGJ} é uma $4$-aproximação para o problema \SbIRM{} adotando $\mathcal{A}=$Algoritmo~\ref{algorithm:OLSRUEFZ}.
 \end{theorem}
@@ -809,46 +918,7 @@ Dada uma instância intergênica rígida balanceada com sinais $\mathcal{I}=((\p
 A prova é similar a descrita no Teorema~\ref{theorem:DGTASCUU}, mas considerando que o Algoritmo~\ref{algorithm:OLSRUEFZ} utiliza no máximo $2ib_1(\mathcal{I'})$ eventos de reversão e move para transformar $(\pi',\breve\pi')$ em $(\iota',\breve\iota')$ (Lema~\ref{lemma:TZYVWBRT}).
 \end{proof}
 
-\begin{theorem}\label{theorem:PZXMHZFE}
-Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:UJBJJGGJ} é uma $4$-aproximação para o problema \SbIRMI{} adotando $\mathcal{A}=$Algoritmo~\ref{algorithm:JAJGNYWD}.
-\end{theorem}
-\begin{proof}
-A prova é similar a descrita no Teorema~\ref{theorem:DGTASCUU}, mas considerando que o Algoritmo~\ref{algorithm:JAJGNYWD} utiliza no máximo $2ib_1(\mathcal{I'})$ eventos de reversão, move e indel para transformar $(\pi',\breve\pi')$ em $(\iota',\breve\iota')$ (Lema~\ref{lemma:SINGKSVU}).
-\end{proof}
-
-\begin{theorem}\label{theorem:TRRZCTJT}
-Dada uma instância intergênica rígida balanceada com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:UJBJJGGJ} é uma $4$-aproximação para o problema \SbIRT{} adotando $\mathcal{A}=$Algoritmo~\ref{algorithm:LCPCUFNZ}.
-\end{theorem}
-\begin{proof}
-Note que o Algoritmo~\ref{algorithm:LCPCUFNZ} fornece um sequência de reversões e tranposições que afetam apenas breakpoints tipo um. Logo, nunhuma adjacência intergênica de $\mathcal{I'}$ é afetada. Além disso, pelo Lema~\ref{lemma:HIIRAXUH}, Algoritmo~\ref{algorithm:LCPCUFNZ} utiliza no máximo $\frac{4ib_1(\mathcal{I'})}{3}$ eventos de reversão e transposição para transformar $(\pi',\breve\pi')$ em $(\iota',\breve\iota')$. Pelo Lema~\ref{lemma:GTTULLOM}, temos que $(\pi,\breve\pi) \cdot S = (\iota,\breve\iota)$ e $|S| = |S'| \le \frac{4ib_1(\mathcal{I'})}{3}$. Pelo Lema~\ref{lemma:FKOCCOYY}, temos que $ib_1(\mathcal{I'}) = ib_2(\mathcal{I})$. Logo, $|S| \le \frac{4ib_2(\mathcal{I})}{3}$. Pelo Teorema~\ref{theorem:NFVKZGKW}, temos o seguinte limitante inferior $d_{\SbIRT}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I})}{3}$. Logo, o teorema segue.
-\end{proof}
-
-\begin{theorem}\label{theorem:PTXWEJRJ}
-Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:UJBJJGGJ} é uma $4$-aproximação para o problema \SbIRTI{} adotando $\mathcal{A}=$Algoritmo~\ref{algorithm:YIZYUGZZ}.
-\end{theorem}
-\begin{proof}
-Note que o Algoritmo~\ref{algorithm:YIZYUGZZ} fornece um sequência de reversões, tranposições e indels que afetam apenas breakpoints tipo um. Logo, nunhuma adjacência intergênica de $\mathcal{I'}$ é afetada. Além disso, pelo Lema~\ref{lemma:MUTXDAUG}, o Algoritmo~\ref{algorithm:YIZYUGZZ} utiliza no máximo $\frac{4ib_1(\mathcal{I'})}{3}$ e $\frac{4ib_1(\mathcal{I'})}{3} + 1$ eventos de reversão, transposição e indel para transformar $(\pi',\breve\pi')$ em $(\iota',\breve\iota')$ se $\mathcal{I'}$ for balanceada e desbalanceada, respectivamente. Pelo Lema~\ref{lemma:GTTULLOM}, temos que $(\pi,\breve\pi) \cdot S = (\iota,\breve\iota)$ e $|S| = |S'|$. Pelo Lema~\ref{lemma:FKOCCOYY}, temos que $ib_1(\mathcal{I'}) = ib_2(\mathcal{I})$. Logo, caso $\mathcal{I}$ seja balanceada temos que $|S| \le \frac{4ib_2(\mathcal{I})}{3}$. Caso contrário, temos que $|S| \le \frac{4ib_2(\mathcal{I})}{3} + 1$. Pelo Teorema~\ref{theorem:JGVDYLDM}, temos o seguinte limitante inferior: Se $\mathcal{I}$ for balanceada, então $d_{\SbIRT}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I})}{3}$. Caso contrário, $d_{\SbIRT}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I}) + 2}{3}$.Se $\mathcal{I}$ for balanceada, temos que $\frac{\frac{4b_2(\mathcal{I})}{3}}{\frac{ib_2(\mathcal{I})}{3}}=4$. Se $\mathcal{I}$ for desbalanceada,  temos que $\frac{\frac{4ib_2(\mathcal{I})}{3} + 1}{\frac{ib_2(\mathcal{I}) + 2}{3}}=\frac{\frac{4ib_2(\mathcal{I})+3}{3}}{\frac{ib_2(\mathcal{I}) + 2}{3}}=\frac{4ib_2(\mathcal{I})+3}{ib_2(\mathcal{I})+2}$. Entretanto, como $\frac{4ib_2(\mathcal{I})+3}{ib_2(\mathcal{I})+2}<\frac{4(ib_2(\mathcal{I})+2)}{ib_2(\mathcal{I})+2}=4$, e o teorema segue.
-\end{proof}
-
-\begin{theorem}\label{theorem:SIMBVUPO}
-Dada uma instância intergênica rígida balanceada com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:UJBJJGGJ} é uma $3$-aproximação para o problema \SbIRTM{} adotando $\mathcal{A}=$Algoritmo~\ref{algorithm:UZWADMNZ}.
-\end{theorem}
-\begin{proof}
-A prova é similar a descrita no Teorema~\ref{theorem:TRRZCTJT}, mas considerando que o Algoritmo~\ref{algorithm:UZWADMNZ} utiliza no máximo $ib_1(\mathcal{I'})$ eventos de reversão, transposição e move para transformar $(\pi',\breve\pi')$ em $(\iota',\breve\iota')$ (Lema~\ref{lemma:UUWLBHHA}).
-\end{proof}
-
-\begin{theorem}\label{theorem:KKKBVPAY}
-Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:UJBJJGGJ} é uma $3$-aproximação para o problema \SbIRTMI{} adotando \break$\mathcal{A}=$Algoritmo~\ref{algorithm:FMDPGQTJ}.
-\end{theorem}
-\begin{proof}
-A prova é similar a descrita no Teorema~\ref{theorem:TRRZCTJT}, mas considerando que o Algoritmo~\ref{algorithm:FMDPGQTJ} utiliza no máximo $ib_1(\mathcal{I'})$ eventos de reversão, transposição, move e indel para transformar $(\pi',\breve\pi')$ em $(\iota',\breve\iota')$ (Lema~\ref{lemma:GCEWGEBP}).
-\end{proof}
-
-% ------------------------------------------------------------------ %
-\subsection{Reversão e Move}
-% ------------------------------------------------------------------ %
-
-Nesta seção iremos apresentar um algoritmo de aproximação com um fator de aproximação $2$ para a variação com sinais do problema \SbIRM{} baseado na estrutura de grafo de ciclos ponderado rígido.
+A seguir faremos uso da estrutura de grafo de ciclos ponderado rígido e apresentaremos lemas que serão utilizados para obtenção de uma algoritmo de aproximação com um fator $2$.
 
 \begin{lemma}\label{lemma:UXFNYAGI}
 Dada uma instância intergênica rígida balanceada com sinais $\mathcal{I}=((\pi,\breve\pi),\break(\iota,\breve\iota))$, tal que em $G(\mathcal{I})$ existe pelo menos um ciclo negativo $C=(c^1)$, então deve existir em $G(\mathcal{I})$ pelo menos um ciclo positivo.
@@ -904,7 +974,16 @@ Pelo Lema~\ref{lemma:APHTXLZC}, o Algoritmo~\ref{algorithm:EHDLZXJA} transforma 
 \subsection{Reversão, Move e Indel}
 % ------------------------------------------------------------------ %
 
-Nesta seção iremos apresentar um algoritmo de aproximação com um fator de aproximação $2$ para a variação com sinais do problema \SbIRMI{} baseado na estrutura de grafo de ciclos ponderado rígido.
+Nesta seção apresentaremos algoritmos de aproximação com fatores de aproximação $4$ e $2$ para a variação com sinais do problema \SbIRMI{}.
+
+\begin{theorem}\label{theorem:PZXMHZFE}
+Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:UJBJJGGJ} é uma $4$-aproximação para o problema \SbIRMI{} adotando $\mathcal{A}=$Algoritmo~\ref{algorithm:JAJGNYWD}.
+\end{theorem}
+\begin{proof}
+A prova é similar a descrita no Teorema~\ref{theorem:DGTASCUU}, mas considerando que o Algoritmo~\ref{algorithm:JAJGNYWD} utiliza no máximo $2ib_1(\mathcal{I'})$ eventos de reversão, move e indel para transformar $(\pi',\breve\pi')$ em $(\iota',\breve\iota')$ (Lema~\ref{lemma:SINGKSVU}).
+\end{proof}
+
+A seguir faremos uso da estrutura de grafo de ciclos ponderado rígido e apresentaremos lemas que serão utilizados para obtenção de uma algoritmo de aproximação com um fator $2$.
 
 \begin{lemma}\label{lemma:BZLJHNFF}
 Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, tal que em $G(\mathcal{I})$ existe pelo menos um ciclo trivial negativo $C=(c^1)$, então é possível aumentar o número de cilos balanceados de $G(\mathcal{I})$ em uma unidade após aplicar uma operação de indel.
@@ -943,8 +1022,64 @@ Pelo Lema~\ref{lemma:PBDEKMXG}, o Algoritmo~\ref{algorithm:RYNLKYUJ} transforma 
 \end{proof}
 
 % ------------------------------------------------------------------ %
+\subsection{Reversão e Transposição}
+% ------------------------------------------------------------------ %
+
+Nesta seção, com base na estrutura do Algoritmo~\ref{algorithm:UJBJJGGJ}, apresentaremos um algoritmo de aproximação com fator $4$ para a variação com sinais do problema \SbIRT{}.
+
+\begin{theorem}\label{theorem:TRRZCTJT}
+Dada uma instância intergênica rígida balanceada com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:UJBJJGGJ} é uma $4$-aproximação para o problema \SbIRT{} adotando $\mathcal{A}=$Algoritmo~\ref{algorithm:LCPCUFNZ}.
+\end{theorem}
+\begin{proof}
+Note que o Algoritmo~\ref{algorithm:LCPCUFNZ} fornece um sequência de reversões e tranposições que afetam apenas breakpoints tipo um. Logo, nunhuma adjacência intergênica de $\mathcal{I'}$ é afetada. Além disso, pelo Lema~\ref{lemma:HIIRAXUH}, Algoritmo~\ref{algorithm:LCPCUFNZ} utiliza no máximo $\frac{4ib_1(\mathcal{I'})}{3}$ eventos de reversão e transposição para transformar $(\pi',\breve\pi')$ em $(\iota',\breve\iota')$. Pelo Lema~\ref{lemma:GTTULLOM}, temos que $(\pi,\breve\pi) \cdot S = (\iota,\breve\iota)$ e $|S| = |S'| \le \frac{4ib_1(\mathcal{I'})}{3}$. Pelo Lema~\ref{lemma:FKOCCOYY}, temos que $ib_1(\mathcal{I'}) = ib_2(\mathcal{I})$. Logo, $|S| \le \frac{4ib_2(\mathcal{I})}{3}$. Pelo Teorema~\ref{theorem:NFVKZGKW}, temos o seguinte limitante inferior $d_{\SbIRT}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I})}{3}$. Logo, o teorema segue.
+\end{proof}
+
+% ------------------------------------------------------------------ %
+\subsection{Reversão, Transposição e Indel}
+% ------------------------------------------------------------------ %
+
+Nesta seção, com base na estrutura do Algoritmo~\ref{algorithm:UJBJJGGJ}, apresentaremos um algoritmo de aproximação com fator $4$ para a variação com sinais do problema \SbIRTI{}.
+
+\begin{theorem}\label{theorem:PTXWEJRJ}
+Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:UJBJJGGJ} é uma $4$-aproximação para o problema \SbIRTI{} adotando $\mathcal{A}=$Algoritmo~\ref{algorithm:YIZYUGZZ}.
+\end{theorem}
+\begin{proof}
+Note que o Algoritmo~\ref{algorithm:YIZYUGZZ} fornece um sequência de reversões, tranposições e indels que afetam apenas breakpoints tipo um. Logo, nunhuma adjacência intergênica de $\mathcal{I'}$ é afetada. Além disso, pelo Lema~\ref{lemma:MUTXDAUG}, o Algoritmo~\ref{algorithm:YIZYUGZZ} utiliza no máximo $\frac{4ib_1(\mathcal{I'})}{3}$ e $\frac{4ib_1(\mathcal{I'})}{3} + 1$ eventos de reversão, transposição e indel para transformar $(\pi',\breve\pi')$ em $(\iota',\breve\iota')$ se $\mathcal{I'}$ for balanceada e desbalanceada, respectivamente. Pelo Lema~\ref{lemma:GTTULLOM}, temos que $(\pi,\breve\pi) \cdot S = (\iota,\breve\iota)$ e $|S| = |S'|$. Pelo Lema~\ref{lemma:FKOCCOYY}, temos que $ib_1(\mathcal{I'}) = ib_2(\mathcal{I})$. Logo, caso $\mathcal{I}$ seja balanceada temos que $|S| \le \frac{4ib_2(\mathcal{I})}{3}$. Caso contrário, temos que $|S| \le \frac{4ib_2(\mathcal{I})}{3} + 1$. Pelo Teorema~\ref{theorem:JGVDYLDM}, temos o seguinte limitante inferior: Se $\mathcal{I}$ for balanceada, então $d_{\SbIRT}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I})}{3}$. Caso contrário, $d_{\SbIRT}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I}) + 2}{3}$.Se $\mathcal{I}$ for balanceada, temos que $\frac{\frac{4b_2(\mathcal{I})}{3}}{\frac{ib_2(\mathcal{I})}{3}}=4$. Se $\mathcal{I}$ for desbalanceada,  temos que $\frac{\frac{4ib_2(\mathcal{I})}{3} + 1}{\frac{ib_2(\mathcal{I}) + 2}{3}}=\frac{\frac{4ib_2(\mathcal{I})+3}{3}}{\frac{ib_2(\mathcal{I}) + 2}{3}}=\frac{4ib_2(\mathcal{I})+3}{ib_2(\mathcal{I})+2}$. Entretanto, como $\frac{4ib_2(\mathcal{I})+3}{ib_2(\mathcal{I})+2}<\frac{4(ib_2(\mathcal{I})+2)}{ib_2(\mathcal{I})+2}=4$, e o teorema segue.
+\end{proof}
+
+% ------------------------------------------------------------------ %
+\subsection{Reversão, Transposição e Move}
+% ------------------------------------------------------------------ %
+
+Nesta seção, com base na estrutura do Algoritmo~\ref{algorithm:UJBJJGGJ}, apresentaremos um algoritmo de aproximação com fator $3$ para a variação com sinais do problema \SbIRTM{}.
+
+\begin{theorem}\label{theorem:SIMBVUPO}
+Dada uma instância intergênica rígida balanceada com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:UJBJJGGJ} é uma $3$-aproximação para o problema \SbIRTM{} adotando $\mathcal{A}=$Algoritmo~\ref{algorithm:UZWADMNZ}.
+\end{theorem}
+\begin{proof}
+A prova é similar a descrita no Teorema~\ref{theorem:TRRZCTJT}, mas considerando que o Algoritmo~\ref{algorithm:UZWADMNZ} utiliza no máximo $ib_1(\mathcal{I'})$ eventos de reversão, transposição e move para transformar $(\pi',\breve\pi')$ em $(\iota',\breve\iota')$ (Lema~\ref{lemma:UUWLBHHA}).
+\end{proof}
+
+% ------------------------------------------------------------------ %
+\subsection{Reversão, Transposição, Move e Indel}
+% ------------------------------------------------------------------ %
+
+Nesta seção, com base na estrutura do Algoritmo~\ref{algorithm:UJBJJGGJ}, apresentaremos um algoritmo de aproximação com fator $3$ para a variação com sinais do problema \SbIRTMI{}.
+
+\begin{theorem}\label{theorem:KKKBVPAY}
+Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:UJBJJGGJ} é uma $3$-aproximação para o problema \SbIRTMI{} adotando \break$\mathcal{A}=$Algoritmo~\ref{algorithm:FMDPGQTJ}.
+\end{theorem}
+\begin{proof}
+A prova é similar a descrita no Teorema~\ref{theorem:TRRZCTJT}, mas considerando que o Algoritmo~\ref{algorithm:FMDPGQTJ} utiliza no máximo $ib_1(\mathcal{I'})$ eventos de reversão, transposição, move e indel para transformar $(\pi',\breve\pi')$ em $(\iota',\breve\iota')$ (Lema~\ref{lemma:GCEWGEBP}).
+\end{proof}
+
+% ------------------------------------------------------------------ %
+\subsection{Resultados Práticos}
+% ------------------------------------------------------------------ %
+
+% ------------------------------------------------------------------ %
 \section{Conclusões}
 % ------------------------------------------------------------------ %
 
 Neste capítulo, investigamos a variação com e sem sinais de oito problemas considerando instâncias intergênicas rígidas e os eventos de rearranjo de reversão, transposição, move e indel. 
-Para todas as variações dos problemas em que a complexidade ainda era desconhecida, nos apresentamos uma prova de NP-dificuldade, com exceção da variação com sinais do problema de Ordenação de Permutações por Operações Intergênicas de Reversão e Indel (\SbIRI). Para todas as variações investigadas nos apresentamos pelo menos um algoritmo de aproximação com fator constante baseado no conceito de breakpoint intergênico. Além disso, apresentamos algoritmos com fatores de aproximação melhor baseados na estrutura de grafo de ciclos ponderado rígido. Por fim, realizamos testes experimentais com alguns dos algoritmos propostos para verificar o desempenho prático dos mesmos. Além disso, utilizamos dados de 97 genomas reais e construímos uma árvore filogenética com base exclusivamente na matriz de distância fornecida por um dos nossos algoritmos. Comparamos essa árvore filogenética com outra presente na literatura, construída com os mesmo 97 genomas, e o resultado apontou que existe uma alta concordância entre elas.
+Para todas as variações dos problemas em que a complexidade ainda era desconhecida, nos apresentamos uma prova de NP-dificuldade, com exceção da variação com sinais do problema de Ordenação de Permutações por Operações Intergênicas de Reversão e Indel (\SbIRI). Para todas as variações investigadas nos apresentamos pelo menos um algoritmo de aproximação com fator constante baseado no conceito de breakpoint intergênico. Além disso, apresentamos algoritmos com fatores de aproximação melhor baseados na estrutura de grafo de ciclos ponderado rígido. Por fim, realizamos testes experimentais com os algoritmos propostos para verificar o desempenho prático dos mesmos. Além disso, utilizamos dados de 97 genomas reais e construímos uma árvore filogenética com base exclusivamente na matriz de distância fornecida por um dos nossos algoritmos. Comparamos essa árvore filogenética com outra presente na literatura, construída com os mesmo 97 genomas, e o resultado apontou que existe uma alta concordância entre elas.

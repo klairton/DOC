@@ -831,9 +831,43 @@ A quantidade de operações disponíveis para gerar cada instância é baseada e
 
 Note que, para cada base de dados, a soma das porcentagens adotadas para cada operação é igual a 50\%. Logo, toda instância de um grupo $G$ foi gerada a partir de $\frac{G}{2}$ operações, sendo que o a quantidade de operações por tipo dependende da base de dados que é considerada.   
 
-A seguir apresentamos os resultados dos algoritmos propostos para a variação sem sinais dos problemas \SbIR{}, \SbIRI{}, \SbIRM{}, \SbIRMI{}, \SbIRT{}, \SbIRTI{}, \SbIRTM{} e \SbIRTMI{}. A coluna OP indica o total de operações utilizadas para gerar cada instância de um grupo. As colunas Distância e Aproximação indicam a quantidade de operações e o fator de aproximação para uma solução fornecida por um algoritmo. A Tabela~\ref{table:PSYFOCXO} mostra os resultados do Algoritmo~\ref{algorithm:AKKUXQNR} utilizando a base de dados $U_\SbIR{}$.
+A seguir apresentamos os resultados dos algoritmos propostos para a variação sem sinais dos problemas \SbIR{}, \SbIRI{}, \SbIRM{}, \SbIRMI{}, \SbIRT{}, \SbIRTI{}, \SbIRTM{} e \SbIRTMI{}. A coluna OP indica o total de operações utilizadas para gerar cada instância de um grupo. As colunas Distância e Aproximação indicam a quantidade de operações e o fator de aproximação para uma solução fornecida por um algoritmo.
+
+A Tabela~\ref{table:PSYFOCXO} mostra os resultados do Algoritmo~\ref{algorithm:AKKUXQNR} utilizando a base de dados $U_\SbIR{}$.
 
 \input{tables/PSYFOCXO}
+
+A Tabela~\ref{table:UIARBECI} mostra os resultados do Algoritmo~\ref{algorithm:LHOPSFVN} utilizando a base de dados $U_\SbIRI{}$.
+
+\input{tables/UIARBECI}
+
+A Tabela~\ref{table:RQMOVGKQ} mostra os resultados do Algoritmo~\ref{algorithm:OLSRUEFZ} utilizando a base de dados $U_\SbIRM{}$.
+
+\input{tables/RQMOVGKQ}
+
+A Tabela~\ref{table:XNLAJSQA} mostra os resultados do Algoritmo~\ref{algorithm:JAJGNYWD} utilizando a base de dados $U_\SbIRMI{}$.
+
+\input{tables/XNLAJSQA}
+
+As tabelas~\ref{table:WFTACOYR}, \ref{table:NKWIXQRV} e \ref{table:ZGIFXHSX} mostram, respectivamente, os resultados dos algoritmos~\ref{algorithm:SAAUGXYG}, \ref{algorithm:JQHVZACM} e \ref{algorithm:LCPCUFNZ} utilizando a base de dados $U_\SbIRT{}$.
+
+\input{tables/WFTACOYR}
+
+\input{tables/NKWIXQRV}
+
+\input{tables/ZGIFXHSX}
+
+A Tabela~\ref{table:MFWVXYQH} mostra os resultados do Algoritmo~\ref{algorithm:YIZYUGZZ} utilizando a base de dados $U_\SbIRTI{}$.
+
+\input{tables/MFWVXYQH}
+
+A Tabela~\ref{table:KSZBCEZE} mostra os resultados do Algoritmo~\ref{algorithm:UZWADMNZ} utilizando a base de dados $U_\SbIRTM{}$.
+
+\input{tables/KSZBCEZE}
+
+A Tabela~\ref{table:EANTBRZP} mostra os resultados do Algoritmo~\ref{algorithm:FMDPGQTJ} utilizando a base de dados $U_\SbIRTMI{}$.
+
+\input{tables/EANTBRZP}
 
 % ------------------------------------------------------------------ %
 \subsection{Heurística Gulosa}
@@ -888,7 +922,7 @@ Seja $\mathcal{G}$ uma função que cria um sequência $S$ com base nas operaç�
 Como as adjacências intergênicas de $\mathcal{I'}$ não são afetadas por qualquer evento de $S'$, então isso significa que nenhuma região $\breve\pi'_{2j}$, para $j\in[1..n]$, foi afetada. Sabendo disso, temos a garantia de que nenhum evento de $S'$ separa os pares de elemento $\pi'_{2i-1}$ e $\pi'_{2i}$, para $i\in[1..n]$. Note que o mapeamento utilizado pela função $\mathcal{G}$ considera a mudança na posição dos elementos causado pela transformação de duplicação. Dessa forma, a sequência $S$ fornecida pela função $\mathcal{G}$ é capaz de transformar $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ e $|S|=|S'|$. Logo, o lema segue.
 \end{proof}
 
-Note que as funções $\mathcal{F}$ e $\mathcal{G}$ podem ser computadas em tempo linear. A seguir, apresentamos o Algoritmo~\ref{algorithm:UJBJJGGJ}, que fornece uma estrutura base para o desenvolvimento de algoritmos para as variações com sinais dos problemas $\SbIR{}$, $\SbIRI{}$, $\SbIRM{}$, $\SbIRMI{}$, $\SbIRT{}$, $\SbIRTI{}$, $\SbIRTM{}$ e $\SbIRTMI{}$.
+Note que as funções $\mathcal{F}$ e $\mathcal{G}$ podem ser computadas em tempo linear.
 
 % ------------------------------------------------------------------ %
 \subsection{Reversão}
@@ -1110,7 +1144,43 @@ Nesta seção, apresentamos os resultados práticos dos algoritmos apresentados 
 
 Nós também criamos uma base de dados para cada problema e utilizamos os identificadores $S_\SbIR{}$, $S_\SbIRI{}$, $S_\SbIRM{}$, $S_\SbIRMI{}$, $S_\SbIRT{}$, $S_\SbIRTI{}$, $S_\SbIRTM{}$ e $S_\SbIRTMI{}$ para a base de dados dos problemas \SbIR{}, \SbIRI{}, \SbIRM{}, \SbIRMI{}, \SbIRT{}, \SbIRTI{}, \SbIRTM{} e \SbIRTMI{}, respectivamente. As bases de dados foram criadas de forma similar ao processo descrito na Seção~\ref{subsection:SIEYCNVZ}, diferindo apenas que cada instância foi criada a partir de um par de representação intergênica rígida com sinais. Logo, ao aplicar um evento de reversão os genes no segmento afetado também acabam tendo a orientação invertida.
 
-A seguir apresentamos os resultados dos algoritmos propostos para a variação com sinais dos problemas \SbIR{}, \SbIRI{}, \SbIRM{}, \SbIRMI{}, \SbIRT{}, \SbIRTI{}, \SbIRTM{} e \SbIRTMI{}. A coluna OP indica o total de operações utilizadas para gerar cada instância de um grupo. As colunas Distância e Aproximação indicam a quantidade de operações e o fator de aproximação para uma solução fornecida por um algoritmo. A Tabela~\ref{table:PSYFOCXO} mostra os resultados do Algoritmo~X utilizando a base de dados $S_\SbIR{}$.
+A seguir apresentamos os resultados dos algoritmos propostos para a variação com sinais dos problemas \SbIR{}, \SbIRI{}, \SbIRM{}, \SbIRMI{}, \SbIRT{}, \SbIRTI{}, \SbIRTM{} e \SbIRTMI{}. A coluna OP indica o total de operações utilizadas para gerar cada instância de um grupo. As colunas Distância e Aproximação indicam a quantidade de operações e o fator de aproximação para uma solução fornecida por um algoritmo.
+
+A Tabela~\ref{table:PPPESHDE} mostra os resultados do Algoritmo~\ref{algorithm:UJBJJGGJ} utilizando a base de dados $S_\SbIR{}$.
+
+\input{tables/PPPESHDE}
+
+A Tabela~\ref{table:GBAOFAHZ} mostra os resultados do Algoritmo~\ref{algorithm:QKCVERGO} utilizando a base de dados $S_\SbIRI{}$.
+
+\input{tables/GBAOFAHZ}
+
+As tabelas~\ref{table:HZHMCLUM} e \ref{table:CDIOXZDV} mostram, respectivamente, os resultados dos algoritmos~\ref{algorithm:VRXYTMUD} e \ref{algorithm:EHDLZXJA} utilizando a base de dados $S_\SbIRM{}$.
+
+\input{tables/HZHMCLUM}
+
+\input{tables/CDIOXZDV}
+
+As tabelas~\ref{table:GITKWJXD} e \ref{table:CIYAALPZ} mostram, respectivamente, os resultados dos algoritmo~\ref{algorithm:QMGGIVXT} e \ref{algorithm:RYNLKYUJ} utilizando a base de dados $S_\SbIRMI{}$.
+
+\input{tables/GITKWJXD}
+
+\input{tables/CIYAALPZ}
+
+A Tabela~\ref{table:UFTEBCWC} mostra os resultados do Algoritmo~\ref{algorithm:WTARSEZM} utilizando a base de dados $S_\SbIRT{}$.
+
+\input{tables/UFTEBCWC}
+
+A Tabela~\ref{table:SANZHOMN} mostra os resultados do Algoritmo~\ref{algorithm:EQALRDVE} utilizando a base de dados $S_\SbIRTI{}$.
+
+\input{tables/SANZHOMN}
+
+A Tabela~\ref{table:GLCTFFPM} mostra os resultados do Algoritmo~\ref{algorithm:MRFVALSC} utilizando a base de dados $S_\SbIRTM{}$.
+
+\input{tables/GLCTFFPM}
+
+A Tabela~\ref{table:FTGAXJEH} mostra os resultados do Algoritmo~\ref{algorithm:LCTCOSWM} utilizando a base de dados $S_\SbIRTMI{}$.
+
+\input{tables/FTGAXJEH}
 
 
 % ------------------------------------------------------------------ %

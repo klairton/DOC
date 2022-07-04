@@ -873,15 +873,19 @@ A Tabela~\ref{table:EANTBRZP} mostra os resultados do Algoritmo~\ref{algorithm:F
 \subsection{Heurística Gulosa}
 % ------------------------------------------------------------------ %
 
-Visando obter resultados práticos melhores pelos algoritmos apresentados para a variação sem sinais dos problemas investigados neste capítulo, nos propomos uma heurística baseada em uma estratégia gulosa. A heurística consiste em verificar se existe em instância intergênica sem sinais $\mathcal{I}$ uma operação de reversão, transposição ou move que remove dois ou mais breakpoints tipo um e aplicá-la. O Algoritmo~\ref{algorithm:XPAWWVSJ} mostra os passos da heurística que devem ser executados seguindo uma ordem de prioridade.  
+Visando obter resultados práticos melhores pelos algoritmos apresentados para a variação sem sinais dos problemas investigados neste capítulo, nos propomos heurísticas baseadas em uma estratégia gulosa. As heurísticas consistem em verificar se existe em instância intergênica sem sinais $\mathcal{I}$ uma operação de reversão, transposição ou move que remove dois ou mais breakpoints tipo um e aplicá-la. O Algoritmo~\ref{algorithm:XPAWWVSJ} mostra os passos da heurística I, que devem ser executados seguindo uma ordem de prioridade, e consdera apenas os eventos de reversão e transposição.  
 
 \input{algorithms/XPAWWVSJ}
 
-Os algoritmos propostos para a variação sem sinais dos problemas \SbIR{}, \SbIRI{}, \SbIRM{}, \SbIRMI{}, \SbIRT{}, \SbIRTI{}, \SbIRTM{} e \SbIRTMI{} devem, a cada iteração, verificar se a heurística fornece uma sequência não vazia. Caso a resposta seja positiva, então o aloritmo deve incluir a operação fornecida pela heurística na sua sequência de eventos e atualizar a instância intergênica sem sinais $\mathcal{I}$. Após isso, uma nova iteração deve ser realizada pelo algoritmo. Caso contrário, o algoritmo segue aplicando normalmente os demais passos previstos.
+O Algoritmo~\ref{algorithm:HCOCWPIN} mostra os passos da heurística II, que é uma extensão da heurística I incluindo o evento de move.  
 
-Note que caso a heurística forneça alguma operação, então sabemos que pelo menos dois breakpoints tipo um de $\mathcal{I}$ são removidos. Logo, a utilização da heurística pelos algoritmos indicados não altera o fator de aproximação teórico garantido pelos mesmos. Além disso, note que os passos da heurística que aplicam uma reversão ou uma transposição podem ser realizados em tempo linear com auxílio da permutação inversa de $\pi$. Entretanto, no pior caso, o passo que aplica um move possui um tempo de execução de $\mathcal{O}(n\log n)$. Note que esse passo utiliza apenas breakpoints subcarregados e sobrecarregados, verificando se existe um par com um breakpoint sobrecarregado e um breakpoint subcarregado, tal que o excesso no tamanho da região intergênica do breakpoint sobrecarregado é exatamente a quantidade que falta na região intergênica do breakpoint subcarregado. Uma forma de realizar esse passo é ordenando os breakpoints sobrecarregados pelo excesso no tamanho da região intergênica e, para cada breakpoint subcarregado, realizar uma busca binária verificando se é possível encontrar um par com tal característica.
+\input{algorithms/HCOCWPIN}
 
-Dessa forma, a utilização da heurística pelos algoritmos para a variação sem sinais dos problemas \SbIR{}, \SbIRI{}, \SbIRT{} e \SbIRTI{} não altera o tempo de execução dos mesmos, mantendo-se em $\mathcal{O}(n^2)$. Entretanto, para os algoritmos da variação sem sinais dos problemas \SbIRM{}, \SbIRMI{}, \SbIRTM{} e \SbIRTMI{} o tempo de execução é afetado, alterando-se para $\mathcal{O}(n^2 \log n)$.
+Os algoritmos propostos para a variação sem sinais dos problemas \SbIR{}, \SbIRI{}, \SbIRM{}, \SbIRMI{}, \SbIRT{}, \SbIRTI{}, \SbIRTM{} e \SbIRTMI{} devem, a cada iteração, verificar se a heurística I ou II fornece uma sequência não vazia. Caso a resposta seja positiva, então o algoritmo deve incluir a operação fornecida pela heurística na sua sequência de eventos e atualizar a instância intergênica sem sinais $\mathcal{I}$. Após isso, uma nova iteração deve ser realizada pelo algoritmo. Caso contrário, o algoritmo segue aplicando normalmente os demais passos previstos.
+
+Note que caso a heurística I ou II forneça alguma operação, então sabemos que pelo menos dois breakpoints tipo um de $\mathcal{I}$ são removidos. Logo, a utilização de uma das heurísticas pelos algoritmos indicados não altera o fator de aproximação teórico garantido pelos mesmos. Entretanto, existe uma diferença entre o tempo de execução da heurística I e II. Note que os passos que aplicam uma reversão ou uma transposição podem ser realizados em tempo linear com auxílio da permutação inversa de $\pi$. Contudo, o passo que aplica um move, no pior caso, possui um tempo de execução de $\mathcal{O}(n\log n)$. Note que esse passo utiliza apenas breakpoints subcarregados e sobrecarregados, verificando se existe um par com um breakpoint sobrecarregado e um breakpoint subcarregado, tal que o excesso no tamanho da região intergênica do breakpoint sobrecarregado é exatamente a quantidade que falta na região intergênica do breakpoint subcarregado. Uma forma de realizar esse passo é ordenando os breakpoints sobrecarregados pelo excesso no tamanho da região intergênica e, para cada breakpoint subcarregado, realizar uma busca binária verificando se é possível encontrar um par com tal característica.
+
+Dessa forma, a utilização da heurística I (Algoritmo~\ref{algorithm:XPAWWVSJ}) não altera o tempo de execução dos algoritmos propostos para a variação sem sinais dos problemas \SbIR{}, \SbIRI{}, \SbIRM{}, \SbIRMI{}, \SbIRT{}, \SbIRTI{}, \SbIRTM{} e \SbIRTMI{}, mantendo-se em $\mathcal{O}(n^2)$. Entretanto, o uso da heurística II (Algoritmo~\ref{algorithm:HCOCWPIN}) afeta o tempo de execução dos algoritmos para a variação sem sinais dos problemas \SbIRM{}, \SbIRMI{}, \SbIRTM{} e \SbIRTMI{}, alterando-se para $\mathcal{O}(n^2 \log n)$.
 
 % ------------------------------------------------------------------ %
 \section{Instâncias Intergênicas Rígidas com Sinais}
@@ -1144,17 +1148,30 @@ Nesta seção, apresentamos os resultados práticos dos algoritmos apresentados 
 
 Nós também criamos uma base de dados para cada problema e utilizamos os identificadores $S_\SbIR{}$, $S_\SbIRI{}$, $S_\SbIRM{}$, $S_\SbIRMI{}$, $S_\SbIRT{}$, $S_\SbIRTI{}$, $S_\SbIRTM{}$ e $S_\SbIRTMI{}$ para a base de dados dos problemas \SbIR{}, \SbIRI{}, \SbIRM{}, \SbIRMI{}, \SbIRT{}, \SbIRTI{}, \SbIRTM{} e \SbIRTMI{}, respectivamente. As bases de dados foram criadas de forma similar ao processo descrito na Seção~\ref{subsection:SIEYCNVZ}, diferindo apenas que cada instância foi criada a partir de um par de representação intergênica rígida com sinais. Logo, ao aplicar um evento de reversão os genes no segmento afetado também acabam tendo a orientação invertida.
 
+Além das bases de dados criadas por nós, utilizamos também duas bases de dados apresentadas por Oliveira \textit{et al.}~\cite{2021a-oliveira-etal}. As bases foram geradas da seguinte forma: Inicialmente, utilizando uma representação  intergênica com sinais foram gerados 100 genomas alvos $(\iota,\breve\iota)$, com 100 genes cada e cada valor de $\breve\iota_i$, com $1 \le i \le 101$, sendo aleatoriamente e de maneira uniforme escolhido no intervalo $[0..100]$. Depois disso, a partir de cada genoma alvo $(\iota,\breve\iota)$ foram gerados 100 genomas de origem $(\pi,\breve\pi)$ aplicando:
+
+\begin{itemize}
+    \item DB\textsubscript{\SbIRT{}}: $d$ operações aleatórias de reversões e transposições (sendo 50\% de cada) em cada genoma alvo $(\iota,\breve\iota)$.
+    \item DB\textsubscript{\SbIRTM{}}: $d$ operações aleatórias de reversões e transposições genéricas (sendo 50\% de reversões, 40\% de transposições e 10\% de moves) em cada genoma alvo $(\iota,\breve\iota)$.
+\end{itemize}
+
+Os parâmetros de cada operação aplicada foram gerados aleatoriamente considerando a faixa de valores válidos. O valor de $d$ variou de 10 até 100, em intervalos de 10. Para cada valor de $d$, foi gerado um grupo com 10.000 instâncias. As bases de dados DB\textsubscript{\SbIRT{}} e DB\textsubscript{\SbIRTM{}} têm um total de 100.000 instâncias cada.
+
 A seguir apresentamos os resultados dos algoritmos propostos para a variação com sinais dos problemas \SbIR{}, \SbIRI{}, \SbIRM{}, \SbIRMI{}, \SbIRT{}, \SbIRTI{}, \SbIRTM{} e \SbIRTMI{}. A coluna OP indica o total de operações utilizadas para gerar cada instância de um grupo. As colunas Distância e Aproximação indicam a quantidade de operações e o fator de aproximação para uma solução fornecida por um algoritmo.
 
-A Tabela~\ref{table:PPPESHDE} mostra os resultados do Algoritmo~\ref{algorithm:UJBJJGGJ} utilizando a base de dados $S_\SbIR{}$.
+A Tabela~\ref{table:PPPESHDE} mostra os resultados do Algoritmo~\ref{algorithm:UJBJJGGJ} utilizando a base de dados $S_\SbIR{}$. O fator de aproximação foi computado utilizando o limitante inferior apresentado no Teorema~\ref{theorem:NFVKZGKW}.
 
 \input{tables/PPPESHDE}
 
-A Tabela~\ref{table:GBAOFAHZ} mostra os resultados do Algoritmo~\ref{algorithm:QKCVERGO} utilizando a base de dados $S_\SbIRI{}$.
+Pela Tabela~\ref{table:PPPESHDE}, podemos perceber que, em média, a distância fornecida pelo Algoritmo~\ref{algorithm:UJBJJGGJ} é um valor próximo de 90\% do tamamho da instância. Além disso, o fator mínimo de aproximação obtido foi de $2.31$ no grupo 100. Já o fator de aproximação máximo obtido foi de $3.35$, também no grupo 100. Podemos notar ainda que o fator de aproximação médio tende a aumentar conforme o tamanho da instância também aumenta. Entretanto, a variação entre o fator de aproximação mínimo e máximo tende a diminuir conforme o tamanho da instância aumenta. Além disso, o fator de aproximação observado na prática foi significativamente menor do que o fator teórico provado para o algoritmo. Vale ressaltar que existe para a variação com sinais do problema \SbIR{} um algoritmo com fator de aproximação $2$~\cite{2021b-oliveira-etal} baseado na estrutura de grafo de ciclos. O Algoritmo~\ref{algorithm:UJBJJGGJ} garante um fator de aproximação $4$, mas utiliza o conceito de breakpoint.
+
+A Tabela~\ref{table:GBAOFAHZ} mostra os resultados do Algoritmo~\ref{algorithm:QKCVERGO} utilizando a base de dados $S_\SbIRI{}$. Os fatores de aproximação foram computados utilizando o limitante inferior apresentado no Teorema~\ref{theorem:NFVKZGKW}.
 
 \input{tables/GBAOFAHZ}
 
-As tabelas~\ref{table:HZHMCLUM} e \ref{table:CDIOXZDV} mostram, respectivamente, os resultados dos algoritmos~\ref{algorithm:VRXYTMUD} e \ref{algorithm:EHDLZXJA} utilizando a base de dados $S_\SbIRM{}$.
+Pela Tabela~\ref{table:GBAOFAHZ}, podemos notar que o Algoritmo~\ref{algorithm:QKCVERGO} apresentou um desempenho similar ao Algoritmo~\ref{algorithm:UJBJJGGJ}. É importante mencionar que o fator de aproximação médio foi levemente maior em todos os grupos. Entretanto, a distância média fornecida pelo Algoritmo~\ref{algorithm:QKCVERGO}, em todos os grupos, foi menor. 
+
+As tabelas~\ref{table:HZHMCLUM} e \ref{table:CDIOXZDV} mostram, respectivamente, os resultados dos algoritmos~\ref{algorithm:VRXYTMUD} e \ref{algorithm:EHDLZXJA} utilizando a base de dados $S_\SbIRM{}$. Os fatores de aproximação da Tabela~\ref{table:HZHMCLUM} foram computados utilizando o limitante inferior apresentado no Teorema~\ref{theorem:NFVKZGKW}. Já os fatores de aproximação da Tabela~\ref{table:CDIOXZDV} foram computados utilizando o limitante inferior apresentado no Teorema~\ref{theorem:OCNPWYNL}
 
 \input{tables/HZHMCLUM}
 
@@ -1170,6 +1187,8 @@ A Tabela~\ref{table:UFTEBCWC} mostra os resultados do Algoritmo~\ref{algorithm:W
 
 \input{tables/UFTEBCWC}
 
+\input{tables/ZZECIDRQ}
+
 A Tabela~\ref{table:SANZHOMN} mostra os resultados do Algoritmo~\ref{algorithm:EQALRDVE} utilizando a base de dados $S_\SbIRTI{}$.
 
 \input{tables/SANZHOMN}
@@ -1177,6 +1196,8 @@ A Tabela~\ref{table:SANZHOMN} mostra os resultados do Algoritmo~\ref{algorithm:E
 A Tabela~\ref{table:GLCTFFPM} mostra os resultados do Algoritmo~\ref{algorithm:MRFVALSC} utilizando a base de dados $S_\SbIRTM{}$.
 
 \input{tables/GLCTFFPM}
+
+\input{tables/CFCQOBJI}
 
 A Tabela~\ref{table:FTGAXJEH} mostra os resultados do Algoritmo~\ref{algorithm:LCTCOSWM} utilizando a base de dados $S_\SbIRTMI{}$.
 
@@ -1195,7 +1216,7 @@ Para demonstrar a aplicabilidade dos algoritmos propostos utilizamos dados reais
   \item Emparelhamento: Para cada par de genomas, realizamos um emparelhamento para que os genes e blocos conservados compartilhados por ambos os genomas fossem mantidos, enquanto o restante dos genes foram removidos através de um processo que simula uma sequência de deleções.
 \end{itemize}
 
-Para realizarmos um comparativo, utilizamos o Algoritmo~\ref{algorithm:MRFVALSC} (com a heurística gulosa), que leva em consideração tanto a estrutura dos genes como o tamanho regiões intergênica, e o Algoritmo~$2$\SbRT{}~\cite{1998-walter-etal}, que é uma $2$-aproximação para a variação com sinais do problema de Ordenação de Permutações por Reversões e Transposições (\SbRT).
+Para realizarmos um comparativo, utilizamos o Algoritmo~\ref{algorithm:MRFVALSC} (com a heurística I, Algoritmo~\ref{algorithm:XPAWWVSJ}), que leva em consideração tanto a estrutura dos genes como o tamanho regiões intergênica, e o Algoritmo~$2$\SbRT{}~\cite{1998-walter-etal}, que é uma $2$-aproximação para a variação com sinais do problema de Ordenação de Permutações por Reversões e Transposições (\SbRT).
 
 Executamos os algoritmos para cada instância resultante do emparelhamento, mas note que o Algoritmo~$2$\SbRT{} considera apenas a estrutura dos genes. Logo, o Algoritmo~$2$\SbRT{} recebeu como entrada apenas $(\pi,\iota)$ de cada instância resultante do emparelhamento. O número de eventos de rearranjo do genoma para cada emparelhamento foi calculado pelo total de deleções usadas na etapa de pré-processamento mais o tamanho da sequência de reversões, transposições e moves fornecidas pelos algoritmos. Para cada algoritmo, esses números foram armazenados em uma matriz de distâncias.
 

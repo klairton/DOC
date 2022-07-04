@@ -1,6 +1,6 @@
 \begin{algorithm}[!tbh]
-  \caption{Heurística Gulosa I.}
-  \label{algorithm:XPAWWVSJ}
+  \caption{Heurística Gulosa II.}
+  \label{algorithm:HCOCWPIN}
   \Entrada{Uma instância intergênica rígida sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ e um modelo de rearranjo $\mathcal{M}$}
   \Saida{Uma sequência vazia ou com apenas um evento de reversão, transposição ou move}
     $S \gets ()$ \\
@@ -12,6 +12,9 @@
     }
     \Se{$\rho \in \mathcal{M}$ e existe uma reversão $\rho$ que remove dois breakpoints tipo um}{
       $S \gets (\rho_1)$ \\
+    }
+    \Se{$\mu \in \mathcal{M}$ e existe um move $\mu$ que remove dois breakpoints tipo um}{
+      $S \gets (\mu_1)$ \\
     }
     \Retorna $S$
 \end{algorithm}

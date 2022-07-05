@@ -833,41 +833,55 @@ Note que, para cada base de dados, a soma das porcentagens adotadas para cada op
 
 A seguir apresentamos os resultados dos algoritmos propostos para a variação sem sinais dos problemas \SbIR{}, \SbIRI{}, \SbIRM{}, \SbIRMI{}, \SbIRT{}, \SbIRTI{}, \SbIRTM{} e \SbIRTMI{}. A coluna OP indica o total de operações utilizadas para gerar cada instância de um grupo. As colunas Distância e Aproximação indicam a quantidade de operações e o fator de aproximação para uma solução fornecida por um algoritmo.
 
-A Tabela~\ref{table:PSYFOCXO} mostra os resultados do Algoritmo~\ref{algorithm:AKKUXQNR} utilizando a base de dados $U_\SbIR{}$.
+A Tabela~\ref{table:PSYFOCXO} mostra os resultados do Algoritmo~\ref{algorithm:AKKUXQNR} utilizando a base de dados $U_\SbIR{}$. Os fatores de aproximação foram computados utilizando o limitante inferior apresentado no Teorema~\ref{theorem:MPFPKHQO}.
 
 \input{tables/PSYFOCXO}
 
-A Tabela~\ref{table:UIARBECI} mostra os resultados do Algoritmo~\ref{algorithm:LHOPSFVN} utilizando a base de dados $U_\SbIRI{}$.
+A partir da Tabela~\ref{table:PSYFOCXO}, é possível notar que a aproximação média fornecida pelo Algoritmo~\ref{algorithm:AKKUXQNR} para cada grupo tende a ser bem estável, com uma variação de apenas $0.05$. O maior fator de aproximação registrado foi de $3.18$, que pode ser observado no grupo 100. Na prática, os fatores de aproximação observados pelo algoritmo na base de dados foram significativamente menores do que o limite teórico provado para o algoritmo.  
+
+A Tabela~\ref{table:UIARBECI} mostra os resultados do Algoritmo~\ref{algorithm:LHOPSFVN} utilizando a base de dados $U_\SbIRI{}$. Os fatores de aproximação foram computados utilizando o limitante inferior apresentado no Teorema~\ref{theorem:MPFPKHQO}.
 
 \input{tables/UIARBECI}
 
-A Tabela~\ref{table:RQMOVGKQ} mostra os resultados do Algoritmo~\ref{algorithm:OLSRUEFZ} utilizando a base de dados $U_\SbIRM{}$.
+Pela Tabela~\ref{table:UIARBECI}, podemos perceber que o Algoritmo~\ref{algorithm:LHOPSFVN}, em comparação com o Algoritmo~\ref{algorithm:AKKUXQNR}, apresentou uma distância média menor em todos os grupos, mas apresentou uma aproximação média superior em todos os grupos. Uma possível explicação para esse comportamento é devido ao fato de um evento de indel criar no máximo um breakpoint durante o processo de criação de cada instância, enquanto uma reversão pode criar até dois breakpoints. O Algoritmo~\ref{algorithm:LHOPSFVN} também apresenta pouca variação na aproximação média entre os diferentes grupos e, na prática, os fatores de aproximação observados pelo algoritmo na base de dados também foram significativamente menores do que o limite teórico provado para o algoritmo.
+
+A Tabela~\ref{table:RQMOVGKQ} mostra os resultados do Algoritmo~\ref{algorithm:OLSRUEFZ} utilizando a base de dados $U_\SbIRM{}$. Os fatores de aproximação foram computados utilizando o limitante inferior apresentado no Teorema~\ref{theorem:MPFPKHQO}.
 
 \input{tables/RQMOVGKQ}
 
-A Tabela~\ref{table:XNLAJSQA} mostra os resultados do Algoritmo~\ref{algorithm:JAJGNYWD} utilizando a base de dados $U_\SbIRMI{}$.
+Podemos perceber pela Tabela~\ref{table:RQMOVGKQ} que o Algoritmo~\ref{algorithm:OLSRUEFZ} apresenta um comportamento similar aos algoritmos~\ref{algorithm:AKKUXQNR} e \ref{algorithm:LHOPSFVN}, mas com uma variação na aproximação média levemente maior entre os grupos. A maior e menor aproximação observadas foram, respectivamente, $3.16$ e $2.22$, com ambos os registros ocorrendo no grupo 100.
+
+A Tabela~\ref{table:XNLAJSQA} mostra os resultados do Algoritmo~\ref{algorithm:JAJGNYWD} utilizando a base de dados $U_\SbIRMI{}$. Os fatores de aproximação foram computados utilizando o limitante inferior apresentado no Teorema~\ref{theorem:MPFPKHQO}.
 
 \input{tables/XNLAJSQA}
 
-As tabelas~\ref{table:WFTACOYR}, \ref{table:NKWIXQRV} e \ref{table:ZGIFXHSX} mostram, respectivamente, os resultados dos algoritmos~\ref{algorithm:SAAUGXYG}, \ref{algorithm:JQHVZACM} e \ref{algorithm:LCPCUFNZ} utilizando a base de dados $U_\SbIRT{}$.
+Na Tabela~\ref{table:XNLAJSQA} podemos observar que a aproximação média do Algoritmo~\ref{algorithm:JAJGNYWD} variou de $2.71$ até $2.80$. A menor e maior aproximação observada foi, respectivamente, $2.18$ e $3.22$, com ambos os registros ocorrendo no grupo 100. Logo, o grupo 100 foi o que apresentou maior variação entre a aproximação mínima e máxima com o valor de $1.04$. O grupo que apresentou a menor variação entre a aproximação mínima e máxima foi o grupo 500, com o valor de $0.48$. Na prática, o Algoritmo~\ref{algorithm:JAJGNYWD} apresentou resultados melhores do que o limite teórico provado para o mesmo.
+
+A Tabela~\ref{table:WFTACOYR} mostra os resultados dos algoritmos~\ref{algorithm:SAAUGXYG}, \ref{algorithm:JQHVZACM} e \ref{algorithm:LCPCUFNZ} utilizando a base de dados $U_\SbIRT{}$. Os fatores de aproximação foram computados utilizando o limitante inferior apresentado no Teorema~\ref{theorem:MPFPKHQO}.
 
 \input{tables/WFTACOYR}
 
-\input{tables/NKWIXQRV}
+A partir da Tabela~\ref{table:WFTACOYR}, podemos perceber que os três algoritmos apresentaram resultados bem similares considerando distância média e aproximação média, mesmo possuindo diferentes limites teóricos de aproximação. Inicialmente podemos perceber que o Algoritmo~\ref{algorithm:SAAUGXYG}, mesmo possuindo um limite teórico de aproximação superior, forneceu uma distância média ligeiramente menor do que a distância média fornecida média fornecida pelo Algoritmo \ref{algorithm:JQHVZACM}, em todos os grupos. Note que a diferença foi extremamente pequena, sendo que a diferência absoluta para cada grupo foi menor do que $0.75$. O algoritmo que apresentou o melhor resultado considerando as métricas de distância média e aproximação média foi o Algoritmo~\ref{algorithm:LCPCUFNZ}, sendo que a maior aproximação observada foi de $3.04$, registrada no grupo 100, e para os demais grupos a aproximação foi menor ou igual a $3.0$. É importante mencionar o bom desempenho prático dos três algoritmos apresentando fatores de aproximação significativamente menores do que os limites teóricos provados para cada um deles.
 
-\input{tables/ZGIFXHSX}
-
-A Tabela~\ref{table:MFWVXYQH} mostra os resultados do Algoritmo~\ref{algorithm:YIZYUGZZ} utilizando a base de dados $U_\SbIRTI{}$.
+A Tabela~\ref{table:MFWVXYQH} mostra os resultados do Algoritmo~\ref{algorithm:YIZYUGZZ} utilizando a base de dados $U_\SbIRTI{}$. Os fatores de aproximação foram computados utilizando o limitante inferior apresentado no Teorema~\ref{theorem:JDOIUJLE}.
 
 \input{tables/MFWVXYQH}
 
-A Tabela~\ref{table:KSZBCEZE} mostra os resultados do Algoritmo~\ref{algorithm:UZWADMNZ} utilizando a base de dados $U_\SbIRTM{}$.
+Pela Tabela~\ref{table:MFWVXYQH}, é possível notar que houve pouca variação entre a aproximação média fornecida pelo Algoritmo~\ref{algorithm:YIZYUGZZ} para os grupos. Além disso, considerando a variação entre a menor e maior aproximação observada em cada grupo, temos que o grupo 100 foi o que apresentou a maior variação, com o valor de $0.31$, enquanto os grupos 400 e 500 apresentaram a menor variação, com o valor de $0.09$. Por fim, a aproximação máxima observada em todos os grupos foi menor que $3.00$.
+
+A Tabela~\ref{table:KSZBCEZE} mostra os resultados do Algoritmo~\ref{algorithm:UZWADMNZ} utilizando a base de dados $U_\SbIRTM{}$. Os fatores de aproximação foram computados utilizando o limitante inferior apresentado no Teorema~\ref{theorem:MPFPKHQO}.
 
 \input{tables/KSZBCEZE}
 
-A Tabela~\ref{table:EANTBRZP} mostra os resultados do Algoritmo~\ref{algorithm:FMDPGQTJ} utilizando a base de dados $U_\SbIRTMI{}$.
+Na Tabela~\ref{table:KSZBCEZE}, podemos notar que a aproximação média fornecida pelo Algoritmo~\ref{algorithm:UZWADMNZ}, para cada grupo, apresentou um valor próximo tanto da aproximação mínima como da aproximação máxima. Além disso, considerando todos os grupos, a menor e maior aproximação foram $2.76$ e $2.99$, respectivamente. A menor aproximação foi registrada no grupo 100, enquanto a maior aproximação foi registrada no grupo 500.
+
+A Tabela~\ref{table:EANTBRZP} mostra os resultados do Algoritmo~\ref{algorithm:FMDPGQTJ} utilizando a base de dados $U_\SbIRTMI{}$. Os fatores de aproximação foram computados utilizando o limitante inferior apresentado no Teorema~\ref{theorem:MPFPKHQO}.
 
 \input{tables/EANTBRZP}
+
+A partir da Tabela~\ref{table:EANTBRZP} notamos que em todos os grupos o Algoritmo~\ref{algorithm:FMDPGQTJ} apresentou, para pelo menos uma instância, uma aproximação (computada com base no limitante inferior) que atingiu o limite teórico provado para o mesmo (coluna aproximação máxima). Além disso, a aproximação média tende a aumentar conforme o tamanho da instância cresce, mas a variação entre os grupos foi de apenas $0.04$.
+
+De maneira geral todos os algoritmos apresentam um bom desempenho na prática. Vale ressaltar o desempenho dos algoritmos~\ref{algorithm:SAAUGXYG} e \ref{algorithm:JQHVZACM} para a variação sem sinais do problema \SbIRT{}, que mesmo possuindo um limite teórico mais elevado para a aproximação, apresentaram resultados compatíveis com os resultados do melhor algoritmo conhecido para o problema até o momento (Algoritmo~\ref{algorithm:LCPCUFNZ}).
 
 % ------------------------------------------------------------------ %
 \subsection{Heurística Gulosa}
@@ -1163,7 +1177,7 @@ A Tabela~\ref{table:PPPESHDE} mostra os resultados do Algoritmo~\ref{algorithm:U
 
 \input{tables/PPPESHDE}
 
-Pela Tabela~\ref{table:PPPESHDE}, podemos perceber que, em média, a distância fornecida pelo Algoritmo~\ref{algorithm:UJBJJGGJ} é um valor próximo de 90\% do tamamho da instância. Além disso, o fator mínimo de aproximação obtido foi de $2.31$ no grupo 100. Já o fator de aproximação máximo obtido foi de $3.35$, também no grupo 100. Podemos notar ainda que o fator de aproximação médio tende a aumentar conforme o tamanho da instância também aumenta. Entretanto, a variação entre o fator de aproximação mínimo e máximo tende a diminuir conforme o tamanho da instância aumenta. Além disso, o fator de aproximação observado na prática foi significativamente menor do que o fator teórico provado para o algoritmo. Vale ressaltar que existe para a variação com sinais do problema \SbIR{} um algoritmo com fator de aproximação $2$~\cite{2021b-oliveira-etal} baseado na estrutura de grafo de ciclos. O Algoritmo~\ref{algorithm:UJBJJGGJ} garante um fator de aproximação $4$, mas utiliza o conceito de breakpoint.
+Pela Tabela~\ref{table:PPPESHDE}, podemos perceber que, em média, a distância fornecida pelo Algoritmo~\ref{algorithm:UJBJJGGJ} é um valor próximo de 90\% do tamamho das instâncias. Além disso, o fator mínimo de aproximação obtido foi de $2.31$ no grupo 100. Já o fator de aproximação máximo obtido foi de $3.35$, também no grupo 100. Podemos notar ainda que o fator de aproximação médio tende a aumentar conforme o tamanho da instância também aumenta. Entretanto, a variação entre o fator de aproximação mínimo e máximo tende a diminuir conforme o tamanho da instância aumenta. Além disso, o fator de aproximação observado na prática foi significativamente menor do que o fator teórico provado para o algoritmo. Vale ressaltar que existe para a variação com sinais do problema \SbIR{} um algoritmo com fator de aproximação $2$~\cite{2021b-oliveira-etal} baseado na estrutura de grafo de ciclos. O Algoritmo~\ref{algorithm:UJBJJGGJ} garante um fator de aproximação $4$, mas utiliza o conceito de breakpoint.
 
 A Tabela~\ref{table:GBAOFAHZ} mostra os resultados do Algoritmo~\ref{algorithm:QKCVERGO} utilizando a base de dados $S_\SbIRI{}$. Os fatores de aproximação foram computados utilizando o limitante inferior apresentado no Teorema~\ref{theorem:NFVKZGKW}.
 
@@ -1171,37 +1185,55 @@ A Tabela~\ref{table:GBAOFAHZ} mostra os resultados do Algoritmo~\ref{algorithm:Q
 
 Pela Tabela~\ref{table:GBAOFAHZ}, podemos notar que o Algoritmo~\ref{algorithm:QKCVERGO} apresentou um desempenho similar ao Algoritmo~\ref{algorithm:UJBJJGGJ}. É importante mencionar que o fator de aproximação médio foi levemente maior em todos os grupos. Entretanto, a distância média fornecida pelo Algoritmo~\ref{algorithm:QKCVERGO}, em todos os grupos, foi menor. 
 
-As tabelas~\ref{table:HZHMCLUM} e \ref{table:CDIOXZDV} mostram, respectivamente, os resultados dos algoritmos~\ref{algorithm:VRXYTMUD} e \ref{algorithm:EHDLZXJA} utilizando a base de dados $S_\SbIRM{}$. Os fatores de aproximação da Tabela~\ref{table:HZHMCLUM} foram computados utilizando o limitante inferior apresentado no Teorema~\ref{theorem:NFVKZGKW}. Já os fatores de aproximação da Tabela~\ref{table:CDIOXZDV} foram computados utilizando o limitante inferior apresentado no Teorema~\ref{theorem:OCNPWYNL}
+As Tabela~\ref{table:HZHMCLUM} mostra os resultados dos algoritmos~\ref{algorithm:VRXYTMUD} e \ref{algorithm:EHDLZXJA} utilizando a base de dados $S_\SbIRM{}$. Os fatores de aproximação do Algoritmo~\ref{algorithm:VRXYTMUD} foram computados utilizando o limitante inferior apresentado no Teorema~\ref{theorem:NFVKZGKW}. Já os fatores de aproximação do Algoritmo~\ref{algorithm:EHDLZXJA} foram computados utilizando o limitante inferior apresentado no Teorema~\ref{theorem:OCNPWYNL}
 
 \input{tables/HZHMCLUM}
 
-\input{tables/CDIOXZDV}
+É possível notar, pela Tabela~\ref{table:HZHMCLUM}, que o fator de aproximação médio fornecido pelo Algoritmo~\ref{algorithm:VRXYTMUD}, baseado no conceito de breakpoints, tende a aumentar conforme o tamanho da instância cresce. Além disso, foi superior a $3.0$ nos grupos 300, 400 e 500. O menor fator de aproximação foi de $2.37$, observado no grupo 100. Já o maior fator de aproximação foi de $3.38$, observado no grupo 200. Considerando a distância média, em cada grupo temos um valor superior a 90\% do tamanho das instâncias e inferior ao tamanho das instâncias. Considerando o Algoritmo~\ref{algorithm:EHDLZXJA}, que é baseado na estrutura de grafo de ciclos ponderado rígido, podemos notar que ele tende a fornecer soluções melhores para a variação com sinais do problema \SbIRM{}, em comparação com o Algoritmo~\ref{algorithm:VRXYTMUD}. Podemos constatar essa tendência pela coluna de aproximação média, que pra o grupo 100 apresentou um valor de $1.13$ e para os demais grupo apresentou um valor de $1.14$. Além disso, pela coluna de distância média, é possível notar que a quantidade de operações utilizadas nas soluções fornecidas pelo Algoritmo~\ref{algorithm:EHDLZXJA} foi próxima da quantidade de operações utilizadas para gerar as instâncias em cada grupo (coluna OP).
 
-As tabelas~\ref{table:GITKWJXD} e \ref{table:CIYAALPZ} mostram, respectivamente, os resultados dos algoritmo~\ref{algorithm:QMGGIVXT} e \ref{algorithm:RYNLKYUJ} utilizando a base de dados $S_\SbIRMI{}$.
+A Tabela~\ref{table:GITKWJXD} mostra os resultados dos algoritmo~\ref{algorithm:QMGGIVXT} e \ref{algorithm:RYNLKYUJ} utilizando a base de dados $S_\SbIRMI{}$. Os fatores de aproximação do Algoritmo~\ref{algorithm:QMGGIVXT} foram computados utilizando o limitante inferior apresentado no Teorema~\ref{theorem:NFVKZGKW}. Já os fatores de aproximação do Algoritmo~\ref{algorithm:RYNLKYUJ} foram computados utilizando o limitante inferior apresentado no Teorema~\ref{theorem:OCNPWYNL}
 
 \input{tables/GITKWJXD}
 
-\input{tables/CIYAALPZ}
+Pela Tabela~\ref{table:GITKWJXD}, podemos notar um comportamento similar ao observado nos algoritmos da Tabela~\ref{table:HZHMCLUM}, com o Algoritmo~\ref{algorithm:RYNLKYUJ} (baseado na estrutura de grafo de ciclos ponderado rígido) tendendo a fornecer soluções melhores para a variação com sinais do problema \SbIRMI{}, em comparação com o Algoritmo~\ref{algorithm:QMGGIVXT} (baseado no conceito de breakpoints). É importante notar que em ambos os algoritmos e em todos os grupos houve um queda no valor da distância média em comparação com os resultados dos algoritmos da Tabela~\ref{table:HZHMCLUM}.
 
-A Tabela~\ref{table:UFTEBCWC} mostra os resultados do Algoritmo~\ref{algorithm:WTARSEZM} utilizando a base de dados $S_\SbIRT{}$.
+A Tabela~\ref{table:UFTEBCWC} mostra os resultados do Algoritmo~\ref{algorithm:WTARSEZM} utilizando a base de dados $S_\SbIRT{}$. Os fatores de aproximação foram computados utilizando o limitante inferior apresentado no Teorema~\ref{theorem:NFVKZGKW}.
 
 \input{tables/UFTEBCWC}
 
+Pela Tabela~\ref{table:UFTEBCWC}, podemos notar que o fator de aproximação máximo observado pelo Algoritmo~\ref{algorithm:WTARSEZM} foi de $3.0$ e ocorreu em todos os grupos. Além disso, o fator de aproximação médio tende a subir conforme o tamanho das instâncias cresce. Entretanto, a variação no fator de aproximação médio foi pequena, com o menor valor sendo de $2.91$ (observado no grupo 100) e o maior valor sendo de $2.96$ (observado no grupo 500).
+
+Existe para a variação com sinais do problema \SbIRT{} um algoritmo com fator de aproximação $3$ (baseado na estrutura de grafo de ciclos ponderado rígido), que iremos chamar de $3$\SbIRT{}. Como os fatores de aproximação dos algoritmos~\ref{algorithm:WTARSEZM} e $3$\SbIRT{} estão próximos, nós realizamos um comparativo entre eles utilizando a base de dados DB\textsubscript{\SbIRT}. O Algoritmo~\ref{algorithm:WTARSEZM} foi executado adotando a heurística I, Algoritmo~\ref{algorithm:XPAWWVSJ}. A Tabela~\ref{table:ZZECIDRQ} mostra os resultados dos algoritmos~\ref{algorithm:WTARSEZM} e $3$\SbIRT{} utilizando a base de dados DB\textsubscript{\SbIRT}. As colunas M e ME indicam, para cada grupo, a porcentagem de soluções fornecidas pelo Algoritmo~\ref{algorithm:WTARSEZM} com tamanho estritamente menor e com tamanho menor ou igual, respectivamente, quando comparadas às soluções fornecidas pelo algoritmo $3$\SbIRT{}. Os fatores de aproximação de ambos os algoritmos foram computados utilizando o limitante inferior baseado na estrutura de grafo de ciclos ponderado rígido~\cite[Teorema 3.8]{2021a-oliveira-etal}. 
+
 \input{tables/ZZECIDRQ}
 
-A Tabela~\ref{table:SANZHOMN} mostra os resultados do Algoritmo~\ref{algorithm:EQALRDVE} utilizando a base de dados $S_\SbIRTI{}$.
+A partir da Tabela~\ref{table:ZZECIDRQ}, é possível observar que o Algoritmo~\ref{algorithm:WTARSEZM}, em todos os grupos, foi capaz de fornecer melhores resultados considerando as métricas de de aproximação média e distância média. Além disso, considerando os grupos com $d$ maior que 20, o algoritmo forneceu melhores soluções em mais de 75\% das instâncias (coluna M). Considerando os grupos com $d$ maior que 30, o algoritmo Algoritmo~\ref{algorithm:WTARSEZM} forneceu soluções de tamanho melhor ou equivalente (coluna ME) em mais de 97\% das instâncias. É importante observar que, à medida que o valor de $d$ aumenta, a diferença absoluta entre a distância média fornecida pelos algoritmos~\ref{algorithm:WTARSEZM} e 3\SbIRT{} também aumenta significativamente. Quando $d$ é maior que 50, a diferença absoluta entre as distâncias médias é superior a 10, o que indica que o algoritmo Algoritmo~\ref{algorithm:WTARSEZM} tende a oferecer melhores soluções em cenários onde foi utilizado um número maior de operações.
+
+A Tabela~\ref{table:SANZHOMN} mostra os resultados do Algoritmo~\ref{algorithm:EQALRDVE} utilizando a base de dados $S_\SbIRTI{}$. Os fatores de aproximação foram computados utilizando o limitante inferior apresentado no Teorema~\ref{theorem:JGVDYLDM}.
 
 \input{tables/SANZHOMN}
 
-A Tabela~\ref{table:GLCTFFPM} mostra os resultados do Algoritmo~\ref{algorithm:MRFVALSC} utilizando a base de dados $S_\SbIRTM{}$.
+Pela Tabela~\ref{table:SANZHOMN}, podemos perceber que o Algoritmo~\ref{algorithm:EQALRDVE} apresentou um comportamento similar ao Algoritmo~\ref{algorithm:WTARSEZM} na Tabela~\ref{table:UFTEBCWC}. Um ponto de diferença foi que fator de aproximação máximo obtido pelo Algoritmo~\ref{algorithm:EQALRDVE} foi de $2.99$, observado no grupo 500. Além disso, a aproximação média foi levemente menor em todos os grupos. 
+
+A Tabela~\ref{table:GLCTFFPM} mostra os resultados do Algoritmo~\ref{algorithm:MRFVALSC} utilizando a base de dados $S_\SbIRTM{}$. Os fatores de aproximação foram computados utilizando o limitante inferior apresentado no Teorema~\ref{theorem:NFVKZGKW}.
 
 \input{tables/GLCTFFPM}
 
+A partir da Tabela~\ref{table:GLCTFFPM}, é possível notar que as métricas de mínimo, média e máximo para a aproximação fornecida pelo Algoritmo~\ref{algorithm:MRFVALSC} tendem a ser estáveis nos diferentes grupos. A maior variação foi observada na aproximação mínima, com o menor valor sendo $2.73$ no grupo 100 e o maior valor sendo $2.88$ no grupo 500. A menor variação foi observada na aproximação máxima, com o menor valor sendo $2.96$ também no grupo 100 e o maior valor sendo $2.99$ também no grupo 500. 
+
+Existe para a variação com sinais do problema \SbIRTM{} um algoritmo com fator de aproximação $2.5$ (baseado na estrutura de grafo de ciclos ponderado rígido), que iremos chamar de $2.5$\SbIRTM{}. Como os fatores de aproximação dos algoritmos~\ref{algorithm:MRFVALSC} e $2.5$\SbIRTM{} estão próximos, nós realizamos um comparativo entre eles utilizando a base de dados DB\textsubscript{\SbIRTM}. O Algoritmo~\ref{algorithm:MRFVALSC} foi executado adotando a heurística I, Algoritmo~\ref{algorithm:XPAWWVSJ}. A Tabela~\ref{table:CFCQOBJI} mostra os resultados dos algoritmos~\ref{algorithm:MRFVALSC} e $2.5$\SbIRTM{} utilizando a base de dados DB\textsubscript{\SbIRTM}. As colunas M e ME indicam, para cada grupo, a porcentagem de soluções fornecidas pelo Algoritmo~\ref{algorithm:MRFVALSC} com tamanho estritamente menor e com tamanho menor ou igual, respectivamente, quando comparadas às soluções fornecidas pelo algoritmo $2.5$\SbIRTM{}. Os fatores de aproximação de ambos os algoritmos foram computados utilizando o limitante inferior baseado na estrutura de grafo de ciclos ponderado rígido~\cite[Teorema 7.6]{2021a-oliveira-etal}.
+
 \input{tables/CFCQOBJI}
 
-A Tabela~\ref{table:FTGAXJEH} mostra os resultados do Algoritmo~\ref{algorithm:LCTCOSWM} utilizando a base de dados $S_\SbIRTMI{}$.
+Pela Tabela~\ref{table:CFCQOBJI}, podemos notar que o algoritmo $2.5$\SbIRTM{}, quando comparado ao Algoritmo~\ref{algorithm:MRFVALSC} , apresentou um resultado um pouco melhor em relação à aproximação média e distância média nos grupos com $d =10$ e $d=20$. Considerando esses dois grupos ($d=10$ e $d=20$), a diferença absoluta entre a distância média fornecida pelos algoritmos foi menor que $0.61$. Além disso, pela coluna M, podemos notar que nos grupos $d=10$ e $d=20$ o Algoritmo~\ref{algorithm:MRFVALSC} forneceu melhores soluções em 32.30\% e 34.77\% das instâncias, respectivamente. Isso mostra que o Algoritmo~\ref{algorithm:MRFVALSC} pode atuar de forma complementar ao algoritmo $2.5$\SbIRTM{}, mesmo nos casos em que ambos fornecem resultados semelhantes. Como melhores estimativas tendem a resultar em análises aprimoradas, selecionar o melhor resultado entre cada algoritmo é uma boa alternativa para auxiliar nessa tarefa. Em relação aos grupos onde $d$ é maior que 20, o algoritmo Algoritmo~\ref{algorithm:MRFVALSC} forneceu melhores resultados considerando a aproximação média e distância média. Além disso, nos mesmos grupos, o Algoritmo~\ref{algorithm:MRFVALSC} forneceu soluções de tamanho menor ou equivalente (coluna ME) em mais de 73\% das instâncias.
+
+A Tabela~\ref{table:FTGAXJEH} mostra os resultados do Algoritmo~\ref{algorithm:LCTCOSWM} utilizando a base de dados $S_\SbIRTMI{}$. Os fatores de aproximação foram computados utilizando o limitante inferior apresentado no Teorema~\ref{theorem:NFVKZGKW}.
 
 \input{tables/FTGAXJEH}
+
+Pela Tabela~\ref{table:FTGAXJEH}, é possível notar que em pelo menos uma instância de cada os grupo foi observado um fator de aproximação (computado com base no limitante inferior) que atingiu o limite teórico, que é $3$ (coluna aproximação máxima). Considerando todos os grupos, a aproximação média foi maior que $2.91$ e menor que $2.97$. Levando em conta a distância fornecida pelo Algoritmo~\ref{algorithm:LCTCOSWM} temos uma variação relativamente pequena, uma vez que a distância máxima menos a distância mínima observada em cada grupo foi menor do que $45$.
+
+De maneira geral, todos os algoritmos apresentaram um bom desempenho na prática. O único algoritmo em que foi possível observar uma aproximação, computada com base no limitante inferior, que atingiu o limite teórico foi o Algoritmo~\ref{algorithm:LCTCOSWM}. Vale ressaltar que isso não significa que o fator de aproximação teórico provado para o algoritmo é justo. Note que, até o momento, computar o valor ótimo para a distância das instâncias que foram utilizadas é uma tarefa impraticável. Por esse motivo, utilizamos os limitantes inferiores para obter a informação referente ao fator de aproximação obtido em cada instância pelos algoritmos.
 
 
 % ------------------------------------------------------------------ %
@@ -1218,7 +1250,7 @@ Para demonstrar a aplicabilidade dos algoritmos propostos utilizamos dados reais
 
 Para realizarmos um comparativo, utilizamos o Algoritmo~\ref{algorithm:MRFVALSC} (com a heurística I, Algoritmo~\ref{algorithm:XPAWWVSJ}), que leva em consideração tanto a estrutura dos genes como o tamanho regiões intergênica, e o Algoritmo~$2$\SbRT{}~\cite{1998-walter-etal}, que é uma $2$-aproximação para a variação com sinais do problema de Ordenação de Permutações por Reversões e Transposições (\SbRT).
 
-Executamos os algoritmos para cada instância resultante do emparelhamento, mas note que o Algoritmo~$2$\SbRT{} considera apenas a estrutura dos genes. Logo, o Algoritmo~$2$\SbRT{} recebeu como entrada apenas $(\pi,\iota)$ de cada instância resultante do emparelhamento. O número de eventos de rearranjo do genoma para cada emparelhamento foi calculado pelo total de deleções usadas na etapa de pré-processamento mais o tamanho da sequência de reversões, transposições e moves fornecidas pelos algoritmos. Para cada algoritmo, esses números foram armazenados em uma matriz de distâncias.
+Executamos os algoritmos para cada instância resultante do emparelhamento, mas note que o algoritmo~$2$\SbRT{} considera apenas a estrutura dos genes. Logo, o algoritmo~$2$\SbRT{} recebeu como entrada apenas $(\pi,\iota)$ de cada instância resultante do emparelhamento. O número de eventos de rearranjo do genoma para cada emparelhamento foi calculado pelo total de deleções usadas na etapa de pré-processamento mais o tamanho da sequência de reversões, transposições e moves fornecidas pelos algoritmos. Para cada algoritmo, esses números foram armazenados em uma matriz de distâncias.
 
 Por fim, construímos duas árvores filogenéticas com base nas matrizes de distâncias calculadas a partir dos algoritmos e usando o método de Reconstrução de Ordem Circular~\cite{makarenkov1997tree}. Para analisar as características topológicas das árvores filogenéticas, realizamos uma comparação com a árvore filogenética apresentada por Laurence \textit{et al.}~\cite{garczarek2020cyanorak} usando uma ferramenta~\cite{de2007congruence} baseada nas subárvores de concordância máxima (MAST) para determinar a congruência topológica entre duas árvores filogenéticas. A Tabela~\ref{table:NRAGLYCG} mostra os resultados obtidos.
 

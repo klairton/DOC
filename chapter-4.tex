@@ -1,6 +1,6 @@
 \chapter{Modelos Intergênicos Rígidos}\label{chapter:DOVAEMLI}
 
-A representação de um genoma por meio de uma sequência de genes é bastante útil e amplamente utilizada em problemas de rearranjo de genomas. Entretanto, informações que não estão presentes ou associadas diretamente aos genes são descartadas, o que implica em uma perda de informação. Em particular, informações referente às regiões intergênicas, que são regiões entre cada par consecutivo de genes e nas extremidades de um genoma linear, acabam não sendo consideradas pelos modelos que adotam uma representação clássica de um genoma. Estudos~\cite{2016a-biller-etal, 2016b-biller-etal} sugerem que incorporar tais estruturas aos modelos pode resultar em resultados mais realistas para a distância evolutiva entre os organismos. Cada região intergênica possui uma quantidade de nucleotídeos, essa quantidade de nucleotídeos é denominada de \emph{tamanho}. Nesse capítulo, investigaremos as variações com e sem sinais dos seguintes problemas que consideram a informação dos genes e do tamanho das regiões intergênicas de um genoma:
+A representação de um genoma por meio de uma sequência de genes é bastante útil e amplamente utilizada em problemas de rearranjo de genomas. Entretanto, informações que não estão presentes ou associadas diretamente aos genes são descartadas, o que implica em uma perda de informação. Em particular, informações referente às regiões intergênicas, que são regiões entre cada par consecutivo de genes e nas extremidades de um genoma linear, acabam não sendo consideradas pelos modelos que adotam uma representação clássica de um genoma. Estudos~\cite{2016a-biller-etal, 2016b-biller-etal} sugerem que incorporar tais estruturas aos modelos pode resultar em resultados mais realistas para a distância evolutiva entre os organismos. Cada região intergênica possui uma quantidade de nucleotídeos, essa quantidade de nucleotídeos é denominada de \emph{tamanho}. Nesse capítulo, investigaremos as variações com e sem sinais dos seguintes problemas que consideram a informação dos genes e do tamanho das regiões intergênicas de um genoma uma abordagem \emph{não ponderada}:
 
 \begin{itemize}
   \item Ordenação de Permutações por Reversões Intergênicas (\SbIR)
@@ -13,18 +13,36 @@ A representação de um genoma por meio de uma sequência de genes é bastante �
   \item Ordenação de Permutações por Operações Intergênicas de Reversão, Transposição, Move e Indel (\SbIRTMI)
 \end{itemize}
 
-Neste capítulo, iremos nos referenciar aos eventos de rearranjo de reversão intergênica, transposição intergênica, move intergênico e indel intergênico simplesmente por reversão, transposição, move e indel, respectivamente. Além disso, iremos nos referir a um breakpoint intergênico simplesmente como um breakpoint.
+Além disso, investigaremos as variações com e sem sinais dos seguintes problemas considerando uma abordagem \emph{ponderada}:
 
-Dada uma instância intergênica rígida com ou sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, a \emph{distância} entre $(\pi,\breve\pi)$ e $(\iota,\breve\iota)$, denotada por $d_{\mathcal{M}}(\mathcal{I})$, é o tamanho da menor sequências de eventos de rearranjo $S$, tal que todo evento de $S$ pertence ao modelo $\mathcal{M}$ e $(\pi,\breve\pi) \cdot S = (\iota,\breve\iota)$. Os modelos de rearranjo considerados neste capítulo são identificados por siglas apresentadas na Tabela~\ref{table:YQWDTZTK}.
+\begin{itemize}
+  \item Ordenação de Permutações por Operações Intergênicas Ponderadas de Reversão e Indel (\SbWIRI)
+  \item Ordenação de Permutações por Operações Intergênicas Ponderadas de Reversão e Transposição (\SbWIRT)
+  \item Ordenação de Permutações por Operações Intergênicas Ponderadas de Reversão, Transposição e Indel (\SbWIRTI)
+\end{itemize}
 
-\input{tables/YQWDTZTK} 
+Neste capítulo, iremos nos referenciar aos eventos de rearranjo de reversão intergênica, transposição intergênica, move intergênico e indel intergênico simplesmente por reversão, transposição, move e indel, respectivamente. Além disso, iremos nos referir a um breakpoint intergênico simplesmente como um breakpoint. Dada uma sequência de eventos de rearranjo $S$, denotamos por $|S|$ o tamanho da sequência $S$, ou seja, a quantidade de eventos em $S$.
+
+Dada uma instância intergênica rígida com ou sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ e adotando um cenário não ponderado, a \emph{distância} entre $(\pi,\breve\pi)$ e $(\iota,\breve\iota)$, denotada por $d_{\mathcal{M}}(\mathcal{I})$, é o tamanho da menor sequência de eventos de rearranjo $S$, tal que todo evento de $S$ pertence ao modelo $\mathcal{M}$ e $(\pi,\breve\pi) \cdot S = (\iota,\breve\iota)$. Os modelos de rearranjo em um cenário não ponderado considerados neste capítulo são identificados por siglas apresentadas na Tabela~\ref{table:YQWDTZTK}.
+
+\input{tables/YQWDTZTK}
+
+Dada uma instância intergênica rígida com ou sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ e adotando um cenário ponderado, a \emph{distância ponderada} entre $(\pi,\breve\pi)$ e $(\iota,\breve\iota)$, denotada por $dw_{\mathcal{M}}(\mathcal{I})$, é o custo da sequência de eventos de rearranjo $S$ com menor custo total, tal que todo evento de $S$ pertence ao modelo $\mathcal{M}$ e $(\pi,\breve\pi) \cdot S = (\iota,\breve\iota)$. O custo total de uma sequência de eventos de rearranjo $S=(\gamma_1, \gamma_2, \dots, \gamma_k)$, onde cada evento pertence ao modelo $\mathcal{M}$, é dado por $\sum_{\gamma_i \in S} c(\gamma_i)$, tal que $c(\gamma_i)$ representa o custo associado ao tipo do evento $\gamma_i$ por uma função de custo. Os modelos de rearranjo em um cenário ponderado considerados neste capítulo são identificados por siglas apresentadas na Tabela~\ref{table:BAORJRQI}.
+
+\input{tables/BAORJRQI}
 
 Quando estivermos adotando um modelo de rearranjo composto exclusivamente por eventos de rarranjo conservativos assumimos que a instância intergênica rígida para o problema será sempre balanceada. Caso contrário, seria impossível transformar o genoma de origem no genoma alvo.
 
 Parte dos resultados que serão apresentados neste capítulo foram publicados nas revistas \emph{Journal of Computational Biology}~\cite{2020a-brito-etal} e \emph{Algorithms for Molecular Biology}~\cite{2021b-brito-etal} em 2020 e 2021, respectivamente.
 
 % ------------------------------------------------------------------ %
-\section{Limitantes Inferiores}
+\section{Abordagem não Ponderada}
+% ------------------------------------------------------------------ %
+
+Nesta seção, apresentaremos os resultados para as variações com e sem sinais dos problemas \SbIR{}, \SbIRI{}, \SbIRM{}, \SbIRMI{}, \SbIRT{}, \SbIRTI{}, \SbIRTM{} e \SbIRTMI{}.
+
+% ------------------------------------------------------------------ %
+\subsection{Limitantes Inferiores}
 % ------------------------------------------------------------------ %
 
 Nesta seção, apresentaremos limitantes inferiores para as variações com e sem sinais dos problemas investigados neste capítulo.
@@ -128,7 +146,7 @@ Note que para atingir o genoma alvo é necessário aumentar tanto o número de c
 \end{proof}
 
 % ------------------------------------------------------------------ %
-\section{Análise de Complexidade}
+\subsection{Análise de Complexidade}
 % ------------------------------------------------------------------ %
 
 Nesta seção realizamos uma análise de complexidade considerando as variações dos problemas resultantes dos modelos de rearranjo investigados neste capítulo.
@@ -291,7 +309,7 @@ A prova é similar a descrita no Teorema~\ref{theorem:YARJETHG}, mas utilizando 
 \end{proof}
 
 % ------------------------------------------------------------------ %
-\section{Instâncias Intergênicas Rígidas sem Sinais}
+\subsection{Instâncias Intergênicas Rígidas sem Sinais}
 % ------------------------------------------------------------------ %
 
 Nesta seção apresentamos algoritmos para os problemas resultantes dos modelos de rearranjo investigados neste capítulo e considerando uma representação intergênica rígida sem sinais de um genoma. Inicialmente iremos apresentar alguns lemas que serão utilizados por múltiplos algoritmos. 
@@ -316,7 +334,7 @@ Como $\mathcal{I}$ é uma instância intergênica rígida balanceada, temos que 
 
 
 % ------------------------------------------------------------------ %
-\subsection{Reversão}
+\subsubsection{Reversão}
 % ------------------------------------------------------------------ %
 
 Nesta seção apresentaremos um algoritmo de aproximação com fator $4$ para a variação sem sinais do problema \SbIR{}.
@@ -363,7 +381,7 @@ Pelo Lema~\ref{lemma:RBHACFIP}, o Algoritmo~\ref{algorithm:AKKUXQNR} transforma 
 \end{proof}
 
 % ------------------------------------------------------------------ %
-\subsection{Reversão e Indel}
+\subsubsection{Reversão e Indel}
 % ------------------------------------------------------------------ %
 
 Nesta seção apresentaremos um algoritmo de aproximação com fator $4$ para a variação sem sinais do problema \SbIRI{}.
@@ -394,7 +412,7 @@ Dada uma instância intergênica rígida sem sinais $\mathcal{I}=((\pi,\breve\pi
   \begin{itemize}
     \item $\sum_{i=1}^{n+1}\breve\pi_i < \sum_{i=1}^{n+1}\breve\iota_i$, neste cenários o Algoritmo~\ref{algorithm:LHOPSFVN} aplica um indel (linhas 2-5) que pode não remover nenhum breakpoint tipo um, mas torna $\mathcal{I}$ em uma instância balanceada. Caso ainda existam breakpoints em $\mathcal{I}$, então o laço de repetição (linhas 6-17) remove, por iteração, pelo menos um breakpoint tipo um utilizando no máximo duas reversões. Esse processo repete-se até que todos os breakpoints tipo um de $\mathcal{I}$ sejam removidos. Como todos os breakpoints tipo um são removidos, então $(\pi,\breve\pi)$ é transformada em $(\iota,\breve\iota)$. Note que se o indel aplicado inicialmente não remover nenhum breakpoint tipo um, então pelo menos uma reversão é aplicada em seguida. Além disso, pelo Lema~\ref{lemma:WSPRPLAH}, podemos deduzir que a última reversão que transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ deve obrigatoriamente remover dois breakpoints tipo um. Isso implica que no máximo $2ib_1(\mathcal{I})$ reversões e indels são utilizadas pelo Algoritmo~\ref{algorithm:LHOPSFVN} para transformar $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$.
     \item $\sum_{i=1}^{n+1}\breve\pi_i = \sum_{i=1}^{n+1}\breve\iota_i$, para esse cenários o Algoritmo~\ref{algorithm:LHOPSFVN} comporta-se exatamente como o Algoritmo~\ref{algorithm:AKKUXQNR}, que transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando no máximo $2ib_1(\mathcal{I})$ reversões.
-    \item $\sum_{i=1}^{n+1}\breve\pi_i > \sum_{i=1}^{n+1}\breve\iota_i$, neste último cenário enquanto $ib(\mathcal{I})$ for maior que um, o Algoritmo~\ref{algorithm:LHOPSFVN} aplica no máximo duas reversões a cada iteração do laço de repetição (linhas 6-17) que removem pelo menos um breakpoint tipo um. Por fim, um indel é aplicado (linhas 19-22) transformando $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$. Note que no pior caso deste cenário cada breakpoint tipo um é removido após a aplicação de duas reversões.
+    \item $\sum_{i=1}^{n+1}\breve\pi_i > \sum_{i=1}^{n+1}\breve\iota_i$, neste último cenário enquanto $ib_1(\mathcal{I})$ for maior que um, o Algoritmo~\ref{algorithm:LHOPSFVN} aplica no máximo duas reversões a cada iteração do laço de repetição (linhas 6-17) que removem pelo menos um breakpoint tipo um. Por fim, um indel é aplicado (linhas 19-22) transformando $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$. Note que no pior caso deste cenário cada breakpoint tipo um é removido após a aplicação de duas reversões.
   \end{itemize}
   Nos três cenários o Algoritmo~\ref{algorithm:LHOPSFVN} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando no máximo $2ib_1(\mathcal{I})$ reversões e indels e o lema segue.
 \end{proof}
@@ -409,7 +427,7 @@ Pelo Lema~\ref{lemma:XUDIVWPC}, o Algoritmo~\ref{algorithm:LHOPSFVN} transforma 
 \end{proof}
 
 % ------------------------------------------------------------------ %
-\subsection{Reversão e Move}
+\subsubsection{Reversão e Move}
 % ------------------------------------------------------------------ %
 
 Nesta seção apresentaremos um algoritmo de aproximação com fator $4$ para a variação sem sinais do problema \SbIRM{}.
@@ -451,7 +469,7 @@ Pelo Lema~\ref{lemma:TZYVWBRT}, o Algoritmo~\ref{algorithm:OLSRUEFZ} transforma 
 \end{proof}
 
 % ------------------------------------------------------------------ %
-\subsection{Reversão, Move e Indel}
+\subsubsection{Reversão, Move e Indel}
 % ------------------------------------------------------------------ %
 
 Nesta seção apresentaremos um algoritmo de aproximação com fator $4$ para a variação sem sinais do problema \SbIRMI{}. 
@@ -477,7 +495,7 @@ Pelo Lema~\ref{lemma:SINGKSVU}, o Algoritmo~\ref{algorithm:JAJGNYWD} transforma 
 \end{proof}
 
 % ------------------------------------------------------------------ %
-\subsection{Reversão e Transposição}
+\subsubsection{Reversão e Transposição}
 % ------------------------------------------------------------------ %
 
 Nesta seção apresentaremos algoritmos de aproximação para a variação sem sinais do problema \SbIRT{} com fatores $6$, $4.5$ e $4$.
@@ -700,7 +718,7 @@ Pelo Lema~\ref{lemma:HIIRAXUH}, o Algoritmo~\ref{algorithm:LCPCUFNZ} transforma 
 \end{proof}
 
 % ------------------------------------------------------------------ %
-\subsection{Reversão, Transposição e Indel}
+\subsubsection{Reversão, Transposição e Indel}
 % ------------------------------------------------------------------ %
 
 Nesta seção apresentaremos um algoritmo de aproximação com fator $4$ para a variação sem sinais do problema \SbIRTI{}. 
@@ -754,7 +772,7 @@ Pelo Lema~\ref{lemma:MUTXDAUG}, o Algoritmo~\ref{algorithm:LCPCUFNZ} transforma 
 \end{proof}
 
 % ------------------------------------------------------------------ %
-\subsection{Reversão, Transposição e Move}
+\subsubsection{Reversão, Transposição e Move}
 % ------------------------------------------------------------------ %
 
 Nesta seção apresentaremos um algoritmo de aproximação com fator $3$ para a variação sem sinais do problema \SbIRTM{}. 
@@ -794,7 +812,7 @@ Pelo Lema~\ref{lemma:UUWLBHHA}, o Algoritmo~\ref{algorithm:UZWADMNZ} transforma 
 \end{proof}
 
 % ------------------------------------------------------------------ %
-\subsection{Reversão, Transposição, Move e Indel}
+\subsubsection{Reversão, Transposição, Move e Indel}
 % ------------------------------------------------------------------ %
 
 Nesta seção apresentaremos um algoritmo de aproximação com fator $3$ para a variação sem sinais do problema \SbIRTMI{}. A seguir apresentamos o Algoritmo~\ref{algorithm:FMDPGQTJ}.
@@ -818,7 +836,7 @@ Pelo Lema~\ref{lemma:GCEWGEBP}, o Algoritmo~\ref{algorithm:FMDPGQTJ} transforma 
 \end{proof}
 
 % ------------------------------------------------------------------ %
-\subsection{Resultados Práticos}\label{subsection:SIEYCNVZ}
+\subsubsection{Resultados Práticos}\label{subsubsection:SIEYCNVZ}
 % ------------------------------------------------------------------ %
 
 Nesta seção apresentamos os resultados práticos dos algoritmos apresentados para a varaiação sem sinas dos problemas \SbIR{}, \SbIRI{}, \SbIRM{}, \SbIRMI{}, \SbIRT{}, \SbIRTI{}, \SbIRTM{} e \SbIRTMI{}.
@@ -884,7 +902,7 @@ A partir da Tabela~\ref{table:EANTBRZP} notamos que em todos os grupos o Algorit
 De maneira geral todos os algoritmos apresentam um bom desempenho na prática. Vale ressaltar o desempenho dos algoritmos~\ref{algorithm:SAAUGXYG} e \ref{algorithm:JQHVZACM} para a variação sem sinais do problema \SbIRT{}, que mesmo possuindo um limite teórico mais elevado para a aproximação, apresentaram resultados compatíveis com os resultados do melhor algoritmo conhecido para o problema até o momento (Algoritmo~\ref{algorithm:LCPCUFNZ}).
 
 % ------------------------------------------------------------------ %
-\subsection{Heurística Gulosa}
+\subsubsection{Heurística Gulosa}
 % ------------------------------------------------------------------ %
 
 Visando obter resultados práticos melhores pelos algoritmos apresentados para a variação sem sinais dos problemas investigados neste capítulo, nos propomos heurísticas baseadas em uma estratégia gulosa. As heurísticas consistem em verificar se existe em instância intergênica sem sinais $\mathcal{I}$ uma operação de reversão, transposição ou move que remove dois ou mais breakpoints tipo um e aplicá-la. O Algoritmo~\ref{algorithm:XPAWWVSJ} mostra os passos da heurística I, que devem ser executados seguindo uma ordem de prioridade, e consdera apenas os eventos de reversão e transposição.  
@@ -902,7 +920,7 @@ Note que caso a heurística I ou II forneça alguma operação, então sabemos q
 Dessa forma, a utilização da heurística I (Algoritmo~\ref{algorithm:XPAWWVSJ}) não altera o tempo de execução dos algoritmos propostos para a variação sem sinais dos problemas \SbIR{}, \SbIRI{}, \SbIRM{}, \SbIRMI{}, \SbIRT{}, \SbIRTI{}, \SbIRTM{} e \SbIRTMI{}, mantendo-se em $\mathcal{O}(n^2)$. Entretanto, o uso da heurística II (Algoritmo~\ref{algorithm:HCOCWPIN}) afeta o tempo de execução dos algoritmos para a variação sem sinais dos problemas \SbIRM{}, \SbIRMI{}, \SbIRTM{} e \SbIRTMI{}, alterando-se para $\mathcal{O}(n^2 \log n)$.
 
 % ------------------------------------------------------------------ %
-\section{Instâncias Intergênicas Rígidas com Sinais}
+\subsection{Instâncias Intergênicas Rígidas com Sinais}
 % ------------------------------------------------------------------ %
 
 Nesta seção apresentamos algoritmos para os problemas resultantes dos modelos de rearranjo investigados neste capítulo e considerando uma representação intergênica rígida com sinais de um genoma. Inicialmente iremos apresentar algumas definições e lemas que serão utilizados por múltiplos algoritmos.
@@ -943,7 +961,7 @@ Como as adjacências intergênicas de $\mathcal{I'}$ não são afetadas por qual
 Note que as funções $\mathcal{F}$ e $\mathcal{G}$ podem ser computadas em tempo linear.
 
 % ------------------------------------------------------------------ %
-\subsection{Reversão}
+\subsubsection{Reversão}
 % ------------------------------------------------------------------ %
 
 Nesta seção, apresentaremos um algoritmo de aproximação com fator $4$ para a variação com sinais do problema \SbIR{}. A seguir apresentamos o Algoritmo~\ref{algorithm:UJBJJGGJ}.
@@ -960,7 +978,7 @@ Note que o Algoritmo~\ref{algorithm:AKKUXQNR} fornece um sequência de reversõe
 \end{proof}
 
 % ------------------------------------------------------------------ %
-\subsection{Reversão e Indel}
+\subsubsection{Reversão e Indel}
 % ------------------------------------------------------------------ %
 
 Nesta seção, apresentaremos um algoritmo de aproximação com fator $4$ para a variação com sinais do problema \SbIRI{}. A seguir apresentamos o Algoritmo~\ref{algorithm:QKCVERGO}.
@@ -975,7 +993,7 @@ A prova é similar a descrita no Teorema~\ref{theorem:DGTASCUU}, mas considerand
 \end{proof}
 
 % ------------------------------------------------------------------ %
-\subsection{Reversão e Move}
+\subsubsection{Reversão e Move}
 % ------------------------------------------------------------------ %
 
 Nesta seção apresentaremos algoritmos de aproximação com fatores de aproximação $4$ e $2$ para a variação com sinais do problema \SbIRM{}. A seguir apresentamos o Algoritmo~\ref{algorithm:VRXYTMUD}.
@@ -1042,7 +1060,7 @@ Pelo Lema~\ref{lemma:APHTXLZC}, o Algoritmo~\ref{algorithm:EHDLZXJA} transforma 
 \end{proof}
 
 % ------------------------------------------------------------------ %
-\subsection{Reversão, Move e Indel}
+\subsubsection{Reversão, Move e Indel}
 % ------------------------------------------------------------------ %
 
 Nesta seção apresentaremos algoritmos de aproximação com fatores de aproximação $4$ e $2$ para a variação com sinais do problema \SbIRMI{}. A seguir apresentamos o Algoritmo~\ref{algorithm:QMGGIVXT}.
@@ -1095,7 +1113,7 @@ Pelo Lema~\ref{lemma:PBDEKMXG}, o Algoritmo~\ref{algorithm:RYNLKYUJ} transforma 
 \end{proof}
 
 % ------------------------------------------------------------------ %
-\subsection{Reversão e Transposição}
+\subsubsection{Reversão e Transposição}
 % ------------------------------------------------------------------ %
 
 Nesta seção, com base na estrutura do Algoritmo~\ref{algorithm:UJBJJGGJ}, apresentaremos um algoritmo de aproximação com fator $4$ para a variação com sinais do problema \SbIRT{}. A seguir apresentamos o Algoritmo~\ref{algorithm:WTARSEZM}.
@@ -1110,7 +1128,7 @@ Note que o Algoritmo~\ref{algorithm:LCPCUFNZ} fornece um sequência de reversõe
 \end{proof}
 
 % ------------------------------------------------------------------ %
-\subsection{Reversão, Transposição e Indel}
+\subsubsection{Reversão, Transposição e Indel}
 % ------------------------------------------------------------------ %
 
 Nesta seção, apresentaremos um algoritmo de aproximação com fator $4$ para a variação com sinais do problema \SbIRTI{}. A seguir apresentamos o Algoritmo~\ref{algorithm:EQALRDVE}.
@@ -1125,7 +1143,7 @@ Note que o Algoritmo~\ref{algorithm:YIZYUGZZ} fornece um sequência de reversõe
 \end{proof}
 
 % ------------------------------------------------------------------ %
-\subsection{Reversão, Transposição e Move}
+\subsubsection{Reversão, Transposição e Move}
 % ------------------------------------------------------------------ %
 
 Nesta seção, apresentaremos um algoritmo de aproximação com fator $3$ para a variação com sinais do problema \SbIRTM{}. A seguir apresentamos o Algoritmo~\ref{algorithm:MRFVALSC}.
@@ -1140,7 +1158,7 @@ A prova é similar a descrita no Teorema~\ref{theorem:TRRZCTJT}, mas considerand
 \end{proof}
 
 % ------------------------------------------------------------------ %
-\subsection{Reversão, Transposição, Move e Indel}
+\subsubsection{Reversão, Transposição, Move e Indel}
 % ------------------------------------------------------------------ %
 
 Nesta seção, apresentaremos um algoritmo de aproximação com fator $3$ para a variação com sinais do problema \SbIRTMI{}. A seguir apresentamos o Algoritmo~\ref{algorithm:LCTCOSWM}.
@@ -1155,12 +1173,12 @@ A prova é similar a descrita no Teorema~\ref{theorem:TRRZCTJT}, mas considerand
 \end{proof}
 
 % ------------------------------------------------------------------ %
-\subsection{Resultados Práticos}
+\subsubsection{Resultados Práticos}
 % ------------------------------------------------------------------ %
 
 Nesta seção, apresentamos os resultados práticos dos algoritmos apresentados para a varaiação com sinas dos problemas \SbIR{}, \SbIRI{}, \SbIRM{}, \SbIRMI{}, \SbIRT{}, \SbIRTI{}, \SbIRTM{} e \SbIRTMI{}.
 
-Nós também criamos uma base de dados para cada problema e utilizamos os identificadores $S_\SbIR{}$, $S_\SbIRI{}$, $S_\SbIRM{}$, $S_\SbIRMI{}$, $S_\SbIRT{}$, $S_\SbIRTI{}$, $S_\SbIRTM{}$ e $S_\SbIRTMI{}$ para a base de dados dos problemas \SbIR{}, \SbIRI{}, \SbIRM{}, \SbIRMI{}, \SbIRT{}, \SbIRTI{}, \SbIRTM{} e \SbIRTMI{}, respectivamente. As bases de dados foram criadas de forma similar ao processo descrito na Seção~\ref{subsection:SIEYCNVZ}, diferindo apenas que cada instância foi criada a partir de um par de representação intergênica rígida com sinais. Logo, ao aplicar um evento de reversão os genes no segmento afetado também acabam tendo a orientação invertida.
+Nós também criamos uma base de dados para cada problema e utilizamos os identificadores $S_\SbIR{}$, $S_\SbIRI{}$, $S_\SbIRM{}$, $S_\SbIRMI{}$, $S_\SbIRT{}$, $S_\SbIRTI{}$, $S_\SbIRTM{}$ e $S_\SbIRTMI{}$ para a base de dados dos problemas \SbIR{}, \SbIRI{}, \SbIRM{}, \SbIRMI{}, \SbIRT{}, \SbIRTI{}, \SbIRTM{} e \SbIRTMI{}, respectivamente. As bases de dados foram criadas de forma similar ao processo descrito na Seção~\ref{subsubsection:SIEYCNVZ}, diferindo apenas que cada instância foi criada a partir de um par de representação intergênica rígida com sinais. Logo, ao aplicar um evento de reversão os genes no segmento afetado também acabam tendo a orientação invertida.
 
 Além das bases de dados criadas por nós, utilizamos também duas bases de dados apresentadas por Oliveira \textit{et al.}~\cite{2021a-oliveira-etal}. As bases foram geradas da seguinte forma: Inicialmente, utilizando uma representação  intergênica com sinais foram gerados 100 genomas alvos $(\iota,\breve\iota)$, com 100 genes cada e cada valor de $\breve\iota_i$, com $1 \le i \le 101$, sendo aleatoriamente e de maneira uniforme escolhido no intervalo $[0..100]$. Depois disso, a partir de cada genoma alvo $(\iota,\breve\iota)$ foram gerados 100 genomas de origem $(\pi,\breve\pi)$ aplicando:
 
@@ -1237,7 +1255,7 @@ De maneira geral, todos os algoritmos apresentaram um bom desempenho na prática
 
 
 % ------------------------------------------------------------------ %
-\subsection{Resultados com Genomas Reais}
+\subsubsection{Resultados com Genomas Reais}
 % ------------------------------------------------------------------ %
 
 Nesta seção, apresentamos os resultados utilizando genomas reais de cianobactérias.
@@ -1263,8 +1281,344 @@ A Tabela~\ref{table:NRAGLYCG} indica que ambas as árvores filogenéticas têm u
 Pela Figura~\ref{figure:REHDYXMS} (criada usando o pacote \texttt{treeio} da linguagem R~\cite{wang2020treeio}), observamos que a abordagem separa os organismos considerando as espécies e realizou bons agrupamentos. Vale ressaltar que a árvore foi baseada exclusivamente em informações de eventos de rearranjo.
 
 % ------------------------------------------------------------------ %
+\section{Abordagem Ponderada}
+% ------------------------------------------------------------------ %
+
+Nesta seção, apresentaremos os resultados considerando diferentes funções de custo para as variações com e sem sinais dos problemas \SbWIRI{}, \SbWIRT{} e \SbWIRTI{}.
+
+A primeira função de custo, que chamamos de $W_1$, considera que os eventos de reversão e transposição possuem um custo de 1, enquanto um indel tem um custo equivalente a quantidade de nucleotídeos inseridos ou removidos da região intergênica. A seguir, descrevemos formalmente a função de custo $W_1$.
+
+$$
+  W_1(\beta) = \begin{cases}
+      |x|, \textit{para } \beta = \delta_{(x)}^{(i)} \\
+      1, \textit{para } \beta = \rho_{(x,y)}^{(i,j)} \\
+      1, \textit{para } \beta = \tau_{(x,y,z)}^{(i,j,k)} \\
+  \end{cases}
+$$
+
+Dada uma instância intergênica rígida com ou sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, denotamos por $IR(\mathcal{I}) = |\sum_{\breve\pi_i \in \breve\pi} \breve\pi_i - \sum_{\breve\iota_i \in \breve\iota} \breve\iota_i|$ a quantidade de nucleotídeos que precisam ser removidos ou inseridos no genoma de origem para que $\mathcal{I}$ seja uma instância balanceada. Note que reversões e transposições podem transferir nucleotídeos entre regiões intergênicas, mas não removem ou inserem nucleotídeos. Logo, em toda instância intergênica rígida com ou sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ para os problemas \SbWIRI{} e \SbWIRTI{} induz um custo mínimo de $IR(\mathcal{I})$, que nos dá os seguintes limites inferiores.
+
+\begin{theorem}\label{theorem:IQACALLP}
+Dada uma instância intergênica rígida sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ e com base na função de custo $W_1$, temos que:
+
+\begin{tabular}{lll}
+  $dw_{\SbWIRI}(\mathcal{I})$      & $ \ge $ & $\max(IR(\mathcal{I}),\frac{ib_1(\mathcal{I})}{2})$, \\ 
+  $dw_{\SbWIRTI}(\mathcal{I})$     & $ \ge $ & $\max(IR(\mathcal{I}),\frac{ib_1(\mathcal{I})}{3})$.
+\end{tabular}
+\begin{proof}
+Diretamente pelo Teorema~\ref{theorem:MPFPKHQO} e o custo mínimo de $IR(\mathcal{I})$ discutido anteriormente.
+\end{proof}
+\end{theorem}
+
+\begin{theorem}\label{theorem:BOZETXBS}
+Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ e com base na função de custo $W_1$, temos que:
+
+\begin{tabular}{lll}
+  $dw_{\SbWIRI}(\mathcal{I})$      & $ \ge $ & $\max(IR(\mathcal{I}),\frac{ib_2(\mathcal{I})}{2})$, \\ 
+  $dw_{\SbWIRTI}(\mathcal{I})$     & $ \ge $ & $\max(IR(\mathcal{I}),\frac{ib_2(\mathcal{I})}{3})$.
+\end{tabular}
+\begin{proof}
+Diretamente pelo Teorema~\ref{theorem:NFVKZGKW} e o custo mínimo de $IR(\mathcal{I})$ discutido anteriormente.
+\end{proof}
+\end{theorem}
+
+A seguir mostramos que, com base na função de custo $W_1$, é possível garantir aproximações para os problemas \SbWIRI{} e \SbWIRTI{} a partir de alguns dos algoritmos apresentados para o cenário não ponderado.
+
+\begin{theorem}\label{theorem:BNWIOUVG}
+Dada uma instância intergênica rígida sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:LHOPSFVN}, com base na função de custo $W_1$, é uma $5$-aproximação para o problema \SbWIRI{}.
+\end{theorem}
+\begin{proof}
+Note que o Algoritmo~\ref{algorithm:LHOPSFVN} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando no máximo $2ib_1(\mathcal{I})$ eventos de reversão e indel (Lema~\ref{lemma:XUDIVWPC}). Entretanto, caso $\mathcal{I}$ seja uma instância desbalanceada, então Algoritmo~\ref{algorithm:LHOPSFVN} aplica no máximo um indel com custo $IR(\mathcal{I})$. Caso contrário, apenas reversões são utilizadas. Logo, no pior caso, uma sequência de eventos de rearranjo fornecida pelo Algoritmo~\ref{algorithm:LHOPSFVN} tem um custo total de $IR(\mathcal{I}) + 2ib_1(\mathcal{I})$. Agora consideramos duas possibilidades:
+\begin{itemize}
+  \item $IR(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{2}$: Neste caso, $2IR(\mathcal{I}) \ge ib_1(\mathcal{I})$ e o custo máximo da sequência de eventos de rearranjo fornecida pelo Algoritmo~\ref{algorithm:LHOPSFVN} é $5IR(\mathcal{I})$.
+  \item $IR(\mathcal{I}) < \frac{ib_1(\mathcal{I})}{2}$: Neste caso, o custo máximo da sequência de eventos de rearranjo fornecida pelo Algoritmo~\ref{algorithm:LHOPSFVN} é $\frac{5ib_1(\mathcal{I})}{2}$.
+\end{itemize}
+Em ambos os casos, o custo máximo da sequência de eventos de rearranjo fornecida pelo Algoritmo~\ref{algorithm:LHOPSFVN} dividido pelo valor do limitante inferior, apresentado no Teorema~\ref{theorem:IQACALLP}, é igual a cinco e o teorema segue.
+\end{proof}
+
+\begin{theorem}\label{theorem:JKFXFCMF}
+Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:QKCVERGO}, com base na função de custo $W_1$, é uma $5$-aproximação para o problema \SbWIRI{}.
+\end{theorem}
+\begin{proof}
+A prova é similar a descrita no Teorema~\ref{theorem:BNWIOUVG}, mas considerando o Algoritmo~\ref{algorithm:QKCVERGO}, que utiliza o Algoritmo~\ref{algorithm:LHOPSFVN} em parte de sua execução, e o limitante inferior apresentado no Teorema~\ref{theorem:BOZETXBS}.
+\end{proof}
+
+\begin{theorem}\label{theorem:YATYVCZX}
+Dada uma instância intergênica rígida sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:YIZYUGZZ}, com base na função de custo $W_1$, é uma $5$-aproximação para o problema \SbWIRTI{}.
+\end{theorem}
+\begin{proof}
+Pelo Lema~\ref{lemma:MUTXDAUG}, o Algoritmo~\ref{algorithm:YIZYUGZZ} utiliza no máximo $\frac{4ib_1(\mathcal{I})}{3}$ e $\frac{4ib_1(\mathcal{I})}{3} + 1$ eventos de reversão, transposição e indel para transformar $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ se $\mathcal{I}$ for balanceada e desbalanceada, respectivamente. Entretanto, caso $\mathcal{I}$ seja uma instância desbalanceada, então Algoritmo~\ref{algorithm:YIZYUGZZ} aplica no máximo um indel com custo $IR(\mathcal{I})$. Caso contrário, apenas reversões e transposições são utilizadas. Logo, no pior caso, uma sequência de eventos de rearranjo fornecida pelo Algoritmo~\ref{algorithm:YIZYUGZZ} tem um custo total de $IR(\mathcal{I}) + \frac{4ib_1(\mathcal{I})}{3}$. Agora consideramos duas possibilidades:
+\begin{itemize}
+  \item $IR(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{3}$: Neste caso, $3IR(\mathcal{I}) \ge ib_1(\mathcal{I})$ e o custo máximo da sequência de eventos de rearranjo fornecida pelo Algoritmo~\ref{algorithm:YIZYUGZZ} é $IR(\mathcal{I}) + \frac{12IR(\mathcal{I})}{3} = 5IR(\mathcal{I})$.
+  \item $IR(\mathcal{I}) < \frac{ib_1(\mathcal{I})}{3}$: Neste caso, o custo máximo da sequência de eventos de rearranjo fornecida pelo Algoritmo~\ref{algorithm:YIZYUGZZ} é $\frac{ib_1(\mathcal{I})}{3} + \frac{4ib_1(\mathcal{I})}{3} = \frac{5ib_1(\mathcal{I})}{3}$.
+\end{itemize}
+Em ambos os casos, o custo máximo da sequência de eventos de rearranjo fornecida pelo Algoritmo~\ref{algorithm:YIZYUGZZ} dividido pelo valor do limitante inferior, apresentado no Teorema~\ref{theorem:IQACALLP}, é igual a cinco e o teorema segue.
+\end{proof}
+
+\begin{theorem}\label{theorem:XMRIBCHD}
+Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:EQALRDVE}, com base na função de custo $W_1$, é uma $5$-aproximação para o problema \SbWIRI{}.
+\end{theorem}
+\begin{proof}
+A prova é similar a descrita no Teorema~\ref{theorem:YATYVCZX}, mas considerando o Algoritmo~\ref{algorithm:EQALRDVE}, que utiliza o Algoritmo~\ref{algorithm:YIZYUGZZ} em parte de sua execução, e o limitante inferior apresentado no Teorema~\ref{theorem:BOZETXBS}.
+\end{proof}
+
+A segunda função de custo, chamada de $W_2$, é baseada no fato de que um indel afeta apenas uma região intergênica. Dessa forma, consideramos que o evento de indel possui a metade do custo de um evento de reversão ou transposição. A seguir, descrevemos formalmente a função de custo $W_2$.
+
+$$
+  W_2(\beta) = \begin{cases}
+      \frac{1}{2}, \textit{para } \beta = \delta_{(x)}^{(i)} \\
+      1, \textit{para } \beta = \rho_{(x,y)}^{(i,j)} \\
+      1, \textit{para } \beta = \tau_{(x,y,z)}^{(i,j,k)} \\
+  \end{cases}
+$$
+
+Com base nos custos da função $W_2$, obtemos para as variações com e sem sinais do problema \SbWIRTI{} os seguintes limitantes inferiores.
+
+\begin{theorem}\label{theorem:HFHHZDMV}
+Dada uma instância intergênica rígida sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ e com base na função de custo $W_2$, temos que $dw_{\SbWIRTI}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{3}$.
+\begin{proof}
+Pelos lemas~\ref{lemma:KFFPUBQG}, \ref{lemma:IUJZCMMV} e \ref{lemma:KWIVENLG}, sabemos que os eventos de reversão, transposição e indel removem por operação, no máximo, $2$, $3$ e $1$ breakpoint tipo um, respectivamente. Com base no melhor caso de cada evento de rearranjo e na função de custo $W_2$, temos que:
+$$dw_{\SbWIRTI}(\mathcal{I}) \ge \min\left(\frac{ib_1(\mathcal{I})}{2} \times 1,\frac{ib_1(\mathcal{I})}{3} \times 1, ib_1(\mathcal{I}) \times \frac{1}{2}\right) = \frac{ib_1(\mathcal{I})}{3},$$ e o teorema segue.
+\end{proof}
+\end{theorem}
+
+\begin{theorem}\label{theorem:IXYMBAWM}
+Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ e com base na função de custo $W_2$, temos que $dw_{\SbWIRTI}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I})}{3}$.
+\begin{proof}
+A prova é similar a descrita no Teorema~\ref{theorem:HFHHZDMV}, mas considerando os lemas~\ref{lemma:IKBNJWMY}, \ref{lemma:MYVALTSG} e \ref{lemma:KXIYYHHL}.
+\end{proof}
+\end{theorem}
+
+\begin{lemma}\label{lemma:XLFWKWTV}
+Dada uma instância intergênica rígida sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ e sejam $(\pi_i,\pi_{i+1})$ e $(\pi_j,\pi_{j+1})$ breakpoints conectados, então é possível remover pelo menos um breakpoint tipo um de $\mathcal{I}$ utilizando no máximo uma reversão, uma transposição ou dois indels.
+\end{lemma}
+\begin{proof}
+Sem perda de generalidade assuma que $i < j$, como os breakpoints $(\pi_i,\pi_{i+1})$ e $(\pi_j,\pi_{j+1})$ estão conectados, por definição, uma das seguintes possibilidades deve ocorrer:
+\begin{enumerate}[i.]
+  \item O par de elementos $(\pi_i,\pi_{j})$ ou $(\pi_{i+1},\pi_{j+1})$ não formam uma adjacência intergênica, são consecutivos em $\iota$ e $\breve\pi_{i+1} + \breve\pi_{j+1} \ge \breve\iota_k$, onde $\breve\iota_k$ é o tamanho da região intergênica entre o par de elementos consecutivos em $\iota$. Aplique uma reversão como descrito no caso $i$ do Lema~\ref{lemma:IMYFBWDY}.
+  \item O par  de elementos $(\pi_i,\pi_{j+1})$ não formam uma adjacência intergênica, são consecutivos em $\iota$ e $\breve\pi_{i+1} + \breve\pi_{j+1} \ge \breve\iota_k$, onde $\breve\iota_k$ é o tamanho da região intergênica entre o par de elementos consecutivos em $\iota$. Aplique uma transposição como descrito no caso $ii$ do Lema~\ref{lemma:SIAFJFDO}.
+  \item O par de elementos $(\pi_{i+1},\pi_{j})$ não formam uma adjacência intergênica, são consecutivos em $\iota$ e $\breve\pi_{i+1} + \breve\pi_{j+1} \ge \breve\iota_k$, onde $\breve\iota_k$ é o tamanho da região intergênica entre o par de elementos consecutivos em $\iota$. Aplique uma transposição como descrito no caso $iii$ do Lema~\ref{lemma:SIAFJFDO}.
+  \item O par de elementos $(\pi_{i},\pi_{i+1})$ ou $(\pi_{j},\pi_{j+1})$ não formam uma adjacência intergênica, são consecutivos em $\iota$ e $\breve\pi_{i+1} + \breve\pi_{j+1} \ge \breve\iota_k$, onde $\breve\iota_k$ é o tamanho da região intergênica entre o par de elementos consecutivos em $\iota$. Neste caso, $(\pi_{i},\pi_{i+1})$ ou $(\pi_{j},\pi_{j+1})$ deve ser um breakpoint forte. Caso $(\pi_{i},\pi_{i+1})$ seja um breakpoint forte, então ele pode ser subcarregado ou sobrecarregado. Caso $(\pi_{i},\pi_{i+1})$ seja subcarregado, então aplique a sequência de dois indels $(\delta^{i+1}_{(x)}, \delta^{j+1}_{(-x)})$, com $x=|\breve\pi_{i+1} - \breve\iota_{\max(\pi_i, \pi_{i+1})}|$. Caso contrário, aplique a sequência de dois indels $(\delta^{i+1}_{(-x)}, \delta^{j+1}_{(x)})$, com $x=|\breve\pi_{i+1} - \breve\iota_{\max(\pi_i, \pi_{i+1})}|$. Caso $(\pi_{j},\pi_{j+1})$ seja um breakpoint forte, basta replicar a sequência de indels considerando a mudança no breakpoint. Note que essa senquência sempre pode ser aplicada, pois os dois breakpoints estão conectados. Além disso, o breakpoint tipo um $(\pi_i,\pi_{i+1})$ é removido sem afetar quantidade de total de nucleotídeos de $\mathcal{I}$.  
+\end{enumerate}
+Note que o caso $(i)$ aplica apenas um reversão e remove pelo menos um breakpoint tipo um. Os casos $(ii)$ e $(iii)$ aplicam apenas uma transposição e removem pelo menos um breakpoint tipo um. Por fim, o caso $(iv)$ remove pelo menos um breakpoint tipo um após aplicar dois indels. Logo, o lema segue.
+\end{proof}
+
+A seguir apresentamos para a variação sem sinais do problema \SbWIRTI{} o Algoritmo~\ref{algorithm:DYNWURLY}.
+
+\input{algorithms/DYNWURLY}
+
+\begin{lemma}\label{lemma:IKTEYDRR}
+Dada uma instância intergênica rígida sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:DYNWURLY}, com base na função de custo $W_2$, transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando uma sequência de eventos de reversão, transposição e indel $S$, com um custo total de no máximo $ib_1(\mathcal{I})$.
+\end{lemma}
+\begin{proof}
+  Podemos analisar o Algoritmo~\ref{algorithm:DYNWURLY} considerando três cenários:
+  \begin{itemize}
+    \item $\sum_{i=1}^{n+1}\breve\pi_i < \sum_{i=1}^{n+1}\breve\iota_i$, neste cenários o Algoritmo~\ref{algorithm:DYNWURLY} aplica um indel (linhas 2-5) que pode não remover nenhum breakpoint tipo um, mas torna $\mathcal{I}$ em uma instância balanceada. Caso ainda existam breakpoints em $\mathcal{I}$, então o laço de repetição (linhas 6-17) remove, por iteração, pelo menos um breakpoint tipo um utilizando no máximo uma reversão, uma transposição ou dois indels (Lema~\ref{lemma:XLFWKWTV}). Esse processo repete-se até que todos os breakpoints tipo um de $\mathcal{I}$ sejam removidos. Como todos os breakpoints tipo um são removidos, então $(\pi,\breve\pi)$ é transformada em $(\iota,\breve\iota)$. Note que se o indel aplicado inicialmente não remover nenhum breakpoint tipo um, então pelo menos uma reversão, uma transposição ou dois indels são aplicados em seguida. Além disso, pelo Lema~\ref{lemma:WSPRPLAH}, podemos deduzir que caso a última operação que transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ seja uma reversão ou uma transposição, então ela deve obrigatoriamente remover pelo menos dois breakpoints tipo um. Caso essa operação seja um indel, então as duas últimas operações são indels e ambas removem um breakpoint tipo um. Isso implica que o custo total da sequência fornecida pelo Algoritmo~\ref{algorithm:DYNWURLY} é de no máximo $ib_1(\mathcal{I})$.
+    \item $\sum_{i=1}^{n+1}\breve\pi_i = \sum_{i=1}^{n+1}\breve\iota_i$, para esse cenários o Algoritmo~\ref{algorithm:DYNWURLY} executará o laço de repetição (linhas 6-17) que remove, por iteração, pelo menos um breakpoint tipo um utilizando no máximo uma reversão, uma transposição ou dois indels (Lema~\ref{lemma:XLFWKWTV}). Implicando também que o custo total da sequência fornecida pelo Algoritmo~\ref{algorithm:DYNWURLY} é de no máximo $ib_1(\mathcal{I})$.
+    \item $\sum_{i=1}^{n+1}\breve\pi_i > \sum_{i=1}^{n+1}\breve\iota_i$, neste último cenário enquanto $ib_1(\mathcal{I})$ for maior que um, o Algoritmo~\ref{algorithm:DYNWURLY} aplica no máximo uma reversão, uma transposição ou dois indels em cada iteração do laço de repetição (linhas 6-17) que removem pelo menos um breakpoint tipo um. Por fim, um indel é aplicado (linhas 19-22) transformando $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$. O custo para remover cada breakpoint nesse caso é de no máximo um. Logo, o custo total da sequência fornecida pelo Algoritmo~\ref{algorithm:DYNWURLY} é de no máximo $ib_1(\mathcal{I})$. 
+  \end{itemize}
+  Nos três cenários o Algoritmo~\ref{algorithm:DYNWURLY} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando uma sequência de reversões, transposições e indels com um custo total de no máximo $ib_1(\mathcal{I})$, e o lema segue.
+\end{proof}
+
+Note que o tempo de execução do Algoritmo~\ref{algorithm:DYNWURLY} é $\mathcal{O(n^2)}$, uma vez que para encontrar um par conectado de breakpoints requer um tempo linear e esse processo pode repetir-se por até $ib_1(\mathcal{I}) \le n + 1$ vezes.
+
+\begin{theorem}\label{theorem:HXFXWAIA}
+Dada uma instância intergênica rígida sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:DYNWURLY}, com base na função de custo $W_2$, é uma $3$-aproximação para o problema \SbWIRTI{}.
+\end{theorem}
+\begin{proof}
+Pelo Lema~\ref{lemma:IKTEYDRR}, o Algoritmo~\ref{algorithm:DYNWURLY} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando uma sequência de eventos de reversão, transposição e indel $S$, com um custo total de no máximo $ib_1(\mathcal{I})$. Pelo limitante inferior, apresentado no Teorema~\ref{theorem:HFHHZDMV}, temos que $dw_{\SbWIRTI}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{3}$. Logo, o teorema segue.
+\end{proof}
+
+A seguir apresentamos para a variação com sinais do problema \SbWIRTI{} o Algoritmo~\ref{algorithm:HHROEWVE}.
+
+\input{algorithms/HHROEWVE}
+
+\begin{lemma}\label{lemma:MBYKFLMR}
+Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:DYNWURLY}, com base na função de custo $W_2$, transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando uma sequência de eventos de reversão, transposição e indel $S$, com um custo total de no máximo $ib_2(\mathcal{I})$.
+\end{lemma}
+\begin{proof}
+Note que o Algoritmo~\ref{algorithm:DYNWURLY} fornece um sequência de reversões, tranposições e indels que afetam apenas breakpoints tipo um. Logo, nunhuma adjacência intergênica de $\mathcal{I'}$ é afetada. Além disso, pelo Lema~\ref{lemma:IKTEYDRR}, o Algoritmo~\ref{algorithm:DYNWURLY} utiliza uma sequência de eventos de reversão, transposição e indel, com um custo total de no máximo $ib_1(\mathcal{I'})$. Pelo Lema~\ref{lemma:GTTULLOM}, temos que $(\pi,\breve\pi) \cdot S = (\iota,\breve\iota)$ e $|S| = |S'|$. Além disso, $S$ e $|S'|$ possuem a mesma quantidade de operações por tipo. Pelo Lema~\ref{lemma:FKOCCOYY}, temos que $ib_1(\mathcal{I'}) = ib_2(\mathcal{I})$. Logo, o custo total da sequência de eventos de reversão, transposição e indel fornecida pelo Algoritmo~\ref{algorithm:HHROEWVE} é de no máximo $ib_2(\mathcal{I})$.
+\end{proof}
+
+O Algoritmo~\ref{algorithm:HHROEWVE} também possui um tempo de execução de $\mathcal{O}(n^2)$, uma vez que as funções $\mathcal{F}$ e $\mathcal{G}$ executam em tempo linear e o Algoritmo~\ref{algorithm:DYNWURLY}, no pior caso, requer um tempo quadrático.
+
+\begin{theorem}\label{theorem:MJXOZGOO}
+Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:HHROEWVE}, com base na função de custo $W_2$, é uma $3$-aproximação para o problema \SbWIRTI{}.
+\end{theorem}
+\begin{proof}
+Pelo Lema~\ref{lemma:MBYKFLMR}, o Algoritmo~\ref{algorithm:HHROEWVE} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando uma sequência de eventos de reversão, transposição e indel, com um custo total de no máximo $ib_2(\mathcal{I})$. Pelo limitante inferior, apresentado no Teorema~\ref{theorem:IXYMBAWM}, temos que $dw_{\SbWIRTI}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I})}{3}$. Logo, o teorema segue.
+\end{proof}
+
+A terceira função de custo, chamada de $W_3$, é baseada na proporção de regiões intergêncas afetadas por cada evento de rearranjo~\cite{2018-alexandrino-etal}. A seguir, descrevemos formalmente a função de custo $W_3$.
+
+$$
+  W_3(\beta) = \begin{cases}
+      \frac{1}{2}, \textit{para } \beta = \delta_{(x)}^{(i)} \\
+      1, \textit{para } \beta = \rho_{(x,y)}^{(i,j)} \\
+      \frac{3}{2}, \textit{para } \beta = \tau_{(x,y,z)}^{(i,j,k)} \\
+  \end{cases}
+$$
+
+Com base nos custos da função $W_3$, obtemos para as variações com e sem sinais do problema \SbWIRTI{} os seguintes limitantes inferiores.
+
+\begin{theorem}\label{theorem:BFKDUKUF}
+Dada uma instância intergênica rígida sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ e com base na função de custo $W_3$, temos que $dw_{\SbWIRTI}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{2}$.
+\begin{proof}
+Pelos lemas~\ref{lemma:KFFPUBQG}, \ref{lemma:IUJZCMMV} e \ref{lemma:KWIVENLG}, sabemos que os eventos de reversão, transposição e indel removem por operação, no máximo, $2$, $3$ e $1$ breakpoint tipo um, respectivamente. Com base no melhor caso de cada evento de rearranjo e na função de custo $W_3$, temos que:
+$$dw_{\SbWIRTI}(\mathcal{I}) \ge \min\left(\frac{ib_1(\mathcal{I})}{2} \times 1,\frac{ib_1(\mathcal{I})}{3} \times \frac{3}{2}, ib_1(\mathcal{I}) \times \frac{1}{2}\right) = \frac{ib_1(\mathcal{I})}{2},$$ e o teorema segue.
+\end{proof}
+\end{theorem}
+
+\begin{theorem}\label{theorem:ACJPZCWD}
+Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ e com base na função de custo $W_2$, temos que $dw_{\SbWIRTI}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I})}{2}$.
+\begin{proof}
+A prova é similar a descrita no Teorema~\ref{theorem:BFKDUKUF}, mas considerando os lemas~\ref{lemma:IKBNJWMY}, \ref{lemma:MYVALTSG} e \ref{lemma:KXIYYHHL}.
+\end{proof}
+\end{theorem}
+
+\begin{lemma}\label{lemma:FESYSSFB}
+Dada uma instância intergênica rígida sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:DYNWURLY}, com base na função de custo $W_3$, transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando uma sequência de eventos de reversão, transposição e indel $S$, com um custo total de no máximo $\frac{3ib_1(\mathcal{I})}{2}$.
+\end{lemma}
+\begin{proof}
+  A prova é similar a descrita no Lema~\ref{lemma:IKTEYDRR} considerando a função de custo $W_3$.
+\end{proof}
+
+\begin{theorem}\label{theorem:YFYDIUAB}
+Dada uma instância intergênica rígida sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:DYNWURLY}, com base na função de custo $W_3$, é uma $3$-aproximação para o problema \SbWIRTI{}.
+\end{theorem}
+\begin{proof}
+Pelo Lema~\ref{lemma:FESYSSFB}, o Algoritmo~\ref{algorithm:DYNWURLY} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando uma sequência de eventos de reversão, transposição e indel $S$, com um custo total de no máximo $\frac{3ib_1(\mathcal{I})}{2}$. Pelo limitante inferior, apresentado no Teorema~\ref{theorem:BFKDUKUF}, temos que $dw_{\SbWIRTI}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{2}$. Logo, o teorema segue.
+\end{proof}
+
+\begin{lemma}\label{lemma:HRFGEWNU}
+Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:HHROEWVE}, com base na função de custo $W_3$, transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando uma sequência de eventos de reversão, transposição e indel $S$, com um custo total de no máximo $\frac{3ib_2(\mathcal{I})}{2}$.
+\end{lemma}
+\begin{proof}
+  A prova é similar a descrita no Lema~\ref{lemma:MBYKFLMR} considerando a função de custo $W_3$.
+\end{proof}
+
+\begin{theorem}\label{theorem:UMSMTVTN}
+Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:HHROEWVE}, com base na função de custo $W_3$, é uma $3$-aproximação para o problema \SbWIRTI{}.
+\end{theorem}
+\begin{proof}
+Pelo Lema~\ref{lemma:HRFGEWNU}, o Algoritmo~\ref{algorithm:HHROEWVE} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando uma sequência de eventos de reversão, transposição e indel $S$, com um custo total de no máximo $\frac{3ib_2(\mathcal{I})}{2}$. Pelo limitante inferior, apresentado no Teorema~\ref{theorem:ACJPZCWD}, temos que $dw_{\SbWIRTI}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I})}{2}$. Logo, o teorema segue.
+\end{proof}
+
+A seguir apresentamos duas funções de custo para o problema \SbWIRT{} que são bem aceitas na literatura em modelos compostos pelos eventos conservativos de reversão e transposição. A primeira função de custo, chamada de $W_4$, adota o custo $1$ e $2$ para os eventos de reversão e transposição, respectivamente~\cite{2002-eriksen}. A segunda função de custo, chamada de $W_5$, adota os custos $1$ e $\frac{3}{2}$ para os eventos de reversão e transposição, respectivamente~\cite{2019a-oliveira-etal}. A seguir, descrevemos formalmente as funções de custo $W_4$ e $W_5$.
+
+$$
+  W_4(\beta) = \begin{cases}
+      1, \textit{para } \beta = \rho_{(x,y)}^{(i,j)} \\
+      2, \textit{para } \beta = \tau_{(x,y,z)}^{(i,j,k)} \\
+  \end{cases}
+$$ 
+
+$$
+  W_5(\beta) = \begin{cases}
+      1, \textit{para } \beta = \rho_{(x,y)}^{(i,j)} \\
+      \frac{3}{2}, \textit{para } \beta = \tau_{(x,y,z)}^{(i,j,k)} \\
+  \end{cases}
+$$
+
+Com base nos custos das funções $W_4$ e $W_5$, obtemos para as variações com e sem sinais do problema \SbWIRT{} os seguintes limitantes inferiores.
+
+\begin{theorem}\label{theorem:TUSWAWTT}
+Dada uma instância intergênica rígida balanceada sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ e com base na função de custo $W_4$, temos que $dw_{\SbWIRT}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{2}$.
+\begin{proof}
+Pelos lemas~\ref{lemma:KFFPUBQG}, \ref{lemma:IUJZCMMV} e \ref{lemma:KWIVENLG}, sabemos que os eventos de reversão, transposição e indel removem por operação, no máximo, $2$, $3$ e $1$ breakpoint tipo um, respectivamente. Com base no melhor caso de cada evento de rearranjo e na função de custo $W_4$, temos que:
+$$dw_{\SbWIRTI}(\mathcal{I}) \ge \min\left(\frac{ib_1(\mathcal{I})}{2} \times 1,\frac{ib_1(\mathcal{I})}{3} \times 2\right) = \frac{ib_1(\mathcal{I})}{2},$$ e o teorema segue.
+\end{proof}
+\end{theorem}
+
+\begin{theorem}\label{theorem:RPTOVHAP}
+Dada uma instância intergênica rígida balanceada com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ e com base na função de custo $W_4$, temos que $dw_{\SbWIRT}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I})}{2}$.
+\begin{proof}
+A prova é similar a descrita no Teorema~\ref{theorem:TUSWAWTT}, mas considerando os lemas~\ref{lemma:IKBNJWMY}, \ref{lemma:MYVALTSG} e \ref{lemma:KXIYYHHL}.
+\end{proof}
+\end{theorem}
+
+\begin{lemma}\label{lemma:DDSJVECJ}
+Dada uma instância intergênica rígida balanceada sem sinais $\mathcal{I}=((\pi,\breve\pi),\break(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:JQHVZACM}, com base na função de custo $W_4$, transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando uma sequência de eventos de reversão e transposição $S$, com um custo total de no máximo $2ib_1(\mathcal{I})$.
+\end{lemma}
+\begin{proof}
+Pelo Lema~\ref{lemma:RNJHXOWZ}, sabemos que o Algoritmo~\ref{algorithm:JQHVZACM} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$. Para obtermos o custo total máximo de uma sequência de reversões e transposições fornecida pelo Algoritmo~\ref{algorithm:JQHVZACM} vamos considerar suas duas fases: (i) remoção de breakpoints sobrecarregados, nessa fase cada breakpoint tipo um é removido com um custo médio de $2$, no pior caso; (ii) remoção de breakpoints suaves, no pior caso, cada breakpoint tipo um é removido por uma transposição, que tem custo $2$. Dessa forma, o custo total máximo de uma sequência de reversões e transposições fornecida pelo Algoritmo~\ref{algorithm:JQHVZACM} é $2ib_1(\mathcal{I})$, e o lema segue. 
+\end{proof}
+
+\begin{theorem}\label{theorem:CQXBDUDY}
+Dada uma instância intergênica rígida balanceada sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:JQHVZACM}, com base na função de custo $W_4$, é uma $4$-aproximação para o problema \SbWIRT{}.
+\end{theorem}
+\begin{proof}
+Pelo Lema~\ref{lemma:DDSJVECJ}, o Algoritmo~\ref{algorithm:JQHVZACM}, com base na função de custo $W_4$, transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando uma sequência de eventos de reversão e transposição com um custo total de no máximo $2ib_1(\mathcal{I})$. Pelo limitante inferior, apresentado no Teorema~\ref{theorem:TUSWAWTT}, temos que $dw_{\SbWIRT}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I})}{2}$. Logo, o teorema segue.
+\end{proof}
+
+A seguir apresentamos para a variação com sinais do problema \SbWIRT{} o Algoritmo~\ref{algorithm:JRRYCBXN}.
+
+\input{algorithms/JRRYCBXN}
+
+\begin{lemma}\label{lemma:TMZVZPOF}
+Dada uma instância intergênica rígida balanceada com sinais $\mathcal{I}=((\pi,\breve\pi),\break(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:JRRYCBXN}, com base na função de custo $W_4$, transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando uma sequência de eventos de reversão e transposição $S$, com um custo total de no máximo $2ib_2(\mathcal{I})$.
+\end{lemma}
+\begin{proof}
+Note que o Algoritmo~\ref{algorithm:JQHVZACM} fornece um sequência de reversões e tranposições que afetam apenas breakpoints tipo um. Logo, nunhuma adjacência intergênica de $\mathcal{I'}$ é afetada. Além disso, pelo Lema~\ref{lemma:DDSJVECJ}, o Algoritmo~\ref{algorithm:JQHVZACM} utiliza uma sequência de eventos de reversão e transposição com um custo total de no máximo $ib_1(\mathcal{I'})$ para transformar $(\pi',\breve\pi')$ em $(\iota',\breve\iota')$. Pelo Lema~\ref{lemma:GTTULLOM}, temos que $(\pi,\breve\pi) \cdot S = (\iota,\breve\iota)$ e $|S| = |S'|$. Além disso, $S$ e $|S'|$ possuem a mesma quantidade de operações por tipo. Pelo Lema~\ref{lemma:FKOCCOYY}, temos que $ib_1(\mathcal{I'}) = ib_2(\mathcal{I})$. Logo, o custo total da sequência de eventos de reversão e transposição fornecida pelo Algoritmo~\ref{algorithm:JRRYCBXN} é de no máximo $ib_2(\mathcal{I})$.
+\end{proof}
+
+\begin{theorem}\label{theorem:IUDGQWGI}
+Dada uma instância intergênica rígida balanceada com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:JRRYCBXN}, com base na função de custo $W_4$, é uma $4$-aproximação para o problema \SbWIRT{}.
+\end{theorem}
+\begin{proof}
+Pelo Lema~\ref{lemma:TMZVZPOF}, o Algoritmo~\ref{algorithm:JRRYCBXN}, com base na função de custo $W_4$, transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando uma sequência de eventos de reversão e transposição com um custo total de no máximo $2ib_2(\mathcal{I})$. Pelo limitante inferior, apresentado no Teorema~\ref{theorem:RPTOVHAP}, temos que $dw_{\SbWIRT}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I})}{2}$. Logo, o teorema segue.
+\end{proof}
+
+\begin{theorem}\label{theorem:XDQCRTEI}
+Dada uma instância intergênica rígida balanceada sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ e com base na função de custo $W_5$, temos que $dw_{\SbWIRT}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{2}$.
+\begin{proof}
+Pelos lemas~\ref{lemma:KFFPUBQG}, \ref{lemma:IUJZCMMV} e \ref{lemma:KWIVENLG}, sabemos que os eventos de reversão, transposição e indel removem por operação, no máximo, $2$, $3$ e $1$ breakpoint tipo um, respectivamente. Com base no melhor caso de cada evento de rearranjo e na função de custo $W_5$, temos que:
+$$dw_{\SbWIRTI}(\mathcal{I}) \ge \min\left(\frac{ib_1(\mathcal{I})}{2} \times 1,\frac{ib_1(\mathcal{I})}{3} \times \frac{3}{2}\right) = \frac{ib_1(\mathcal{I})}{2},$$ e o teorema segue.
+\end{proof}
+\end{theorem}
+
+\begin{theorem}\label{theorem:MCKFPIOP}
+Dada uma instância intergênica rígida balanceada com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ e com base na função de custo $W_5$, temos que $dw_{\SbWIRT}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I})}{2}$.
+\begin{proof}
+A prova é similar a descrita no Teorema~\ref{theorem:XDQCRTEI}, mas considerando os lemas~\ref{lemma:IKBNJWMY}, \ref{lemma:MYVALTSG} e \ref{lemma:KXIYYHHL}.
+\end{proof}
+\end{theorem}
+
+\begin{lemma}\label{lemma:ODPHCEIG}
+Dada uma instância intergênica rígida balanceada sem sinais $\mathcal{I}=((\pi,\breve\pi),\break(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:JQHVZACM}, com base na função de custo $W_5$, transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando uma sequência de eventos de reversão e transposição $S$, com um custo total de no máximo $\frac{7ib_1(\mathcal{I})}{4}$.
+\end{lemma}
+\begin{proof}
+Pelo Lema~\ref{lemma:RNJHXOWZ}, sabemos que o Algoritmo~\ref{algorithm:JQHVZACM} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$. Para obtermos o custo total máximo de uma sequência de reversões e transposições fornecida pelo Algoritmo~\ref{algorithm:JQHVZACM} vamos considerar suas duas fases: (i) remoção de breakpoints sobrecarregados, nessa fase cada breakpoint tipo um é removido com um custo médio de $2$, no pior caso; (ii) remoção de breakpoints suaves, no pior caso, cada breakpoint tipo um é removido por uma transposição, que tem custo $\frac{3}{2}$. Entretanto, se ocorrer o pior caso da fase de remoção de breakpoints sobrecarregados, então a fase de remoção de breakpoints suaves será executada em seguida. Dessa forma, no pior caso, dois breakpoints tipo um são removidos com um custo de $2 + \frac{3}{2} = \frac{7}{2}$. Logo, o custo total máximo de uma sequência de reversões e transposições fornecida pelo Algoritmo~\ref{algorithm:JQHVZACM} é $\frac{ib_1(\mathcal{I})}{2} \times \frac{7}{2} = \frac{7ib_1(\mathcal{I})}{4}$, e o lema segue. 
+\end{proof}
+
+\begin{theorem}\label{theorem:SEJEYSUH}
+Dada uma instância intergênica rígida balanceada sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:JQHVZACM}, com base na função de custo $W_5$, é uma $3.5$-aproximação para o problema \SbWIRT{}.
+\end{theorem}
+\begin{proof}
+Pelo Lema~\ref{lemma:ODPHCEIG}, o Algoritmo~\ref{algorithm:JQHVZACM}, com base na função de custo $W_5$, transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando uma sequência de eventos de reversão e transposição com um custo total de no máximo $\frac{7ib_1(\mathcal{I})}{4}$. Pelo limitante inferior, apresentado no Teorema~\ref{theorem:XDQCRTEI}, temos que $dw_{\SbWIRT}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{2}$. Logo, o teorema segue.
+\end{proof}
+
+\begin{lemma}\label{lemma:MUTSEXQW}
+Dada uma instância intergênica rígida balanceada com sinais $\mathcal{I}=((\pi,\breve\pi),\break(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:JRRYCBXN}, com base na função de custo $W_5$, transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando uma sequência de eventos de reversão e transposição $S$, com um custo total de no máximo $\frac{7ib_2(\mathcal{I})}{4}$.
+\end{lemma}
+\begin{proof}
+A prova é similar a descrita no Lema~\ref{lemma:TMZVZPOF} considerando a função de custo $W_5$.
+\end{proof}
+
+\begin{theorem}\label{theorem:ZYFESTTM}
+Dada uma instância intergênica rígida balanceada sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:JRRYCBXN}, com base na função de custo $W_5$, é uma $3.5$-aproximação para o problema \SbWIRT{}.
+\end{theorem}
+\begin{proof}
+Pelo Lema~\ref{lemma:MUTSEXQW}, o Algoritmo~\ref{algorithm:JQHVZACM}, com base na função de custo $W_5$, transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando uma sequência de eventos de reversão e transposição com um custo total de no máximo $\frac{7ib_2(\mathcal{I})}{4}$. Pelo limitante inferior, apresentado no Teorema~\ref{theorem:MCKFPIOP}, temos que $dw_{\SbWIRT}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I})}{2}$. Logo, o teorema segue.
+\end{proof}
+
+
+% ------------------------------------------------------------------ %
 \section{Conclusões}
 % ------------------------------------------------------------------ %
 
-Neste capítulo, investigamos a variação com e sem sinais de oito problemas considerando instâncias intergênicas rígidas e os eventos de rearranjo de reversão, transposição, move e indel. 
-Para todas as variações dos problemas em que a complexidade ainda era desconhecida, nos apresentamos uma prova de NP-dificuldade, com exceção da variação com sinais do problema de Ordenação de Permutações por Operações Intergênicas de Reversão e Indel (\SbIRI). Para todas as variações investigadas nos apresentamos pelo menos um algoritmo de aproximação com fator constante baseado no conceito de breakpoint intergênico. Além disso, apresentamos algoritmos com fatores de aproximação melhor baseados na estrutura de grafo de ciclos ponderado rígido. Por fim, realizamos testes experimentais com os algoritmos propostos para verificar o desempenho prático dos mesmos. Além disso, utilizamos dados de 97 genomas reais e construímos uma árvore filogenética com base exclusivamente na matriz de distâncias fornecida por um dos nossos algoritmos. Comparamos essa árvore filogenética com outra presente na literatura, construída com os mesmo 97 genomas, e o resultado apontou que existe uma alta concordância entre elas.
+Neste capítulo, investigamos, em um cenário não ponderado, as variações com e sem sinais de oito problemas considerando instâncias intergênicas rígidas e os eventos de rearranjo de reversão, transposição, move e indel. Para todas as variações dos problemas em que a complexidade ainda era desconhecida, nos apresentamos uma prova de NP-dificuldade, com exceção da variação com sinais do problema de Ordenação de Permutações por Operações Intergênicas de Reversão e Indel (\SbIRI). Para todas as variações investigadas nos apresentamos pelo menos um algoritmo de aproximação com fator constante baseado no conceito de breakpoint intergênico. Além disso, apresentamos algoritmos com fatores de aproximação melhor baseados na estrutura de grafo de ciclos ponderado rígido.
+
+Realizamos testes experimentais com os algoritmos propostos para verificar o desempenho prático dos mesmos. Além disso, utilizamos dados de 97 genomas reais e construímos uma árvore filogenética com base exclusivamente na matriz de distâncias fornecida por um dos nossos algoritmos. Comparamos essa árvore filogenética com outra presente na literatura, construída com os mesmo 97 genomas, e o resultado apontou que existe uma alta concordância entre elas.
+
+Em um cenário ponderado, investigamos as variações com e sem sinais de três problemas considerando instâncias intergênicas rígidas e os eventos de rearranjo de reversão, transposição e indel. Nós consideramos diferentes funções de custo e apresentamos algoritmos de aproximação com um fator constante para cada todas as variações investigadas.

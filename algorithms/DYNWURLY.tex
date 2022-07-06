@@ -1,0 +1,35 @@
+\begin{algorithm}[!tbh]
+  \caption{Um algoritmo de aproximação para o problema \SbWIRTI{}.\label{algorithm:DYNWURLY}}
+  \Entrada{Uma instância intergênica rígida sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$}
+  \Saida{Uma sequência de reversões transposições e indels $S$, tal que $(\pi,\breve\pi) \cdot S = (\iota,\breve\iota)$}
+    Seja $S \gets ()$ \\
+    \tcp{Lema~\ref{lemma:QGOIQLZD}}
+    \Se{$\sum_{i=1}^{n+1}\breve\pi_i < \sum_{i=1}^{n+1}\breve\iota_i$}{
+      $S' \gets (\delta_1)$ \\
+      $S \gets S + S'$ \\
+      $\mathcal{I} \gets ((\pi, \breve\pi) \cdot S',(\iota,\breve\iota))$ \\
+    }
+    \Enqto{$ib_1(\mathcal{I}) > 1$}{
+      \tcp{Lema~\ref{lemma:WYEZMYTM}}
+      $(\pi_i,\pi_{i+1})$, $(\pi_j,\pi_{j+1}) \gets $ encontre um par de breakpoints conectados \\
+      \tcp{Lema~\ref{lemma:XLFWKWTV}}
+      \Se{$(\pi_i,\pi_{i+1})$, $(\pi_j,\pi_{j+1})$ pertence ao caso $i$}{
+        $S' \gets (\rho_1)$ \\
+      }\SenaoSe{$(\pi_i,\pi_{i+1})$, $(\pi_j,\pi_{j+1})$ pertence ao caso $ii$}{
+        $S' \gets (\tau_1)$ \\
+      }\SenaoSe{$(\pi_i,\pi_{i+1})$, $(\pi_j,\pi_{j+1})$ pertence ao caso $iii$}{
+        $S' \gets (\tau_1)$ \\
+      }\SenaoSe{$(\pi_i,\pi_{i+1})$, $(\pi_j,\pi_{j+1})$ pertence ao caso $iv$}{
+        $S' \gets (\delta_1,\delta_2)$ \\
+      }
+      $S \gets S + S'$ \\
+      $\mathcal{I} \gets ((\pi, \breve\pi) \cdot S',(\iota,\breve\iota))$ \\
+    }
+    \tcp{Lema~\ref{lemma:QNHGBLYF}}
+    \Se{$ib(\mathcal{I}) = 1$}{
+      $S' \gets (\delta_1)$ \\
+      $S \gets S + S'$ \\
+      $\mathcal{I} \gets ((\pi, \breve\pi) \cdot S',(\iota,\breve\iota))$ \\
+    }
+  \Retorna{S}
+\end{algorithm}

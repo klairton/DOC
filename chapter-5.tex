@@ -1,1 +1,29 @@
 \chapter{Modelos Intergênicos Flexíveis}\label{chapter:GMJBMTWF}
+
+Neste capítulo, investigaremos problemas que levam em conta tanto a ordem dos genes como o tamanho das regiões intergênicas, mas considerando um grau de flexibilidade em relação ao tamanho das regiões intergênicas no genoma alvo que é desejado. Nesse contexto, nós consideramos os eventos de reversão intergênica, transposição intergênica, move intergênico e indel intergênico, e investigaremos as variações com e sem sinais dos seguintes problemas.
+
+\begin{itemize}
+  \item Ordenação de Permutações por Reversões Intergênicas com Regiões Intergênicas Flexíveis (\SbFIR)
+  \item Ordenação de Permutações por Operações Intergênicas de Reversão e Indel com Regiões Intergênicas Flexíveis (\SbFIRI)
+  \item Ordenação de Permutações por Operações Intergênicas de Reversão e Move com Regiões Intergênicas Flexíveis (\SbFIRM)
+  \item Ordenação de Permutações por Operações Intergênicas de Reversão, Move e Indel com Regiões Intergênicas Flexíveis (\SbFIRMI)
+  \item Ordenação de Permutações por Operações Intergênicas de Reversão e Transposição com Regiões Intergênicas Flexíveis (\SbFIRT)
+  \item Ordenação de Permutações por Operações Intergênicas de Reversão, Transposição e Indel com Regiões Intergênicas Flexíveis (\SbFIRTI)
+  \item Ordenação de Permutações por Operações Intergênicas de Reversão, Transposição e Move com Regiões Intergênicas Flexíveis (\SbFIRTM)
+  \item Ordenação de Permutações por Operações Intergênicas de Reversão, Transposição, Move e Indel com Regiões Intergênicas Flexíveis (\SbFIRTMI)
+\end{itemize}
+
+Além disso, investigaremos as variações sem sinais dos seguintes problemas.
+
+\begin{itemize}
+  \item Ordenação de Permutações por Transposições Intergênicas com Regiões Intergênicas Flexíveis (\SbFIT)
+  \item Ordenação de Permutações por Operações Intergênicas Transposição e Move com Regiões Intergênicas Flexíveis (\SbFITM)
+\end{itemize}
+
+Neste capítulo, iremos nos referenciar aos eventos de rearranjo de reversão intergênica, transposição intergênica, move intergênico e indel intergênico simplesmente por reversão, transposição, move e indel, respectivamente. Além disso, iremos nos referir a um breakpoint intergênico simplesmente como um breakpoint. Dada uma sequência de eventos de rearranjo $S$, denotamos por $|S|$ o tamanho da sequência $S$, ou seja, a quantidade de eventos em $S$.
+
+Dada uma instância intergênica flexível com ou sem sinais $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$, a \emph{distância flexível} entre $(\pi,\breve\pi)$ e $(\iota,\breve\iota^{\min},\breve\iota^{\max})$, denotada por $df_{\mathcal{M}}(\mathcal{I})$, é o tamanho da menor sequência de eventos de rearranjo $S$, tal que todo evento de $S$ pertence ao modelo $\mathcal{M}$ e $(\pi,\breve\pi) \cdot S = (\iota,\breve\pi^{\prime})$, onde $\breve\iota^{\min}_i \le \breve\pi^{\prime}_i \le \breve\iota^{\max}_i$ para $i \in [1..n+1]$. Os modelos de rearranjo considerados neste capítulo são identificados por siglas apresentadas na Tabela~\ref{table:CGOLSOYF}.
+
+\input{tables/CGOLSOYF}
+
+Parte dos resultados que serão apresentados neste capítulo foram aceitos para publicação na revista \emph{IEEE/ACM Transactions on Computational Biology and Bioinformatics}~\cite{2022a-brito-etal} em 2022.

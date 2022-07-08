@@ -20,6 +20,8 @@ Além disso, investigaremos as variações sem sinais dos seguintes problemas.
   \item Ordenação de Permutações por Operações Intergênicas Transposição e Move com Regiões Intergênicas Flexíveis (\SbFITM)
 \end{itemize}
 
+Note que nos dois problemas apresentados anteriormente tanto o evento de transposição intergênica como o evento de move intergênico não alteram a orientação dos genes. Por esse motivo, apenas a variação sem sinais será investigada.
+
 Neste capítulo, iremos nos referenciar aos eventos de rearranjo de reversão intergênica, transposição intergênica, move intergênico e indel intergênico simplesmente por reversão, transposição, move e indel, respectivamente. Além disso, iremos nos referir a um breakpoint intergênico simplesmente como um breakpoint. Dada uma sequência de eventos de rearranjo $S$, denotamos por $|S|$ o tamanho da sequência $S$, ou seja, a quantidade de eventos em $S$.
 
 Dada uma instância intergênica flexível com ou sem sinais $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$, a \emph{distância flexível} entre $(\pi,\breve\pi)$ e $(\iota,\breve\iota^{\min},\breve\iota^{\max})$, denotada por $df_{\mathcal{M}}(\mathcal{I})$, é o tamanho da menor sequência de eventos de rearranjo $S$, tal que todo evento de $S$ pertence ao modelo $\mathcal{M}$ e $(\pi,\breve\pi) \cdot S = (\iota,\breve\pi^{\prime})$, onde $\breve\iota^{\min}_i \le \breve\pi^{\prime}_i \le \breve\iota^{\max}_i$ para $i \in [1..n+1]$. Os modelos de rearranjo considerados neste capítulo são identificados por siglas apresentadas na Tabela~\ref{table:CGOLSOYF}.
@@ -27,3 +29,196 @@ Dada uma instância intergênica flexível com ou sem sinais $\mathcal{I} = ((\p
 \input{tables/CGOLSOYF}
 
 Parte dos resultados que serão apresentados neste capítulo foram aceitos para publicação na revista \emph{IEEE/ACM Transactions on Computational Biology and Bioinformatics}~\cite{2022a-brito-etal} em 2022.
+
+% ------------------------------------------------------------------ %
+\section{Análise de Complexidade}
+% ------------------------------------------------------------------ %
+
+Nesta seção, realizaremos uma análise de complexidade dos problemas que consideram um grau de flexibilidade em relação ao tamanho das regiões intergênicas no genoma alvo que é desejado. Note que todos os problemas investigados neste capítulo generalizam suas respectivas versões considerando um tamanho estrito (rígido) para o tamanho das regiões intergênicas desejadas no genoma alvo.
+
+Isso pode ser facilmente constatado por meio de uma redução. Sejam $\mathcal{P}_f$ e $\mathcal{P}_r$ problemas com base no mesmo modelo de rearranjo $\mathcal{M}$, mas $\mathcal{P}_f$ e $\mathcal{P}_r$ possuem, respectivamente, uma característica de flexibilidade e rígidez em relação ao tamanho das regiões intergênicas no genoma alvo. Seja $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida para o problema $\mathcal{P}_r$, então podemos criar uma instância intergênica flexível $\mathcal{I'} = ((\pi',\breve\pi'),(\iota',\breve\iota'^{\min},\breve\iota'^{\max}))$ para o problema $\mathcal{P}_f$ da seguinte forma:
+
+\begin{itemize}
+  \item $(\pi',\breve\pi') = (\pi,\breve\pi)$
+  \item $\iota' = \iota$
+  \item $\breve\iota'^{\min} = \breve\iota'^{\max} = \breve\iota$
+\end{itemize}
+
+Note que pela construção da instância $\mathcal{I'}$ e pelo fato de que $\mathcal{P}_f$ e $\mathcal{P}_r$ adotam o mesmo modelo de rearranjo $\mathcal{M}$, temos que $df_{\mathcal{M}}(\mathcal{I'}) = d_{\mathcal{M}}(\mathcal{I})$.
+
+No Capítulo~\ref{chapter:DOVAEMLI} foi mostrado que a variação sem sinais dos problemas \SbIR{}, \SbIRI{}, \SbIRM{}, \SbIRMI{}, \SbIRT{}, \SbIRTI{}, \SbIRTM{} e \SbIRTMI{} pertencem à classe NP-difícil. Adicionalmente, temos que a variação sem sinais dos problemas \SbIT{} e \SbITM{} também pertencem à classe NP-difícil~\cite{2021a-oliveira-etal}. Dessa forma, temos o seguinte lema.
+
+\begin{lemma}\label{lemma:BEBGUYUB}
+Os problemas \SbFIR{}, \SbFIRI{}, \SbFIRM{}, \SbFIRMI{}, \SbFIRT{}, \SbFIRTI{}, \SbFIRTM{}, \SbFIRTMI{}, \SbFIT{} e \SbFITM{} em instâncias intergênicas flexíveis sem sinais pertencem à classe NP-difícil.
+\end{lemma}
+
+Além disso, o Capítulo~\ref{chapter:DOVAEMLI} apresenta a informação de que a variação com sinais dos problemas \SbIR{}, \SbIRM{}, \SbIRMI{}, \SbIRT{}, \SbIRTI{}, \SbIRTM{} e \SbIRTMI{} também pertencem à classe NP-difícil. Com isso, obtemos os seguinte lema.
+
+\begin{lemma}\label{lemma:XPRZJZES}
+Os problemas \SbFIR{},\SbFIRM{}, \SbFIRMI{}, \SbFIRT{}, \SbFIRTI{}, \SbFIRTM{} e \SbFIRTMI{} em instâncias intergênicas flexíveis com sinais pertencem à classe NP-difícil.
+\end{lemma}
+
+% ------------------------------------------------------------------ %
+\section{Limitantes Inferiores}
+% ------------------------------------------------------------------ %
+
+Nesta seção, apresentaremos limitantes inferiores para as variações com e sem sinais dos problemas investigados neste capítulo.
+
+Para a variação sem sinais dos problemas \SbFIR{}, \SbFIRI{}, \SbFIRM{}, \SbFIRMI{}, \SbFIRT{}, \SbFIRTI{}, \SbFIRTM{} e  \SbFIRTMI{} utilizaremos o conceito de região intergênica tipo um, enquanto para a variação com sinais utilizaremos o conceito de região intergênica tipo dois.
+
+Note que os eventos de rearranjo de reversão, transposição, move e indel afetam, respectivamente, a seguinte quantidade de regiões intergênicas: duas, três, duas e uma. No melhor cenário, cada uma das regiões intergênicas afetadas pode ser instável ou auxiliar, que é removida após o evento de rearranjo ser aplicado. Com isso, obtemos os seguintes lemas.
+
+\begin{lemma}\label{lemma:VJKGLBQG}
+Dada uma instância intergênica flexível sem sinais $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\break\breve\iota^{\max}))$, para qualquer reversão $\rho$ temos que $\Delta i_1(\mathcal{I}, S = (\rho)) \ge -2$.
+\end{lemma}
+
+\begin{lemma}\label{lemma:HJTCKDGV}
+Dada uma instância intergênica flexível com sinais $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\break\breve\iota^{\max}))$, para qualquer reversão $\rho$ temos que $\Delta i_2(\mathcal{I}, S = (\rho)) \ge -2$.
+\end{lemma}
+
+\begin{lemma}\label{lemma:XLUTQDGV}
+Dada uma instância intergênica flexível $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$, para qualquer tranposição $\tau$ temos que $\Delta i_1(\mathcal{I}, S = (\tau)) \ge -3$ e $\Delta i_2(\mathcal{I}, S = (\tau)) \ge -3$.
+\end{lemma}
+
+\begin{lemma}\label{lemma:ZOCGWWGV}
+Dada uma instância intergênica flexível $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$, para qualquer move $\mu$ temos que $\Delta i_1(\mathcal{I}, S = (\mu)) \ge -2$ e $\Delta i_2(\mathcal{I}, S = (\mu)) \ge -2$.
+\end{lemma}
+
+\begin{lemma}\label{lemma:HQJMMZCU}
+Dada uma instância intergênica flexível $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$, para qualquer indel $\delta$ temos que $\Delta i_1(\mathcal{I}, S = (\delta)) \ge -1$ e $\Delta i_2(\mathcal{I}, S = (\delta)) \ge -1$.
+\end{lemma}
+
+Além disso, considerando uma instância intergênica flexível balanceada e com base em um modelo composto exclusivamente por eventos conservativos, temos os seguintes lemas.
+
+\begin{lemma}\label{lemma:IERALSKC}
+Dada uma instância intergênica flexível balanceada sem sinais $\mathcal{I} = ((\pi,\breve\pi),\break(\iota,\breve\iota^{\min},\breve\iota^{\max}))$, para qualquer reversão $\rho$ temos que $\Delta i_1(\mathcal{I}, S = (\rho)) + \Delta a_1(\mathcal{I}, S = (\rho)) \ge -2$.
+\end{lemma}
+
+\begin{lemma}\label{lemma:LMCJCLQU}
+Dada uma instância intergênica flexível balanceada com sinais $\mathcal{I} = ((\pi,\breve\pi),\break(\iota,\breve\iota^{\min},\breve\iota^{\max}))$, para qualquer reversão $\rho$ temos que $\Delta i_2(\mathcal{I}, S = (\rho)) + \Delta a_2(\mathcal{I}, S = (\rho)) \ge -2$.
+\end{lemma}
+
+\begin{lemma}\label{lemma:FOXQSODF}
+Dada uma instância intergênica flexível balanceada $\mathcal{I} = ((\pi,\breve\pi),\break(\iota,\breve\iota^{\min},\breve\iota^{\max}))$, para qualquer tranposição $\tau$ temos que $\Delta i_1(\mathcal{I}, S = (\tau)) + \Delta a_1(\mathcal{I}, S = (\tau)) \ge -3$ e $\Delta i_2(\mathcal{I}, S = (\tau)) + \Delta a_2(\mathcal{I}, S = (\tau)) \ge -3$.
+\end{lemma}
+
+\begin{lemma}\label{lemma:AXMNYRLB}
+Dada uma instância intergênica flexível balanceada $\mathcal{I} = ((\pi,\breve\pi),\break(\iota,\breve\iota^{\min},\breve\iota^{\max}))$, para qualquer move $\mu$ temos que $\Delta i_1(\mathcal{I}, S = (\mu)) + \Delta a_1(\mathcal{I}, S = (\mu)) \ge -2$ e $\Delta i_2(\mathcal{I}, S = (\mu)) + \Delta a_2(\mathcal{I}, S = (\mu)) \ge -2$.
+\end{lemma}
+
+Com base na quantidade máxima de regiões intergênicas instáveis e auxiliares que cada evento pode remover de uma instância intergênica flexível, obtemos os seguintes limitantes inferiores.
+
+\begin{theorem}\label{theorem:BOTBXFZQ}
+Dada uma instância intergênica flexível sem sinais $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\break\breve\iota^{\max}))$, temos que:
+
+\begin{tabular}{lll}
+  $df_{\SbFIRI}(\mathcal{I})$     & $ \ge $ & $\frac{i_1(\mathcal{I})}{2}$, \\
+  $df_{\SbFIRMI}(\mathcal{I})$    & $ \ge $ & $\frac{i_1(\mathcal{I})}{2}$, \\
+  $df_{\SbFIRTI}(\mathcal{I})$    & $ \ge $ & $\frac{i_1(\mathcal{I})}{3}$, \\
+  e $df_{\SbFIRTMI}(\mathcal{I})$ & $ \ge $ & $\frac{i_1(\mathcal{I})}{3}$. \\
+\end{tabular}
+\end{theorem}
+\begin{proof}
+Pela Observação~\ref{remark:EUSNDMWS}, temos que todas as regiões intergênicas instáveis tipo um devem ser removidas para que o genoma alvo seja alcançado. Pelos lemas~\ref{lemma:VJKGLBQG}, \ref{lemma:XLUTQDGV}, \ref{lemma:ZOCGWWGV} e \ref{lemma:HQJMMZCU}, temos que os eventos de reversão, transposição, move e indel podem remover, no máximo, $2$, $3$, $2$ e $1$ região intergênica instável tipo um, respectivamente. Como a instância $\mathcal{I}$ possui $i_1(\mathcal{I})$ regiões intergênicas instáveis tipo um e considerando o máximo de regiões intergênicas instávéis tipo um que podem ser removidas por cada evento nos modelos de rearranjo \SbFIRI{}, \SbFIRMI{}, \SbFIRTI{} e \SbFIRTMI{}, o teorema segue.
+\end{proof}
+
+\begin{theorem}\label{theorem:KKKUCDHN}
+Dada uma instância intergênica flexível balanceada sem sinais $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$, temos que:
+
+\begin{tabular}{lll}
+  $df_{\SbFIR}(\mathcal{I})$      & $ \ge $ & $\frac{i_1(\mathcal{I}) + a_1(\mathcal{I})}{2}$, \\ 
+  $df_{\SbFIRM}(\mathcal{I})$     & $ \ge $ & $\frac{i_1(\mathcal{I}) + a_1(\mathcal{I})}{2}$, \\
+  $df_{\SbFIRT}(\mathcal{I})$     & $ \ge $ & $\frac{i_1(\mathcal{I}) + a_1(\mathcal{I})}{3}$, \\
+  e $df_{\SbFIRTM}(\mathcal{I})$  & $ \ge $ & $\frac{i_1(\mathcal{I}) + a_1(\mathcal{I})}{3}$. \\
+\end{tabular}
+\end{theorem}
+\begin{proof}
+Note que em todos os problemas o modelo de rearranjo é composto exclusivamente por eventos conservativos. Pela Observação~\ref{remark:PGEYZJME}, temos que todas as regiões intergênicas instáveis tipo um e auxiliares tipo um devem ser removidas para que o genoma alvo seja alcançado. Pelos lemas~\ref{lemma:IERALSKC}, \ref{lemma:FOXQSODF} e \ref{lemma:AXMNYRLB}, temos que variação no número de regiões intergênicas instáveis tipo um mais a variação no número de regiões intergênicas auxiliares tipo um após aplicar um evento de reversão, transposição e move é maior ou igual que $-2$, $-3$ e $-2$, respectivamente. Como a instância $\mathcal{I}$ possui $i_1(\mathcal{I}) + a_1(\mathcal{I})$ regiões intergênicas instáveis tipo um e auxiliares tipo um, considerando o máximo de regiões intergênicas instávéis tipo um e auxiliares tipo um que podem ser removidas por cada evento nos modelos de rearranjo \SbFIR{}, \SbFIRM{}, \SbFIRT{} e \SbFIRTM{}, o teorema segue.
+\end{proof}
+
+\begin{theorem}\label{theorem:ROVRTGBJ}
+Dada uma instância intergênica flexível com sinais $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\break\breve\iota^{\max}))$, temos que:
+
+\begin{tabular}{lll}
+  $df_{\SbFIRI}(\mathcal{I})$     & $ \ge $ & $\frac{i_2(\mathcal{I})}{2}$, \\
+  $df_{\SbFIRMI}(\mathcal{I})$    & $ \ge $ & $\frac{i_2(\mathcal{I})}{2}$, \\
+  $df_{\SbFIRTI}(\mathcal{I})$    & $ \ge $ & $\frac{i_2(\mathcal{I})}{3}$, \\
+  e $df_{\SbFIRTMI}(\mathcal{I})$ & $ \ge $ & $\frac{i_2(\mathcal{I})}{3}$. \\
+\end{tabular}
+\end{theorem}
+\begin{proof}
+A prova é similar a descrita no Teorema~\ref{theorem:BOTBXFZQ}, mas considerando regiões intergênicas instáveis tipo dois e os lemas~\ref{lemma:HJTCKDGV}, \ref{lemma:XLUTQDGV}, \ref{lemma:ZOCGWWGV} e \ref{lemma:HQJMMZCU}.
+\end{proof}
+
+\begin{theorem}\label{theorem:ZJKGKRKE}
+Dada uma instância intergênica flexível balanceada com sinais $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$, temos que:
+
+\begin{tabular}{lll}
+  $df_{\SbFIR}(\mathcal{I})$      & $ \ge $ & $\frac{i_2(\mathcal{I}) + a_2(\mathcal{I})}{2}$, \\ 
+  $df_{\SbFIRM}(\mathcal{I})$     & $ \ge $ & $\frac{i_2(\mathcal{I}) + a_2(\mathcal{I})}{2}$, \\
+  $df_{\SbFIRT}(\mathcal{I})$     & $ \ge $ & $\frac{i_2(\mathcal{I}) + a_2(\mathcal{I})}{3}$, \\
+  e $df_{\SbFIRTM}(\mathcal{I})$  & $ \ge $ & $\frac{i_2(\mathcal{I}) + a_2(\mathcal{I})}{3}$. \\
+\end{tabular}
+\end{theorem}
+\begin{proof}
+A prova é similar a descrita no Teorema~\ref{theorem:KKKUCDHN}, mas considerando regiões intergênicas instáveis tipo dois e auxiliares tipo dois, e os lemas~\ref{lemma:LMCJCLQU}, \ref{lemma:FOXQSODF} e \ref{lemma:AXMNYRLB}.
+\end{proof}
+
+A seguir, com base na estrutura de grafo de ciclos ponderado flexível, apresentamos limitantes inferiores para a variação sem sinais dos problemas \SbFIT{} e \SbFITM{}, e para a variação com sinais dos problemas \SbFIR{}, \SbFIRI{}, \SbFIRM{}, \SbFIRMI{}, \SbFIRT{} e \SbFIRTM{}.
+
+Note que os evento de reversão e tranposição afetam, respectivamente, duas e três arestas pretas do grafo de ciclos ponderado flexível e podem aumentar tanto o número de ciclos como também o número de ciclos estáveis e definitivos. O evento de move afeta duas arestas pretas do grafo, mas pode aumentar somente o número de ciclos estáveis e definitivos. Já o evento de indel afeta apenas uma aresta preta do grafo e pode aumentar somente o número de ciclos estáveis.
+
+Dessa forma, dada uma instância intergênica flexível $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$, temos que $\Delta c(G(\mathcal{I}), S=(\rho)) \in \{1,0,-1\}$, $\Delta c_e(G(\mathcal{I}), S=(\rho)) \in \{1,0,-1\}$ e $\Delta c_d(G(\mathcal{I}), S=(\rho)) \in \{1,0,-1\}$ para qualquer reversão $\rho$. Para qualquer transposição $\tau$, temos que $\Delta c(G(\mathcal{I}), S=(\tau)) \in \{3,0,-3\}$, $\Delta c_e(G(\mathcal{I}), S=(\tau)) \in \{3,0,-3\}$ e $\Delta c_d(G(\mathcal{I}), S=(\tau)) \in \{3,0,-3\}$. Para qualquer move $\mu$, temos que $\Delta c(G(\mathcal{I}), S=(\mu)) = 0$, $\Delta c_e(G(\mathcal{I}), S=(\mu)) \in \{2,1,0,-1,-2\}$ e $\Delta c_d(G(\mathcal{I}), S=(\mu)) \in \{2,1,0,-1,-2\}$. Por fim, para qualquer indel $\delta$, temos que $\Delta c(G(\mathcal{I}), S=(\delta)) = 0$ e $\Delta c_e(G(\mathcal{I}), S=(\delta)) \in \{1,0,{-1}\}$. Com isso, obtemos os seguintes limitantes inferiores.
+
+\begin{theorem}\label{theorem:PQQUYBMS}
+Dada uma instância intergênica flexível balanceada sem sinais $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$, temos que
+
+\begin{tabular}{lll}
+  $df_{\SbFIT}(\mathcal{I})$      & $ \ge $ & $\frac{{n+1} - c_d(G(\mathcal{I} ))}{2}$, \\
+  e $df_{\SbFITM}(\mathcal{I})$   & $ \ge $ & $\frac{{n+1} - c_d(G(\mathcal{I} ))}{2}$. \\
+\end{tabular}
+\end{theorem}
+\begin{proof}
+TBD.
+\end{proof}
+
+
+\begin{theorem}\label{theorem:EUNBEQEX}
+Dada uma instância intergênica flexível balanceada com sinais $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$, temos que $df_{\SbFIR}(\mathcal{I}) \ge {n+1} - c_d(G(\mathcal{I} ))$.
+\end{theorem}
+\begin{proof}
+TBD.
+\end{proof}
+
+\begin{theorem}\label{theorem:SZNBDWOM}
+Dada uma instância intergênica flexível com sinais $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\break\breve\iota^{\max}))$, temos que $df_{\SbFIRI}(\mathcal{I}) \ge {n+1} - c_e(G(\mathcal{I} ))$.
+\end{theorem}
+\begin{proof}
+TBD.
+\end{proof}
+
+\begin{theorem}\label{theorem:CNMFNKPK}
+Dada uma instância intergênica flexível balanceada com sinais $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$, temos que $df_{\SbFIRM}(\mathcal{I}) \ge {n+1} - \frac{c(G(\mathcal{I} )) + c_d(G(\mathcal{I} ))}{2}$.
+\end{theorem}
+\begin{proof}
+TBD.
+\end{proof}
+
+\begin{theorem}\label{theorem:XQPRYMFX}
+Dada uma instância intergênica flexível com sinais $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\break\breve\iota^{\max}))$, temos que $df_{\SbFIRMI}(\mathcal{I}) \ge {n+1} - \frac{c(G(\mathcal{I} )) + c_e(G(\mathcal{I} ))}{2}$.
+\end{theorem}
+\begin{proof}
+TBD.
+\end{proof}
+
+\begin{theorem}\label{theorem:HELIIGVZ}
+Dada uma instância intergênica flexível balanceada com sinais $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$, temos que
+
+\begin{tabular}{lll}
+  $df_{\SbFIRT}(\mathcal{I})$     & $ \ge $ & $\frac{{n+1} - c_d(G(\mathcal{I} ))}{2}$, \\
+  e $df_{\SbFIRTM}(\mathcal{I})$  & $ \ge $ & $\frac{{n+1} - c_d(G(\mathcal{I} ))}{2}$. \\
+\end{tabular}
+\end{theorem}
+\begin{proof}
+TBD.
+\end{proof}

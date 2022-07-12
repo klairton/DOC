@@ -1,12 +1,8 @@
 \begin{example}\label{example:ZVSSIKRT}
     \hfill \break
-    \begin{center}
-    \resizebox{.95\textwidth}{!}{
-        \begin{tikzpicture}[arrow/.style={single arrow,
-        draw=black,
-        fill=#1,
-        single arrow head extend=2mm
-        }]
+    \centering
+    \resizebox{.95\linewidth}{!}{
+    \begin{tikzpicture}[arrow/.style={single arrow, draw=black, fill=#1, single arrow head extend=2mm}]
         \node[draw=none,fill=none, minimum height=1cm, minimum width=6cm, align=center] at (9.75, 1.0) {$A=\{a_1,a_2,\dots,a_{3n}\}$};
         
         %%%% (arrow)
@@ -21,10 +17,10 @@
         %%%%% (I)
         \node[draw=none,fill=none, minimum height=1cm, minimum width=12cm, text ragged, text width=12cm] at (9.75, -2.50) {$\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$};
         
-        %%%% (arrow)
+        %%% (arrow)
         \node[arrow, rotate=270, draw=black, fill=white, minimum size=8mm](arrow) at (9.75,-3.0) {};
         
-        %%%% G(I)
+        %%% G(I)
         \node[draw=none,fill=none] at (9.75, -4.25) {$G(\mathcal{I})$};
         
         \draw (-0.5,-7.0) -- (9.5,-7.0) ;
@@ -77,6 +73,4 @@
         \end{scope}
     \end{tikzpicture}
     }
-    \end{center}
-    \hfill
 \end{example}

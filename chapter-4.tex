@@ -387,14 +387,14 @@ Pelo Lema~\ref{lemma:RBHACFIP}, o Algoritmo~\ref{algorithm:AKKUXQNR} transforma 
 Nesta seção apresentaremos um algoritmo de aproximação com fator $4$ para a variação sem sinais do problema \SbIRI{}.
 
 \begin{lemma}\label{lemma:QGOIQLZD}
-Dada uma instância intergênica rígida desbalanceada sem sinais $\mathcal{I}=((\pi,\breve\pi),\break(\iota,\breve\iota))$, tal que $\sum_{i=1}^{n+1}\breve\pi_i < \sum_{i=1}^{n+1}\breve\iota_i$, então sempre é possível aplicar um indel $\delta$ de forma que $\Delta ib_1(\mathcal{I}, S=(\delta)) \le 0$ e $\mathcal{I}$ é tranformada em uma instância intergênica rígida balanceada.
+Dada uma instância intergênica rígida desbalanceada sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, tal que $\sum_{i=1}^{n+1}\breve\pi_i < \sum_{i=1}^{n+1}\breve\iota_i$, então sempre é possível aplicar um indel $\delta$ de forma que $\Delta ib_1(\mathcal{I}, S=(\delta)) \le 0$ e $\mathcal{I}$ é tranformada em uma instância intergênica rígida balanceada.
 \end{lemma}
 \begin{proof}
 Como $\mathcal{I}$ é desbalanceada, então $ib_1(\mathcal{I}) > 0$. Seja $(\pi_i,\pi_{i+1})$ um breakpoint tipo um de $\mathcal{I}$. Aplique o indel $\delta_{(x)}^{(i+1)}$, tal que $x = \sum_{i=1}^{n+1}\breve\iota_i - \sum_{i=1}^{n+1}\breve\pi_i$. Note que o indel insere a quantidade necessária de nucleotídeos na região intergênica $\breve\pi_{i+1}$ para tornar $\mathcal{I}$ uma instância balanceada. No pior caso, $(\pi_i,\pi_{i+1})$ continua sendo um breakpoint tipo um e o lema segue.
 \end{proof}
 
 \begin{lemma}\label{lemma:QNHGBLYF}
-Dada uma instância intergênica rígida desbalanceada sem sinais $\mathcal{I}=((\pi,\breve\pi),\break(\iota,\breve\iota))$, tal que $ib_1(\mathcal{I}) = 1$, então sempre é possível aplicar um indel $\delta$ de forma que $\Delta ib_1(\mathcal{I}, S=(\delta)) = -1$.
+Dada uma instância intergênica rígida desbalanceada sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, tal que $ib_1(\mathcal{I}) = 1$, então sempre é possível aplicar um indel $\delta$ de forma que $\Delta ib_1(\mathcal{I}, S=(\delta)) = -1$.
 \end{lemma}
 \begin{proof}
 Seja $(\pi_i,\pi_{i+1})$ o único breakpoint tipo um de $\mathcal{I}$. Como $(\pi_i,\pi_{i+1})$ é único breakpoint tipo um de $\mathcal{I}$, então obrigatoriamente ele deve ser um breakpoint forte. Aplique o indel $\delta_{(x)}^{(i+1)}$, tal que $x = \breve\iota_{i+1} - \breve\pi_{i+1}$. Note que o indel insere ou remove a quantidade necessária de nucleotídeos na região intergênica $\breve\pi_{i+1}$ para remover o breakpoint $(\pi_i,\pi_{i+1})$ caso ele seja subcarregado ou sobrecarregado, respectivamente. Como o breakpoint $(\pi_i,\pi_{i+1})$ acaba sendo removido após a aplicação do evento de indel, o lema segue.

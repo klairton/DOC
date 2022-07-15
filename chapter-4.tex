@@ -1023,19 +1023,13 @@ Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi
 Neste caso basta transferir o peso extra da aresta preta $c^1$ para a primeira aresta preta do ciclo $D$ utilizando uma operação de move. Como $C$ é um ciclo trivial, após aplicação da operação de move ele torna-se balanceado, e o lema segue.
 \end{proof}
 
-\begin{lemma}\label{lemma:IWIAXMBS}
+\begin{lemma}\label{lemma:IWIAXMBS}[Lema 5 de Oliveira \textit{et al.}~\cite{2021b-oliveira-etal}]
 Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, tal que em $G(\mathcal{I})$ existe pelo menos um ciclo divergente negativo ou balanceado $C$, então é possível aumentar o número de cilos de $G(\mathcal{I})$ em uma unidade e o número de cilos balanceados de $G(\mathcal{I})$ em uma unidade após aplicar uma operação de reversão.
 \end{lemma}
-\begin{proof}
-Direto do Lema 5 de Oliveira \textit{et al.}~\cite{2021b-oliveira-etal}.
-\end{proof}
 
-\begin{lemma}\label{lemma:ZLLUMKJN}
+\begin{lemma}\label{lemma:ZLLUMKJN}[Lema 6 de Oliveira \textit{et al.}~\cite{2021b-oliveira-etal}]
 Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, tal que todos os ciclos não triviais negativos ou balanceados de $G(\mathcal{I})$ são convergentes, então é possível aumentar o número de cilos de $G(\mathcal{I})$ em uma unidade e o número de cilos balanceados de $G(\mathcal{I})$ em uma unidade após aplicar uma sequência de duas reversões.
 \end{lemma}
-\begin{proof}
-Direto do Lema 6 de Oliveira \textit{et al.}~\cite{2021b-oliveira-etal}.
-\end{proof}
 
 Agora considere o Algoritmo~\ref{algorithm:EHDLZXJA} e observe que ele possui três passos: (i) operações de move aplicadas a ciclos negativos triviais (Lemas~\ref{lemma:UXFNYAGI} e~\ref{lemma:NTNBEHIO}); (ii) reversões aplicadas em ciclos divergentes negativos ou balanceados (Lema~\ref{lemma:IWIAXMBS}); (iii) duas reversões consecutivas aplicadas em ciclos convergentes negativos ou balanceados (Lema~\ref{lemma:ZLLUMKJN}).
 

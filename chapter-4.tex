@@ -142,7 +142,19 @@ Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi
 \end{tabular}
 \end{theorem}
 \begin{proof}
-Note que para atingir o genoma alvo é necessário aumentar tanto o número de ciclos quanto o de ciclos balanceados em $G(\mathcal{I})$ para $n+1$ (Observação~\ref{remark:WVLFPRDL}). Reversões, moves e indels podem aumentar $c(G(\mathcal{I})) + c_b(G(\mathcal{I}))$ em no máximo duas unidades, então o teorema segue.
+Note que para atingir o genoma alvo é necessário aumentar tanto o número de ciclos quanto o de ciclos balanceados em $G(\mathcal{I})$ para $n+1$ (Observação~\ref{remark:WVLFPRDL}). Dados os eventos de reversão, move e indel, temos que $c(G(\mathcal{I})) + c_b(G(\mathcal{I}))$ pode aumentar no máximo em duas unidades, então o teorema segue.
+\end{proof}
+
+\begin{theorem}\label{theorem:ZZBNVROM}
+Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, temos que:
+
+\begin{tabular}{lll}
+  $d_{\SbIRTI}(\mathcal{I})$       & $ \ge $ & $\frac{{n + 1} - c_b(G(\mathcal{I}))}{2}$, \\
+  e $d_{\SbIRTMI}(\mathcal{I})$    & $ \ge $ & $\frac{{n + 1} - c_b(G(\mathcal{I}))}{2}$. \\
+\end{tabular}
+\end{theorem}
+\begin{proof}
+Note que para atingir o genoma alvo é necessário aumentar o de ciclos balanceados em $G(\mathcal{I})$ para $n+1$ (Observação~\ref{remark:WVLFPRDL}). Dados os eventos de reversão, transposição, move e indel, temos que $c_b(G(\mathcal{I}))$ pode aumentar no máximo em duas unidades, então o teorema segue.
 \end{proof}
 
 % ------------------------------------------------------------------ %
@@ -741,7 +753,7 @@ A Figura~\ref{figure:MINEYNFC} mostra um exemplo de uma sequência $S'=(\tau^{(3
 \input{figures/MINEYNFC}
 
 \begin{remark}\label{remark:MSXQJZFR}
-Note que se temos uma instância intergênica rígida sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ e um algoritmo $\mathcal{A}$ que fornece uma sequência de eventos que transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$, então podemos utilizar o algoritmo $\mathcal{A}$ para obter uma sequência de eventos que transforma $(\iota,\breve\iota)$ em $(\pi,\breve\pi)$. Para isso, basta criarmos uma instância intergênica rígida sem sinais $\mathcal{I'}=((\pi^{-1} \circ \iota,\breve\iota),(\pi^{-1} \circ \pi,\breve\pi))$, onde $\alpha \circ \sigma$ representa a operação de composição entre as permutações $\alpha$ e $\sigma$. A sequência fornecida pelo algoritmo $\mathcal{A}$ para a instância $\mathcal{I'}$ também transforma $(\iota,\breve\iota)$ em $(\pi,\breve\pi)$.
+Note que se temos uma instância intergênica rígida sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ e um algoritmo $\mathcal{A}$ que fornece uma sequência de eventos que transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$, então podemos utilizar o algoritmo $\mathcal{A}$ para obter uma sequência de eventos que transforma $(\iota,\breve\iota)$ em $(\pi,\breve\pi)$. Para isso, basta criarmos uma instância intergênica rígida sem sinais $\mathcal{I'}=((\pi^{-1} \circ \iota,\breve\iota),(\pi^{-1} \circ \pi,\breve\pi))$, onde $\alpha \circ \sigma$ representa a operação de composição entre as permutações $\alpha$ e $\sigma$. A sequência fornecida pelo algoritmo $\mathcal{A}$ para a instância $\mathcal{I'}$ também transforma $(\iota,\breve\iota)$ em $(\pi,\breve\pi)$. Além disso, temos que $ib_1(\mathcal{I}) = ib_1(\mathcal{I'})$, uma vez que este processo apenas realiza um novo mapeamento para os rótulos dos genes de forma que no genoma alvo eles sigam o padrão definido para a permutação identidade.
 \end{remark}
 
 A composição entre as permutações $\alpha=(\alpha_1,\alpha_2,\dots,\alpha_n)$ e $\sigma=(\sigma_1,\sigma_2,\dots,\sigma_n)$ resulta em uma nova permutação $\alpha \circ \sigma = (\alpha_{\sigma_1},\alpha_{\sigma_2},\dots,\alpha_{\sigma_n})$. Além disso, $\sigma \circ \sigma^{-1} = \sigma^{-1} \circ \sigma = \iota$. Em outras palavras, ao criar a instância $\mathcal{I'}$ estamos mapeando o genes do genoma de origem (elementos da permutação $\pi$) com os valores padrão da permutação identidade e também alterando os valores dos genes do genoma alvo (elementos da permutação $\iota$) para refletir que os genes iguais no genoma de origem e alvo possuam o mesmo valor associado.
@@ -757,7 +769,7 @@ Dada uma instância intergênica rígida sem sinais $\mathcal{I}=((\pi,\breve\pi
 O Algoritmo~\ref{algorithm:YIZYUGZZ} pode ser analisado considerando dois cenários. Caso $\mathcal{I}$ seja uma instância intergênica rígida balanceada, então o Algoritmo~\ref{algorithm:LCPCUFNZ} é aplicado e, pelo Lema~\ref{lemma:HIIRAXUH}, a sequência eventos fornecida pelo Algoritmo~\ref{algorithm:LCPCUFNZ} transnforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando no máximo $\frac{4b_1(\mathcal{I})}{3}$ eventos de reversão e transposição. Caso contrário, temos duas possibilidades:
 \begin{itemize}
   \item $\sum_{i=1}^{n+1}\breve\pi_i < \sum_{i=1}^{n+1}\breve\iota_i$: Neste caso, pelo Lema~\ref{lemma:QGOIQLZD}, existe um indel que torna $\mathcal{I}$ uma instância intergênica rígida balanceada e em seguida o Algoritmo~\ref{algorithm:LCPCUFNZ} pode ser aplicado, resultado no máximo em $\frac{4ib_1(\mathcal{I})}{3} + 1$ eventos de reversão, transposição e indel para transnformar $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$.
-  \item $\sum_{i=1}^{n+1}\breve\pi_i > \sum_{i=1}^{n+1}\breve\iota_i$: Neste caso, pela Observação~\ref{remark:MSXQJZFR},uma instância auxiliar $\mathcal{I'}=((\pi',\breve\pi'),(\iota',\breve\iota'))$ é criada, onde $\breve\pi' = \breve\iota$, $\breve\iota' = \breve\pi$ e $\sum_{i=1}^{n+1}\breve\pi^{'}_i < \sum_{i=1}^{n+1}\breve\iota^{'}_i$. Pelo Lema~\ref{lemma:QGOIQLZD}, existe um indel que torna $\mathcal{I'}$ uma instância intergênica rígida balanceada e em seguida o Algoritmo~\ref{algorithm:LCPCUFNZ} pode ser aplicado, resultado em uma sequência $S$ com no máximo $\frac{4ib_1(\mathcal{I})}{3} + 1$ eventos de reversão, transposição e indel que transnforma $(\iota,\breve\iota)$ em $(\pi,\breve\pi)$. Pelo Lema~\ref{lemma:UWWIFTBQ}, podemos criar uma sequência $S'$, com o mesmo tamanho de $S$, e que transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$.
+  \item $\sum_{i=1}^{n+1}\breve\pi_i > \sum_{i=1}^{n+1}\breve\iota_i$: Neste caso, pela Observação~\ref{remark:MSXQJZFR}, uma instância auxiliar $\mathcal{I'}=((\pi',\breve\pi'),(\iota',\breve\iota'))$ é criada, onde $\breve\pi' = \breve\iota$, $\breve\iota' = \breve\pi$, $\sum_{i=1}^{n+1}\breve\pi^{'}_i < \sum_{i=1}^{n+1}\breve\iota^{'}_i$ e $ib_1(\mathcal{I}) = ib_1(\mathcal{I'})$. Pelo Lema~\ref{lemma:QGOIQLZD}, existe um indel que torna $\mathcal{I'}$ uma instância intergênica rígida balanceada e em seguida o Algoritmo~\ref{algorithm:LCPCUFNZ} pode ser aplicado, resultado em uma sequência $S$ com no máximo $\frac{4ib_1(\mathcal{I}')}{3} + 1$ eventos de reversão, transposição e indel que transnforma $(\iota,\breve\iota)$ em $(\pi,\breve\pi)$. Pelo Lema~\ref{lemma:UWWIFTBQ}, podemos criar uma sequência $S'$, com o mesmo tamanho de $S$, e que transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$.
 \end{itemize}
 Em ambos os cenários $(\pi,\breve\pi)$ é transformado em $(\iota,\breve\iota)$ e a quantidade de eventos utilizados para tal não ultrapassa o limite estabelecido, e o lema segue.
 \end{proof}
@@ -996,7 +1008,7 @@ A prova é similar a descrita no Teorema~\ref{theorem:DGTASCUU}, mas considerand
 \subsubsection{Reversão e Move}
 % ------------------------------------------------------------------ %
 
-Nesta seção apresentaremos algoritmos de aproximação com fatores de aproximação $4$ e $2$ para a variação com sinais do problema \SbIRM{}. A seguir apresentamos o Algoritmo~\ref{algorithm:VRXYTMUD}.
+Nesta seção apresentaremos algoritmos de aproximação com fatores $4$ e $2$ para a variação com sinais do problema \SbIRM{}. A seguir apresentamos o Algoritmo~\ref{algorithm:VRXYTMUD}.
 
 \input{algorithms/VRXYTMUD}
 
@@ -1007,10 +1019,10 @@ Dada uma instância intergênica rígida balanceada com sinais $\mathcal{I}=((\p
 A prova é similar a descrita no Teorema~\ref{theorem:DGTASCUU}, mas considerando que o Algoritmo~\ref{algorithm:OLSRUEFZ} utiliza no máximo $2ib_1(\mathcal{I'})$ eventos de reversão e move para transformar $(\pi',\breve\pi')$ em $(\iota',\breve\iota')$ (Lema~\ref{lemma:TZYVWBRT}).
 \end{proof}
 
-A seguir faremos uso da estrutura de grafo de ciclos ponderado rígido e apresentaremos lemas que serão utilizados para obtenção de uma algoritmo de aproximação com um fator $2$.
+A seguir faremos uso da estrutura de grafo de ciclos ponderado rígido e apresentaremos lemas que serão utilizados para obtenção de um algoritmo de aproximação com um fator $2$.
 
 \begin{lemma}\label{lemma:UXFNYAGI}
-Dada uma instância intergênica rígida balanceada com sinais $\mathcal{I}=((\pi,\breve\pi),\break(\iota,\breve\iota))$, tal que em $G(\mathcal{I})$ existe pelo menos um ciclo negativo $C=(c^1)$, então deve existir em $G(\mathcal{I})$ pelo menos um ciclo positivo.
+Dada uma instância intergênica rígida balanceada com sinais $\mathcal{I}=((\pi,\breve\pi),\break(\iota,\breve\iota))$, tal que em $G(\mathcal{I})$ existe pelo menos um ciclo negativo $C$, então deve existir em $G(\mathcal{I})$ pelo menos um ciclo positivo.
 \end{lemma}
 \begin{proof}
 Suponha por contradição que $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ é uma instância intergênica rígida balanceada com sinais, tal que em $G(\mathcal{I})$ existe pelo menos um ciclo negativo $C=(c^1)$ e não existe nenhum ciclo positivo. Como em $G(\mathcal{I})$ existe pelo menos um ciclos negativo em os ciclos restantes só podem ser negativos ou balanceados, temos que $\sum_{i=1}^{n+1}\breve\pi_i > \sum_{i=1}^{n+1}\breve\iota_i$, o que contradiz a suposição de que $\mathcal{I}$ é uma instância intergênica rígida balanceada.
@@ -1023,11 +1035,11 @@ Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi
 Neste caso basta transferir o peso extra da aresta preta $c^1$ para a primeira aresta preta do ciclo $D$ utilizando uma operação de move. Como $C$ é um ciclo trivial, após aplicação da operação de move ele torna-se balanceado, e o lema segue.
 \end{proof}
 
-\begin{lemma}\label{lemma:IWIAXMBS}[Lema 5 de Oliveira \textit{et al.}~\cite{2021b-oliveira-etal}]
+\begin{lemma}\label{lemma:IWIAXMBS}[Lema 5.1 de Oliveira \textit{et al.}~\cite{2021b-oliveira-etal}]
 Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, tal que em $G(\mathcal{I})$ existe pelo menos um ciclo divergente negativo ou balanceado $C$, então é possível aumentar o número de cilos de $G(\mathcal{I})$ em uma unidade e o número de cilos balanceados de $G(\mathcal{I})$ em uma unidade após aplicar uma operação de reversão.
 \end{lemma}
 
-\begin{lemma}\label{lemma:ZLLUMKJN}[Lema 6 de Oliveira \textit{et al.}~\cite{2021b-oliveira-etal}]
+\begin{lemma}\label{lemma:ZLLUMKJN}[Lema 5.2 de Oliveira \textit{et al.}~\cite{2021b-oliveira-etal}]
 Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, tal que todos os ciclos não triviais negativos ou balanceados de $G(\mathcal{I})$ são convergentes, então é possível aumentar o número de cilos de $G(\mathcal{I})$ em uma unidade e o número de cilos balanceados de $G(\mathcal{I})$ em uma unidade após aplicar uma sequência de duas reversões.
 \end{lemma}
 
@@ -1057,7 +1069,7 @@ Pelo Lema~\ref{lemma:APHTXLZC}, o Algoritmo~\ref{algorithm:EHDLZXJA} transforma 
 \subsubsection{Reversão, Move e Indel}
 % ------------------------------------------------------------------ %
 
-Nesta seção apresentaremos algoritmos de aproximação com fatores de aproximação $4$ e $2$ para a variação com sinais do problema \SbIRMI{}. A seguir apresentamos o Algoritmo~\ref{algorithm:QMGGIVXT}.
+Nesta seção apresentaremos algoritmos de aproximação com fatores $4$ e $2$ para a variação com sinais do problema \SbIRMI{}. A seguir apresentamos o Algoritmo~\ref{algorithm:QMGGIVXT}.
 
 \input{algorithms/QMGGIVXT}
 
@@ -1068,7 +1080,7 @@ Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi
 A prova é similar a descrita no Teorema~\ref{theorem:DGTASCUU}, mas considerando que o Algoritmo~\ref{algorithm:JAJGNYWD} utiliza no máximo $2ib_1(\mathcal{I'})$ eventos de reversão, move e indel para transformar $(\pi',\breve\pi')$ em $(\iota',\breve\iota')$ (Lema~\ref{lemma:SINGKSVU}).
 \end{proof}
 
-A seguir faremos uso da estrutura de grafo de ciclos ponderado rígido e apresentaremos lemas que serão utilizados para obtenção de uma algoritmo de aproximação com um fator $2$.
+A seguir faremos uso da estrutura de grafo de ciclos ponderado rígido e apresentaremos lemas que serão utilizados para obtenção de um algoritmo de aproximação com um fator $2$.
 
 \begin{lemma}\label{lemma:BZLJHNFF}
 Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, tal que em $G(\mathcal{I})$ existe pelo menos um ciclo trivial negativo $C=(c^1)$, então é possível aumentar o número de cilos balanceados de $G(\mathcal{I})$ em uma unidade após aplicar uma operação de indel.
@@ -1125,7 +1137,7 @@ Note que o Algoritmo~\ref{algorithm:LCPCUFNZ} fornece um sequência de reversõe
 \subsubsection{Reversão, Transposição e Indel}
 % ------------------------------------------------------------------ %
 
-Nesta seção, apresentaremos um algoritmo de aproximação com fator $4$ para a variação com sinais do problema \SbIRTI{}. A seguir apresentamos o Algoritmo~\ref{algorithm:EQALRDVE}.
+Nesta seção, apresentaremos dois algoritmos de aproximação com fatores $4$ e $3$ para a variação com sinais do problema \SbIRTI{}. A seguir apresentamos o Algoritmo~\ref{algorithm:EQALRDVE}.
 
 \input{algorithms/EQALRDVE}
 
@@ -1134,6 +1146,53 @@ Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi
 \end{theorem}
 \begin{proof}
 Note que o Algoritmo~\ref{algorithm:YIZYUGZZ} fornece um sequência de reversões, tranposições e indels que afetam apenas breakpoints tipo um. Logo, nunhuma adjacência intergênica de $\mathcal{I'}$ é afetada. Além disso, pelo Lema~\ref{lemma:MUTXDAUG}, o Algoritmo~\ref{algorithm:YIZYUGZZ} utiliza no máximo $\frac{4ib_1(\mathcal{I'})}{3}$ e $\frac{4ib_1(\mathcal{I'})}{3} + 1$ eventos de reversão, transposição e indel para transformar $(\pi',\breve\pi')$ em $(\iota',\breve\iota')$ se $\mathcal{I'}$ for balanceada e desbalanceada, respectivamente. Pelo Lema~\ref{lemma:GTTULLOM}, temos que $(\pi,\breve\pi) \cdot S = (\iota,\breve\iota)$ e $|S| = |S'|$. Pelo Lema~\ref{lemma:FKOCCOYY}, temos que $ib_1(\mathcal{I'}) = ib_2(\mathcal{I})$. Logo, caso $\mathcal{I}$ seja balanceada temos que $|S| \le \frac{4ib_2(\mathcal{I})}{3}$. Caso contrário, temos que $|S| \le \frac{4ib_2(\mathcal{I})}{3} + 1$. Pelo Teorema~\ref{theorem:JGVDYLDM}, temos o seguinte limitante inferior: Se $\mathcal{I}$ for balanceada, então $d_{\SbIRT}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I})}{3}$. Caso contrário, $d_{\SbIRT}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I}) + 2}{3}$.Se $\mathcal{I}$ for balanceada, temos que $\frac{\frac{4b_2(\mathcal{I})}{3}}{\frac{ib_2(\mathcal{I})}{3}}=4$. Se $\mathcal{I}$ for desbalanceada,  temos que $\frac{\frac{4ib_2(\mathcal{I})}{3} + 1}{\frac{ib_2(\mathcal{I}) + 2}{3}}=\frac{\frac{4ib_2(\mathcal{I})+3}{3}}{\frac{ib_2(\mathcal{I}) + 2}{3}}=\frac{4ib_2(\mathcal{I})+3}{ib_2(\mathcal{I})+2}$. Entretanto, como $\frac{4ib_2(\mathcal{I})+3}{ib_2(\mathcal{I})+2}<\frac{4(ib_2(\mathcal{I})+2)}{ib_2(\mathcal{I})+2}=4$, e o teorema segue.
+\end{proof}
+
+A seguir faremos uso da estrutura de grafo de ciclos ponderado rígido e apresentaremos lemas que serão utilizados para obtenção de um algoritmo de aproximação com um fator $3$.
+
+\begin{lemma}\label{lemma:CPUOKZAL}[Lema 4.3 de Oliveira \textit{et al.}~\cite{2021a-oliveira-etal}]
+Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, tal que em $G(\mathcal{I})$ existe pelo menos um ciclo orientado negativo $C$, então é possível aumentar o número de cilos balanceados de $G(\mathcal{I})$ em uma unidade após aplicar uma operação de transposição.
+\end{lemma}
+
+\begin{lemma}\label{lemma:PWBLLVMW}[Lema 4.6 de Oliveira \textit{et al.}~\cite{2021a-oliveira-etal}]
+Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, tal que em $G(\mathcal{I})$ existe pelo menos um ciclo orientado balanceado $C$, então é possível aumentar o número de cilos balanceados de $G(\mathcal{I})$ em duas unidades após aplicar três operações de transposição.
+\end{lemma}
+
+\begin{lemma}\label{lemma:JULWGGYC}
+Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, tal que em $G(\mathcal{I})$ todos os ciclos não triviais são não orientados balanceados ou negativos, então é possível aumentar o número de cilos balanceados de $G(\mathcal{I})$ em duas unidades após aplicar três operações de reversão.
+\end{lemma}
+\begin{proof}
+Seja $C$ um ciclo não orientados balanceado ou negativo em $G(\mathcal{I})$. Como $C$ é um ciclo não orientado, então ele possui pelo menos um open gate. Como todos os open gates em $G(\mathcal{I})$ são fechados~\cite{1996-bafna-pevzner}, então sabemos deve existir um ciclo não trivial $D$ que cruza-se com $C$. Como todos os ciclos não triviais em $G(\mathcal{I})$ são não orientados balanceados ou negativos, então $D$ é um ciclo não orientado balanceado ou negativo. Neste caso, basta aplicar uma reversão nas arestas pretas de $D$ que estão imediatamente antes e depois da aresta cinza que fecha o open gate de $C$. Como resultado, $C$ passa a ser um ciclos divergente e o lema~\ref{lemma:IWIAXMBS} pode ser aplicando aumentando o número de ciclos balanceado em uma unidade. Entretanto, a segunda reversão faz com que o ciclo $D$ torne-se divergente e o lema~\ref{lemma:IWIAXMBS} pode ser aplicado novamente aumentando o número de ciclos balanceado em mais uma unidade. No fim, o número de cilos balanceados de $G(\mathcal{I})$ aumenta em duas unidades após aplicar três operações de reversão e o lema segue.
+\end{proof}
+
+Agora considere o Algoritmo~\ref{algorithm:YMHYMYQC}. Note que em cada passo é tratado um determinado tipo de ciclo visando aumentar o número de ciclos balanceados em $G(\mathcal{I})$.
+
+\input{algorithms/YMHYMYQC}
+
+\begin{lemma}\label{lemma:TKRHFREQ}
+Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:YMHYMYQC} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando no máximo $\frac{3(n+1 - c_b(G(\mathcal{I})))}{2}$ eventos de reversão, transposição e indel.
+\end{lemma}
+\begin{proof}
+Pela Observação~\ref{remark:WVLFPRDL}, sabemos que se $c_b(G(\mathcal{I})) = {n + 1}$, então o genoma alvo foi alcançado. Note que enquanto essa condição não for satisfeita o Algoritmo~\ref{algorithm:YMHYMYQC} aplicará um dos seguintes passos: 
+
+\begin{enumerate}[i.]
+  \item Se houver algum ciclo positivo em $G(\mathcal{I})$, então com apenas um indel o ciclo torna-se balanceado (Lema~\ref{lemma:HOGGQNJN}).
+  \item Se existir um ciclo trivial negativo em $G(\mathcal{I})$, então aplicando um indel o ciclo torna-se balanceado (Lema~\ref{lemma:BZLJHNFF}).
+  \item Note que neste ponto do algoritmo todos os ciclos de $G(\mathcal{I})$ são negativos ou balanceados obrigatoriamente. Se houver algum ciclo divergente (negativo ou balanceado) em $G(\mathcal{I})$, então aplicando uma reversão é possível aumentar o número de ciclos balanceados em uma unidade (Lema~\ref{lemma:IWIAXMBS}).
+  \item Neste ponto do algoritmo os ciclos não tiviais em $G(\mathcal{I})$ são obrigatoriamente convergentes. Caso exista um ciclo orientado negativo, então com uma transposição é possível aumentar o número de ciclos balanceados em uma unidade (Lema~\ref{lemma:CPUOKZAL}). Caso exista um ciclo orientado balanceado, então com uma sequência de três transposições é possível aumentar o número de ciclos balanceados em duas unidades (Lema~\ref{lemma:PWBLLVMW}).
+  \item Neste ponto do algoritmo os ciclos não tiviais em $G(\mathcal{I})$ são obrigatoriamente convergentes não orientados balanceados ou negativos. Por fim, o Lema~\ref{lemma:JULWGGYC} pode ser aplicado aumentando o número de ciclos balancedos em duas unidades após aplicar uma sequência de três reversões.
+\end{enumerate}
+
+Note que nos cinco passos o número de ciclos balanceados aumenta em pelo menos uma unidade. Logo, o genoma alvo eventualmente será alcançado e o algoritmo termina a execução. Além disso, no pior caso, três operações são utilizadas para aumentar o número de ciclos em duas unidades. Dessa forma, temos que no máximo $\frac{3(n+1 - c_b(G(\mathcal{I})))}{2}$ eventos de reversão, transposição e indel são utilizados para transformar $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ e o lema segue.
+\end{proof}
+
+Note que o Algoritmo~\ref{algorithm:YMHYMYQC} é uma extensão do algoritmo apresentado por Oliveira \textit{et al.}~\cite{2021a-oliveira-etal} para o problema \SbIRT{} em instâncias intergênicas balanceadas com sinais. Por esse motivo, no pior caso, o tempo de execução do Algoritmo~\ref{algorithm:YMHYMYQC} também é $\mathcal{O}(n^4)$.
+
+\begin{theorem}\label{theorem:VPNTPEUI}
+Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:YMHYMYQC} é uma $3$-aproximação para o problema \SbIRTI{}.
+\end{theorem}
+\begin{proof}
+Pelo Lema~\ref{lemma:TKRHFREQ}, o Algoritmo~\ref{algorithm:YMHYMYQC} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando no máximo $\frac{3(n+1 - c_b(G(\mathcal{I})))}{2}$ eventos de reversão, transposição e indel. Pelo Teorema~\ref{theorem:ZZBNVROM}, temos o seguinte limitante inferior $d_{\SbIRTI}(\mathcal{I}) \ge\frac{{n + 1} - c_b(G(\mathcal{I}))}{2}$. Logo, o teorema segue.
 \end{proof}
 
 % ------------------------------------------------------------------ %
@@ -1155,7 +1214,7 @@ A prova é similar a descrita no Teorema~\ref{theorem:TRRZCTJT}, mas considerand
 \subsubsection{Reversão, Transposição, Move e Indel}
 % ------------------------------------------------------------------ %
 
-Nesta seção, apresentaremos um algoritmo de aproximação com fator $3$ para a variação com sinais do problema \SbIRTMI{}. A seguir apresentamos o Algoritmo~\ref{algorithm:LCTCOSWM}.
+Nesta seção, apresentaremos dois algoritmos de aproximação com fator $3$ para a variação com sinais do problema \SbIRTMI{}. O primeiro é baseado no conceito de breakpoints intergênicos e o segundo é baseano na estrutura de grafo de ciclos ponderado rígido. A seguir apresentamos o Algoritmo~\ref{algorithm:LCTCOSWM}.
 
 \input{algorithms/LCTCOSWM}
 
@@ -1164,6 +1223,26 @@ Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi
 \end{theorem}
 \begin{proof}
 A prova é similar a descrita no Teorema~\ref{theorem:TRRZCTJT}, mas considerando que o Algoritmo~\ref{algorithm:FMDPGQTJ} utiliza no máximo $ib_1(\mathcal{I'})$ eventos de reversão, transposição, move e indel para transformar $(\pi',\breve\pi')$ em $(\iota',\breve\iota')$ (Lema~\ref{lemma:GCEWGEBP}).
+\end{proof}
+
+A seguir faremos uso da estrutura de grafo de ciclos ponderado rígido e apresentaremos um algoritmo de aproximação com um fator $3$. Considere o Algoritmo~\ref{algorithm:EIFZNOAH}, note que ele é similar ao Algoritmo~\ref{algorithm:YMHYMYQC}, mas incluindo o evento de move como uma possibilidade no segundo caso.
+
+\input{algorithms/EIFZNOAH}
+
+\begin{lemma}\label{lemma:TEVTTPGB}
+Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:EIFZNOAH} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando no máximo $\frac{3(n+1 - c_b(G(\mathcal{I})))}{2}$ eventos de reversão, transposição, move e indel.
+\end{lemma}
+\begin{proof}
+A prova é similar a descrita no Lema~\ref{lemma:TKRHFREQ} considerando que no segundo caso do algoritmo um ciclo trivial negativo pode ser transformando em balanceado através de um evento de move ou indel.
+\end{proof}
+
+Note que o Algoritmo~\ref{algorithm:EIFZNOAH}, no pior caso, tem o tempo de execução equiparável ao Algoritmo~\ref{algorithm:YMHYMYQC}, que é $\mathcal{O}(n^4)$.
+
+\begin{theorem}\label{theorem:ZQMAXKGA}
+Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, o Algoritmo~\ref{algorithm:EIFZNOAH} é uma $3$-aproximação para o problema \SbIRTMI{}.
+\end{theorem}
+\begin{proof}
+Pelo Lema~\ref{lemma:TEVTTPGB}, o Algoritmo~\ref{algorithm:EIFZNOAH} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando no máximo $\frac{3(n+1 - c_b(G(\mathcal{I})))}{2}$ eventos de reversão, transposição, move e indel. Pelo Teorema~\ref{theorem:ZZBNVROM}, temos o seguinte limitante inferior $d_{\SbIRTMI}(\mathcal{I}) \ge\frac{{n + 1} - c_b(G(\mathcal{I}))}{2}$. Logo, o teorema segue.
 \end{proof}
 
 % ------------------------------------------------------------------ %

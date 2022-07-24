@@ -203,7 +203,7 @@ Dada uma instância intergênica flexível sem sinais $\mathcal{I} = ((\pi,\brev
 \begin{itemize}
   \item $(\pi',\breve\pi') = (\pi,\breve\pi)$
   \item $\iota' = \iota$
-  \item Inicialmente, atribua em $\breve\iota_{i}'$ o valor $\breve\iota^{\min}_i$, para $i \in [1..({n+1})]$. Em seguida, para cada região intergênica estável tipo um $\breve\pi_i \in \mathcal{S}_{e}(\mathcal{I})$ atribua o valor $\breve\pi_i$ em $\breve\iota_{k}'$, onde $k = \max(\pi_{i-1},\pi_i)$.
+  \item Inicialmente, atribua em $\breve\iota_{i}'$ o valor $\breve\iota^{\min}_i$, para $i \in [1..({n+1})]$. Em seguida, para cada região intergênica estável $\breve\pi_i \in \mathcal{S}_{e}(\mathcal{I})$ atribua o valor $\breve\pi_i$ em $\breve\iota_{k}'$, onde $k = \max(\pi_{i-1},\pi_i)$.
 \end{itemize}
 
 Denotamos por $\mathcal{F}_{ir}^{'}(\mathcal{I})$ a instância intergênica rígida sem sinais criada pela função $\mathcal{F}_{ir}^{'}$ a partir de uma instância intergênica flexível sem sinais $\mathcal{I}$. Perceba que a função $\mathcal{F}_{ir}^{'}$ apenas define valores estritos para os tamanhos das regiões intergênicas no genoma alvo $\breve\iota'$ da instância intergênica rígida $\mathcal{I'}$, uma vez que $(\pi',\breve\pi') = (\pi,\breve\pi)$ e $\iota' = \iota$. Além disso, a função $\mathcal{F}_{ir}^{'}$ pode ser executada em tempo linear.
@@ -671,4 +671,6 @@ Neste capítulo, estudamos uma generalização de problemas que consideram tanto
 
 Esse grau de flexibilidade tenta trazer uma importância maior para a ordem e orientação dos genes em comparação com o tamanho das regiões intergênicas, uma vez que considerando um intervalo de valores permitidos para o tamanho de cada região intergênica no genoma alvo acabos ampliando as possibilidades de configuração para os tamanhos das regiões intergênicas de modo que todas as restrições de um modelo sejam atendidas.
 
-Para as variações com (quando aplicável) e sem sinais dos dez problemas investigados nós apresentamos algoritmos de aproximação com um fator constante com base em um processo de redução. Por fim, realizamos testes experimentais para verificar o desempenho prático dos algoritmos que foram apresentados.
+Para todas as variações dos problemas investigados neste capítulo, nós apresentamos algoritmos de aproximação com um fator constante com base em um processo de redução que permite o uso de resultados que foram apresentados para as respectivas versões rígidas dos problemas. Apesar dos problemas flexíveis investigados neste capítulo serem uma generalização dos problemas rígidos foi possível apresentar resultados teóricos equiparáveis as versões rígidas. 
+
+% Por fim, realizamos testes experimentais para verificar o desempenho prático dos algoritmos que foram apresentados.

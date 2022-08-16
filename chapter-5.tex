@@ -519,6 +519,20 @@ Pelo Lema~\ref{lemma:WQOEFBXP}, temos que a sequência fornecida pelo algoritmo 
 \subsubsection{Resultados Práticos}
 % ------------------------------------------------------------------ %
 
+Nesta seção, apresentamos os resultados práticos dos algoritmos apresentados para a varaiação sem sinas dos problemas \SbFIR{}, \SbFIRI{}, \SbFIRM{}, \SbFIRMI{}, \SbFIRT{}, \SbFIRTI{}, \SbFIRTM{}, \SbFIRTMI{}, \SbFIT{} e \SbFITM{}.
+
+Nós criamos uma base de dados para cada problema e utilizamos os identificadores $U_\SbFIR{}$, $U_\SbFIRI{}$, $U_\SbFIRM{}$, $U_\SbFIRMI{}$, $U_\SbFIRT{}$, $U_\SbFIRTI{}$, $U_\SbFIRTM{}$, $U_\SbFIRTMI{}$, $U_\SbFIT{}$ e $U_\SbFITM{}$ para a base de dados dos problemas \SbFIR{}, \SbFIRI{}, \SbFIRM{}, \SbFIRMI{}, \SbFIRT{}, \SbFIRTI{}, \SbFIRTM{}, \SbFIRTMI{}, \SbFIT{} e \SbFITM{}, respectivamente. Cada base de dados é dividida em cinco grupos. Cada grupo possui 1000 instâncias do tamanho 100, sendo que o tamanho de uma instância é a quantidade de genes do genoma de origem e alvo. Além disso, cada grupo é identificado pelo grau de flexibilização das instâncias contidas nele. Os identificadores do grupos de cada base de dados são 10\%, 20\%, 30\%, 40\% e 50\%. Cada instância é gerada da seguinte forma: Seja $\mathcal{S} = (\pi =(1~2~\dots~100),\breve\pi)$ uma representação intergênica rígida sem sinais de um genoma de origem, de forma que o tamanho de cada região intergênica $\breve\pi_i$ foi escolhido de maneira aleatória no intervalo $[0..100]$. Em seguida, criamos uma representação intergênica flexível sem sinais do genona alvo $\mathcal{T} = (\iota, \breve\iota^{\min},\breve\iota^{\max})$ da seguinte forma: (i) $\iota =(1~2~\dots~100)$; (ii) Seja $f$ o grau de flexibilização adotado no grupo, temos que $\forall \breve\iota^{\min}_i \in \breve\iota^{\min}: \breve\iota^{\min}_i = \lfloor\breve\pi_i - f\rfloor$ e $\forall \breve\iota^{\max}_i \in \breve\iota^{\max} : \breve\iota^{\max}_i = \lceil\breve\pi_i + f\rceil$. Com base na disponibilidade de operações de reversão, transposição, move e indel determinada para cada base de dados e grupo, uma operação $\sigma$ é escolhida de maneira aleatória e aplicada em $\mathcal{S}$ ($\mathcal{S} = \mathcal{S} \cdot \sigma$). Os parâmetros de cada operação também são escolhidos de forma aleatória dentro do limite de valores válidos. O valor do parâmetro $x$ de um indel $\delta^{(i)}_{(x)}$ aplicado em uma região intergênica $\breve\pi_{i}$ é escolhido dentro do intervalo $[-\breve\pi_{i}..\breve\pi_{i}]$, também de maneira aleatória. Quando não houverem operações disponíveis para serem aplicadas, então temos a instância intergênica flexível sem sinais $\mathcal{I}$, que é composta pela dupla $(\mathcal{S},\mathcal{T})$. Esse processo repete-se até que cada grupo possua um total de 1000 instâncias. 
+
+A quantidade de operações disponíveis para gerar cada instância difere entre as bases de dados. A Tabela~\ref{table:YUYKVZOZ} mostra, para cada base de dados, a quantidade de operações utilizada para criar cada instância.
+
+\input{tables/YUYKVZOZ}
+
+Utilizando o conceito de regiões intergênicas e considerando todos os grupos das bases de dados $U_\SbFIR{}$, $U_\SbFIRM{}$, $U_\SbFIRT{}$ e $U_\SbFIRTM{}$, foi observado que 100\% das instâncias pertencem ao cenário de equilíbrio. As instâncias foram geradas com o objetivo de que uma quantidade considerável de operações fosse necessária para fazer com que o genoma de origem atinja o genoma alvo, então poucas regiões intergênicas estáveis tendem a ser mantidas. Isso pode explicar o fato de 100\% das instâncias pertencerem ao cenário de equilíbrio.
+
+Utilizando a estrutura de grafo de ciclos ponderado flexível e considerando todos os grupos das bases de dados $U_\SbFIT{}$ e $U_\SbFITM{}$, foi observado que 55.8\%, 25.8\% e 18.4\% das instâncias pertencem ao cenário de equilíbrio, sourvedouro e fonte, respectivamente.
+
+Nós criamos também as bases de dados $U_{IR}$ e $U_{C}$. Ambas as bases de dados possuem cinco grupos, sendo que cada grupo possui 3000 instâncias intergênicas flexíveis balanceadas sem sinais de tamanho 100 e é identificado pelo grau de flexibilização das instâncias contidas nele. Os identificadores do grupos são 10\%, 20\%, 30\%, 40\% e 50\%. Utilizando o conceito de regiões intergênicas, cada grupo da base de dados $U_{IR}$ possui 1000 instâncias no cenário de equilíbrio, 1000 instâncias no cenário fonte e 1000 instâncias no cenário sorvedouro. Já na base de dados $U_{C}$, utilizando a estrutura de grafo de ciclos ponderado flexível, cada grupo possui 1000 instâncias no cenário de equilíbrio, 1000 instâncias no cenário fonte e 1000 instâncias no cenário sorvedouro. A base de dados $U_{IR}$ foi criada para ser utilizada pelos algoritmos da variação sem sinais dos problemas $\SbFIR{}$, $\SbFIRM{}$, $\SbFIRT{}$ e $\SbFIRTM{}$. Similarmente, a base de dados $U_{C}$ foi criada para ser utilizada pelos algoritmos da variação sem sinais dos problemas $\SbFIT{}$ e $\SbFITM{}$.
+
 \input{tables/APQPJYRX}
 
 \input{tables/OJKJSYXE}
@@ -542,6 +556,14 @@ Pelo Lema~\ref{lemma:WQOEFBXP}, temos que a sequência fornecida pelo algoritmo 
 \input{tables/JCSOIDPK}
 
 \input{tables/SKOTKEOE}
+
+\input{tables/ZQDEMKFX}
+
+\input{tables/CMSNUCXZ}
+
+\input{tables/OAYXLAOR}
+
+\input{tables/BYRVTGIR}
 
 % ------------------------------------------------------------------ %
 \subsection{Instâncias Intergênicas Flexíveis com Sinais}
@@ -714,6 +736,34 @@ Pelo Lema~\ref{lemma:TQUNQUGX}, temos que a sequência fornecida pelo Algoritmo~
 \end{proof}
 
 % ------------------------------------------------------------------ %
+\subsubsection{Resultados Práticos}
+% ------------------------------------------------------------------ %
+
+\input{tables/MGYFELVA}
+
+\input{tables/SZTGMABR}
+
+\input{tables/CGVMJXDZ}
+
+\input{tables/ZTVCHZCR}
+
+\input{tables/DEMGNKRC}
+
+\input{tables/NNPRKQHC}
+
+\input{tables/HQMTSFGN}
+
+\input{tables/XQLOOFHX}
+
+\input{tables/SMSSPGPF}
+
+\input{tables/EXRPXQLG}
+
+\input{tables/JXNBJWFA}
+
+\input{tables/XHZJQXXJ}
+
+% ------------------------------------------------------------------ %
 \section{Conclusões}
 % ------------------------------------------------------------------ %
 
@@ -721,6 +771,4 @@ Neste capítulo, estudamos uma generalização dos problemas que consideram tant
 
 Esse grau de flexibilidade tenta trazer uma importância maior para a ordem e orientação dos genes em comparação com o tamanho das regiões intergênicas, uma vez que considerando um intervalo de valores permitidos para o tamanho de cada região intergênica no genoma alvo acabos ampliando as possibilidades de configuração para os tamanhos das regiões intergênicas de modo que todas as restrições de um modelo sejam atendidas.
 
-Para todas as variações dos problemas investigados neste capítulo, nós apresentamos algoritmos de aproximação com um fator constante com base em um processo de redução que permite o uso de resultados que foram apresentados para as respectivas versões rígidas dos problemas. Apesar dos problemas flexíveis investigados neste capítulo serem uma generalização dos problemas rígidos, do ponto de vista teórico, foi possível apresentar resultados equiparáveis as versões rígidas. 
-
-% Por fim, realizamos testes experimentais para verificar o desempenho prático dos algoritmos que foram apresentados.
+Para todas as variações dos problemas investigados neste capítulo, nós apresentamos algoritmos de aproximação com um fator constante com base em um processo de redução que permite o uso de resultados que foram apresentados para as respectivas versões rígidas dos problemas. Por fim, realizamos testes experimentais para verificar o desempenho prático dos algoritmos que foram apresentados.

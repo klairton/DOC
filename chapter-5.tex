@@ -531,39 +531,53 @@ Utilizando o conceito de regiões intergênicas e considerando todos os grupos d
 
 Utilizando a estrutura de grafo de ciclos ponderado flexível e considerando todos os grupos das bases de dados $U_\SbFIT{}$ e $U_\SbFITM{}$, foi observado que 55.8\%, 25.8\% e 18.4\% das instâncias pertencem ao cenário de equilíbrio, sourvedouro e fonte, respectivamente.
 
-Nós criamos também as bases de dados $U_{IR}$ e $U_{C}$. Ambas as bases de dados possuem cinco grupos, sendo que cada grupo possui 3000 instâncias intergênicas flexíveis balanceadas sem sinais de tamanho 100 e é identificado pelo grau de flexibilização das instâncias contidas nele. Os identificadores do grupos são 10\%, 20\%, 30\%, 40\% e 50\%. Utilizando o conceito de regiões intergênicas, cada grupo da base de dados $U_{IR}$ possui 1000 instâncias no cenário de equilíbrio, 1000 instâncias no cenário fonte e 1000 instâncias no cenário sorvedouro. Já na base de dados $U_{C}$, utilizando a estrutura de grafo de ciclos ponderado flexível, cada grupo possui 1000 instâncias no cenário de equilíbrio, 1000 instâncias no cenário fonte e 1000 instâncias no cenário sorvedouro. A base de dados $U_{IR}$ foi criada para ser utilizada pelos algoritmos da variação sem sinais dos problemas $\SbFIR{}$, $\SbFIRM{}$, $\SbFIRT{}$ e $\SbFIRTM{}$. Similarmente, a base de dados $U_{C}$ foi criada para ser utilizada pelos algoritmos da variação sem sinais dos problemas $\SbFIT{}$ e $\SbFITM{}$.
+Nós criamos também as bases de dados $U_{IR}$ e $U_{C}$. Ambas as bases de dados possuem cinco grupos, sendo que cada grupo possui 3000 instâncias intergênicas flexíveis balanceadas sem sinais de tamanho 100 e é identificado pelo grau de flexibilização máxima das instâncias contidas nele. Os identificadores do grupos são 10\%, 20\%, 30\%, 40\% e 50\%. Utilizando o conceito de regiões intergênicas, cada grupo da base de dados $U_{IR}$ possui 1000 instâncias no cenário de equilíbrio, 1000 instâncias no cenário fonte e 1000 instâncias no cenário sorvedouro. Já na base de dados $U_{C}$, utilizando a estrutura de grafo de ciclos ponderado flexível, cada grupo possui 1000 instâncias no cenário de equilíbrio, 1000 instâncias no cenário fonte e 1000 instâncias no cenário sorvedouro.
+
+A geração de uma instância na base dados $U_{IR}$ é dada da seguinte forma: Seja $\mathcal{S} = (\pi =(1~2~\dots~100),\breve\pi)$ uma representação intergênica rígida sem sinais de um genoma de origem, de forma que o tamanho de cada região intergênica $\breve\pi_i$ foi escolhido de maneira aleatória no intervalo $[0..100]$. Em seguida, criamos uma representação intergênica flexível sem sinais do genona alvo $\mathcal{T} = (\iota, \breve\iota^{\min},\breve\iota^{\max})$ da seguinte forma: (i) $\iota =(1~2~\dots~100)$; (ii) Seja $f$ o grau de flexibilização máxima adotado no grupo. Para cada valor de $i \in \{1,2,\dots,101\}$, temos que $l$ e $u$ são porcentagens escolhidas de maneira aleatória no conjunto $\{0\%,1\%,\dots,f\}$ e os valores de $\breve\iota^{\min}_i$ e $\breve\iota^{\max}_i$ são atualizados para $\lfloor\breve\pi_i - l\rfloor$ e $\lceil\breve\pi_i + u\rceil$, respectivamente. Em seguida, 15 trocas são aplicadas em $\pi$. Uma troca muda a posição de dois elementos de $\pi$, sendo que ambas as posições são escolhidas do forma aleatória. Por fim, com base na disponibilidade de cenários para serem adicionados ao grupo, um cenário é escolhido de maneira aleatória e o seguinte processamento é realizado:
+\begin{itemize}
+  \item Equilíbrio - Caso a instância intergênica flexível sem sinais $\mathcal{I} = (\mathcal{S},\mathcal{T})$ pertença ao cenário de equilíbrio com base no conceito de regiões intergênicas, então $\mathcal{I}$ é adicionada ao grupo.
+  \item Fonte - Neste caso $\lfloor\frac{\sum_{i = 1}^{101}\breve\pi_i - \sum_{i = 1}^{101}\breve\iota^{\min}_i}{2}\rfloor$ nucleotídeos são removidos das regiões intergênicas $\breve\pi$ de forma aleatória. Caso a instância intergênica flexível sem sinais $\mathcal{I} = (\mathcal{S},\mathcal{T})$ resultante pertença ao cenário fonte com base no conceito de regiões intergênicas, então $\mathcal{I}$ é adicionada ao grupo.
+  \item Sorvedouro - Neste caso $\lfloor\frac{\sum_{i = 1}^{101}\breve\iota^{\max}_i - \sum_{i = 1}^{101}\breve\pi_i}{2}\rfloor$ nucleotídeos são adicionados nas regiões intergênicas $\breve\pi$ de forma aleatória. Caso a instância intergênica flexível sem sinais $\mathcal{I} = (\mathcal{S},\mathcal{T})$ resultante pertença ao cenário sorvedouro com base no conceito de regiões intergênicas, então $\mathcal{I}$ é adicionada ao grupo.
+\end{itemize}
+Este processo repete-se até que cada grupo possua 3000 instâncias.
+
+A criação de uma instância na base dados $U_{C}$ é similar ao processo descrito na base de dados $U_{IR}$ direfenciando-se pelo fato de utilizar a estrutura de grafo de ciclos ponderado flexível para determinar o cenário de cada instância que é gerada. Além disso, caso o cenário fonte seja escolhido durante o processo de geração de uma instância, o peso $\lfloor\frac{\sum_{i = 1}^{101}\breve\pi_i - \sum_{i = 1}^{101}\breve\iota^{\min}_i}{2}\rfloor$ é removido das arestas pretas do grafo, também de forma aleatória. Caso o cenário sorvedouro seja escolhido durante o processo de geração de uma instância, o peso $\lfloor\frac{\sum_{i = 1}^{101}\breve\iota^{\max}_i - \sum_{i = 1}^{101}\breve\pi_i}{2}\rfloor$ é adicionado nas arestas pretas do grafo, também de forma aleatória. 
+
+A base de dados $U_{IR}$ foi criada para ser utilizada pelos algoritmos da variação sem sinais dos problemas $\SbFIR{}$, $\SbFIRM{}$, $\SbFIRT{}$ e $\SbFIRTM{}$. Similarmente, a base de dados $U_{C}$ foi criada para ser utilizada pelos algoritmos da variação sem sinais dos problemas $\SbFIT{}$ e $\SbFITM{}$.
+
+A seguir apresentamos os resultados obtidos pelos algoritmos apresentado para a variação sem sinais dos problemas investigados neste capítulo. Nas tabelas que serão utilizadas a seguir temos a informação por grupo do grau de flexibilização adotado e as métricas de distância e aproximação, sendo que para ambas as métricas temos a informação sobre o menor e maior valor registrado e a média obtida.
 
 \input{tables/APQPJYRX}
 
-\input{tables/OJKJSYXE}
+% \input{tables/OJKJSYXE}
 
 \input{tables/EZSBDOGH}
 
 \input{tables/IEBGYPHS}
 
-\input{tables/RITAXFPQ}
+% \input{tables/RITAXFPQ}
 
 \input{tables/OBVONNLP}
 
 \input{tables/DRUHLZFM}
 
-\input{tables/PZXCAILB}
+% \input{tables/PZXCAILB}
 
 \input{tables/OTZHWXVI}
 
 \input{tables/NKDEXOVQ}
 
-\input{tables/JCSOIDPK}
+% \input{tables/JCSOIDPK}
 
 \input{tables/SKOTKEOE}
 
 \input{tables/ZQDEMKFX}
 
-\input{tables/CMSNUCXZ}
+% \input{tables/CMSNUCXZ}
 
 \input{tables/OAYXLAOR}
 
-\input{tables/BYRVTGIR}
+% \input{tables/BYRVTGIR}
 
 % ------------------------------------------------------------------ %
 \subsection{Instâncias Intergênicas Flexíveis com Sinais}

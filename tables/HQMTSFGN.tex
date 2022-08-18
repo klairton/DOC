@@ -1,9 +1,10 @@
 \begin{table}[!htb]
-  \caption{Resultados do Algoritmo~\ref{algorithm:EMLPACHB} utilizando a base de dados $S_\SbFIRT{}$.}
+  \caption{Resultados do Algoritmo~\ref{algorithm:EMLPACHB} utilizando as bases de dados $S_\SbFIRT{}$ e $S_{\text{C}}$.}
   \label{table:HQMTSFGN}
   \centering
   \begin{tabular}{|c|r|r|r|r|r|r|}
     \hline
+    \multicolumn{7}{|c|}{$S_\SbFIRT{}$}                                                                      \\ \hline
       -            & \multicolumn{3}{c|}{Distância}             & \multicolumn{3}{c|}{Aproximação}           \\ \hline
     Flexibilização & Mínimo       & Média        & Máximo       & Mínimo       & Média        & Máximo       \\ \hline  
     10\%           & 53           & 62.70        & 74           & 1.62         & 1.87         & 2.09         \\ \hline
@@ -12,4 +13,34 @@
     40\%           & 53           & 63.58        & 74           & 1.68         & 1.92         & 2.16         \\ \hline
     50\%           & 51           & 64.36        & 76           & 1.65         & 1.94         & 2.21         \\ \hline    
   \end{tabular}
+
+  \vspace{5mm}
+
+  \begin{tabular}{|c|r|r|r|r|r|r|}
+    \hline
+    \multicolumn{7}{|c|}{$S_{\text{C}}$}                                                                     \\ \hline
+      -            & \multicolumn{3}{c|}{Distância}             & \multicolumn{3}{c|}{Aproximação}           \\ \hline
+    Flexibilização & Mínimo       & Média        & Máximo       & Mínimo       & Média        & Máximo       \\ \hline  
+    10\%           & 21           & 39.26        & 54           & 1.53         & 1.91         & 2.20         \\ \hline
+    20\%           & 19           & 40.13        & 55           & 1.40         & 1.92         & 2.15         \\ \hline
+    30\%           & 22           & 40.98        & 58           & 1.52         & 1.92         & 2.20         \\ \hline
+    40\%           & 22           & 41.61        & 58           & 1.52         & 1.92         & 2.21         \\ \hline
+    50\%           & 22           & 42.22        & 60           & 1.59         & 1.93         & 2.30         \\ \hline    
+  \end{tabular}
 \end{table}
+
+% \begin{table}[!htb]
+%   \caption{Resultados do Algoritmo~\ref{algorithm:EMLPACHB} utilizando a base de dados $S_{\text{C}}$.}
+%   \label{table:XQLOOFHX}
+%   \centering
+%   \begin{tabular}{|c|r|r|r|r|r|r|}
+%     \hline
+%       -            & \multicolumn{3}{c|}{Distância}             & \multicolumn{3}{c|}{Aproximação}           \\ \hline
+%     Flexibilização & Mínimo       & Média        & Máximo       & Mínimo       & Média        & Máximo       \\ \hline  
+%     10\%           & 22           & 41.93        & 56           & 1.47         & 1.91         & 2.08         \\ \hline
+%     20\%           & 19           & 42.96        & 58           & 1.53         & 1.92         & 2.15         \\ \hline
+%     30\%           & 21           & 43.39        & 60           & 1.47         & 1.92         & 2.14         \\ \hline
+%     40\%           & 20           & 43.47        & 59           & 1.40         & 1.92         & 2.15         \\ \hline
+%     50\%           & 19           & 43.37        & 60           & 1.43         & 1.93         & 2.15         \\ \hline    
+%   \end{tabular}
+% \end{table}

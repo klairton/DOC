@@ -1,9 +1,10 @@
 \begin{table}[!htb]
-  \caption{Resultados do Algoritmo~\ref{algorithm:VOHUBSMM} utilizando a base de dados $S_\SbFIRM{}$.}
+  \caption{Resultados do Algoritmo~\ref{algorithm:VOHUBSMM} utilizando as bases de dados $S_\SbFIRM{}$ e $S_{\text{C}}$.}
   \label{table:ZTVCHZCR}
   \centering
   \begin{tabular}{|c|r|r|r|r|r|r|}
     \hline
+    \multicolumn{7}{|c|}{$S_\SbFIRM{}$}                                                                      \\ \hline
       -            & \multicolumn{3}{c|}{Distância}             & \multicolumn{3}{c|}{Aproximação}           \\ \hline
     Flexibilização & Mínimo       & Média        & Máximo       & Mínimo       & Média        & Máximo       \\ \hline  
     10\%           & 41           & 49.50        & 57           & 1.02         & 1.10         & 1.23         \\ \hline
@@ -12,4 +13,34 @@
     40\%           & 38           & 44.68        & 53           & 1.00         & 1.05         & 1.18         \\ \hline
     50\%           & 37           & 43.66        & 50           & 1.00         & 1.04         & 1.19         \\ \hline    
   \end{tabular}
+
+  \vspace{5mm}
+
+  \begin{tabular}{|c|r|r|r|r|r|r|}
+    \hline
+    \multicolumn{7}{|c|}{$S_{\text{C}}$}                                                                     \\ \hline
+      -            & \multicolumn{3}{c|}{Distância}             & \multicolumn{3}{c|}{Aproximação}           \\ \hline
+    Flexibilização & Mínimo       & Média        & Máximo       & Mínimo       & Média        & Máximo       \\ \hline  
+    10\%           & 23           & 40.14        & 53           & 1.00         & 1.13         & 1.29         \\ \hline
+    20\%           & 24           & 41.01        & 56           & 1.00         & 1.14         & 1.35         \\ \hline
+    30\%           & 24           & 41.82        & 57           & 1.00         & 1.15         & 1.32         \\ \hline
+    40\%           & 24           & 42.46        & 57           & 1.00         & 1.16         & 1.33         \\ \hline
+    50\%           & 25           & 42.94        & 58           & 1.00         & 1.16         & 1.32         \\ \hline    
+  \end{tabular}
 \end{table}
+
+% \begin{table}[!htb]
+%   \caption{Resultados do Algoritmo~\ref{algorithm:VOHUBSMM} utilizando a base de dados $S_{\text{C}}$.}
+%   \label{table:DEMGNKRC}
+%   \centering
+%   \begin{tabular}{|c|r|r|r|r|r|r|}
+%     \hline
+%       -            & \multicolumn{3}{c|}{Distância}             & \multicolumn{3}{c|}{Aproximação}           \\ \hline
+%     Flexibilização & Mínimo       & Média        & Máximo       & Mínimo       & Média        & Máximo       \\ \hline  
+%     10\%           & 24           & 43.17        & 56           & 1.00         & 1.16         & 1.36         \\ \hline
+%     20\%           & 23           & 44.00        & 57           & 1.00         & 1.17         & 1.35         \\ \hline
+%     30\%           & 24           & 44.35        & 60           & 1.00         & 1.18         & 1.39         \\ \hline
+%     40\%           & 24           & 44.37        & 59           & 1.00         & 1.18         & 1.36         \\ \hline
+%     50\%           & 22           & 44.22        & 60           & 1.00         & 1.18         & 1.38         \\ \hline    
+%   \end{tabular}
+% \end{table}

@@ -1,9 +1,10 @@
 \begin{table}[!htb]
-  \caption{Resultados do Algoritmo~\ref{algorithm:HSDBEFII} utilizando a base de dados $S_\SbFIR{}$.}
+  \caption{Resultados do Algoritmo~\ref{algorithm:HSDBEFII} utilizando as bases de dados $S_\SbFIR{}$ e $S_{\text{C}}$.}
   \label{table:MGYFELVA}
   \centering
   \begin{tabular}{|c|r|r|r|r|r|r|}
     \hline
+    \multicolumn{7}{|c|}{$S_\SbFIR{}$}                                                                       \\ \hline
       -            & \multicolumn{3}{c|}{Distância}             & \multicolumn{3}{c|}{Aproximação}           \\ \hline
     Flexibilização & Mínimo       & Média        & Máximo       & Mínimo       & Média        & Máximo       \\ \hline  
     10\%           & 45           & 49.98        & 55           & 1.00         & 1.01         & 1.10         \\ \hline
@@ -12,4 +13,34 @@
     40\%           & 44           & 49.80        & 55           & 1.00         & 1.01         & 1.10         \\ \hline
     50\%           & 45           & 49.74        & 54           & 1.00         & 1.01         & 1.09         \\ \hline    
   \end{tabular}
+
+  \vspace{5mm}
+
+  \begin{tabular}{|c|r|r|r|r|r|r|}
+    \hline
+    \multicolumn{7}{|c|}{$S_{\text{C}}$}                                                                     \\ \hline
+      -            & \multicolumn{3}{c|}{Distância}             & \multicolumn{3}{c|}{Aproximação}           \\ \hline
+    Flexibilização & Mínimo       & Média        & Máximo       & Mínimo       & Média        & Máximo       \\ \hline  
+    10\%           & 23           & 49.06        & 72           & 1.00         & 1.17         & 1.40         \\ \hline
+    20\%           & 24           & 50.72        & 78           & 1.00         & 1.19         & 1.49         \\ \hline
+    30\%           & 24           & 52.46        & 80           & 1.00         & 1.20         & 1.43         \\ \hline
+    40\%           & 24           & 53.89        & 82           & 1.00         & 1.21         & 1.46         \\ \hline
+    50\%           & 25           & 55.19        & 87           & 1.00         & 1.23         & 1.55         \\ \hline    
+  \end{tabular}
 \end{table}
+
+% \begin{table}[!htb]
+%   \caption{Resultados do Algoritmo~\ref{algorithm:HSDBEFII} utilizando a base de dados $S_{\text{C}}$.}
+%   \label{table:SZTGMABR}
+%   \centering
+%   \begin{tabular}{|c|r|r|r|r|r|r|}
+%     \hline
+%       -            & \multicolumn{3}{c|}{Distância}             & \multicolumn{3}{c|}{Aproximação}           \\ \hline
+%     Flexibilização & Mínimo       & Média        & Máximo       & Mínimo       & Média        & Máximo       \\ \hline  
+%     10\%           & 24           & 55.64        & 80           & 1.00         & 1.23         & 1.50         \\ \hline
+%     20\%           & 23           & 57.54        & 84           & 1.00         & 1.25         & 1.52         \\ \hline
+%     30\%           & 24           & 58.97        & 87           & 1.00         & 1.27         & 1.54         \\ \hline
+%     40\%           & 24           & 59.39        & 87           & 1.00         & 1.27         & 1.54         \\ \hline
+%     50\%           & 22           & 59.38        & 90           & 1.00         & 1.28         & 1.56         \\ \hline    
+%   \end{tabular}
+% \end{table}

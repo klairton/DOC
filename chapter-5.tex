@@ -519,7 +519,7 @@ Pelo Lema~\ref{lemma:WQOEFBXP}, temos que a sequência fornecida pelo algoritmo 
 \subsubsection{Resultados Práticos}\label{subsubsection:PWLZZAVH}
 % ------------------------------------------------------------------ %
 
-Nesta seção, apresentamos os resultados práticos dos algoritmos apresentados para a varaiação sem sinas dos problemas \SbFIR{}, \SbFIRI{}, \SbFIRM{}, \SbFIRMI{}, \SbFIRT{}, \SbFIRTI{}, \SbFIRTM{}, \SbFIRTMI{}, \SbFIT{} e \SbFITM{}.
+Nesta seção, apresentamos os resultados práticos dos algoritmos apresentados para a variação sem sinas dos problemas \SbFIR{}, \SbFIRI{}, \SbFIRM{}, \SbFIRMI{}, \SbFIRT{}, \SbFIRTI{}, \SbFIRTM{}, \SbFIRTMI{}, \SbFIT{} e \SbFITM{}.
 
 Nós criamos uma base de dados para cada problema e utilizamos os identificadores $U_\SbFIR{}$, $U_\SbFIRI{}$, $U_\SbFIRM{}$, $U_\SbFIRMI{}$, $U_\SbFIRT{}$, $U_\SbFIRTI{}$, $U_\SbFIRTM{}$, $U_\SbFIRTMI{}$, $U_\SbFIT{}$ e $U_\SbFITM{}$ para a base de dados dos problemas \SbFIR{}, \SbFIRI{}, \SbFIRM{}, \SbFIRMI{}, \SbFIRT{}, \SbFIRTI{}, \SbFIRTM{}, \SbFIRTMI{}, \SbFIT{} e \SbFITM{}, respectivamente. Cada base de dados é dividida em cinco grupos. Cada grupo possui 1000 instâncias do tamanho 100, sendo que o tamanho de uma instância é a quantidade de genes do genoma de origem e alvo. Além disso, cada grupo é identificado pelo grau de flexibilização das instâncias contidas nele. Os identificadores do grupos de cada base de dados são 10\%, 20\%, 30\%, 40\% e 50\%. Cada instância é gerada da seguinte forma: Seja $\mathcal{S} = (\pi =(1~2~\dots~100),\breve\pi)$ uma representação intergênica rígida sem sinais de um genoma de origem, de forma que o tamanho de cada região intergênica $\breve\pi_i$ foi escolhido de maneira aleatória no intervalo $[0..100]$. Em seguida, criamos uma representação intergênica flexível sem sinais do genona alvo $\mathcal{T} = (\iota, \breve\iota^{\min},\breve\iota^{\max})$ da seguinte forma: (i) $\iota =(1~2~\dots~100)$; (ii) Seja $f$ o grau de flexibilização adotado no grupo, temos que $\forall \breve\iota^{\min}_i \in \breve\iota^{\min}: \breve\iota^{\min}_i = \lfloor\breve\pi_i - f\rfloor$ e $\forall \breve\iota^{\max}_i \in \breve\iota^{\max} : \breve\iota^{\max}_i = \lceil\breve\pi_i + f\rceil$. Com base na disponibilidade de operações de reversão, transposição, move e indel determinada para cada base de dados e grupo, uma operação $\sigma$ é escolhida de maneira aleatória e aplicada em $\mathcal{S}$ ($\mathcal{S} = \mathcal{S} \cdot \sigma$). Os parâmetros de cada operação também são escolhidos de forma aleatória dentro do limite de valores válidos. O valor do parâmetro $x$ de um indel $\delta^{(i)}_{(x)}$ aplicado em uma região intergênica $\breve\pi_{i}$ é escolhido dentro do intervalo $[-\breve\pi_{i}..\breve\pi_{i}]$, também de maneira aleatória. Quando não houverem operações disponíveis para serem aplicadas, então temos a instância intergênica flexível sem sinais $\mathcal{I}$, que é composta pela dupla $(\mathcal{S},\mathcal{T})$. Esse processo repete-se até que cada grupo possua um total de 1000 instâncias. 
 
@@ -581,21 +581,45 @@ A Tabela~\ref{table:DRUHLZFM} apresenta os resultados do Algoritmo~\ref{algorith
 
 % \input{tables/PZXCAILB}
 
+Pela Tabela~\ref{table:DRUHLZFM} podemos perceber que, em ambas as bases de dados, o Algoritmo~\ref{algorithm:KZFLZWRM} apresentou uma razão de aproximação máxima de $3.00$. Além disso, considerando a variação entre a menor aproximação mínima e a maior aproximação máxima entre todos os grupos, obtemos os valores de $0.18$ e $0.36$ para as bases de dados $U_\SbFIRT{}$ e $U_{\text{IR}}$, respectivamente. A distância mínima registrada na base de dados $U_\SbFIRT{}$ considerando todos os grupos foi de $59$, nove a mais do que o número de operações utilizadas para gerar cada instância, enquanto a distância máxima registrada foi de $83$. Também é possível observar uma estabilidade na distância média considerando todos os grupos da base $U_\SbFIRT{}$, onde os valores ficaram entre $71.17$ e $71.63$.
+
+A Tabela~\ref{table:OTZHWXVI} apresenta os resultados do Algoritmo~\ref{algorithm:JSNLHIVA} utilizando a base de dados $U_\SbFIRTI{}$. A razão de aproximação obtida pelo algoritmo para cada instância foi computada utilizando o limitante inferior apresentado no Teorema~\ref{theorem:BOTBXFZQ}.
+
 \input{tables/OTZHWXVI}
+
+Na Tabela~\ref{table:OTZHWXVI} podemos observar que a razão de aproximação máxima obtida pelo Algoritmo~\ref{algorithm:JSNLHIVA} em todos os grupos foi de $2.96$, sendo um valor próximo ao limite teórico ($3.0$). É possível notar que o Algoritmo~\ref{algorithm:JSNLHIVA} apresentou uma variação pequena em relação a razão de aproximação, este fato pode ser constatado observando a variação entre a aproximação mínima e máxima de cada grupo. Por fim, a distância média fornecida pelo algoritmo apresentou um leve tendência de queda a medida que o grau de flexibilização aumenta.
+
+A Tabela~\ref{table:NKDEXOVQ} apresenta os resultados do Algoritmo~\ref{algorithm:JRHFSYXO} utilizando as bases de dados $U_\SbFIRTM{}$ e $U_{\text{IR}}$. A razão de aproximação obtida pelo algoritmo para cada instância foi computada utilizando o limitante inferior apresentado no Teorema~\ref{theorem:KKKUCDHN}.
 
 \input{tables/NKDEXOVQ}
 
 % \input{tables/JCSOIDPK}
 
+Pela Tabela~\ref{table:NKDEXOVQ} é possível observar que considerando os grupos de cada base de dados a aproximação máxima do Algoritmo~\ref{algorithm:JRHFSYXO} foi de $2.96$ e $2.95$ nas bases de dados $U_\SbFIRTM{}$ e $U_{\text{IR}}$, respectivamente. Uma característica interessante que foi a variação zero considerando a aproximação média entre os grupos da base de dados $U_\SbFIRTM{}$ e de $0.01$ considerando os grupos da base de dados $U_{\text{IR}}$. Por fim, o Algoritmo~\ref{algorithm:JRHFSYXO} forneceu uma distância mínima menor que $60$ para todos os grupos da base de dados $U_\SbFIRTM{}$ (50 operações foram utilizadas para gerar cada instância).
+
+A Tabela~\ref{table:SKOTKEOE} apresenta os resultados do Algoritmo~\ref{algorithm:PJTWIANQ} utilizando a base de dados $U_\SbFIRTMI{}$. A razão de aproximação obtida pelo algoritmo para cada instância foi computada utilizando o limitante inferior apresentado no Teorema~\ref{theorem:BOTBXFZQ}.
+
 \input{tables/SKOTKEOE}
+
+Na Tabela~\ref{table:SKOTKEOE} podemos ver que a razão de aproximação máxima em todos os grupos pelo Algoritmo~\ref{algorithm:PJTWIANQ} atingiu o limite teórico garantido pelo algoritmo, que é de $3.0$. Vale ressaltar que isso não significa que a aproximação do algoritmo é justa, uma vez que a razão de aproximação computada para cada instância foi realizada utilizando o limitante inferior. O Algoritmo~\ref{algorithm:PJTWIANQ} foi o único que, dentre os algoritmos para as variações sem sinais dos problemas investigados neste capítulo, nos experimentos práticos apresentou uma razão de aproximação (utilizando o limitante inferior) que atingiu o limite teórico de aproximação. Por fim, é possível notar que o algoritmo apresentou pouca variação em relação as métricas de distância e aproximação considerando todos os grupos.
+
+A Tabela~\ref{table:ZQDEMKFX} apresenta os resultados do Algoritmo~\ref{algorithm:UMNIXZHY} utilizando as bases de dados $U_\SbFIT{}$ e $U_{\text{C}}$. A razão de aproximação obtida pelo algoritmo para cada instância foi computada utilizando o limitante inferior apresentado no Teorema~\ref{theorem:PQQUYBMS}.
 
 \input{tables/ZQDEMKFX}
 
 % \input{tables/CMSNUCXZ}
 
+Na Tabela~\ref{table:ZQDEMKFX} é possível notar que o Algoritmo~\ref{algorithm:UMNIXZHY} apresentou um ótimo resultado prático em comparação com o limite teórico que garantido ($3.5$-aproximação). Na base de dados $U_\SbFIT{}$ a maior aproximação máxima foi de $1.95$, registrada nos grupos 30\% e 50\%, já na base de dados a maior aproximação máxima foi de $2.53$, no grupo 20\%. É importante notar também que em todos os grupos da base de dados $U_\SbFIT{}$ o Algoritmo~\ref{algorithm:UMNIXZHY} forneceu uma distância mínima menor que $43$. Vale ressaltar que em todas as instâncias da base de dados foram utilizadas $50$ operações para gerar cada uma delas. Entretanto, algumas operações podem desfazer operações aplicadas previamente durante o processo de criação. Por esse motivo, é possível que em algumas instâncias seja necessário menos que $50$ operações para atingir o genoma alvo.
+
+A Tabela~\ref{table:OAYXLAOR} apresenta os resultados do Algoritmo~\ref{algorithm:UEBBPCAK} utilizando as bases de dados $U_\SbFITM{}$ e $U_{\text{C}}$. A razão de aproximação obtida pelo algoritmo para cada instância foi computada utilizando o limitante inferior apresentado no Teorema~\ref{theorem:PQQUYBMS}.
+
 \input{tables/OAYXLAOR}
 
 % \input{tables/BYRVTGIR}
+
+Na Tabela~\ref{table:OAYXLAOR} podemos notar que a aproximação máxima registrada do Algoritmo~\ref{algorithm:UEBBPCAK} em todos os grupos da base de dados $U_\SbFITM{}$ foi menor que $2.0$. Já na base de dados $U_{\text{C}}$ a maior aproximação máxima foi de $2.20$, registrada no grupo 40\%. Utilizando a base de dados $U_\SbFITM{}$ o Algoritmo~\ref{algorithm:UEBBPCAK} também apresentou para todos os grupos uma distância mínima menor do que o número de operações utilizada para gerar cada instância, em todos os grupos esse valor foi menor que $39$.
+
+De maneira geral todos os algoritmo apresentaram um bom desempenho na prática, sendo que o Algoritmo~\ref{algorithm:PJTWIANQ} foi o único em que a razão de aproximação máxima atingiu o limite teórico que é garantido pelo mesmo. 
 
 % ------------------------------------------------------------------ %
 \subsection{Instâncias Intergênicas Flexíveis com Sinais}

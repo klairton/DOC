@@ -811,9 +811,13 @@ A Tabela~\ref{table:MGYFELVA} apresenta os resultados do Algoritmo~\ref{algorith
 
 % \input{tables/SZTGMABR}
 
+Pela Tabela~\ref{table:MGYFELVA} é possível notar que o Algoritmo~\ref{algorithm:HSDBEFII} apresentou um ótimo desempenho na prático, sendo que em todos os grupos de ambas as bases de dados o algoritmo forneceu pelo menos uma solução ótima. Esta informação pode ser verificada pela métrica aproximação mínima com valor $1.00$. Além disso, na base de dados $S_\SbFIR{}$ a aproximação média foi de $1.01$ para todos os grupos e vale ressaltar que a razão de aproximação foi computada utilizando o limitante inferior. Considerando todas as instâncias da base de dados $S_\SbFIR{}$ e $S_{\text{C}}$ o Algoritmo~\ref{algorithm:HSDBEFII} forneceu uma solução ótima para pelo menos 59.46\% 29.95\% das instâncias, respectivamente. Na base de dados $S_{\text{C}}$ o Algoritmo~\ref{algorithm:HSDBEFII} apresentou valores mais elevados para a métrica aproximação máxima. Entretanto, o maior valor observado foi de $1.55$, registrado no grupo 50\%.
+
 A Tabela~\ref{table:CGVMJXDZ} apresenta os resultados do Algoritmo~\ref{algorithm:ZCBCGAUW} utilizando a bases de dados $S_\SbFIRI{}$. A razão de aproximação obtida pelo algoritmo para cada instância foi computada utilizando o limitante inferior apresentado no Teorema~\ref{theorem:SZNBDWOM}.
 
 \input{tables/CGVMJXDZ}
+
+Na Tabela~\ref{table:CGVMJXDZ} podemos notar que o Algoritmo~\ref{algorithm:ZCBCGAUW} apresentou um comportamento similar ao Algoritmo~\ref{algorithm:HSDBEFII} na base de dados $S_\SbFIR{}$, inclusive mantendo a mesma aproximação média para todos os grupos. É importante ressaltar que as bases de dados $S_\SbFIR{}$ e $S_\SbFIRI{}$ foram geradas através de um conjunto distinto de operações. Considerando todas as instâncias da base de dados $S_\SbFIRI{}$ o Algoritmo~\ref{algorithm:ZCBCGAUW} forneceu uma solução ótima para pelo menos 62.60\% das instâncias.
 
 A Tabela~\ref{table:ZTVCHZCR} apresenta os resultados do Algoritmo~\ref{algorithm:VOHUBSMM} utilizando as bases de dados $S_\SbFIRM{}$ e $S_{\text{C}}$. A razão de aproximação obtida pelo algoritmo para cada instância foi computada utilizando o limitante inferior apresentado no Teorema~\ref{theorem:CNMFNKPK}.
 
@@ -821,9 +825,13 @@ A Tabela~\ref{table:ZTVCHZCR} apresenta os resultados do Algoritmo~\ref{algorith
 
 % \input{tables/DEMGNKRC}
 
+Observando os resultados do Algoritmo~\ref{algorithm:VOHUBSMM} reportados na Tabela~\ref{table:ZTVCHZCR} podemos perceber que na base de dados $S_\SbFIRM{}$ a aproximação mínima para o grupo 10\% foi de $1.02$ enquanto para os demais grupos esse valor foi de $1.00$. Considerando todas as instâncias da base de dados $S_\SbFIRM{}$ o Algoritmo~\ref{algorithm:VOHUBSMM} forneceu uma solução ótima para pelo menos 2.42\% das instâncias. Entretanto, quando consideramos a base de dados $S_{\text{C}}$ essa porcentagem sobe para 29.97\%. Considerando ambas as bases de dados e todos os grupos a aproximação média foi menor que $1.17$ enquanto a aproximação máxima foi menor ou igual que $1.35$.
+
 A Tabela~\ref{table:NNPRKQHC} apresenta os resultados do Algoritmo~\ref{algorithm:TAJJYPTG} utilizando a bases de dados $S_\SbFIRMI{}$. A razão de aproximação obtida pelo algoritmo para cada instância foi computada utilizando o limitante inferior apresentado no Teorema~\ref{theorem:XQPRYMFX}.
 
 \input{tables/NNPRKQHC}
+
+Pela Tabela~\ref{table:NNPRKQHC} é possível notar que a maior aproximação máxima observada foi de $1.21$, ocorrência registrada nos grupos 10\% e 20\%. Inclusive, esses dois grupos foram os únicos em que a aproximação mínima foi maior que $1.00$. Considerando todas as instâncias da bases de dados $S_\SbFIRMI{}$ em pelo menos 25 o Algoritmo~\ref{algorithm:TAJJYPTG} forneceu uma solução ótima. Vale mencionar que essa quantidade pode ser maior, uma vez que essa informação é derivada da razão de aproximação obtida em cada instância da base de dados, que é computada com base no limitante inferior. Outro ponto interessante dos resultados é que houve uma diminuição significativa na distância média a medida que o grau de flexibilização aumenta nos grupos.
 
 A Tabela~\ref{table:HQMTSFGN} apresenta os resultados do Algoritmo~\ref{algorithm:EMLPACHB} utilizando as bases de dados $S_\SbFIRT{}$ e $S_{\text{C}}$. A razão de aproximação obtida pelo algoritmo para cada instância foi computada utilizando o limitante inferior apresentado no Teorema~\ref{theorem:HELIIGVZ}.
 
@@ -831,9 +839,13 @@ A Tabela~\ref{table:HQMTSFGN} apresenta os resultados do Algoritmo~\ref{algorith
 
 % \input{tables/XQLOOFHX}
 
+Pela Tabela~\ref{table:HQMTSFGN} é possível observar que a razão de aproximação média do Algoritmo~\ref{algorithm:EMLPACHB} já é significativamente maior em comparação com a dos algoritmos apresentados anteriormente. Este comportamento pode ser explicado pelo fato da inclusão do evento de transposição no modelo de rearranjo e do impacto causado no limitante inferior. Entretanto, nas bases de dados $S_\SbFIRT{}$ e $S_{\text{C}}$ a aproximação média para todos os grupos foi menor que $1.95$ enquanto a maior razão de aproximação observada foi de $2.30$, que é um valor siginificativamente menor do que a aproximação teórica garantida pelo algoritmo ($3$-aproximação). Considerando a variação entre a aproximação média entre os grupos da base de dados $S_\SbFIRT{}$ e $S_{\text{C}}$ obtemos os valores $0.07$ e $0.02$, respectivamente. Esta característica é um bom indício de estabilidade do Algoritmo~\ref{algorithm:EMLPACHB}, uma vez que as bases de dados $S_\SbFIRT{}$ e $S_{\text{C}}$ foram construídas de maneira totalmente diferente, mas visando abranger um cenário baseado em eventos de rearranjo e um cenário aleatório mantendo uma proporção entre os diferentes casos de reduçao que o algoritmo pode deparar-se.
+
 A Tabela~\ref{table:SMSSPGPF} apresenta os resultados do Algoritmo~\ref{algorithm:WWDUHPBG} utilizando a bases de dados $S_\SbFIRTI{}$. A razão de aproximação obtida pelo algoritmo para cada instância foi computada utilizando o limitante inferior apresentado no Teorema~\ref{theorem:SZNBDWOM}.
 
 \input{tables/SMSSPGPF}
+
+Na Tabela~\ref{table:SMSSPGPF} podemos observar que a aproximação média do Algoritmo~\ref{algorithm:WWDUHPBG} em todos os grupos foi levemente supeior em comparação com o resultado do Algoritmo~\ref{algorithm:EMLPACHB} utilizando a base de dados $S_\SbFIRT{}$. O valor da aproximação média variou de $2.01$ até $2.02$. Entretanto, a variação entre a menor aproximação mínima e a maior aproximação máxima foi de apenas $0.27$, sendo a menor aproximação mínima de $1.93$ em todos os grupos e a maior aproximação máxima de $2.20$ no grupo 50\%. É importante notar também que nos grupos 30\%, 40\% e 50\%  o Algoritmo~\ref{algorithm:WWDUHPBG} forneceu, para pelo menos uma instância de cada grupo, uma solução utilizando menos operações do que a quantidade utilizada para gerar as instâncias da base de dados (50 operações).
 
 A Tabela~\ref{table:EXRPXQLG} apresenta os resultados do Algoritmo~\ref{algorithm:XXIGKPAV} utilizando as bases de dados $S_\SbFIRTM{}$ e $S_{\text{C}}$. A razão de aproximação obtida pelo algoritmo para cada instância foi computada utilizando o limitante inferior apresentado no Teorema~\ref{theorem:HELIIGVZ}.
 
@@ -841,11 +853,15 @@ A Tabela~\ref{table:EXRPXQLG} apresenta os resultados do Algoritmo~\ref{algorith
 
 % \input{tables/JXNBJWFA}
 
+Pela Tabela~\ref{table:EXRPXQLG} nota-se que não houve variação na aproximação média fornecida pelo Algoritmo~\ref{algorithm:XXIGKPAV} entre os grupos na base de dados $S_\SbFIRTM{}$. Já na base de dados $S_{\text{C}}$ a aproximação média variou de $1.96$ até $1.97$. A aproximação máxima em ambas as bases de dados foi menor que $2.10$. Nos grupos 40\% e 50\% da base de dados $S_\SbFIRTM{}$ o Algoritmo~\ref{algorithm:XXIGKPAV} forneceu, para pelo menos uma instância de cada grupo, uma solução com a mesma quantidade ou menos operações do que a utilizada para gerar a instância.
+
 A Tabela~\ref{table:XHZJQXXJ} apresenta os resultados do Algoritmo~\ref{algorithm:JBNSEPGG} utilizando a bases de dados $S_\SbFIRTMI{}$. A razão de aproximação obtida pelo algoritmo para cada instância foi computada utilizando o limitante inferior apresentado no Teorema~\ref{theorem:SZNBDWOM}.
 
 \input{tables/XHZJQXXJ}
 
-Todos os algoritmos apresentaram um resultado prático significativamente melhor do que o limitante teórico garantido para cada um deles. Vale ressaltar que dentre os algoritmos em que o evento de transposição não pertence ao modelo de rearranjo a maior razão de aproximação observada foi de $1.35$. Além disso, em pelo menos um grupo de cada base de dados os algoritmos forneceram uma solução ótima para pelo menos uma instância, esse fato pode ser constatado pela métrica de aproximação mínima com valor $1.00$. Para os demais algoritmos a maior razão de aproximação foi de $2.30$.
+Segundo o resultado apresentado na Tabela~\ref{table:XHZJQXXJ} é possível notar que não houve variação na aproximação média fornecida pelo Algoritmo~\ref{algorithm:JBNSEPGG} entre os grupos da base de dados $S_\SbFIRTMI{}$. Além disso, a variação entre a menor e a maior razão de aproximação observada foi de apenas $0.27$, sendo a menor aproximação mínima $1.90$ no grupo 20\% e a maior aproximação máxima $2.17$, também no grupo 20\%. Por fim, observa-se um queda significativa na distância média a medida que o grau de flexibilização aumenta nos grupos.
+
+Em geral todos os algoritmos apresentaram um resultado prático significativamente melhor do que o limitante teórico garantido para cada um deles. Vale ressaltar que dentre os algoritmos em que o evento de transposição não pertence ao modelo de rearranjo a maior razão de aproximação observada foi de $1.35$. Para os demais algoritmos a maior razão de aproximação foi de $2.30$. Além disso, com base no limitante inferior foi possível mostrar que os algoritmos~\ref{algorithm:HSDBEFII}, \ref{algorithm:ZCBCGAUW} e \ref{algorithm:VOHUBSMM} forneceram uma solução ótima para uma quantidade significativa de instâncias. Vale mencionar que a distância flexível para cada uma das instâncias das bases de dados utilizadas não é conhecida. Dessa forma, a quantidade de instâncias em que os algoritmos forneceram uma solução ótima pode ser ainda maior. 
 
 % ------------------------------------------------------------------ %
 \section{Conclusões}
@@ -853,6 +869,6 @@ Todos os algoritmos apresentaram um resultado prático significativamente melhor
 
 Neste capítulo, estudamos uma generalização dos problemas que consideram tanto a ordem dos genes como o tamanho estrito das regiões intergênicas. Nessa versão generalizada adicionamos um grau de flexibilidade em relação ao tamanho das regiões regiões intergênicas desejadas no genoma alvo. Para isso, nos modelos que propomos, chamados de modelos intergênicos flexíveis, é possível especificar um intervalo de valores permitidos para o tamanho de cada região intergênica no genoma alvo. 
 
-Esse grau de flexibilidade tenta trazer uma importância maior para a ordem e orientação dos genes em comparação com o tamanho das regiões intergênicas, uma vez que considerando um intervalo de valores permitidos para o tamanho de cada região intergênica no genoma alvo acabos ampliando as possibilidades de configuração para os tamanhos das regiões intergênicas de modo que todas as restrições de um modelo sejam atendidas.
+O grau de flexibilidade possibilita trazer uma importância maior para a ordem e orientação dos genes em comparação com o tamanho das regiões intergênicas, uma vez que considerando um intervalo de valores permitidos para o tamanho de cada região intergênica no genoma alvo acabos ampliando as possibilidades de configuração para os tamanhos das regiões intergênicas de modo que todas as restrições do modelo sejam atendidas.
 
-Para todas as variações dos problemas investigados neste capítulo, nós apresentamos algoritmos de aproximação com um fator constante com base em um processo de redução que permite o uso de resultados que foram apresentados para as respectivas versões rígidas dos problemas. Por fim, realizamos testes experimentais para verificar o desempenho prático dos algoritmos que foram apresentados.
+Para as variações com e sem sinais dos problemas investigados neste capítulo nós apresentamos algoritmos de aproximação com um fator constante. Os algoritmos foram derivados de um processo de redução que permite o uso de resultados que foram apresentados para as respectivas versões rígidas dos problemas. Por fim, realizamos testes experimentais para verificar o desempenho prático dos algoritmos que foram apresentados em diferentes cenários de flexibilização.

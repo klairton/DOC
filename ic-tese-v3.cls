@@ -155,10 +155,10 @@
   \clearpage
   \titlepage
   \clearpage
-  % \cathpage
-  % \clearpage
-  % \approvalpage
-  % \clearpage
+  \cathpage
+  \clearpage
+  \approvalpage
+  \clearpage
   \setlength{\parindent}{\oldparindent}
   \resetlang
 }

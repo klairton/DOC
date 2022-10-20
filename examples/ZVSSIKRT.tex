@@ -1,76 +1,77 @@
 \begin{example}\label{example:ZVSSIKRT}
-    \hfill \break
-    \centering
-    \resizebox{.95\linewidth}{!}{
-    \begin{tikzpicture}[arrow/.style={single arrow, draw=black, fill=#1, single arrow head extend=2mm}]
-        \node[draw=none,fill=none, minimum height=1cm, minimum width=6cm, align=center] at (9.75, 1.0) {$A=\{a_1,a_2,\dots,a_{3n}\}$};
+    \hfill
+    \begin{\position}
+        \resizebox{.95\linewidth}{!}{
+        \begin{tikzpicture}[arrow/.style={single arrow, draw=black, fill=#1, single arrow head extend=2mm}]
+            \node[draw=none,fill=none, minimum height=1cm, minimum width=6cm, align=center] at (9.75, 1.0) {$A=\{a_1,a_2,\dots,a_{3n}\}$};
+            
+            %%%% (arrow)
+            \node[arrow, rotate=270, draw=black, fill=white, minimum size=8mm](arrow) at (9.75,0.10) {};
         
-        %%%% (arrow)
-        \node[arrow, rotate=270, draw=black, fill=white, minimum size=8mm](arrow) at (9.75,0.10) {};
-    
-        %%%%% (pi)
-        \node[draw=none, fill=none, minimum height=1cm, minimum width=12cm, text ragged, text width=12cm] at (9.75, -1.0) {$(\pi,\breve\pi)~=~(({+0}~{+1}~{+2}~\dots~{+4n}),(a_1,a_2,\dots,a_{3n},\:\:0,\:0,\dots,\:0))$};
-        
-        %%%%% (iota)
-        \node[draw=none, fill=none, minimum height=1cm, minimum width=12cm, text ragged, text width=12cm] at (9.75, -1.75) {$(\iota,\breve\iota)~~~=~(({+0}~{+1}~{+2}~\dots~{+4n}),(\:\:0,\:\:0,\dots,\:\:\:\:0,\:B,B,\dots,B))$};
-        
-        %%%%% (I)
-        \node[draw=none,fill=none, minimum height=1cm, minimum width=12cm, text ragged, text width=12cm] at (9.75, -2.50) {$\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$};
-        
-        %%% (arrow)
-        \node[arrow, rotate=270, draw=black, fill=white, minimum size=8mm](arrow) at (9.75,-3.0) {};
-        
-        %%% G(I)
-        \node[draw=none,fill=none] at (9.75, -4.25) {$G(\mathcal{I})$};
-        
-        \draw (-0.5,-7.0) -- (9.5,-7.0) ;
-        \draw (-0.5,-6.75) -- (-0.5,-7.25) ;
-        \draw (9.5,-6.75) -- (9.5,-7.25) ;
-        \node[draw=none,fill=none] at (4.5, -7.35) {$3n$ ciclos triviais negativos};
-        
-        \draw (10.0,-7.0) -- (20.0,-7.0) ;
-        \draw (10.0,-6.75) -- (10.0,-7.25) ;
-        \draw (20.0,-6.75) -- (20.0,-7.25) ;
-        \node[draw=none,fill=none] at (15.0, -7.35) {$n$ ciclos triviais positivos};
-        
-        
-        \begin{scope}[every node/.style={inner sep=1.5pt, minimum size = 0pt}]
-            \node[circle, draw, minimum size=0.5cm] (p0) at (0.0,-6.0) {$+0$};
-            \node[circle, draw, minimum size=0.5cm] (m1) at (1.5,-6.0) {$-1$};
-            \node[circle, draw, minimum size=0.5cm] (p1) at (3.0,-6.0) {$+1$};
-            \node[circle, draw, minimum size=0.5cm] (m2) at (4.5,-6.0) {$-2$};
-            \node[circle, draw=none, fill=none, minimum size=0.75cm] (dots) at (6.0,-6.0) {$\dots$};
-            \node[circle, draw, minimum size=0.5cm] (pn) at (7.5,-6.0) {};
-            \node[circle, draw, minimum size=0.5cm] (mn1) at (9.0,-6.0) {};
-            \node[circle, draw, minimum size=0.5cm] (pn1) at (10.5,-6.0) {};
-            \node[circle, draw, minimum size=0.5cm] (mn2) at (12.0,-6.0) {};
-            \node[circle, draw, minimum size=0.5cm] (pn2) at (13.5,-6.0) {};
-            \node[circle, draw, minimum size=0.5cm] (mn3) at (15.0,-6.0) {};
-            \node[circle, draw=none, fill=none, minimum size=0.5cm] (dots) at (16.5,-6.0) {$\dots$};
-            \node[circle, draw, minimum size=0.5cm] (p4n) at (18.0,-6.0) {};
-            \node[circle, draw, minimum size=0.5cm] (m4n1) at (19.5,-6.0) {};
-        
-        \end{scope}
-        
-        \begin{scope}[>={Stealth[black]},
-                      every edge/.style={draw=black}]
-            \path [-] (p0) edge node [black, pos=0.5, sloped, above] {$a_1$} node [black, pos=0.5, sloped, below, yshift=-0.15cm] {$1$} (m1);
-            \path [-] (p1) edge node [black, pos=0.5, sloped, above] {$a_2$} node [black, pos=0.5, sloped, below, yshift=-0.15cm] {$2$} (m2);
-            \path [-] (pn) edge node [black, pos=0.5, sloped, above] {$a_{3n}$} node [black, pos=0.5, sloped, below, yshift=-0.15cm] {$3n$} (mn1);
-            \path [-] (pn1) edge node [black, pos=0.5, sloped, above] {$0$} node [black, pos=0.5, sloped, below, yshift=-0.15cm] {$3n{+1}$} (mn2);
-            \path [-] (pn2) edge node [black, pos=0.5, sloped, above] {$0$} node [black, pos=0.5, sloped, below, yshift=-0.15cm] {$3n{+2}$} (mn3);
-            \path [-] (p4n) edge node [black, pos=0.5, sloped, above] {$0$} node [black, pos=0.5, sloped, below, yshift=-0.15cm] {$4n$} (m4n1);
-        \end{scope}
-        
-        \begin{scope}[>={Stealth[black]},
-                      every edge/.style={draw=black}]
-            \path [-] (p0) edge [bend left=70, dashed] node [black, pos=0.5, sloped, above] {$0$} (m1);
-            \path [-] (p1) edge [bend left=70, dashed] node [black, pos=0.5, sloped, above] {$0$} (m2);
-            \path [-] (pn) edge [bend left=70, dashed] node [black, pos=0.5, sloped, above] {$0$} (mn1);
-            \path [-] (pn1) edge [bend left=70, dashed] node [black, pos=0.5, sloped, above] {$B$} (mn2);
-            \path [-] (pn2) edge [bend left=70, dashed] node [black, pos=0.5, sloped, above] {$B$} (mn3);
-            \path [-] (p4n) edge [bend left=70, dashed] node [black, pos=0.5, sloped, above] {$B$} (m4n1);
-        \end{scope}
-    \end{tikzpicture}
-    }
+            %%%%% (pi)
+            \node[draw=none, fill=none, minimum height=1cm, minimum width=12cm, text ragged, text width=12cm] at (9.75, -1.0) {$(\pi,\breve\pi)~=~(({+0}~{+1}~{+2}~\dots~{+4n}),(a_1,a_2,\dots,a_{3n},\:\:0,\:0,\dots,\:0))$};
+            
+            %%%%% (iota)
+            \node[draw=none, fill=none, minimum height=1cm, minimum width=12cm, text ragged, text width=12cm] at (9.75, -1.75) {$(\iota,\breve\iota)~~~=~(({+0}~{+1}~{+2}~\dots~{+4n}),(\:\:0,\:\:0,\dots,\:\:\:\:0,\:B,B,\dots,B))$};
+            
+            %%%%% (I)
+            \node[draw=none,fill=none, minimum height=1cm, minimum width=12cm, text ragged, text width=12cm] at (9.75, -2.50) {$\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$};
+            
+            %%% (arrow)
+            \node[arrow, rotate=270, draw=black, fill=white, minimum size=8mm](arrow) at (9.75,-3.0) {};
+            
+            %%% G(I)
+            \node[draw=none,fill=none] at (9.75, -4.25) {$G(\mathcal{I})$};
+            
+            \draw (-0.5,-7.0) -- (9.5,-7.0) ;
+            \draw (-0.5,-6.75) -- (-0.5,-7.25) ;
+            \draw (9.5,-6.75) -- (9.5,-7.25) ;
+            \node[draw=none,fill=none] at (4.5, -7.35) {$3n$ ciclos triviais negativos};
+            
+            \draw (10.0,-7.0) -- (20.0,-7.0) ;
+            \draw (10.0,-6.75) -- (10.0,-7.25) ;
+            \draw (20.0,-6.75) -- (20.0,-7.25) ;
+            \node[draw=none,fill=none] at (15.0, -7.35) {$n$ ciclos triviais positivos};
+            
+            
+            \begin{scope}[every node/.style={inner sep=1.5pt, minimum size = 0pt}]
+                \node[circle, draw, minimum size=0.5cm] (p0) at (0.0,-6.0) {$+0$};
+                \node[circle, draw, minimum size=0.5cm] (m1) at (1.5,-6.0) {$-1$};
+                \node[circle, draw, minimum size=0.5cm] (p1) at (3.0,-6.0) {$+1$};
+                \node[circle, draw, minimum size=0.5cm] (m2) at (4.5,-6.0) {$-2$};
+                \node[circle, draw=none, fill=none, minimum size=0.75cm] (dots) at (6.0,-6.0) {$\dots$};
+                \node[circle, draw, minimum size=0.5cm] (pn) at (7.5,-6.0) {};
+                \node[circle, draw, minimum size=0.5cm] (mn1) at (9.0,-6.0) {};
+                \node[circle, draw, minimum size=0.5cm] (pn1) at (10.5,-6.0) {};
+                \node[circle, draw, minimum size=0.5cm] (mn2) at (12.0,-6.0) {};
+                \node[circle, draw, minimum size=0.5cm] (pn2) at (13.5,-6.0) {};
+                \node[circle, draw, minimum size=0.5cm] (mn3) at (15.0,-6.0) {};
+                \node[circle, draw=none, fill=none, minimum size=0.5cm] (dots) at (16.5,-6.0) {$\dots$};
+                \node[circle, draw, minimum size=0.5cm] (p4n) at (18.0,-6.0) {};
+                \node[circle, draw, minimum size=0.5cm] (m4n1) at (19.5,-6.0) {};
+            
+            \end{scope}
+            
+            \begin{scope}[>={Stealth[black]},
+                          every edge/.style={draw=black}]
+                \path [-] (p0) edge node [black, pos=0.5, sloped, above] {$a_1$} node [black, pos=0.5, sloped, below, yshift=-0.15cm] {$1$} (m1);
+                \path [-] (p1) edge node [black, pos=0.5, sloped, above] {$a_2$} node [black, pos=0.5, sloped, below, yshift=-0.15cm] {$2$} (m2);
+                \path [-] (pn) edge node [black, pos=0.5, sloped, above] {$a_{3n}$} node [black, pos=0.5, sloped, below, yshift=-0.15cm] {$3n$} (mn1);
+                \path [-] (pn1) edge node [black, pos=0.5, sloped, above] {$0$} node [black, pos=0.5, sloped, below, yshift=-0.15cm] {$3n{+1}$} (mn2);
+                \path [-] (pn2) edge node [black, pos=0.5, sloped, above] {$0$} node [black, pos=0.5, sloped, below, yshift=-0.15cm] {$3n{+2}$} (mn3);
+                \path [-] (p4n) edge node [black, pos=0.5, sloped, above] {$0$} node [black, pos=0.5, sloped, below, yshift=-0.15cm] {$4n$} (m4n1);
+            \end{scope}
+            
+            \begin{scope}[>={Stealth[black]},
+                          every edge/.style={draw=black}]
+                \path [-] (p0) edge [bend left=70, dashed] node [black, pos=0.5, sloped, above] {$0$} (m1);
+                \path [-] (p1) edge [bend left=70, dashed] node [black, pos=0.5, sloped, above] {$0$} (m2);
+                \path [-] (pn) edge [bend left=70, dashed] node [black, pos=0.5, sloped, above] {$0$} (mn1);
+                \path [-] (pn1) edge [bend left=70, dashed] node [black, pos=0.5, sloped, above] {$B$} (mn2);
+                \path [-] (pn2) edge [bend left=70, dashed] node [black, pos=0.5, sloped, above] {$B$} (mn3);
+                \path [-] (p4n) edge [bend left=70, dashed] node [black, pos=0.5, sloped, above] {$B$} (m4n1);
+            \end{scope}
+        \end{tikzpicture}
+        }
+    \end{\position}
 \end{example}

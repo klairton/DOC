@@ -3,21 +3,21 @@
   \Entrada{Uma instância intergênica rígida sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$}
   \Saida{Uma sequência de reversões, transposições e indels $S$, tal que $(\pi,\breve\pi) \cdot S = (\iota,\breve\iota)$}
     \Se{$\mathcal{I}$ for uma instância balanceada}{
-      Seja $S$ um sequência de operações fornecida pelo Algoritmo~\ref{algorithm:LCPCUFNZ} para a instância $\mathcal{I}$ \\
+      Seja $S$ uma sequência de operações fornecida pelo Algoritmo~\ref{algorithm:LCPCUFNZ} para a instância $\mathcal{I}$ \\
       \Retorna{$S$} \\
     }\Senao{
       \Se{$\sum_{i=1}^{n+1}\breve\pi_i < \sum_{i=1}^{n+1}\breve\iota_i$}{
         \tcp{Lema~\ref{lemma:QGOIQLZD}}
-        Seja $\delta_1$ um indel que torna $\mathcal{I}$ em uma instância balanceada \\
+        Seja $\delta_1$ um indel que torna $\mathcal{I}$ uma instância balanceada \\
         $\mathcal{I} \gets ((\pi, \breve\pi) \cdot \delta_1,(\iota,\breve\iota))$ \\
-        Seja $S$ um sequência de operações fornecida pelo Algoritmo~\ref{algorithm:LCPCUFNZ} para a instância $\mathcal{I}$ \\
+        Seja $S$ uma sequência de operações fornecida pelo Algoritmo~\ref{algorithm:LCPCUFNZ} para a instância $\mathcal{I}$ \\
         \Retorna{$(\delta_1) + S$} \\
       }\Senao{
         $\mathcal{I'} \gets ((\pi^{-1} \circ \iota,\breve\iota),(\pi^{-1} \circ \pi,\breve\pi))$ \\
         \tcp{Lema~\ref{lemma:QGOIQLZD}}
-        Seja $\delta_1$ um indel que torna $\mathcal{I'}$ em uma instância balanceada \\
+        Seja $\delta_1$ um indel que torna $\mathcal{I'}$ uma instância balanceada \\
         $\mathcal{I'} \gets ((\pi^{-1} \circ  \iota,\breve\iota) \cdot \delta_1,(\pi^{-1} \circ \pi,\breve\pi))$ \\
-        Seja $S$ um sequência de operações fornecida pelo Algoritmo~\ref{algorithm:LCPCUFNZ} para a instância $\mathcal{I'}$ \\
+        Seja $S$ uma sequência de operações fornecida pelo Algoritmo~\ref{algorithm:LCPCUFNZ} para a instância $\mathcal{I'}$ \\
         $S \gets (\delta_1) + S$ \\
         \tcp{Lema~\ref{lemma:UWWIFTBQ}}
         Seja $S'$ uma sequência, criada a partir de $S$ e $\mathcal{I}$, que transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ \\

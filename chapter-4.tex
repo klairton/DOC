@@ -1031,18 +1031,18 @@ Suponha por contradição que $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))
 \end{proof}
 
 \begin{lemma}\label{lemma:NTNBEHIO}
-Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida com sinais tal que em $G(\mathcal{I})$ existe pelo menos um ciclo trivial negativo $C=(c^1)$ e pelo menos um ciclo $D=(d^1,\dots,d^k)$ desbalanceado, então é possível aumentar o número de cilos balanceados de $G(\mathcal{I})$ em pelo menos uma unidade após aplicar uma operação de move.
+Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida com sinais tal que em $G(\mathcal{I})$ existe pelo menos um ciclo trivial negativo $C=(c^1)$ e pelo menos um ciclo $D=(d^1,\dots,d^k)$ desbalanceado, então é possível aumentar o número de ciclos balanceados de $G(\mathcal{I})$ em pelo menos uma unidade após aplicar uma operação de move.
 \end{lemma}
 \begin{proof}
 Neste caso basta transferir o peso extra da aresta preta $c^1$ para a primeira aresta preta do ciclo $D$ utilizando uma operação de move. Como $C$ é um ciclo trivial, após aplicação da operação de move ele torna-se balanceado, e o lema segue.
 \end{proof}
 
 \begin{lemma}\label{lemma:IWIAXMBS}[Lema 5.1 de Oliveira \textit{et al.}~\cite{2021b-oliveira-etal}]
-Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, tal que em $G(\mathcal{I})$ existe pelo menos um ciclo divergente negativo ou balanceado $C$, então é possível aumentar o número de cilos de $G(\mathcal{I})$ em uma unidade e o número de cilos balanceados de $G(\mathcal{I})$ em uma unidade após aplicar uma operação de reversão.
+Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, tal que em $G(\mathcal{I})$ existe pelo menos um ciclo divergente negativo ou balanceado $C$, então é possível aumentar o número de ciclos de $G(\mathcal{I})$ em uma unidade e o número de ciclos balanceados de $G(\mathcal{I})$ em uma unidade após aplicar uma operação de reversão.
 \end{lemma}
 
 \begin{lemma}\label{lemma:ZLLUMKJN}[Lema 5.2 de Oliveira \textit{et al.}~\cite{2021b-oliveira-etal}]
-Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, tal que todos os ciclos não triviais negativos ou balanceados de $G(\mathcal{I})$ são convergentes, então é possível aumentar o número de cilos de $G(\mathcal{I})$ em uma unidade e o número de cilos balanceados de $G(\mathcal{I})$ em uma unidade após aplicar uma sequência de duas reversões.
+Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, tal que todos os ciclos não triviais negativos ou balanceados de $G(\mathcal{I})$ são convergentes, então é possível aumentar o número de ciclos de $G(\mathcal{I})$ em uma unidade e o número de ciclos balanceados de $G(\mathcal{I})$ em uma unidade após aplicar uma sequência de duas reversões.
 \end{lemma}
 
 Agora considere o Algoritmo~\ref{algorithm:EHDLZXJA} e observe que ele possui três passos: (i) operações de move aplicadas a ciclos negativos triviais (Lemas~\ref{lemma:UXFNYAGI} e~\ref{lemma:NTNBEHIO}); (ii) reversões aplicadas em ciclos divergentes negativos ou balanceados (Lema~\ref{lemma:IWIAXMBS}); (iii) duas reversões consecutivas aplicadas em ciclos convergentes negativos ou balanceados (Lema~\ref{lemma:ZLLUMKJN}).
@@ -1085,14 +1085,14 @@ A prova é similar à descrita no Teorema~\ref{theorem:DGTASCUU}, mas consideran
 A seguir faremos uso da estrutura de grafo de ciclos ponderado rígido e apresentaremos lemas que serão utilizados para obtenção de um algoritmo de aproximação com um fator $2$.
 
 \begin{lemma}\label{lemma:BZLJHNFF}
-Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida com sinais tal que em $G(\mathcal{I})$ existe pelo menos um ciclo trivial negativo $C=(c^1)$, então é possível aumentar o número de cilos balanceados de $G(\mathcal{I})$ em uma unidade após aplicar uma operação de indel.
+Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida com sinais tal que em $G(\mathcal{I})$ existe pelo menos um ciclo trivial negativo $C=(c^1)$, então é possível aumentar o número de ciclos balanceados de $G(\mathcal{I})$ em uma unidade após aplicar uma operação de indel.
 \end{lemma}
 \begin{proof}
 Note que o ciclo $C$ é trivial, então ele possui apenas uma areta preta e uma areta cinza. Neste caso, basta aplica um indel aresta preta $c^1$ do ciclo $C$ removendo $|\sum_{e^{\prime}_i \in E_c(C)} [w_c(e^{\prime}_i)] - \sum_{e_i \in E_p(C)} [w_p(e_i)]|$ nucleotídeos. Dessa forma, o ciclo $C$ é transformado em balanceado, e o lema segue.
 \end{proof}
 
 \begin{lemma}\label{lemma:HOGGQNJN}
-Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida com sinais tal que em $G(\mathcal{I})$ existe pelo menos um ciclo positivo $C$, então é possível aumentar o número de cilos balanceados de $G(\mathcal{I})$ em uma unidade após aplicar uma operação de indel.
+Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida com sinais tal que em $G(\mathcal{I})$ existe pelo menos um ciclo positivo $C$, então é possível aumentar o número de ciclos balanceados de $G(\mathcal{I})$ em uma unidade após aplicar uma operação de indel.
 \end{lemma}
 \begin{proof}
 Neste caso, basta aplica um indel na primeira aresta preta do ciclo $C$ inserindo $\sum_{e^{\prime}_i \in E_c(C)} [w_c(e^{\prime}_i)] - \sum_{e_i \in E_p(C)} [w_p(e_i)]$ nucleotídeos. Dessa forma, o ciclo $C$ é transformado em balanceado, e o lema segue. 
@@ -1153,18 +1153,18 @@ Seja $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergê
 A seguir faremos uso da estrutura de grafo de ciclos ponderado rígido e apresentaremos lemas que serão utilizados para obtenção de um algoritmo de aproximação com um fator $3$.
 
 \begin{lemma}\label{lemma:CPUOKZAL}[Lema 4.3 de Oliveira \textit{et al.}~\cite{2021a-oliveira-etal}]
-Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, tal que em $G(\mathcal{I})$ existe pelo menos um ciclo orientado negativo $C$, então é possível aumentar o número de cilos balanceados de $G(\mathcal{I})$ em uma unidade após aplicar uma operação de transposição.
+Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, tal que em $G(\mathcal{I})$ existe pelo menos um ciclo orientado negativo $C$, então é possível aumentar o número de ciclos balanceados de $G(\mathcal{I})$ em uma unidade após aplicar uma operação de transposição.
 \end{lemma}
 
 \begin{lemma}\label{lemma:PWBLLVMW}[Lema 4.6 de Oliveira \textit{et al.}~\cite{2021a-oliveira-etal}]
-Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, tal que em $G(\mathcal{I})$ existe pelo menos um ciclo orientado balanceado $C$, então é possível aumentar o número de cilos balanceados de $G(\mathcal{I})$ em duas unidades após aplicar três operações de transposição.
+Dada uma instância intergênica rígida com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, tal que em $G(\mathcal{I})$ existe pelo menos um ciclo orientado balanceado $C$, então é possível aumentar o número de ciclos balanceados de $G(\mathcal{I})$ em duas unidades após aplicar três operações de transposição.
 \end{lemma}
 
 \begin{lemma}\label{lemma:JULWGGYC}
-Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida com sinais tal que em $G(\mathcal{I})$ todos os ciclos não triviais são não orientados balanceados ou negativos, então é possível aumentar o número de cilos balanceados de $G(\mathcal{I})$ em duas unidades após aplicar três operações de reversão.
+Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida com sinais tal que em $G(\mathcal{I})$ todos os ciclos não triviais são não orientados balanceados ou negativos, então é possível aumentar o número de ciclos balanceados de $G(\mathcal{I})$ em duas unidades após aplicar três operações de reversão.
 \end{lemma}
 \begin{proof}
-Seja $C$ um ciclo não orientados balanceado ou negativo em $G(\mathcal{I})$. Como $C$ é um ciclo não orientado, então ele possui pelo menos um open gate. Como todos os open gates em $G(\mathcal{I})$ são fechados~\cite{1996-bafna-pevzner}, então sabemos deve existir um ciclo não trivial $D$ que cruza-se com $C$. Como todos os ciclos não triviais em $G(\mathcal{I})$ são não orientados balanceados ou negativos, então $D$ é um ciclo não orientado balanceado ou negativo. Neste caso, basta aplicar uma reversão nas arestas pretas de $D$ que estão imediatamente antes e depois da aresta cinza que fecha o open gate de $C$. Como resultado, $C$ passa a ser um ciclos divergente e o lema~\ref{lemma:IWIAXMBS} pode ser aplicando aumentando o número de ciclos balanceado em uma unidade. Entretanto, a segunda reversão faz com que o ciclo $D$ torne-se divergente e o lema~\ref{lemma:IWIAXMBS} pode ser aplicado novamente aumentando o número de ciclos balanceado em mais uma unidade. No fim, o número de cilos balanceados de $G(\mathcal{I})$ aumenta em duas unidades após aplicar três operações de reversão e o lema segue.
+Seja $C$ um ciclo não orientados balanceado ou negativo em $G(\mathcal{I})$. Como $C$ é um ciclo não orientado, então ele possui pelo menos um open gate. Como todos os open gates em $G(\mathcal{I})$ são fechados~\cite{1996-bafna-pevzner}, então sabemos deve existir um ciclo não trivial $D$ que cruza-se com $C$. Como todos os ciclos não triviais em $G(\mathcal{I})$ são não orientados balanceados ou negativos, então $D$ é um ciclo não orientado balanceado ou negativo. Neste caso, basta aplicar uma reversão nas arestas pretas de $D$ que estão imediatamente antes e depois da aresta cinza que fecha o open gate de $C$. Como resultado, $C$ passa a ser um ciclos divergente e o lema~\ref{lemma:IWIAXMBS} pode ser aplicando aumentando o número de ciclos balanceado em uma unidade. Entretanto, a segunda reversão faz com que o ciclo $D$ torne-se divergente e o lema~\ref{lemma:IWIAXMBS} pode ser aplicado novamente aumentando o número de ciclos balanceado em mais uma unidade. No fim, o número de ciclos balanceados de $G(\mathcal{I})$ aumenta em duas unidades após aplicar três operações de reversão e o lema segue.
 \end{proof}
 
 Agora considere o Algoritmo~\ref{algorithm:YMHYMYQC}. Note que em cada passo é tratado um determinado tipo de ciclo visando aumentar o número de ciclos balanceados em $G(\mathcal{I})$.
@@ -1355,9 +1355,9 @@ A Tabela~\ref{table:NRAGLYCG} indica que ambas as árvores filogenéticas têm u
 
 Pela Figura~\ref{figure:REHDYXMS} (criada usando o pacote \texttt{treeio} da linguagem R~\cite{wang2020treeio}), observamos que a abordagem separa os organismos considerando as espécies e realizou bons agrupamentos. Vale ressaltar que a árvore foi baseada exclusivamente em informações de eventos de rearranjo.
 
-% ------------------------------------------------------------------ %
+% % ------------------------------------------------------------------ %
 \section{Abordagem Ponderada}
-% ------------------------------------------------------------------ %
+% % ------------------------------------------------------------------ %
 
 Nesta seção, apresentaremos os resultados considerando diferentes funções de custo para as variações com e sem sinais dos problemas \SbWIRI{}, \SbWIRT{} e \SbWIRTI{} em um cenário ponderado.
 
@@ -1688,9 +1688,9 @@ Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância interg
 \end{proof}
 
 
-% ------------------------------------------------------------------ %
+% % ------------------------------------------------------------------ %
 \section{Conclusões}
-% ------------------------------------------------------------------ %
+% % ------------------------------------------------------------------ %
 
 Neste capítulo, investigamos as variações com e sem sinais de oito problemas considerando instâncias intergênicas rígidas em um cenário não ponderado e os eventos de rearranjo de reversão, transposição, move e indel. Para todas as variações dos problemas em que a complexidade ainda era desconhecida, nos apresentamos uma prova de NP-dificuldade, com exceção da variação com sinais do problema de Ordenação de Permutações por Operações Intergênicas de Reversão e Indel (\SbIRI). Para todas as variações investigadas nos apresentamos pelo menos um algoritmo de aproximação com fator constante baseado no conceito de breakpoint intergênico. Além disso, apresentamos algoritmos com fatores de aproximação melhor baseados na estrutura de grafo de ciclos ponderado rígido.
 

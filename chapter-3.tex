@@ -1,5 +1,5 @@
 
-Os problemas de distância entre genomas podem utilizar uma abordagem \emph{não ponderada}, ou seja, cada evento de rearranjo utilizado para transformar o genoma de origem no genoma alvo contribui em uma unidade para a distância. Essa abordagem tem como característica que cada tipo de evento de rearranjo pertencente ao modelo de rearranjo adotado possui a mesma probabilidade de ocorrer em um cenário evolutivo. Outra abordagem que surgiu para possibilitar uma contribuição diferente para cada evento de rearranjo é chamada de \emph{ponderada}. Nessa abordagem, cada tipo de evento de rearranjo possui um peso associado que é contabilizado na distância evolutiva entre os genomas. A abordagem ponderada geralmente é utilizada para mapear um cenário em que queremos que determinados eventos de rearranjo tenham uma probabilidade maior de ocorrer do que outros. Para isso, basta atribuir um peso menor para os eventos de rearranjo mais frequentes. Esses pesos podem ser atribuídos com base em observações empíricas de determinados organismos ou através de análises realizadas especificamente para esse objetivo~\cite{2008-bader-etal,2001-eriksen}. 
+Os problemas de distância entre genomas podem utilizar uma abordagem \emph{não ponderada}, ou seja, cada evento de rearranjo utilizado para transformar o genoma de origem no genoma alvo contribui em uma unidade para a distância. Essa abordagem tem como característica que cada tipo de evento de rearranjo pertencente ao modelo de rearranjo adotado possui a mesma probabilidade de ocorrer em um cenário evolutivo. Outra abordagem que surgiu para possibilitar uma contribuição diferente para cada evento de rearranjo é chamada de \emph{ponderada}. Nessa abordagem, cada tipo de evento de rearranjo possui um peso associado que é contabilizado na distância evolutiva entre os genomas, onde busca-se minimizar a soma total dos pesos. A abordagem ponderada geralmente é utilizada para mapear um cenário em que queremos que determinados eventos de rearranjo tenham uma probabilidade maior de ocorrer do que outros. Para isso, basta atribuir um peso menor para os eventos de rearranjo mais frequentes. Esses pesos podem ser atribuídos com base em observações empíricas de determinados organismos ou através de análises realizadas especificamente para esse objetivo~\cite{2008-bader-etal,2001-eriksen}. 
 
 Os eventos de rearranjo de reversão e transposição são dois dos eventos mais estudados na literatura~\cite{2002-berman-etal,2006-elias-hartman,2022-silva-etal}. Considerando uma representação clássica e uma abordagem não ponderada, temos o problema de Ordenação de Permutações por Reversões e Transposições (\SbRT), sendo que o problema possui a variação com e sem sinais. Ambas as variações pertencem à classe NP-difícil de problemas~\cite{2019b-oliveira-etal}. Para a variação com sinais do problema existe um algoritmo de aproximação com fator 2~\cite{1998-walter-etal}, enquanto para a variação sem sinais existe um algoritmo de aproximação com fator $2\alpha$~\cite{2008-rahman-etal}, onde $\alpha$ é o fator de aproximação do algoritmo utilizado para a decomposição de ciclos do Grafo de Ciclos~\cite{1999a-caprara,2013-chen}.
 
@@ -7,11 +7,11 @@ Considerando uma abordagem ponderada, temos o problema de Ordenação de Permuta
 
 Em 2007, Bader e Ohlebusch~\cite{2007-bader-ohlebusch} apresentaram o problema de Ordenação de Permutações por Reversões, Transposições e Transposições Inversa Ponderadas (\SbWRTIT). A transposição inversa é um evento similar ao evento de transposição, mas com um dos segmentos afetados sendo invertido. Para a variação com sinais do problema os autores apresentaram um algoritmo de aproximação com fator $1.5$, utilizando o peso $1$ para o evento de reversão e o mesmo peso para os eventos de transposição e transposição inversa no intervalo $[1..2]$. Em 2020, Alexandrino \textit{et al.}\cite{2020c-alexandrino-etal} mostraram que as variações com e sem sinais do problema \SbWRTIT{} pertencem à classe NP-difícil quando os eventos de transposição e transposição inversa possuem o mesmo peso e a razão entre os pesos dos eventos de transposição e reversão é maior ou igual a $1.5$.
 
-A abordagem ponderada possui vantagens em comparação com a abordagem não ponderada quando queremos mapear um cenário evolutivo dando maior prioridade para determinados tipos de eventos de rearranjo. Entretanto, ela não garante que os rearranjos de menor custo, que são supostamente os mais frequentes em um cenário evolutivo, serão os mais utilizados pelos algoritmos. Para contornar esse ponto, propomos e investigamos o problema de Ordenação de Permutações por Reversões e Transposições com Restrição de Proporção (\SbPRT) em instâncias clássicas com e sem sinais. Nesse cenário, buscamos uma sequência de reversões e transposições $S$, capaz de transformar o genoma de origem no genoma alvo, com uma restrição adicional na qual a relação entre o número de reversões e o tamanho da sequência $S$ deve ser maior ou igual a um determinado parâmetro $k \in [0..1]$. 
+A abordagem ponderada possui vantagens em comparação com a abordagem não ponderada quando queremos mapear um cenário evolutivo dando maior prioridade para determinados tipos de eventos de rearranjo. Entretanto, ela não garante que os rearranjos de menor peso, supostamente os mais frequentes em um cenário evolutivo, serão realmente os mais utilizados pelos algoritmos. Para contornar esse obstáculo, propomos e investigamos o problema de Ordenação de Permutações por Reversões e Transposições com Restrição de Proporção (\SbPRT) em instâncias clássicas com e sem sinais. Nesse cenário, buscamos uma sequência de reversões e transposições $S$, capaz de transformar o genoma de origem no genoma alvo, com uma restrição adicional na qual a relação entre o número de reversões e o tamanho da sequência $S$ deve ser maior ou igual a um determinado parâmetro $k \in [0..1]$. 
 
-Observe que tanto a abordagem ponderada como a de proporção tentam incorporar no modelo a frequência com que os eventos de rearranjo afetam o genoma de um determinado organismo. É importante notar que, do ponto de vista biológico, a frequência e o conjunto de eventos de rearranjo podem variar dependendo do organismo considerado. De um ponto de vista teórico, as abordagens possuem objetivos diferentes, apesar de compartilharem características comuns. Uma característica que difere da abordagem de proporção é que, uma vez conhecida a frequência com que os eventos afetam o genoma, a proporção pode ser facilmente derivada dessa informação, enquanto que na abordagem ponderada o peso associado a cada tipo de evento precisa ser ajustado e validado através de testes experimentais.
+Observe que tanto a abordagem ponderada como a de proporção tentam incorporar no modelo a frequência com que os eventos de rearranjo afetam o genoma de um determinado organismo. É importante notar que, do ponto de vista biológico, a frequência e o conjunto de eventos de rearranjo podem variar dependendo do organismo considerado. De um ponto de vista teórico, as abordagens possuem objetivos diferentes, apesar de compartilharem finalidades comuns. Uma característica que difere da abordagem de proporção é que, uma vez conhecida a frequência com que os eventos afetam o genoma, a proporção pode ser facilmente derivada dessa informação, enquanto que na abordagem ponderada o peso associado a cada tipo de evento precisa ser ajustado e validado através de testes experimentais.
 
-O Exemplo~\ref{example:DFGJNHTP} mostra uma solução ótima $S$ para a instância clássica com sinais $(({+0}~{-1}~{+4}~{-8}~{+3}~{+5}~{+2}~{-7}~{-6}~{+9}),({+0}~{+1}~{+2}~{+3}~{+4}~{+5}~{+6}~{+7}~{+8}~{+9}))$ considerando os problemas \SbRT{} e \SbWRT{} (utilizando os pesos $2$ e $3$ para os eventos de reversão e transposição, respectivamente). Note que metade dos eventos de rearranjo de $S$ são reversões e a outra metade transposições, mesmo utilizando um custo maior para o evento de transposição.
+O Exemplo~\ref{example:DFGJNHTP} mostra uma solução ótima $S$ para a instância clássica com sinais $(({+0}~{-1}~{+4}~{-8}~{+3}~{+5}~{+2}~{-7}~{-6}~{+9}),({+0}~{+1}~{+2}~{+3}~{+4}~{+5}~{+6}~{+7}~{+8}~{+9}))$ considerando os problemas \SbRT{} e \SbWRT{} (utilizando os pesos $2$ e $3$ para os eventos de reversão e transposição, respectivamente). Note que metade dos eventos de rearranjo de $S$ são reversões e a outra metade transposições, mesmo utilizando um peso maior para o evento de transposição.
 
 \pagebreak
 \input{examples/DFGJNHTP}
@@ -30,7 +30,7 @@ Dada uma sequência de eventos de rearranjo $S$, denotamos por $|S|$ o tamanho d
 
 Dada uma instância clássica com ou sem sinais $\mathcal{I}=(\pi,\iota)$ e um número racional $k \in [0..1]$, a \emph{distância de proporção} entre $\pi$ e $\iota$, denotada por $dp_{k}(\mathcal{I})$, é o tamanho da menor sequência de eventos de rearranjo $S$, tal que todo evento de $S$ pertence ao modelo $\mathcal{M}=\{\rho,\tau\}$, $\pi \cdot S = \iota$ e $\frac{|S_{\rho}|}{|S|} \ge k$. Por praticidade, neste capítulo, nos referiremos a um breakpoint clássico simplesmente por breakpoint. Além disso, faremos uso do grafo de ciclos clássico.
 
-Neste capítulo, provaremos que o problema \SbPRT{} pertence à classe NP-difícil em instâncias clássicas sem sinais para qualquer valor de $k$. Em instâncias clássicas com sinais mostraremos que existe um algoritmo exato polinomial para o problema quando $k=1$ e, provaremos que o problema pertence à classe NP-difícil quando $k < 1$. Para as variações com e sem sinais do problema \SbPRT{}, apresentaremos algoritmos de aproximação com fatores $3 - \frac{3k}{2}$ e $3-k$, respectivamente. Além disso, apresentaremos um algoritmo de aproximação assintótico com um fator teórico melhor para instâncias clássicas com sinais. Por fim, realizaremos experimentos comparando o desempenho prático dos algoritmos propostos.
+Neste capítulo, provaremos que o problema \SbPRT{} pertence à classe NP-difícil em instâncias clássicas sem sinais para qualquer valor de $k$. Em instâncias clássicas com sinais, mostraremos que existe um algoritmo exato polinomial para o problema quando $k=1$ e provaremos que o problema pertence à classe NP-difícil quando $k < 1$. Para as variações com e sem sinais do problema \SbPRT{}, apresentaremos algoritmos de aproximação com fatores $3 - \frac{3k}{2}$ e $3-k$, respectivamente. Além disso, apresentaremos um algoritmo de aproximação assintótico com um fator teórico melhor para instâncias clássicas com sinais. Por fim, realizaremos experimentos comparando o desempenho prático dos algoritmos propostos.
 
 Os resultados apresentados neste capítulo foram publicados em 2021 na revista \emph{Journal of Bioinformatics and Computational Biology}~\cite{2021a-brito-etal}.
 
@@ -125,13 +125,11 @@ Nesta seção, apresentamos uma análise de complexidade do problema \SbPRT{} em
 
 Note que para o problema \SbPRT{} é possível fornecer como entrada diferentes valores para $k$. Entretanto, a complexidade do problema pode variar dependendo do tipo da instância e do valor adotado para $k$. Com base nessa característica do problema obtemos os seguintes lemas.
 
-% Entretanto, quando utilizamos o valor de $k=0$ obtemos o problema \SbRT{}, uma vez que estipulamos que em uma solução não é necessário obter uma proporção mínima entre a quantidade de eventos de reversão e o tamanho da sequência de eventos de rearranjo. Por outro lado, quando adotamos o valor de $k=1$, obtemos o problema de Ordenação de Permutações por Reversões (\SbR{}). Note que, nesse caso, toda solução para o problema deve ser composta exclusivamente por eventos de reversão.
-
 \begin{lemma}
 O problema \SbPRT{} em instâncias clássicas com sinais pertence à classe NP-difícil quando $k=0$ e admite um algoritmo exato polinomial quando $k=1$.
 \end{lemma}
 \begin{proof}
-Quando $k=0$ o problema \SbPRT{} em instâncias clássicas com sinais torna-se a variação com sinais do problema \SbRT{}, que é NP-difícil~\cite{2019b-oliveira-etal}. Por outro lado, quando $k=1$ o problema \SbPRT{} em instâncias clássicas com sinais torna-se a variação com sinais do problema \SbR{}, que possui um algoritmo exato polinomial~\cite{1999-hannenhalli-pevzner}.
+Quando $k=0$, o problema \SbPRT{} em instâncias clássicas com sinais torna-se a variação com sinais do problema \SbRT{}, que é NP-difícil~\cite{2019b-oliveira-etal}. Por outro lado, quando $k=1$, o problema \SbPRT{} em instâncias clássicas com sinais torna-se a variação com sinais do problema \SbR{}, que possui um algoritmo exato polinomial~\cite{1999-hannenhalli-pevzner}.
 \end{proof}
 
 \begin{lemma}
@@ -141,13 +139,13 @@ O problema \SbPRT{} em instâncias clássicas sem sinais pertence à classe NP-d
 Quando $k=0$ e $k=1$ o problema \SbPRT{} em instâncias clássicas sem sinais torna-se a variação sem sinais dos problemas \SbRT{} e \SbR{}, respectivamente. Ambos os problemas pertencem à classe NP-difícil~\cite{2019b-oliveira-etal,1999a-caprara}.
 \end{proof}
 
-A seguir, investigamos a complexidade do problema \SbPRT{} quando $k$ pertence ao intervalo $(0..1)$. Para isso, apresentamos definições que serão utilizadas para provar a complexidade do problema para esse intervalo de valores de $k$. As transformações de \emph{duplicação}, \emph{orientação}, \emph{extensão bridge} e \emph{extensão gadget} descritas a seguir utilizam uma representação clássica de um genoma na sua forma não estendida. Caso a representação esteja na forma estendida, os elementos $\pi_0$ e $\pi_{n+1}$ são ignorados, a transformação é aplicada e a nova representação clássica resultante é então estendida.
+A seguir, investigamos a complexidade do problema \SbPRT{} quando $k$ pertence ao intervalo $(0..1)$. Para isso, apresentamos definições utilizadas para provar a complexidade do problema para esse intervalo de valores de $k$. As transformações de \emph{duplicação}, \emph{orientação}, \emph{extensão bridge} e \emph{extensão gadget} descritas a seguir utilizam uma representação clássica de um genoma na sua forma não estendida. Caso a representação esteja na forma estendida, os elementos $\pi_0$ e $\pi_{n+1}$ são ignorados, a transformação é aplicada e a nova representação clássica resultante é então estendida.
 
 \begin{definition}
 Dada uma representação clássica sem sinais $\pi$ de tamanho $n$, a \emph{duplicação} cria uma representação clássica sem sinais $\pi'$ de tamanho $2n$ de forma que cada elemento $\pi_i \in \pi$ é mapeado em dois novos valores, com $\pi'_{2i-1} = 2\pi_i-1$ e $\pi'_{2i} = 2\pi_i$, para $i \in [1..n]$.
 \end{definition}
 
-O Exemplo~\ref{example:QJCKPQSS} mostra a transformação de duplicação sendo aplicada na representação clássica sem sinais $\pi=(4~1~5~3~2)$.
+O Exemplo~\ref{example:QJCKPQSS} mostra a transformação de duplicação aplicada na representação clássica sem sinais $\pi=(4~1~5~3~2)$.
 
 \input{examples/QJCKPQSS}
 
@@ -155,7 +153,7 @@ O Exemplo~\ref{example:QJCKPQSS} mostra a transformação de duplicação sendo 
 Dada uma representação clássica sem sinais $\pi$ de tamanho $n$, a \emph{orientação} cria uma representação clássica com sinais $\pi'$, também de tamanho $n$, de forma que $\pi'_{i} = +\pi_i$, para $i \in [1..n]$.
 \end{definition}
 
-O Exemplo~\ref{example:GUELXUJE} mostra a transformação de orientação sendo aplicada na representação clássica sem sinais $\pi=(4~1~5~3~2)$.
+O Exemplo~\ref{example:GUELXUJE} mostra a transformação de orientação aplicada na representação clássica sem sinais $\pi=(4~1~5~3~2)$.
 
 \input{examples/GUELXUJE}
 
@@ -163,11 +161,11 @@ O Exemplo~\ref{example:GUELXUJE} mostra a transformação de orientação sendo 
 Dada uma representação clássica com ou sem sinais $\pi$ de tamanho $n$, a \emph{extensão bridge} cria uma representação clássica $\pi'$ de tamanho $n + 3$. Caso $\pi$ seja uma representação com sinais, $\pi'$ é gerado da seguinte forma: (i) $\pi'_{i} = \pi_i$ e (ii) $\pi'_{n+j} = +(n{+j})$, para $i \in [1..n]$ e $j \in [1..3]$. Caso contrário, $\pi'$ é gerado da seguinte forma: (i) $\pi'_{i} = \pi_i$ e (ii) $\pi'_{n+j} = n{+j}$, para $i \in [1..n]$ e $j \in [1..3]$.
 \end{definition}
 
-O Exemplo~\ref{example:AWNIOTEZ} mostra a transformação de extensão bridge sendo aplicada na representação clássica com sinais $\pi=({+4}~{+1}~{+5}~{-3}~{-2})$.
+O Exemplo~\ref{example:AWNIOTEZ} mostra a transformação de extensão bridge aplicada na representação clássica com sinais $\pi=({+4}~{+1}~{+5}~{-3}~{-2})$.
 
 \input{examples/AWNIOTEZ}
 
-O Exemplo~\ref{example:BYQQHUAS} mostra a transformação de extensão bridge sendo aplicada na representação clássica sem sinais $\pi=(4~1~5~3~2)$.
+O Exemplo~\ref{example:BYQQHUAS} mostra a transformação de extensão bridge aplicada na representação clássica sem sinais $\pi=(4~1~5~3~2)$.
 
 \input{examples/BYQQHUAS}
 
@@ -175,11 +173,11 @@ O Exemplo~\ref{example:BYQQHUAS} mostra a transformação de extensão bridge se
 Dada uma representação clássica com ou sem sinais $\pi$ de tamanho $n$, a \emph{extensão gadget} cria uma representação clássica $\pi'$ de tamanho $n + 6$. Caso $\pi$ seja uma representação com sinais, $\pi'$ é gerado da seguinte forma: (i) $\pi'_{i} = \pi_i$; (ii) $\pi'_{n+j} = -(n+4-j)$; (iii) $\pi'_{n+k} = +(n{+k})$, para $i \in [1..n]$, $j \in [1..3]$ e $k \in [4..6]$. Caso contrário, $\pi'$ é gerado da seguinte forma: (i) $\pi'_{i} = \pi_i$; (ii) $\pi'_{n+j} = n+4-j$; (iii) $\pi'_{n+k} = n{+k}$, para $i \in [1..n]$, $j \in [1..3]$ e $k \in [4..6]$.
 \end{definition}
 
-O Exemplo~\ref{example:TCTQPMWV} mostra a transformação de extensão gadget sendo aplicada na representação clássica com sinais $\pi=({+4}~{+1}~{+5}~{-3}~{-2})$.
+O Exemplo~\ref{example:TCTQPMWV} mostra a transformação de extensão gadget aplicada na representação clássica com sinais $\pi=({+4}~{+1}~{+5}~{-3}~{-2})$.
 
 \input{examples/TCTQPMWV}
 
-O Exemplo~\ref{example:ZMGTJRFE} mostra a transformação de extensão gadget sendo aplicada na representação clássica sem sinais $\pi=(4~1~5~3~2)$.
+O Exemplo~\ref{example:ZMGTJRFE} mostra a transformação de extensão gadget aplicada na representação clássica sem sinais $\pi=(4~1~5~3~2)$.
 
 \pagebreak
 \input{examples/ZMGTJRFE}
@@ -447,7 +445,7 @@ A Tabela~\ref{table:CLTLBDUJ} mostra os resultados dos algoritmos SR, SRT, SWRT 
 
 \input{tables/CLTLBDUJ}
 
-Pela Tabela~\ref{table:CLTLBDUJ}, podemos ver que o algoritmo SR apresentou um comportamento semelhante ao algoritmo UR no caso sem sinal. No entanto, a aproximação média obtida foi exatamente $2 - k$, exceto para o grupo com $k = 0.0$. Observe que quando $k=1.0$, temos o problema de Ordenando de Permutações por Reversões e, o algoritmo SR fornece uma solução exata em tempo polinomial para o problema. Mantivemos esse cenário de proporção em nossos experimentos para verificar o desempenho dos outros algoritmos neste caso específico.
+Pela Tabela~\ref{table:CLTLBDUJ}, podemos ver que o algoritmo SR apresentou um comportamento semelhante ao algoritmo UR no caso sem sinal. No entanto, a aproximação média obtida foi exatamente $2 - k$, exceto para o grupo com $k = 0.0$. Observe que quando $k=1.0$, temos o problema de Ordenação de Permutações por Reversões e o algoritmo SR fornece uma solução exata em tempo polinomial para o problema. Mantivemos esse cenário de proporção em nossos experimentos para verificar o desempenho dos outros algoritmos neste caso específico.
 
 Os algoritmos SRT e SWRT não apresentam tendência de aumentar ou diminuir a razão média de aproximação considerando o valor de $k$. Comparando ambos, podemos ver que a variação média de aproximação do algoritmo SRT ($1.88 - 1.05 = 0.83$) é maior que a variação do algoritmo SWRT ($1.19 - 1.03 = 0.16$). Em comparação com o SWRT, a proporção média de soluções fornecidas pelo algoritmo SRT é maior. Exceto para o grupo com $k = 0.0$, a proporção média foi superior a $0.97$. O fato do algoritmo SRT não ter aplicado nenhuma reversão no grupo em que $k = 0$ é explicado pelo próprio comportamento do algoritmo, pois ele aplica reversões apenas em ciclos divergentes, e as instâncias desses grupos foram geradas usando apenas transposições, o que não gera ciclos divergentes.
 

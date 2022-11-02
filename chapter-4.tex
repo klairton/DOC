@@ -22,11 +22,11 @@ Além disso, investigaremos as variações com e sem sinais dos seguintes proble
 
 Neste capítulo, iremos nos referenciar aos eventos de rearranjo de reversão intergênica, transposição intergênica, move intergênico e indel intergênico simplesmente por reversão, transposição, move e indel, respectivamente. Além disso, nos referiremos a um breakpoint intergênico simplesmente por breakpoint. Dada uma sequência de eventos de rearranjo $S$, denotamos por $|S|$ o tamanho da sequência $S$, ou seja, a quantidade de eventos em $S$.
 
-Dada uma instância intergênica rígida com ou sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ e adotando um cenário não ponderado, a \emph{distância} entre $(\pi,\breve\pi)$ e $(\iota,\breve\iota)$, denotada por $d_{\mathcal{M}}(\mathcal{I})$, é o tamanho da menor sequência de eventos de rearranjo $S$, tal que todo evento de $S$ pertence ao modelo $\mathcal{M}$ e $(\pi,\breve\pi) \cdot S = (\iota,\breve\iota)$. Os modelos de rearranjo em um cenário não ponderado considerados neste capítulo são identificados pelas siglas apresentadas na Tabela~\ref{table:YQWDTZTK}.
+Dada uma instância intergênica rígida com ou sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ e adotando um cenário não ponderado, a \emph{distância} entre $(\pi,\breve\pi)$ e $(\iota,\breve\iota)$, denotada por $di_{\mathcal{M}}(\mathcal{I})$, é o tamanho da menor sequência de eventos de rearranjo $S$, tal que todo evento de $S$ pertence ao modelo $\mathcal{M}$ e $(\pi,\breve\pi) \cdot S = (\iota,\breve\iota)$. Os modelos de rearranjo em um cenário não ponderado considerados neste capítulo são identificados pelas siglas apresentadas na Tabela~\ref{table:YQWDTZTK}.
 
 \input{tables/YQWDTZTK}
 
-Dada uma instância intergênica rígida com ou sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ e adotando um cenário ponderado, a \emph{distância ponderada} entre $(\pi,\breve\pi)$ e $(\iota,\breve\iota)$, denotada por $dw_{\mathcal{M}}(\mathcal{I})$, é o custo da sequência de eventos de rearranjo $S$ com menor custo total, tal que todo evento de $S$ pertence ao modelo $\mathcal{M}$ e $(\pi,\breve\pi) \cdot S = (\iota,\breve\iota)$. O custo total de uma sequência de eventos de rearranjo $S=(\gamma_1, \gamma_2, \dots, \gamma_k)$, onde cada evento pertence ao modelo $\mathcal{M}$, é dado por $\sum_{\gamma_i \in S} c(\gamma_i)$, tal que $c(\gamma_i)$ representa o custo associado ao tipo do evento $\gamma_i$ por uma função de custo. Os modelos de rearranjo em um cenário ponderado considerados neste capítulo são identificados pelas siglas apresentadas na Tabela~\ref{table:BAORJRQI}.
+Dada uma instância intergênica rígida com ou sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ e adotando um cenário ponderado, a \emph{distância ponderada} entre $(\pi,\breve\pi)$ e $(\iota,\breve\iota)$, denotada por $dwi_{\mathcal{M}}(\mathcal{I})$, é o custo da sequência de eventos de rearranjo $S$ com menor custo total, tal que todo evento de $S$ pertence ao modelo $\mathcal{M}$ e $(\pi,\breve\pi) \cdot S = (\iota,\breve\iota)$. O custo total de uma sequência de eventos de rearranjo $S=(\gamma_1, \gamma_2, \dots, \gamma_k)$, onde cada evento pertence ao modelo $\mathcal{M}$, é dado por $\sum_{\gamma_i \in S} c(\gamma_i)$, tal que $c(\gamma_i)$ representa o custo associado ao tipo do evento $\gamma_i$ por uma função de custo. Os modelos de rearranjo em um cenário ponderado considerados neste capítulo são identificados pelas siglas apresentadas na Tabela~\ref{table:BAORJRQI}.
 
 \input{tables/BAORJRQI}
 
@@ -84,14 +84,14 @@ Dada uma instância intergênica rígida com sinais $\mathcal{I}$, para qualquer
 Dada uma instância intergênica rígida sem sinais $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$, temos que:
 
 \begin{tabular}{lll}
-  $d_{\IR}(\mathcal{I})$      & $ \ge $ & $\frac{ib_1(\mathcal{I})}{2}$, \\ 
-  $d_{\IRI}(\mathcal{I})$     & $ \ge $ & $\frac{ib_1(\mathcal{I})}{2}$, \\
-  $d_{\IRM}(\mathcal{I})$     & $ \ge $ & $\frac{ib_1(\mathcal{I})}{2}$, \\
-  $d_{\IRMI}(\mathcal{I})$    & $ \ge $ & $\frac{ib_1(\mathcal{I})}{2}$, \\
-  $d_{\IRT}(\mathcal{I})$     & $ \ge $ & $\frac{ib_1(\mathcal{I})}{3}$, \\
-  $d_{\IRTI}(\mathcal{I})$    & $ \ge $ & $\frac{ib_1(\mathcal{I})}{3}$, \\
-  $d_{\IRTM}(\mathcal{I})$    & $ \ge $ & $\frac{ib_1(\mathcal{I})}{3}$  \\
-  e $d_{\IRTMI}(\mathcal{I})$ & $ \ge $ & $\frac{ib_1(\mathcal{I})}{3}$. \\
+  $di_{\R}(\mathcal{I})$      & $ \ge $ & $\frac{ib_1(\mathcal{I})}{2}$, \\ 
+  $di_{\RI}(\mathcal{I})$     & $ \ge $ & $\frac{ib_1(\mathcal{I})}{2}$, \\
+  $di_{\RM}(\mathcal{I})$     & $ \ge $ & $\frac{ib_1(\mathcal{I})}{2}$, \\
+  $di_{\RMI}(\mathcal{I})$    & $ \ge $ & $\frac{ib_1(\mathcal{I})}{2}$, \\
+  $di_{\RT}(\mathcal{I})$     & $ \ge $ & $\frac{ib_1(\mathcal{I})}{3}$, \\
+  $di_{\RTI}(\mathcal{I})$    & $ \ge $ & $\frac{ib_1(\mathcal{I})}{3}$, \\
+  $di_{\RTM}(\mathcal{I})$    & $ \ge $ & $\frac{ib_1(\mathcal{I})}{3}$  \\
+  e $di_{\RTMI}(\mathcal{I})$ & $ \ge $ & $\frac{ib_1(\mathcal{I})}{3}$. \\
 \end{tabular}
 \end{theorem}
 \begin{proof}
@@ -99,7 +99,7 @@ Pela Observação~\ref{remark:UDYJTHAH}, para transformar $(\pi,\breve\pi)$ em $
 \end{proof}
 
 \begin{theorem}\label{theorem:JDOIUJLE}
-Seja uma instância intergênica rígida sem sinais $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$. Se $\mathcal{I}$ for balanceada, então temos que $d_{\IRTI}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{3}$. Caso contrário, temos que $d_{\IRTI}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I}) + 2}{3}$.
+Seja uma instância intergênica rígida sem sinais $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$. Se $\mathcal{I}$ for balanceada, então temos que $di_{\RTI}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{3}$. Caso contrário, temos que $di_{\RTI}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I}) + 2}{3}$.
 \end{theorem}
 \begin{proof}
 Pela Observação~\ref{remark:UDYJTHAH}, para transformar $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ é necessário remover os $ib_1(\mathcal{I})$ breakpoints tipo um de $\mathcal{I}$. Note que se $\mathcal{I}$ for balanceada, então podemos aplicar o Teorema~\ref{theorem:MPFPKHQO}. Caso contrário, sabemos que para ser possível transformar $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$, pelo menos um indel deve ser utilizado. Pelo Lema~\ref{lemma:KWIVENLG}, temos que, no máximo, um breakpoint tipo um pode ser removido utilizando uma operação de indel. No melhor caso, após aplicar apenas um indel, $\mathcal{I}$  torna-se uma instância balanceada e um breakpoint tipo um é removido. Assim, restam $ib_1(\mathcal{I}) - 1$ breakpoints para serem removidos de $\mathcal{I}$. Considerando os eventos de reversão, transposição e indel, três breakpoints tipo um, no máximo, podem ser removidos por operação (lemas~\ref{lemma:KFFPUBQG}, \ref{lemma:IUJZCMMV} e \ref{lemma:KWIVENLG}). Logo, pelo menos $\frac{ib_1(\mathcal{I}) - 1}{3}$ eventos de reversão, transposição ou indel são necessários para remover o restante dos breakpoints tipo um. Dessa forma, pelo menos $\frac{ib_1(\mathcal{I}) - 1}{3} + 1 = \frac{ib_1(\mathcal{I}) + 2}{3}$ eventos de reversão, transposição e indel são necessários para transformar $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$, e o teorema segue.
@@ -109,14 +109,14 @@ Pela Observação~\ref{remark:UDYJTHAH}, para transformar $(\pi,\breve\pi)$ em $
 Dada uma instância intergênica rígida com sinais $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$, temos que:
 
 \begin{tabular}{lll}
-  $d_{\IR}(\mathcal{I})$      & $ \ge $ & $\frac{ib_2(\mathcal{I})}{2}$, \\ 
-  $d_{\IRI}(\mathcal{I})$     & $ \ge $ & $\frac{ib_2(\mathcal{I})}{2}$, \\
-  $d_{\IRM}(\mathcal{I})$     & $ \ge $ & $\frac{ib_2(\mathcal{I})}{2}$, \\
-  $d_{\IRMI}(\mathcal{I})$    & $ \ge $ & $\frac{ib_2(\mathcal{I})}{2}$, \\
-  $d_{\IRT}(\mathcal{I})$     & $ \ge $ & $\frac{ib_2(\mathcal{I})}{3}$, \\
-  $d_{\IRTI}(\mathcal{I})$    & $ \ge $ & $\frac{ib_2(\mathcal{I})}{3}$, \\
-  $d_{\IRTM}(\mathcal{I})$    & $ \ge $ & $\frac{ib_2(\mathcal{I})}{3}$  \\
-  e $d_{\IRTMI}(\mathcal{I})$ & $ \ge $ & $\frac{ib_2(\mathcal{I})}{3}$. \\
+  $di_{\R}(\mathcal{I})$      & $ \ge $ & $\frac{ib_2(\mathcal{I})}{2}$, \\ 
+  $di_{\RI}(\mathcal{I})$     & $ \ge $ & $\frac{ib_2(\mathcal{I})}{2}$, \\
+  $di_{\RM}(\mathcal{I})$     & $ \ge $ & $\frac{ib_2(\mathcal{I})}{2}$, \\
+  $di_{\RMI}(\mathcal{I})$    & $ \ge $ & $\frac{ib_2(\mathcal{I})}{2}$, \\
+  $di_{\RT}(\mathcal{I})$     & $ \ge $ & $\frac{ib_2(\mathcal{I})}{3}$, \\
+  $di_{\RTI}(\mathcal{I})$    & $ \ge $ & $\frac{ib_2(\mathcal{I})}{3}$, \\
+  $di_{\RTM}(\mathcal{I})$    & $ \ge $ & $\frac{ib_2(\mathcal{I})}{3}$  \\
+  e $di_{\RTMI}(\mathcal{I})$ & $ \ge $ & $\frac{ib_2(\mathcal{I})}{3}$. \\
 \end{tabular}
 \end{theorem}
 \begin{proof}
@@ -124,7 +124,7 @@ A prova é similar à descrita no Teorema~\ref{theorem:MPFPKHQO}, mas consideran
 \end{proof}
 
 \begin{theorem}\label{theorem:JGVDYLDM}
-Seja uma instância intergênica rígida com sinais $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$. Se $\mathcal{I}$ for balanceada, então temos que $d_{\IRTI}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I})}{3}$. Caso contrário, temos que $d_{\IRTI}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I}) + 2}{3}$.
+Seja uma instância intergênica rígida com sinais $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$. Se $\mathcal{I}$ for balanceada, então temos que $di_{\RTI}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I})}{3}$. Caso contrário, temos que $di_{\RTI}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I}) + 2}{3}$.
 \end{theorem}
 \begin{proof}
 Pela Observação~\ref{remark:UDYJTHAH}, para transformar $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ é necessário remover os $ib_2(\mathcal{I})$ breakpoints tipo dois de $\mathcal{I}$. Note que se $\mathcal{I}$ for balanceada, então podemos aplicar o Teorema~\ref{theorem:NFVKZGKW}. Caso contrário, sabemos que para ser possível transformar $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$, pelo menos um indel deve ser utilizado. Pelo Lema~\ref{lemma:KXIYYHHL}, temos que, no máximo, um breakpoint tipo dois pode ser removido utilizando uma operação de indel. No melhor caso, após aplicar apenas um indel, $\mathcal{I}$  torna-se uma instância balanceada e um breakpoint tipo dois é removido. Assim, restam $ib_2(\mathcal{I}) - 1$ breakpoints para serem removidos de $\mathcal{I}$. Considerando os eventos de reversão, transposição e indel, três breakpoints tipo um, no máximo, podem ser removidos por operação (lemas~\ref{lemma:IKBNJWMY}, \ref{lemma:MYVALTSG} e \ref{lemma:KXIYYHHL}). Logo, pelo menos $\frac{ib_2(\mathcal{I}) - 1}{3}$ eventos de reversão, transposição ou indel são necessários para remover o restante dos breakpoints tipo dois. Dessa forma, pelo menos $\frac{ib_2(\mathcal{I}) - 1}{3} + 1 = \frac{ib_2(\mathcal{I}) + 2}{3}$ eventos de reversão, transposição e indel são necessários para transformar $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$, e o teorema segue.
@@ -136,8 +136,8 @@ Considerando o grafo de ciclos ponderado rígido criado a partir de uma instânc
 Dada uma instância intergênica rígida com sinais $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$, temos que:
 
 \begin{tabular}{lll}
-  $d_{\IRM}(\mathcal{I})$     & $ \ge $ & ${n + 1} - \frac{c(G(\mathcal{I})) + c_b(G(\mathcal{I}))}{2}$ \\
-  e $d_{\IRMI}(\mathcal{I})$    & $ \ge $ & ${n + 1} - \frac{c(G(\mathcal{I})) + c_b(G(\mathcal{I}))}{2}$. \\
+  $di_{\RM}(\mathcal{I})$     & $ \ge $ & ${n + 1} - \frac{c(G(\mathcal{I})) + c_b(G(\mathcal{I}))}{2}$ \\
+  e $di_{\RMI}(\mathcal{I})$    & $ \ge $ & ${n + 1} - \frac{c(G(\mathcal{I})) + c_b(G(\mathcal{I}))}{2}$. \\
 \end{tabular}
 \end{theorem}
 \begin{proof}
@@ -148,8 +148,8 @@ Note que, para atingir o genoma alvo é necessário aumentar tanto o número de 
 Dada uma instância intergênica rígida com sinais $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$, temos que:
 
 \begin{tabular}{lll}
-  $d_{\IRTI}(\mathcal{I})$       & $ \ge $ & $\frac{{n + 1} - c_b(G(\mathcal{I}))}{2}$ \\
-  e $d_{\IRTMI}(\mathcal{I})$    & $ \ge $ & $\frac{{n + 1} - c_b(G(\mathcal{I}))}{2}$. \\
+  $di_{\RTI}(\mathcal{I})$       & $ \ge $ & $\frac{{n + 1} - c_b(G(\mathcal{I}))}{2}$ \\
+  e $di_{\RTMI}(\mathcal{I})$    & $ \ge $ & $\frac{{n + 1} - c_b(G(\mathcal{I}))}{2}$. \\
 \end{tabular}
 \end{theorem}
 \begin{proof}
@@ -275,11 +275,11 @@ O Exemplo~\ref{example:ZVSSIKRT} ilustra o processo de criação de uma instânc
 
 \input{examples/ZVSSIKRT}
 
-Agora, mostramos que a instância $A$ do \textbf{3-PART} é satisfeita se, e somente se, \break$d_{\SbIRM}(\mathcal{I}) \le 3n$ e $d_{\SbIRMI}(\mathcal{I}) \le 3n$.
+Agora, mostramos que a instância $A$ do \textbf{3-PART} é satisfeita se, e somente se, \break$di_{\RM}(\mathcal{I}) \le 3n$ e $di_{\RMI}(\mathcal{I}) \le 3n$.
 
-($\Rightarrow$) Suponha que seja possível particionar a instância $A=\{a_1,a_2,\dots,a_{3n}\}$ do problema \textbf{3-PART} em $n$ triplas, tal que $\sum_{a_i \in A_j} a_i = B$ para cada tripla $A_j$, com $1\le j \le n$. Então, é possível transformar o genoma de origem $(\pi, \breve\pi)$ no genoma alvo $(\iota, \breve\iota)$ usando $3n$ operações de move. Para cada tripla $A_j$, com $1\le j \le n$, aplique as seguintes operações de move $\mu_{(a_i)}^{(i,3n+j)}$, para $a_i \in A_j$. Repita esse procedimento em todas as $n$ triplas, produzindo uma sequência de $3n$ operações de move que resulta em $c(G(\mathcal{I})) = c_b(G(\mathcal{I})) = 4n$. Assim, $d_{\SbIRM}(\mathcal{I}) \le 3n$ e $d_{\SbIRMI}(\mathcal{I}) \le 3n$.
+($\Rightarrow$) Suponha que seja possível particionar a instância $A=\{a_1,a_2,\dots,a_{3n}\}$ do problema \textbf{3-PART} em $n$ triplas, tal que $\sum_{a_i \in A_j} a_i = B$ para cada tripla $A_j$, com $1\le j \le n$. Então, é possível transformar o genoma de origem $(\pi, \breve\pi)$ no genoma alvo $(\iota, \breve\iota)$ usando $3n$ operações de move. Para cada tripla $A_j$, com $1\le j \le n$, aplique as seguintes operações de move $\mu_{(a_i)}^{(i,3n+j)}$, para $a_i \in A_j$. Repita esse procedimento em todas as $n$ triplas, produzindo uma sequência de $3n$ operações de move que resulta em $c(G(\mathcal{I})) = c_b(G(\mathcal{I})) = 4n$. Assim, $di_{\RM}(\mathcal{I}) \le 3n$ e $di_{\RMI}(\mathcal{I}) \le 3n$.
 
-($\Leftarrow$) Agora suponha que $d_{\SbIRM}(\mathcal{I}) \le 3n$ e $d_{\SbIRMI}(\mathcal{I}) \le 3n$. Observe que, para atingir o genoma alvo desejado, os ciclos triviais com arestas pretas rotuladas com o valor $0$ até $3n$ devem formar ciclos triviais com peso zero em suas arestas pretas.
+($\Leftarrow$) Agora suponha que $di_{\RM}(\mathcal{I}) \le 3n$ e $di_{\RMI}(\mathcal{I}) \le 3n$. Observe que, para atingir o genoma alvo desejado, os ciclos triviais com arestas pretas rotuladas com o valor $0$ até $3n$ devem formar ciclos triviais com peso zero em suas arestas pretas.
 
 Note que $G(\mathcal{I})$ tem $4n$ ciclos triviais, onde: os primeiros $3n$ ciclos triviais (da esquerda para a direita usando a representação padrão de $G(\mathcal{I})$) têm peso positivo em suas arestas pretas; e os últimos $n$ ciclos triviais têm peso zero em suas arestas pretas.
 
@@ -397,7 +397,7 @@ Como esse processo é repetido $n$ vezes, no máximo, então o tempo de execuç�
 O Algoritmo~\ref{algorithm:AKKUXQNR} é uma $4$-aproximação para a variação sem sinais do problema \SbIR{}.
 \end{theorem}
 \begin{proof}
-Seja $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida balanceada sem sinais. Pelo Lema~\ref{lemma:RBHACFIP}, o Algoritmo~\ref{algorithm:AKKUXQNR} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando, no máximo, $2ib_1(\mathcal{I})$ reversões. Pelo Teorema~\ref{theorem:MPFPKHQO}, temos o seguinte limitante inferior: $d_{\IR}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{2}$. Logo, o teorema segue. 
+Seja $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida balanceada sem sinais. Pelo Lema~\ref{lemma:RBHACFIP}, o Algoritmo~\ref{algorithm:AKKUXQNR} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando, no máximo, $2ib_1(\mathcal{I})$ reversões. Pelo Teorema~\ref{theorem:MPFPKHQO}, temos o seguinte limitante inferior: $di_{\R}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{2}$. Logo, o teorema segue. 
 \end{proof}
 
 % ------------------------------------------------------------------ %
@@ -443,7 +443,7 @@ Note que o Algoritmo~\ref{algorithm:LHOPSFVN} difere do Algoritmo~\ref{algorithm
 O Algoritmo~\ref{algorithm:LHOPSFVN} é uma $4$-aproximação para a variação sem sinais do problema \SbIRI{}.
 \end{theorem}
 \begin{proof}
-Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida sem sinais. Pelo Lema~\ref{lemma:XUDIVWPC}, o Algoritmo~\ref{algorithm:LHOPSFVN} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando, no máximo, $2ib_1(\mathcal{I})$ eventos de reversão e indel. Pelo Teorema~\ref{theorem:MPFPKHQO}, temos o seguinte limitante inferior: $d_{\IRI}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{2}$. Logo, o teorema segue. 
+Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida sem sinais. Pelo Lema~\ref{lemma:XUDIVWPC}, o Algoritmo~\ref{algorithm:LHOPSFVN} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando, no máximo, $2ib_1(\mathcal{I})$ eventos de reversão e indel. Pelo Teorema~\ref{theorem:MPFPKHQO}, temos o seguinte limitante inferior: $di_{\RI}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{2}$. Logo, o teorema segue. 
 \end{proof}
 
 % ------------------------------------------------------------------ %
@@ -485,7 +485,7 @@ Note que o Algoritmo~\ref{algorithm:OLSRUEFZ} difere do Algoritmo~\ref{algorithm
 O Algoritmo~\ref{algorithm:OLSRUEFZ} é uma $4$-aproximação para a variação sem sinais do problema \SbIRM{}.
 \end{theorem}
 \begin{proof}
-Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida balanceada sem sinais. Pelo Lema~\ref{lemma:TZYVWBRT}, o Algoritmo~\ref{algorithm:OLSRUEFZ} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando, no máximo, $2ib_1(\mathcal{I})$ eventos de reversão e move. Pelo Teorema~\ref{theorem:MPFPKHQO}, temos o seguinte limitante inferior: $d_{\IRM}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{2}$. Logo, o teorema segue. 
+Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida balanceada sem sinais. Pelo Lema~\ref{lemma:TZYVWBRT}, o Algoritmo~\ref{algorithm:OLSRUEFZ} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando, no máximo, $2ib_1(\mathcal{I})$ eventos de reversão e move. Pelo Teorema~\ref{theorem:MPFPKHQO}, temos o seguinte limitante inferior: $di_{\RM}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{2}$. Logo, o teorema segue. 
 \end{proof}
 
 % ------------------------------------------------------------------ %
@@ -509,7 +509,7 @@ Note que o Algoritmo~\ref{algorithm:JAJGNYWD}, em comparação com o Algoritmo~\
 O Algoritmo~\ref{algorithm:JAJGNYWD} é uma $4$-aproximação para a variação sem sinais do problema \SbIRMI{}.
 \end{theorem}
 \begin{proof}
-Seja $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida sem sinais. Pelo Lema~\ref{lemma:SINGKSVU}, o Algoritmo~\ref{algorithm:JAJGNYWD} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando, no máximo, $2ib_1(\mathcal{I})$ eventos de reversão, move e indel. Pelo Teorema~\ref{theorem:MPFPKHQO}, temos o seguinte limitante inferior: $d_{\IRMI}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{2}$. Logo, o teorema segue. 
+Seja $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida sem sinais. Pelo Lema~\ref{lemma:SINGKSVU}, o Algoritmo~\ref{algorithm:JAJGNYWD} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando, no máximo, $2ib_1(\mathcal{I})$ eventos de reversão, move e indel. Pelo Teorema~\ref{theorem:MPFPKHQO}, temos o seguinte limitante inferior: $di_{\RMI}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{2}$. Logo, o teorema segue. 
 \end{proof}
 
 % ------------------------------------------------------------------ %
@@ -552,7 +552,7 @@ Note que o Algoritmo~\ref{algorithm:SAAUGXYG}, em comparação com o Algoritmo~\
 O Algoritmo~\ref{algorithm:SAAUGXYG} é uma $6$-aproximação para a variação sem sinais do problema \SbIRT{}.
 \end{theorem}
 \begin{proof}
-Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida balanceada sem sinais. Pelo Lema~\ref{lemma:QMLCZMMK}, o Algoritmo~\ref{algorithm:SAAUGXYG} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando, no máximo, $2ib_1(\mathcal{I})$ eventos de reversão e transposição. Pelo Teorema~\ref{theorem:MPFPKHQO}, temos o seguinte limitante inferior: $d_{\IRT}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{3}$. Logo, o teorema segue. 
+Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida balanceada sem sinais. Pelo Lema~\ref{lemma:QMLCZMMK}, o Algoritmo~\ref{algorithm:SAAUGXYG} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando, no máximo, $2ib_1(\mathcal{I})$ eventos de reversão e transposição. Pelo Teorema~\ref{theorem:MPFPKHQO}, temos o seguinte limitante inferior: $di_{\RT}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{3}$. Logo, o teorema segue. 
 \end{proof}
 
 A seguir, apresentaremos lemas que serão utilizados para obtermos um algoritmo de aproximação com fator $4.5$ para a variação sem sinais do problema \SbIRT{}.
@@ -651,7 +651,7 @@ Note que as fases de remoção de breakpoints sobrecarregados e suaves podem ser
 O Algoritmo~\ref{algorithm:JQHVZACM} é uma $4.5$-aproximação para a variação sem sinais do problema \SbIRT{}.
 \end{theorem}
 \begin{proof}
-Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida balanceada sem sinais. Pelo Lema~\ref{lemma:RNJHXOWZ}, o Algoritmo~\ref{algorithm:JQHVZACM} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando, no máximo, $\frac{3ib_1(\mathcal{I})}{2}$ eventos de reversão e transposição. Pelo Teorema~\ref{theorem:MPFPKHQO}, temos o seguinte limitante inferior: $d_{\IRT}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{3}$. Logo, o teorema segue. 
+Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida balanceada sem sinais. Pelo Lema~\ref{lemma:RNJHXOWZ}, o Algoritmo~\ref{algorithm:JQHVZACM} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando, no máximo, $\frac{3ib_1(\mathcal{I})}{2}$ eventos de reversão e transposição. Pelo Teorema~\ref{theorem:MPFPKHQO}, temos o seguinte limitante inferior: $di_{\RT}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{3}$. Logo, o teorema segue. 
 \end{proof}
 
 A seguir, apresentaremos lemas que serão utilizados para obtermos um algoritmo de aproximação com fator $4$ para a variação sem sinais do problema \SbIRT{}.
@@ -732,7 +732,7 @@ Note que cada caso do Algoritmo~\ref{algorithm:LCPCUFNZ} é realizado em tempo l
 O Algoritmo~\ref{algorithm:LCPCUFNZ} é uma $4$-aproximação para a variação sem sinais do problema \SbIRT{}.
 \end{theorem}
 \begin{proof}
-Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida balanceada sem sinais. Pelo Lema~\ref{lemma:HIIRAXUH}, o Algoritmo~\ref{algorithm:LCPCUFNZ} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando, no máximo, $\frac{4ib_1(\mathcal{I})}{3}$ eventos de reversão e transposição. Pelo Teorema~\ref{theorem:MPFPKHQO}, temos o seguinte limitante inferior: $d_{\IRT}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{3}$. Logo, o teorema segue. 
+Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida balanceada sem sinais. Pelo Lema~\ref{lemma:HIIRAXUH}, o Algoritmo~\ref{algorithm:LCPCUFNZ} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando, no máximo, $\frac{4ib_1(\mathcal{I})}{3}$ eventos de reversão e transposição. Pelo Teorema~\ref{theorem:MPFPKHQO}, temos o seguinte limitante inferior: $di_{\RT}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{3}$. Logo, o teorema segue. 
 \end{proof}
 
 % ------------------------------------------------------------------ %
@@ -786,7 +786,7 @@ Note que o algoritmo Algoritmo~\ref{algorithm:YIZYUGZZ} não possui laços de re
 O Algoritmo~\ref{algorithm:YIZYUGZZ} é uma $4$-aproximação para a variação sem sinais do problema \SbIRTI{}.
 \end{theorem}
 \begin{proof}
-Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida sem sinais. Pelo Lema~\ref{lemma:MUTXDAUG}, o Algoritmo~\ref{algorithm:LCPCUFNZ} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$. Além disso, caso $\mathcal{I}$ seja uma instância intergênica rígida balanceada, então são utilizados, no máximo, $\frac{4ib_1(\mathcal{I})}{3}$ eventos de reversão e transposição. Caso contrário, são utilizados, no máximo, $\frac{4ib_1(\mathcal{I})}{3} + 1$ eventos de reversão, transposição e indel. Pelo Teorema~\ref{theorem:JDOIUJLE}, temos o seguinte limitante inferior: (i) caso $\mathcal{I}$ seja uma instância intergênica rígida balanceada, $d_{\IRTI}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{3}$; (ii) caso contrário, $d_{\IRTI}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I}) + 2}{3}$. Se $\mathcal{I}$ for balanceada, temos que $\frac{\frac{4ib_1(\mathcal{I})}{3}}{\frac{ib_1(\mathcal{I})}{3}}=4$. Se $\mathcal{I}$ for desbalanceada,  temos que $\frac{\frac{4ib_1(\mathcal{I})}{3} + 1}{\frac{ib_1(\mathcal{I}) + 2}{3}}=\frac{\frac{4ib_1(\mathcal{I})+3}{3}}{\frac{ib_1(\mathcal{I}) + 2}{3}}=\frac{4ib_1(\mathcal{I})+3}{ib_1(\mathcal{I})+2}$. Entretanto, como $\frac{4ib_1(\mathcal{I})+3}{ib_1(\mathcal{I})+2}<\frac{4(ib_1(\mathcal{I})+2)}{ib_1(\mathcal{I})+2}=4$, o teorema segue.
+Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida sem sinais. Pelo Lema~\ref{lemma:MUTXDAUG}, o Algoritmo~\ref{algorithm:LCPCUFNZ} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$. Além disso, caso $\mathcal{I}$ seja uma instância intergênica rígida balanceada, então são utilizados, no máximo, $\frac{4ib_1(\mathcal{I})}{3}$ eventos de reversão e transposição. Caso contrário, são utilizados, no máximo, $\frac{4ib_1(\mathcal{I})}{3} + 1$ eventos de reversão, transposição e indel. Pelo Teorema~\ref{theorem:JDOIUJLE}, temos o seguinte limitante inferior: (i) caso $\mathcal{I}$ seja uma instância intergênica rígida balanceada, $di_{\RTI}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{3}$; (ii) caso contrário, $di_{\RTI}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I}) + 2}{3}$. Se $\mathcal{I}$ for balanceada, temos que $\frac{\frac{4ib_1(\mathcal{I})}{3}}{\frac{ib_1(\mathcal{I})}{3}}=4$. Se $\mathcal{I}$ for desbalanceada,  temos que $\frac{\frac{4ib_1(\mathcal{I})}{3} + 1}{\frac{ib_1(\mathcal{I}) + 2}{3}}=\frac{\frac{4ib_1(\mathcal{I})+3}{3}}{\frac{ib_1(\mathcal{I}) + 2}{3}}=\frac{4ib_1(\mathcal{I})+3}{ib_1(\mathcal{I})+2}$. Entretanto, como $\frac{4ib_1(\mathcal{I})+3}{ib_1(\mathcal{I})+2}<\frac{4(ib_1(\mathcal{I})+2)}{ib_1(\mathcal{I})+2}=4$, o teorema segue.
 \end{proof}
 
 % ------------------------------------------------------------------ %
@@ -826,7 +826,7 @@ Note que, no pior caso, cada iteração do Algoritmo~\ref{algorithm:UZWADMNZ} po
 O Algoritmo~\ref{algorithm:UZWADMNZ} é uma $3$-aproximação para a variação sem sinais do problema \SbIRTM{}.
 \end{theorem}
 \begin{proof}
-Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida balanceada sem sinais. Pelo Lema~\ref{lemma:UUWLBHHA}, o Algoritmo~\ref{algorithm:UZWADMNZ} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando, no máximo, $ib_1(\mathcal{I})$ eventos de reversão, transposição e move. Pelo Teorema~\ref{theorem:MPFPKHQO}, temos o seguinte limitante inferior: $d_{\IRTM}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{3}$. Logo, o teorema segue. 
+Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida balanceada sem sinais. Pelo Lema~\ref{lemma:UUWLBHHA}, o Algoritmo~\ref{algorithm:UZWADMNZ} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando, no máximo, $ib_1(\mathcal{I})$ eventos de reversão, transposição e move. Pelo Teorema~\ref{theorem:MPFPKHQO}, temos o seguinte limitante inferior: $di_{\RTM}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{3}$. Logo, o teorema segue. 
 \end{proof}
 
 % ------------------------------------------------------------------ %
@@ -850,7 +850,7 @@ Podemos notar que Algoritmo~\ref{algorithm:FMDPGQTJ}, em comparação com o Algo
 O Algoritmo~\ref{algorithm:FMDPGQTJ} é uma $3$-aproximação para a variação sem sinais do problema \SbIRTMI{}.
 \end{theorem}
 \begin{proof}
-Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida sem sinais. Pelo Lema~\ref{lemma:GCEWGEBP}, o Algoritmo~\ref{algorithm:FMDPGQTJ} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando, no máximo, $ib_1(\mathcal{I})$ eventos de reversão, transposição, move e indel. Pelo Teorema~\ref{theorem:MPFPKHQO}, temos o seguinte limitante inferior: $d_{\IRTMI}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{3}$. Logo, o teorema segue. 
+Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida sem sinais. Pelo Lema~\ref{lemma:GCEWGEBP}, o Algoritmo~\ref{algorithm:FMDPGQTJ} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando, no máximo, $ib_1(\mathcal{I})$ eventos de reversão, transposição, move e indel. Pelo Teorema~\ref{theorem:MPFPKHQO}, temos o seguinte limitante inferior: $di_{\RTMI}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{3}$. Logo, o teorema segue. 
 \end{proof}
 
 % ------------------------------------------------------------------ %
@@ -994,7 +994,7 @@ Note que o tempo de execução do Algoritmo~\ref{algorithm:UJBJJGGJ} é $\mathca
 O Algoritmo~\ref{algorithm:UJBJJGGJ} é uma $4$-aproximação para a variação com sinais do problema \SbIR{}.
 \end{theorem}
 \begin{proof}
-Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida balanceada com sinais. Note que o Algoritmo~\ref{algorithm:AKKUXQNR} fornece uma sequência de reversões que afetam apenas breakpoints tipo um. Logo, nenhuma adjacência intergênica de $\mathcal{I'}$ é afetada. Além disso, pelo Lema~\ref{lemma:RBHACFIP}, Algoritmo~\ref{algorithm:AKKUXQNR} utiliza, no máximo, $2ib_1(\mathcal{I'})$ reversões para transformar $(\pi',\breve\pi')$ em $(\iota',\breve\iota')$. Pelo Lema~\ref{lemma:GTTULLOM}, temos que $(\pi,\breve\pi) \cdot S = (\iota,\breve\iota)$ e $|S| = |S'| \le 2ib_1(\mathcal{I'})$. Pelo Lema~\ref{lemma:FKOCCOYY}, temos que $ib_1(\mathcal{I'}) = ib_2(\mathcal{I})$. Logo, $|S| \le 2ib_2(\mathcal{I})$. Pelo Teorema~\ref{theorem:NFVKZGKW}, temos o seguinte limitante inferior: $d_{\IR}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I})}{2}$. Logo, o teorema segue.
+Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida balanceada com sinais. Note que o Algoritmo~\ref{algorithm:AKKUXQNR} fornece uma sequência de reversões que afetam apenas breakpoints tipo um. Logo, nenhuma adjacência intergênica de $\mathcal{I'}$ é afetada. Além disso, pelo Lema~\ref{lemma:RBHACFIP}, Algoritmo~\ref{algorithm:AKKUXQNR} utiliza, no máximo, $2ib_1(\mathcal{I'})$ reversões para transformar $(\pi',\breve\pi')$ em $(\iota',\breve\iota')$. Pelo Lema~\ref{lemma:GTTULLOM}, temos que $(\pi,\breve\pi) \cdot S = (\iota,\breve\iota)$ e $|S| = |S'| \le 2ib_1(\mathcal{I'})$. Pelo Lema~\ref{lemma:FKOCCOYY}, temos que $ib_1(\mathcal{I'}) = ib_2(\mathcal{I})$. Logo, $|S| \le 2ib_2(\mathcal{I})$. Pelo Teorema~\ref{theorem:NFVKZGKW}, temos o seguinte limitante inferior: $di_{\R}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I})}{2}$. Logo, o teorema segue.
 \end{proof}
 
 % ------------------------------------------------------------------ %
@@ -1070,7 +1070,7 @@ Perceba que os passos $(i)$ e $(ii)$ do Algoritmo~\ref{algorithm:EHDLZXJA} podem
 O Algoritmo~\ref{algorithm:EHDLZXJA} é uma $2$-aproximação para a variação com sinais do problema \SbIRM{}.
 \end{theorem}
 \begin{proof}
-Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida balanceada com sinais. Pelo Lema~\ref{lemma:APHTXLZC}, o Algoritmo~\ref{algorithm:EHDLZXJA} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando, no máximo, $2(n + 1) - (c(G(\mathcal{I})) + c_b(G(\mathcal{I})))$ eventos de reversão e move. Pelo Teorema~\ref{theorem:OCNPWYNL}, temos o seguinte limitante inferior: $d_{\IRM}(\mathcal{I}) \ge {n + 1} - \frac{c(G(\mathcal{I})) + c_b(G(\mathcal{I}))}{2}$. Assim, o teorema segue.
+Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida balanceada com sinais. Pelo Lema~\ref{lemma:APHTXLZC}, o Algoritmo~\ref{algorithm:EHDLZXJA} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando, no máximo, $2(n + 1) - (c(G(\mathcal{I})) + c_b(G(\mathcal{I})))$ eventos de reversão e move. Pelo Teorema~\ref{theorem:OCNPWYNL}, temos o seguinte limitante inferior: $di_{\RM}(\mathcal{I}) \ge {n + 1} - \frac{c(G(\mathcal{I})) + c_b(G(\mathcal{I}))}{2}$. Assim, o teorema segue.
 \end{proof}
 
 % ------------------------------------------------------------------ %
@@ -1123,7 +1123,7 @@ Note que o Algoritmo~\ref{algorithm:RYNLKYUJ}, em comparação com o Algoritmo~\
 O Algoritmo~\ref{algorithm:RYNLKYUJ} é uma $2$-aproximação para a variação com sinais do problema \SbIRMI{}.
 \end{theorem}
 \begin{proof}
-Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida com sinais. Pelo Lema~\ref{lemma:PBDEKMXG}, o Algoritmo~\ref{algorithm:RYNLKYUJ} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando, no máximo, $2(n + 1) - (c(G(\mathcal{I})) + c_b(G(\mathcal{I})))$ eventos de reversão, move e indel. Pelo Teorema~\ref{theorem:OCNPWYNL}, temos o seguinte limitante inferior: $d_{\IRMI}(\mathcal{I}) \ge {n + 1} - \frac{c(G(\mathcal{I})) + c_b(G(\mathcal{I}))}{2}$. Assim, o teorema segue.
+Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida com sinais. Pelo Lema~\ref{lemma:PBDEKMXG}, o Algoritmo~\ref{algorithm:RYNLKYUJ} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando, no máximo, $2(n + 1) - (c(G(\mathcal{I})) + c_b(G(\mathcal{I})))$ eventos de reversão, move e indel. Pelo Teorema~\ref{theorem:OCNPWYNL}, temos o seguinte limitante inferior: $di_{\RMI}(\mathcal{I}) \ge {n + 1} - \frac{c(G(\mathcal{I})) + c_b(G(\mathcal{I}))}{2}$. Assim, o teorema segue.
 \end{proof}
 
 % ------------------------------------------------------------------ %
@@ -1138,7 +1138,7 @@ Nesta seção, apresentaremos um algoritmo de aproximação com fator $4$ para a
 O Algoritmo~\ref{algorithm:WTARSEZM} é uma $4$-aproximação para a variação com sinais do problema \SbIRT{}.
 \end{theorem}
 \begin{proof}
-Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida balanceada com sinais. Note que o Algoritmo~\ref{algorithm:LCPCUFNZ} fornece uma sequência de reversões e transposições que afetam apenas breakpoints tipo um. Logo, nenhuma adjacência intergênica de $\mathcal{I'}$ é afetada. Além disso, pelo Lema~\ref{lemma:HIIRAXUH}, o Algoritmo~\ref{algorithm:LCPCUFNZ} utiliza, no máximo, $\frac{4ib_1(\mathcal{I'})}{3}$ eventos de reversão e transposição para transformar $(\pi',\breve\pi')$ em $(\iota',\breve\iota')$. Pelo Lema~\ref{lemma:GTTULLOM}, temos que $(\pi,\breve\pi) \cdot S = (\iota,\breve\iota)$ e $|S| = |S'| \le \frac{4ib_1(\mathcal{I'})}{3}$. Pelo Lema~\ref{lemma:FKOCCOYY}, temos que $ib_1(\mathcal{I'}) = ib_2(\mathcal{I})$. Logo, $|S| \le \frac{4ib_2(\mathcal{I})}{3}$. Pelo Teorema~\ref{theorem:NFVKZGKW}, temos o seguinte limitante inferior: $d_{\IRT}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I})}{3}$. Logo, o teorema segue.
+Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida balanceada com sinais. Note que o Algoritmo~\ref{algorithm:LCPCUFNZ} fornece uma sequência de reversões e transposições que afetam apenas breakpoints tipo um. Logo, nenhuma adjacência intergênica de $\mathcal{I'}$ é afetada. Além disso, pelo Lema~\ref{lemma:HIIRAXUH}, o Algoritmo~\ref{algorithm:LCPCUFNZ} utiliza, no máximo, $\frac{4ib_1(\mathcal{I'})}{3}$ eventos de reversão e transposição para transformar $(\pi',\breve\pi')$ em $(\iota',\breve\iota')$. Pelo Lema~\ref{lemma:GTTULLOM}, temos que $(\pi,\breve\pi) \cdot S = (\iota,\breve\iota)$ e $|S| = |S'| \le \frac{4ib_1(\mathcal{I'})}{3}$. Pelo Lema~\ref{lemma:FKOCCOYY}, temos que $ib_1(\mathcal{I'}) = ib_2(\mathcal{I})$. Logo, $|S| \le \frac{4ib_2(\mathcal{I})}{3}$. Pelo Teorema~\ref{theorem:NFVKZGKW}, temos o seguinte limitante inferior: $di_{\RT}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I})}{3}$. Logo, o teorema segue.
 \end{proof}
 
 % ------------------------------------------------------------------ %
@@ -1153,7 +1153,7 @@ Nesta seção, apresentaremos dois algoritmos de aproximação com fatores $4$ e
 O Algoritmo~\ref{algorithm:EQALRDVE} é uma $4$-aproximação para a variação com sinais do problema \SbIRTI{}.
 \end{theorem}
 \begin{proof}
-Seja $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida com sinais. Note que o Algoritmo~\ref{algorithm:YIZYUGZZ} fornece uma sequência de reversões, transposições e indels que afetam apenas breakpoints tipo um. Logo, nenhuma adjacência intergênica de $\mathcal{I'}$ é afetada. Além disso, pelo Lema~\ref{lemma:MUTXDAUG}, o Algoritmo~\ref{algorithm:YIZYUGZZ} utiliza, no máximo, $\frac{4ib_1(\mathcal{I'})}{3}$ ou $\frac{4ib_1(\mathcal{I'})}{3} + 1$ eventos de reversão, transposição e indel para transformar $(\pi',\breve\pi')$ em $(\iota',\breve\iota')$, se $\mathcal{I'}$ for balanceada ou desbalanceada, respectivamente. Pelo Lema~\ref{lemma:GTTULLOM}, temos que $(\pi,\breve\pi) \cdot S = (\iota,\breve\iota)$ e $|S| = |S'|$. Pelo Lema~\ref{lemma:FKOCCOYY}, temos que $ib_1(\mathcal{I'}) = ib_2(\mathcal{I})$. Logo, caso $\mathcal{I}$ seja balanceada temos que $|S| \le \frac{4ib_2(\mathcal{I})}{3}$. Caso contrário, temos que $|S| \le \frac{4ib_2(\mathcal{I})}{3} + 1$. Pelo Teorema~\ref{theorem:JGVDYLDM}, temos o seguinte limitante inferior: (i) se $\mathcal{I}$ for balanceada, então $d_{\IRT}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I})}{3}$; (ii) caso contrário, $d_{\IRT}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I}) + 2}{3}$. Se $\mathcal{I}$ for balanceada, temos que $\frac{\frac{4b_2(\mathcal{I})}{3}}{\frac{ib_2(\mathcal{I})}{3}}=4$. Se $\mathcal{I}$ for desbalanceada,  temos que $\frac{\frac{4ib_2(\mathcal{I})}{3} + 1}{\frac{ib_2(\mathcal{I}) + 2}{3}}=\frac{\frac{4ib_2(\mathcal{I})+3}{3}}{\frac{ib_2(\mathcal{I}) + 2}{3}}=\frac{4ib_2(\mathcal{I})+3}{ib_2(\mathcal{I})+2}$. Entretanto, como $\frac{4ib_2(\mathcal{I})+3}{ib_2(\mathcal{I})+2}<\frac{4(ib_2(\mathcal{I})+2)}{ib_2(\mathcal{I})+2}=4$, o teorema segue.
+Seja $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida com sinais. Note que o Algoritmo~\ref{algorithm:YIZYUGZZ} fornece uma sequência de reversões, transposições e indels que afetam apenas breakpoints tipo um. Logo, nenhuma adjacência intergênica de $\mathcal{I'}$ é afetada. Além disso, pelo Lema~\ref{lemma:MUTXDAUG}, o Algoritmo~\ref{algorithm:YIZYUGZZ} utiliza, no máximo, $\frac{4ib_1(\mathcal{I'})}{3}$ ou $\frac{4ib_1(\mathcal{I'})}{3} + 1$ eventos de reversão, transposição e indel para transformar $(\pi',\breve\pi')$ em $(\iota',\breve\iota')$, se $\mathcal{I'}$ for balanceada ou desbalanceada, respectivamente. Pelo Lema~\ref{lemma:GTTULLOM}, temos que $(\pi,\breve\pi) \cdot S = (\iota,\breve\iota)$ e $|S| = |S'|$. Pelo Lema~\ref{lemma:FKOCCOYY}, temos que $ib_1(\mathcal{I'}) = ib_2(\mathcal{I})$. Logo, caso $\mathcal{I}$ seja balanceada temos que $|S| \le \frac{4ib_2(\mathcal{I})}{3}$. Caso contrário, temos que $|S| \le \frac{4ib_2(\mathcal{I})}{3} + 1$. Pelo Teorema~\ref{theorem:JGVDYLDM}, temos o seguinte limitante inferior: (i) se $\mathcal{I}$ for balanceada, então $di_{\RT}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I})}{3}$; (ii) caso contrário, $di_{\RT}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I}) + 2}{3}$. Se $\mathcal{I}$ for balanceada, temos que $\frac{\frac{4b_2(\mathcal{I})}{3}}{\frac{ib_2(\mathcal{I})}{3}}=4$. Se $\mathcal{I}$ for desbalanceada,  temos que $\frac{\frac{4ib_2(\mathcal{I})}{3} + 1}{\frac{ib_2(\mathcal{I}) + 2}{3}}=\frac{\frac{4ib_2(\mathcal{I})+3}{3}}{\frac{ib_2(\mathcal{I}) + 2}{3}}=\frac{4ib_2(\mathcal{I})+3}{ib_2(\mathcal{I})+2}$. Entretanto, como $\frac{4ib_2(\mathcal{I})+3}{ib_2(\mathcal{I})+2}<\frac{4(ib_2(\mathcal{I})+2)}{ib_2(\mathcal{I})+2}=4$, o teorema segue.
 \end{proof}
 
 A seguir, utilizaremos a estrutura de grafo de ciclos ponderado rígido e apresentaremos lemas usados para obtenção de um algoritmo de aproximação com um fator $3$ para a variação com sinais do problema \SbIRTI{}.
@@ -1200,7 +1200,7 @@ Note que o Algoritmo~\ref{algorithm:YMHYMYQC} é uma extensão do algoritmo apre
 O Algoritmo~\ref{algorithm:YMHYMYQC} é uma $3$-aproximação para a variação com sinais do problema \SbIRTI{}.
 \end{theorem}
 \begin{proof}
-Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida com sinais. Pelo Lema~\ref{lemma:TKRHFREQ}, temos que o Algoritmo~\ref{algorithm:YMHYMYQC} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando, no máximo, $\frac{3(n+1 - c_b(G(\mathcal{I})))}{2}$ eventos de reversão, transposição e indel. Pelo Teorema~\ref{theorem:ZZBNVROM}, temos o seguinte limitante inferior: $d_{\IRTI}(\mathcal{I}) \ge\frac{{n + 1} - c_b(G(\mathcal{I}))}{2}$. Logo, o teorema segue.
+Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida com sinais. Pelo Lema~\ref{lemma:TKRHFREQ}, temos que o Algoritmo~\ref{algorithm:YMHYMYQC} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando, no máximo, $\frac{3(n+1 - c_b(G(\mathcal{I})))}{2}$ eventos de reversão, transposição e indel. Pelo Teorema~\ref{theorem:ZZBNVROM}, temos o seguinte limitante inferior: $di_{\RTI}(\mathcal{I}) \ge\frac{{n + 1} - c_b(G(\mathcal{I}))}{2}$. Logo, o teorema segue.
 \end{proof}
 
 % ------------------------------------------------------------------ %
@@ -1250,7 +1250,7 @@ Note que o Algoritmo~\ref{algorithm:EIFZNOAH}, no pior caso, tem o tempo de exec
 O Algoritmo~\ref{algorithm:EIFZNOAH} é uma $3$-aproximação para a variação com sinais do problema \SbIRTMI{}.
 \end{theorem}
 \begin{proof}
-Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida com sinais. Pelo Lema~\ref{lemma:TEVTTPGB}, temos que o Algoritmo~\ref{algorithm:EIFZNOAH} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando, no máximo, $\frac{3(n+1 - c_b(G(\mathcal{I})))}{2}$ eventos de reversão, transposição, move e indel. Pelo Teorema~\ref{theorem:ZZBNVROM}, temos o seguinte limitante inferior: $d_{\IRTMI}(\mathcal{I}) \ge\frac{{n + 1} - c_b(G(\mathcal{I}))}{2}$. Logo, o teorema segue.
+Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida com sinais. Pelo Lema~\ref{lemma:TEVTTPGB}, temos que o Algoritmo~\ref{algorithm:EIFZNOAH} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando, no máximo, $\frac{3(n+1 - c_b(G(\mathcal{I})))}{2}$ eventos de reversão, transposição, move e indel. Pelo Teorema~\ref{theorem:ZZBNVROM}, temos o seguinte limitante inferior: $di_{\RTMI}(\mathcal{I}) \ge\frac{{n + 1} - c_b(G(\mathcal{I}))}{2}$. Logo, o teorema segue.
 \end{proof}
 
 % ------------------------------------------------------------------ %
@@ -1384,8 +1384,8 @@ Dada uma instância intergênica rígida com ou sem sinais $\mathcal{I}=((\pi,\b
 Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida sem sinais. Com base na função de custo $W_1$, temos que:
 
 \begin{tabular}{lll}
-  $dw_{\WIRI}(\mathcal{I})$      & $ \ge $ & $\max(IR(\mathcal{I}),\frac{ib_1(\mathcal{I})}{2})$, \\ 
-  $dw_{\WIRTI}(\mathcal{I})$     & $ \ge $ & $\max(IR(\mathcal{I}),\frac{ib_1(\mathcal{I})}{3})$.
+  $dwi_{\RI}(\mathcal{I})$      & $ \ge $ & $\max(IR(\mathcal{I}),\frac{ib_1(\mathcal{I})}{2})$ \\ 
+  e $dwi_{\RTI}(\mathcal{I})$     & $ \ge $ & $\max(IR(\mathcal{I}),\frac{ib_1(\mathcal{I})}{3})$.
 \end{tabular}
 \begin{proof}
 Diretamente pelo Teorema~\ref{theorem:MPFPKHQO} e pelo custo mínimo de $IR(\mathcal{I})$ discutido anteriormente.
@@ -1396,8 +1396,8 @@ Diretamente pelo Teorema~\ref{theorem:MPFPKHQO} e pelo custo mínimo de $IR(\mat
 Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$  uma instância intergênica rígida com sinais. Com base na função de custo $W_1$, temos que:
 
 \begin{tabular}{lll}
-  $dw_{\WIRI}(\mathcal{I})$      & $ \ge $ & $\max(IR(\mathcal{I}),\frac{ib_2(\mathcal{I})}{2})$, \\ 
-  $dw_{\WIRTI}(\mathcal{I})$     & $ \ge $ & $\max(IR(\mathcal{I}),\frac{ib_2(\mathcal{I})}{3})$.
+  $dwi_{\RI}(\mathcal{I})$      & $ \ge $ & $\max(IR(\mathcal{I}),\frac{ib_2(\mathcal{I})}{2})$ \\ 
+  e $dwi_{\RTI}(\mathcal{I})$     & $ \ge $ & $\max(IR(\mathcal{I}),\frac{ib_2(\mathcal{I})}{3})$.
 \end{tabular}
 \begin{proof}
 Diretamente pelo Teorema~\ref{theorem:NFVKZGKW} e pelo custo mínimo de $IR(\mathcal{I})$ discutido anteriormente.
@@ -1457,15 +1457,15 @@ $$
 Com base nos custos da função $W_2$, obtemos para as variações com e sem sinais do problema \SbWIRTI{}, os limitantes inferiores descritos na sequência.
 
 \begin{theorem}\label{theorem:HFHHZDMV}
-Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida sem sinais. Com base na função de custo $W_2$, temos que $dw_{\WIRTI}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{3}$.
+Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida sem sinais. Com base na função de custo $W_2$, temos que $dwi_{\RTI}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{3}$.
 \begin{proof}
 Pelos lemas~\ref{lemma:KFFPUBQG}, \ref{lemma:IUJZCMMV} e \ref{lemma:KWIVENLG}, sabemos que, por operação, os eventos de reversão, transposição e indel removem, respectivamente, no máximo $2$, $3$ e $1$ breakpoint tipo um. Com base no melhor caso de cada evento de rearranjo e na função de custo $W_2$, temos que:
-$$dw_{\WIRTI}(\mathcal{I}) \ge \min\left(\frac{ib_1(\mathcal{I})}{2} \times 1,\frac{ib_1(\mathcal{I})}{3} \times 1, ib_1(\mathcal{I}) \times \frac{1}{2}\right) = \frac{ib_1(\mathcal{I})}{3},$$ e o teorema segue.
+$$dwi_{\RTI}(\mathcal{I}) \ge \min\left(\frac{ib_1(\mathcal{I})}{2} \times 1,\frac{ib_1(\mathcal{I})}{3} \times 1, ib_1(\mathcal{I}) \times \frac{1}{2}\right) = \frac{ib_1(\mathcal{I})}{3},$$ e o teorema segue.
 \end{proof}
 \end{theorem}
 
 \begin{theorem}\label{theorem:IXYMBAWM}
-Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida com sinais. Com base na função de custo $W_2$, temos que $dw_{\WIRTI}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I})}{3}$.
+Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida com sinais. Com base na função de custo $W_2$, temos que $dwi_{\RTI}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I})}{3}$.
 \begin{proof}
 A prova é similar à descrita no Teorema~\ref{theorem:HFHHZDMV}, mas considerando os lemas~\ref{lemma:IKBNJWMY}, \ref{lemma:MYVALTSG} e \ref{lemma:KXIYYHHL}.
 \end{proof}
@@ -1508,7 +1508,7 @@ Note que o tempo de execução do Algoritmo~\ref{algorithm:DYNWURLY} é $\mathca
 O Algoritmo~\ref{algorithm:DYNWURLY}, com base na função de custo $W_2$, é uma $3$-aproximação para a variação sem sinais do problema \SbWIRTI{}.
 \end{theorem}
 \begin{proof}
-Seja $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida sem sinais. Pelo Lema~\ref{lemma:IKTEYDRR}, o Algoritmo~\ref{algorithm:DYNWURLY} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando uma sequência de eventos de reversão, transposição e indel $S$, com um custo total de, no máximo, $ib_1(\mathcal{I})$. Pelo limitante inferior, apresentado no Teorema~\ref{theorem:HFHHZDMV}, temos que: $dw_{\WIRTI}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{3}$. Logo, o teorema segue.
+Seja $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida sem sinais. Pelo Lema~\ref{lemma:IKTEYDRR}, o Algoritmo~\ref{algorithm:DYNWURLY} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando uma sequência de eventos de reversão, transposição e indel $S$, com um custo total de, no máximo, $ib_1(\mathcal{I})$. Pelo limitante inferior, apresentado no Teorema~\ref{theorem:HFHHZDMV}, temos que: $dwi_{\RTI}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{3}$. Logo, o teorema segue.
 \end{proof}
 
 Considere o Algoritmo~\ref{algorithm:HHROEWVE} para a variação com sinais do problema \SbWIRTI{}, com base na função de custo $W_2$.
@@ -1528,7 +1528,7 @@ O Algoritmo~\ref{algorithm:HHROEWVE} também possui um tempo de execução de $\
 O Algoritmo~\ref{algorithm:HHROEWVE}, com base na função de custo $W_2$, é uma $3$-aproximação para a variação com sinais do problema \SbWIRTI{}.
 \end{theorem}
 \begin{proof}
-Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida com sinais. Pelo Lema~\ref{lemma:MBYKFLMR}, o Algoritmo~\ref{algorithm:HHROEWVE} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando uma sequência de eventos de reversão, transposição e indel, com um custo total de, no máximo, $ib_2(\mathcal{I})$. Pelo limitante inferior, apresentado no Teorema~\ref{theorem:IXYMBAWM}, temos que: $dw_{\WIRTI}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I})}{3}$. Logo, o teorema segue.
+Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida com sinais. Pelo Lema~\ref{lemma:MBYKFLMR}, o Algoritmo~\ref{algorithm:HHROEWVE} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando uma sequência de eventos de reversão, transposição e indel, com um custo total de, no máximo, $ib_2(\mathcal{I})$. Pelo limitante inferior, apresentado no Teorema~\ref{theorem:IXYMBAWM}, temos que: $dwi_{\RTI}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I})}{3}$. Logo, o teorema segue.
 \end{proof}
 
 A terceira função de custo, chamada de $W_3$, é baseada na proporção de regiões intergênicas afetadas por cada evento de rearranjo~\cite{2018-alexandrino-etal}. A seguir, descrevemos formalmente a função de custo $W_3$.
@@ -1544,15 +1544,15 @@ $$
 Com base nos custos da função $W_3$, obtemos para as variações com e sem sinais do problema \SbWIRTI{}, os limitantes inferiores descritos na sequência.
 
 \begin{theorem}\label{theorem:BFKDUKUF}
-Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida sem sinais. Com base na função de custo $W_3$, temos que $dw_{\WIRTI}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{2}$.
+Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida sem sinais. Com base na função de custo $W_3$, temos que $dwi_{\RTI}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{2}$.
 \begin{proof}
 Pelos lemas~\ref{lemma:KFFPUBQG}, \ref{lemma:IUJZCMMV} e \ref{lemma:KWIVENLG}, sabemos que, por operação, os eventos de reversão, transposição e indel removem, respectivamente, no máximo $2$, $3$ e $1$ breakpoint tipo um. Com base no melhor caso de cada evento de rearranjo e na função de custo $W_3$, temos que:
-$$dw_{\WIRTI}(\mathcal{I}) \ge \min\left(\frac{ib_1(\mathcal{I})}{2} \times 1,\frac{ib_1(\mathcal{I})}{3} \times \frac{3}{2}, ib_1(\mathcal{I}) \times \frac{1}{2}\right) = \frac{ib_1(\mathcal{I})}{2},$$ e o teorema segue.
+$$dwi_{\RTI}(\mathcal{I}) \ge \min\left(\frac{ib_1(\mathcal{I})}{2} \times 1,\frac{ib_1(\mathcal{I})}{3} \times \frac{3}{2}, ib_1(\mathcal{I}) \times \frac{1}{2}\right) = \frac{ib_1(\mathcal{I})}{2},$$ e o teorema segue.
 \end{proof}
 \end{theorem}
 
 \begin{theorem}\label{theorem:ACJPZCWD}
-Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida com sinais. Com base na função de custo $W_2$, temos que $dw_{\WIRTI}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I})}{2}$.
+Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida com sinais. Com base na função de custo $W_2$, temos que $dwi_{\RTI}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I})}{2}$.
 \begin{proof}
 A prova é similar à descrita no Teorema~\ref{theorem:BFKDUKUF}, mas considerando os lemas~\ref{lemma:IKBNJWMY}, \ref{lemma:MYVALTSG} e \ref{lemma:KXIYYHHL}.
 \end{proof}
@@ -1569,7 +1569,7 @@ Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância interg
 O Algoritmo~\ref{algorithm:DYNWURLY}, com base na função de custo $W_3$, é uma $3$-aproximação para a variação sem sinais do problema \SbWIRTI{}.
 \end{theorem}
 \begin{proof}
-Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida sem sinais. Pelo Lema~\ref{lemma:FESYSSFB}, o Algoritmo~\ref{algorithm:DYNWURLY} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando uma sequência de eventos de reversão, transposição e indel $S$, com um custo total de, no máximo, $\frac{3ib_1(\mathcal{I})}{2}$. Pelo limitante inferior, apresentado no Teorema~\ref{theorem:BFKDUKUF}, temos que: $dw_{\WIRTI}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{2}$. Logo, o teorema segue.
+Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida sem sinais. Pelo Lema~\ref{lemma:FESYSSFB}, o Algoritmo~\ref{algorithm:DYNWURLY} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando uma sequência de eventos de reversão, transposição e indel $S$, com um custo total de, no máximo, $\frac{3ib_1(\mathcal{I})}{2}$. Pelo limitante inferior, apresentado no Teorema~\ref{theorem:BFKDUKUF}, temos que: $dwi_{\RTI}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{2}$. Logo, o teorema segue.
 \end{proof}
 
 \begin{lemma}\label{lemma:HRFGEWNU}
@@ -1583,7 +1583,7 @@ Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância interg
 O Algoritmo~\ref{algorithm:HHROEWVE}, com base na função de custo $W_3$, é uma $3$-aproximação para a variação com sinais do problema \SbWIRTI{}.
 \end{theorem}
 \begin{proof}
-Pelo Lema~\ref{lemma:HRFGEWNU}, o Algoritmo~\ref{algorithm:HHROEWVE} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando uma sequência de eventos de reversão, transposição e indel $S$, com um custo total de, no máximo, $\frac{3ib_2(\mathcal{I})}{2}$. Pelo limitante inferior, apresentado no Teorema~\ref{theorem:ACJPZCWD}, temos que: $dw_{\WIRTI}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I})}{2}$. Logo, o teorema segue.
+Pelo Lema~\ref{lemma:HRFGEWNU}, o Algoritmo~\ref{algorithm:HHROEWVE} transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando uma sequência de eventos de reversão, transposição e indel $S$, com um custo total de, no máximo, $\frac{3ib_2(\mathcal{I})}{2}$. Pelo limitante inferior, apresentado no Teorema~\ref{theorem:ACJPZCWD}, temos que: $dwi_{\RTI}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I})}{2}$. Logo, o teorema segue.
 \end{proof}
 
 A seguir, apresentamos duas funções de custo para o problema \SbWIRT{} que são amplamente utilizadas na literatura em modelos compostos pelos eventos conservativos de reversão e transposição. A primeira função de custo, chamada de $W_4$, adota os custos $1$ e $2$ para os eventos de reversão e transposição, respectivamente~\cite{2002-eriksen}. A segunda função de custo, chamada de $W_5$, adota os custos $1$ e $\frac{3}{2}$ para os eventos de reversão e transposição, respectivamente~\cite{2019a-oliveira-etal}. A seguir, descrevemos formalmente as funções de custo $W_4$ e $W_5$.
@@ -1605,15 +1605,15 @@ $$
 Com base nos custos das funções $W_4$ e $W_5$, obtemos para as variações com e sem sinais do problema \SbWIRT{}, os limitantes inferiores descritos na sequência.
 
 \begin{theorem}\label{theorem:TUSWAWTT}
-Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida balanceada sem sinais. Com base na função de custo $W_4$, temos que $dw_{\WIRT}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{2}$.
+Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida balanceada sem sinais. Com base na função de custo $W_4$, temos que $dwi_{\RT}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{2}$.
 \begin{proof}
 Pelos lemas~\ref{lemma:KFFPUBQG}, \ref{lemma:IUJZCMMV} e \ref{lemma:KWIVENLG}, sabemos que, por operação, os eventos de reversão, transposição e indel removem, respectivamente, no máximo $2$, $3$ e $1$ breakpoint tipo um. Com base no melhor caso de cada evento de rearranjo e na função de custo $W_4$, temos que:
-$$dw_{\WIRTI}(\mathcal{I}) \ge \min\left(\frac{ib_1(\mathcal{I})}{2} \times 1,\frac{ib_1(\mathcal{I})}{3} \times 2\right) = \frac{ib_1(\mathcal{I})}{2},$$ e o teorema segue.
+$$dwi_{\RTI}(\mathcal{I}) \ge \min\left(\frac{ib_1(\mathcal{I})}{2} \times 1,\frac{ib_1(\mathcal{I})}{3} \times 2\right) = \frac{ib_1(\mathcal{I})}{2},$$ e o teorema segue.
 \end{proof}
 \end{theorem}
 
 \begin{theorem}\label{theorem:RPTOVHAP}
-Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida balanceada com sinais. Com base na função de custo $W_4$, temos que $dw_{\WIRT}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I})}{2}$.
+Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida balanceada com sinais. Com base na função de custo $W_4$, temos que $dwi_{\RT}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I})}{2}$.
 \begin{proof}
 A prova é similar à descrita no Teorema~\ref{theorem:TUSWAWTT}, mas considerando os lemas~\ref{lemma:IKBNJWMY}, \ref{lemma:MYVALTSG} e \ref{lemma:KXIYYHHL}.
 \end{proof}
@@ -1630,7 +1630,7 @@ Pelo Lema~\ref{lemma:RNJHXOWZ}, sabemos que o Algoritmo~\ref{algorithm:JQHVZACM}
 O Algoritmo~\ref{algorithm:JQHVZACM}, com base na função de custo $W_4$, é uma $4$-aproximação para a variação sem sinais do problema \SbWIRT{}.
 \end{theorem}
 \begin{proof}
-Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida balanceada sem sinais. Pelo Lema~\ref{lemma:DDSJVECJ}, o Algoritmo~\ref{algorithm:JQHVZACM}, com base na função de custo $W_4$, transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando uma sequência de eventos de reversão e transposição com um custo total de, no máximo, $2ib_1(\mathcal{I})$. Pelo limitante inferior, apresentado no Teorema~\ref{theorem:TUSWAWTT}, temos que: $dw_{\WIRT}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I})}{2}$. Logo, o teorema segue.
+Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida balanceada sem sinais. Pelo Lema~\ref{lemma:DDSJVECJ}, o Algoritmo~\ref{algorithm:JQHVZACM}, com base na função de custo $W_4$, transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando uma sequência de eventos de reversão e transposição com um custo total de, no máximo, $2ib_1(\mathcal{I})$. Pelo limitante inferior, apresentado no Teorema~\ref{theorem:TUSWAWTT}, temos que: $dwi_{\RT}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I})}{2}$. Logo, o teorema segue.
 \end{proof}
 
 Considere o Algoritmo~\ref{algorithm:JRRYCBXN} para a variação com sinais do problema \SbWIRT{}, com base na função de custo $W_4$.
@@ -1648,19 +1648,19 @@ Note que o Algoritmo~\ref{algorithm:JQHVZACM} fornece uma sequência de reversõ
 O Algoritmo~\ref{algorithm:JRRYCBXN}, com base na função de custo $W_4$, é uma $4$-aproximação para a variação com sinais do problema \SbWIRT{}.
 \end{theorem}
 \begin{proof}
-Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida balanceada com sinais. Pelo Lema~\ref{lemma:TMZVZPOF}, o Algoritmo~\ref{algorithm:JRRYCBXN}, com base na função de custo $W_4$, transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando uma sequência de eventos de reversão e transposição com um custo total de, no máximo, $2ib_2(\mathcal{I})$. Pelo limitante inferior, apresentado no Teorema~\ref{theorem:RPTOVHAP}, temos que $dw_{\WIRT}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I})}{2}$. Logo, o teorema segue.
+Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida balanceada com sinais. Pelo Lema~\ref{lemma:TMZVZPOF}, o Algoritmo~\ref{algorithm:JRRYCBXN}, com base na função de custo $W_4$, transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando uma sequência de eventos de reversão e transposição com um custo total de, no máximo, $2ib_2(\mathcal{I})$. Pelo limitante inferior, apresentado no Teorema~\ref{theorem:RPTOVHAP}, temos que $dwi_{\RT}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I})}{2}$. Logo, o teorema segue.
 \end{proof}
 
 \begin{theorem}\label{theorem:XDQCRTEI}
-Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida balanceada sem sinais. Com base na função de custo $W_5$, temos que $dw_{\WIRT}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{2}$.
+Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida balanceada sem sinais. Com base na função de custo $W_5$, temos que $dwi_{\RT}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{2}$.
 \begin{proof}
 Pelos lemas~\ref{lemma:KFFPUBQG}, \ref{lemma:IUJZCMMV} e \ref{lemma:KWIVENLG}, sabemos que, por operação, os eventos de reversão, transposição e indel removem, respectivamente, no máximo $2$, $3$ e $1$ breakpoint tipo um. Com base no melhor caso de cada evento de rearranjo e na função de custo $W_5$, temos que:
-$$dw_{\WIRTI}(\mathcal{I}) \ge \min\left(\frac{ib_1(\mathcal{I})}{2} \times 1,\frac{ib_1(\mathcal{I})}{3} \times \frac{3}{2}\right) = \frac{ib_1(\mathcal{I})}{2},$$ e o teorema segue.
+$$dwi_{\RTI}(\mathcal{I}) \ge \min\left(\frac{ib_1(\mathcal{I})}{2} \times 1,\frac{ib_1(\mathcal{I})}{3} \times \frac{3}{2}\right) = \frac{ib_1(\mathcal{I})}{2},$$ e o teorema segue.
 \end{proof}
 \end{theorem}
 
 \begin{theorem}\label{theorem:MCKFPIOP}
-Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida balanceada com sinais. Com base na função de custo $W_5$, temos que $dw_{\WIRT}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I})}{2}$.
+Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida balanceada com sinais. Com base na função de custo $W_5$, temos que $dwi_{\RT}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I})}{2}$.
 \begin{proof}
 A prova é similar à descrita no Teorema~\ref{theorem:XDQCRTEI}, mas considerando os lemas~\ref{lemma:IKBNJWMY}, \ref{lemma:MYVALTSG} e \ref{lemma:KXIYYHHL}.
 \end{proof}
@@ -1677,7 +1677,7 @@ Pelo Lema~\ref{lemma:RNJHXOWZ}, sabemos que o Algoritmo~\ref{algorithm:JQHVZACM}
 O Algoritmo~\ref{algorithm:JQHVZACM}, com base na função de custo $W_5$, é uma $3.5$-aproxima\-ção para a variação sem sinais do problema \SbWIRT{}.
 \end{theorem}
 \begin{proof}
-Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida balanceada sem sinais. Pelo Lema~\ref{lemma:ODPHCEIG}, o Algoritmo~\ref{algorithm:JQHVZACM}, com base na função de custo $W_5$, transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando uma sequência de eventos de reversão e transposição com um custo total de, no máximo, $\frac{7ib_1(\mathcal{I})}{4}$. Pelo limitante inferior, apresentado no Teorema~\ref{theorem:XDQCRTEI}, temos que: $dw_{\WIRT}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{2}$. Logo, o teorema segue.
+Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida balanceada sem sinais. Pelo Lema~\ref{lemma:ODPHCEIG}, o Algoritmo~\ref{algorithm:JQHVZACM}, com base na função de custo $W_5$, transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando uma sequência de eventos de reversão e transposição com um custo total de, no máximo, $\frac{7ib_1(\mathcal{I})}{4}$. Pelo limitante inferior, apresentado no Teorema~\ref{theorem:XDQCRTEI}, temos que: $dwi_{\RT}(\mathcal{I}) \ge \frac{ib_1(\mathcal{I})}{2}$. Logo, o teorema segue.
 \end{proof}
 
 \begin{lemma}\label{lemma:MUTSEXQW}
@@ -1691,7 +1691,7 @@ A prova é similar à descrita no Lema~\ref{lemma:TMZVZPOF} considerando a funç
 O Algoritmo~\ref{algorithm:JRRYCBXN}, com base na função de custo $W_5$, é uma $3.5$-aproxima\-ção para a variação com sinais do problema \SbWIRT{}.
 \end{theorem}
 \begin{proof}
-Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida balanceada com sinais. Pelo Lema~\ref{lemma:MUTSEXQW}, o Algoritmo~\ref{algorithm:JQHVZACM}, com base na função de custo $W_5$, transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando uma sequência de eventos de reversão e transposição com um custo total de, no máximo, $\frac{7ib_2(\mathcal{I})}{4}$. Pelo limitante inferior, apresentado no Teorema~\ref{theorem:MCKFPIOP}, temos que: $dw_{\WIRT}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I})}{2}$. Logo, o teorema segue.
+Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida balanceada com sinais. Pelo Lema~\ref{lemma:MUTSEXQW}, o Algoritmo~\ref{algorithm:JQHVZACM}, com base na função de custo $W_5$, transforma $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ utilizando uma sequência de eventos de reversão e transposição com um custo total de, no máximo, $\frac{7ib_2(\mathcal{I})}{4}$. Pelo limitante inferior, apresentado no Teorema~\ref{theorem:MCKFPIOP}, temos que: $dwi_{\RT}(\mathcal{I}) \ge \frac{ib_2(\mathcal{I})}{2}$. Logo, o teorema segue.
 \end{proof}
 
 

@@ -3,9 +3,9 @@
   \Entrada{Uma instância intergênica rígida balanceada com sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$}
   \Saida{Uma sequência de reversões, moves e indels $S$, tal que $(\pi,\breve\pi) \cdot S = (\iota,\breve\iota)$}
     Seja $S \gets ()$ \\
-    \Enqto{$c(G(\mathcal{I})) < {n+1}$ e $c_b(G(\mathcal{I})) < {n+1}$}{
+    \Enqto{$c(G(\mathcal{I})) < {n+1}$ ou $c_b(G(\mathcal{I})) < {n+1}$}{
       \Se{existir um ciclo trivial negativo $C$ em $G(\mathcal{I})$}{
-        \Se{existir um ciclo desbalanceado $D$ em $G(\mathcal{I})$}{
+        \Se{existir um ciclo desbalanceado $D$ em $G(\mathcal{I})$, tal que $D \ne C$,}{
           \tcp{Lema~\ref{lemma:NTNBEHIO}}
           $S^{\prime} \gets (\mu_1)$ \\
         }\Senao{

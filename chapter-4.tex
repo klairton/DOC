@@ -46,7 +46,7 @@ Nesta seção, apresentaremos os resultados para as variações com e sem sinais
 
 Nesta seção, apresentaremos limitantes inferiores para as variações com e sem sinais dos problemas investigados neste capítulo em um cenário não ponderado.
 
-Em instâncias intergênicas rígidas com e sem sinais utilizaremos o conceito de breakpoint tipo dois e um, respectivamente. Os eventos de rearranjo de reversão, transposição, move e indel afetam, respectivamente, a seguinte quantidade de regiões intergênicas: duas, três, duas e uma. No melhor cenário, cada uma das regiões intergênicas afetadas faz parte de um breakpoint que é removido após o evento de rearranjo ser aplicado. Com isso, obtemos os seguintes lemas.
+Em instâncias intergênicas rígidas com e sem sinais utilizaremos o conceito de breakpoint intergênico tipo dois e um, respectivamente (Seção~\ref{subsection:JHXBSDPQ}). Os eventos de rearranjo de reversão, transposição, move e indel afetam, respectivamente, a seguinte quantidade de regiões intergênicas: duas, três, duas e uma. No melhor cenário, cada uma das regiões intergênicas afetadas faz parte de um breakpoint que é removido após o evento de rearranjo ser aplicado. Com isso, obtemos os seguintes lemas.
 
 \begin{lemma}\label{lemma:KFFPUBQG}
 Dada uma instância intergênica rígida sem sinais $\mathcal{I}$, para qualquer reversão $\rho$ temos que $\Delta ib_1(\mathcal{I}, S = (\rho)) \ge -2$.
@@ -130,7 +130,7 @@ Seja uma instância intergênica rígida com sinais $\mathcal{I} = ((\pi,\breve\
 Pela Observação~\ref{remark:UDYJTHAH}, para transformar $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$ é necessário remover os $ib_2(\mathcal{I})$ breakpoints tipo dois de $\mathcal{I}$. Note que se $\mathcal{I}$ for balanceada, então podemos aplicar o Teorema~\ref{theorem:NFVKZGKW}. Caso contrário, sabemos que para ser possível transformar $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$, pelo menos um indel deve ser utilizado. Pelo Lema~\ref{lemma:KXIYYHHL}, temos que, no máximo, um breakpoint tipo dois pode ser removido utilizando uma operação de indel. No melhor caso, após aplicar apenas um indel, $\mathcal{I}$  torna-se uma instância balanceada e um breakpoint tipo dois é removido. Assim, restam $ib_2(\mathcal{I}) - 1$ breakpoints para serem removidos de $\mathcal{I}$. Considerando os eventos de reversão, transposição e indel, três breakpoints tipo um, no máximo, podem ser removidos por operação (lemas~\ref{lemma:IKBNJWMY}, \ref{lemma:MYVALTSG} e \ref{lemma:KXIYYHHL}). Logo, pelo menos $\frac{ib_2(\mathcal{I}) - 1}{3}$ eventos de reversão, transposição ou indel são necessários para remover o restante dos breakpoints tipo dois. Dessa forma, pelo menos $\frac{ib_2(\mathcal{I}) - 1}{3} + 1 = \frac{ib_2(\mathcal{I}) + 2}{3}$ eventos de reversão, transposição e indel são necessários para transformar $(\pi,\breve\pi)$ em $(\iota,\breve\iota)$, e o teorema segue.
 \end{proof}
 
-Considerando o grafo de ciclos ponderado rígido criado a partir de uma instância intergênica rígida com sinais, o evento de reversão afeta duas arestas pretas do grafo e pode aumentar tanto o número de ciclos como também o número de ciclos balanceados. O evento de transposição afeta três arestas pretas do grafo e pode aumentar tanto o número de ciclos como o número de ciclos balanceados. O evento de move afeta duas arestas pretas do grafo, mas pode aumentar somente o número de ciclos balanceados no grafo. Já o evento de indel afeta apenas uma aresta preta do grafo e pode aumentar somente o número de ciclos balanceados. Dessa forma, dada uma instância intergênica rígida com sinais $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$, temos que $\Delta c(G(\mathcal{I}), S=(\rho)) \in \{1,0,-1\}$ e $\Delta c_b(G(\mathcal{I}), S=(\rho)) \in \{1,0,-1\}$ para qualquer reversão $\rho$~\cite{1996-bafna-pevzner,2021b-oliveira-etal}. De maneira similar, temos que $\Delta c(G(\mathcal{I}), S=(\tau)) \in \{2,0,-2\}$ e $\Delta c_b(G(\mathcal{I}), S=(\tau)) \in \{2,1,0,{-1},{-2}\}$ para qualquer transposição $\tau$~\cite{1998-bafna-pevzner,2021a-oliveira-etal}, $\Delta c(G(\mathcal{I}), S=(\mu)) = 0$ e $\Delta c_b(G(\mathcal{I}), S=(\mu)) \in \{2,1,0,{-1},{-2}\}$ para qualquer move $\mu$~\cite{2021a-oliveira-etal}, e $\Delta c(G(\mathcal{I}), S=(\delta)) = 0$ e $\Delta c_b(G(\mathcal{I}), S=(\delta)) \in \{1,0,{-1}\}$ para qualquer indel $\delta$~\cite{2021b-oliveira-etal}. Com isso, obtemos os seguintes limitantes inferiores.
+Considerando o grafo de ciclos ponderado rígido (Seção~\ref{subsection:SDWELPAZ}) criado a partir de uma instância intergênica rígida com sinais, o evento de reversão afeta duas arestas pretas do grafo e pode aumentar tanto o número de ciclos como também o número de ciclos balanceados. O evento de transposição afeta três arestas pretas do grafo e pode aumentar tanto o número de ciclos como o número de ciclos balanceados. O evento de move afeta duas arestas pretas do grafo, mas pode aumentar somente o número de ciclos balanceados no grafo. Já o evento de indel afeta apenas uma aresta preta do grafo e pode aumentar somente o número de ciclos balanceados. Dessa forma, dada uma instância intergênica rígida com sinais $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$, temos que $\Delta c(G(\mathcal{I}), S=(\rho)) \in \{1,0,-1\}$ e $\Delta c_b(G(\mathcal{I}), S=(\rho)) \in \{1,0,-1\}$ para qualquer reversão $\rho$~\cite{1996-bafna-pevzner,2021b-oliveira-etal}. De maneira similar, temos que $\Delta c(G(\mathcal{I}), S=(\tau)) \in \{2,0,-2\}$ e $\Delta c_b(G(\mathcal{I}), S=(\tau)) \in \{2,1,0,{-1},{-2}\}$ para qualquer transposição $\tau$~\cite{1998-bafna-pevzner,2021a-oliveira-etal}, $\Delta c(G(\mathcal{I}), S=(\mu)) = 0$ e $\Delta c_b(G(\mathcal{I}), S=(\mu)) \in \{2,1,0,{-1},{-2}\}$ para qualquer move $\mu$~\cite{2021a-oliveira-etal}, e $\Delta c(G(\mathcal{I}), S=(\delta)) = 0$ e $\Delta c_b(G(\mathcal{I}), S=(\delta)) \in \{1,0,{-1}\}$ para qualquer indel $\delta$~\cite{2021b-oliveira-etal}. Com isso, obtemos os seguintes limitantes inferiores.
 
 \begin{theorem}\label{theorem:OCNPWYNL}
 Dada uma instância intergênica rígida com sinais $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$, temos que:
@@ -323,10 +323,12 @@ A prova é similar à descrita no Teorema~\ref{theorem:YARJETHG}, mas utilizando
 \subsection{Instâncias Intergênicas Rígidas sem Sinais}
 % ------------------------------------------------------------------ %
 
-Nesta seção, apresentaremos algoritmos para os problemas em um cenário não ponderado e considerando uma representação intergênica rígida sem sinais de um genoma. Inicialmente iremos apresentar alguns lemas que serão utilizados por múltiplos algoritmos. 
+Nesta seção, apresentaremos algoritmos para os problemas em um cenário não ponderado e em instâncias intergênicas rígidas sem sinais.
+
+Inicialmente iremos apresentar alguns lemas que serão utilizados por múltiplos algoritmos. O lema seguinte faz uso do conceito de um par conectado de breakpoints (Definição~\ref{definition:SUHDBNQI}) para mostrar uma característica importante presente em instâncias intergênicas rígidas balanceadas sem sinais e também em instâncias intergênicas rígidas sem sinais em que o total de nucleotídeos no genoma de origem é maior do que o total de nucleotídeos no genoma alvo.
 
 \begin{lemma}\label{lemma:WYEZMYTM}
-Dada uma instância intergênica rígida sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, tal que $\sum_{i=1}^{n+1}\breve\pi_i \ge \sum_{i=1}^{n+1}\breve\iota_i$ e $ib_1(\mathcal{I}) > 1$, então é sempre possível encontrar um par conectado de breakpoints (Definição~\ref{definition:SUHDBNQI}).
+Dada uma instância intergênica rígida sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, tal que $\sum_{i=1}^{n+1}\breve\pi_i \ge \sum_{i=1}^{n+1}\breve\iota_i$ e $ib_1(\mathcal{I}) > 1$, então é sempre possível encontrar um par conectado de breakpoints.
 \end{lemma}
 \begin{proof}
 Suponha por contradição que exista uma instância intergênica rígida sem sinais $\mathcal{I}=((\pi,\breve\pi),(\iota,\breve\iota))$, tal que $\sum_{i=1}^{n+1}\breve\pi_i \ge \sum_{i=1}^{n+1}\breve\iota_i$, $ib_1(\mathcal{I}) > 1$, e que não exista nenhum par conectado de breakpoints em $\mathcal{I}$. Note que $\mathcal{I}$ não deve possuir nenhum breakpoint sobrecarregado, uma vez que, pela característica de um breakpoint sobrecarregado, ele está conectado com qualquer outro breakpoint. Além disso, $\mathcal{I}$ deve possuir, pelo menos, um breakpoint suave. Note que, se $\mathcal{I}$ possuir apenas breakpoints subcarregados, implica que $\sum_{i=1}^{n+1}\breve\pi_i < \sum_{i=1}^{n+1}\breve\iota_i$, o que contradiz a suposição inicial de que $\sum_{i=1}^{n+1}\breve\pi_i \ge \sum_{i=1}^{n+1}\breve\iota_i$. Como não existe nenhum par conectado de breakpoints em $\mathcal{I}$, isso implica que as regiões intergênicas dos breakpoints suaves não possuem nucleotídeos suficiente para removê-los sem torná-los subcarregados. Dessa forma, temos que $\sum_{i=1}^{n+1}\breve\pi_i < \sum_{i=1}^{n+1}\breve\iota_i$, o que novamente contradiz a suposição inicial de que $\sum_{i=1}^{n+1}\breve\pi_i \ge \sum_{i=1}^{n+1}\breve\iota_i$. Logo, o lema segue.
@@ -938,7 +940,7 @@ Dessa forma, a utilização da heurística I (Algoritmo~\ref{algorithm:XPAWWVSJ}
 \subsection{Instâncias Intergênicas Rígidas com Sinais}
 % ------------------------------------------------------------------ %
 
-Nesta seção, apresentaremos algoritmos para os problemas investigados neste capítulo considerando uma representação intergênica rígida com sinais de um genoma. Inicialmente iremos apresentar algumas definições e lemas que serão utilizados por múltiplos algoritmos.
+Nesta seção, apresentaremos algoritmos para os problemas investigados neste capítulo em um cenário não ponderado e em instâncias intergênicas rígidas com sinais. Inicialmente iremos apresentar algumas definições e lemas que serão utilizados por múltiplos algoritmos.
 
 A seguir, descrevemos a transformação de \emph{duplicação}, que pode ser aplicada em uma representação intergênica rígida com sinais. Caso a representação esteja na forma estendida, os elementos $\pi_0$ e $\pi_{n+1}$ são ignorados, a transformação é aplicada e a nova representação resultante é então estendida.
 
@@ -1337,7 +1339,7 @@ De maneira geral, todos os algoritmos apresentaram um bom desempenho na prática
 
 Nesta seção, apresentaremos os resultados utilizando genomas reais de cianobactérias.
 
-Para demonstrar a aplicabilidade dos algoritmos propostos utilizamos dados reais de 97 genomas de cianobactérias do Cyanorak 2.1~\cite{cyanorak}, que é um sistema para visualização e curadoria de genomas de picocianobactérias marinhas e salobras. A quantidade de genes por genoma variou de 1834 até 4391, sendo que a porcentagem da quantidade de genes replicados em relação à quantidade total de genes, na média, foi menor que 5\%. Realizamos uma etapa de pré-processamento para garantir que os dados se ajustassem às restrições do modelo, que é dividido em duas etapas:
+Para demonstrar a aplicabilidade dos algoritmos propostos, utilizamos dados reais de 97 genomas de cianobactérias do Cyanorak 2.1~\cite{cyanorak}, que é um sistema para visualização e curadoria de genomas de picocianobactérias marinhas e salobras. A quantidade de genes por genoma variou de 1834 até 4391, sendo que a porcentagem da quantidade de genes replicados em relação à quantidade total de genes, na média, foi menor que 5\%. Realizamos uma etapa de pré-processamento para garantir que os dados se ajustassem às restrições do modelo, que é dividido em duas etapas:
 \begin{itemize}
   \item Mapear a sequência de genes e o tamanho das regiões intergênicas em uma representação intergênica rígida com sinais $(\pi,\breve\pi)$: Para cada genoma, mapeamos a primeira ocorrência dos genes em uma permutação $\pi$ e calculamos o tamanho das regiões intergênicas para obter $\breve\pi$.
   \item Emparelhamento: Para cada par de genomas, realizamos um emparelhamento para que os genes e os blocos conservados compartilhados por ambos os genomas fossem mantidos, enquanto os genes restantes fossem removidos através de um processo que simula uma sequência de deleções. Por fim, se a instância resultante não for balanceada, aplicamos apenas um indel para torná-la balanceada inserindo nucleotídeos do genoma com menos nucleotídeos no total.
@@ -1381,8 +1383,8 @@ Dada uma instância intergênica rígida com ou sem sinais $\mathcal{I}=((\pi,\b
 Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida sem sinais. Com base na função de custo $W_1$, temos que:
 
 \begin{tabular}{lll}
-  $dwi_{\RI}(\mathcal{I})$      & $ \ge $ & $\max(IR(\mathcal{I}),\frac{ib_1(\mathcal{I})}{2})$ \\ 
-  e $dwi_{\RTI}(\mathcal{I})$     & $ \ge $ & $\max(IR(\mathcal{I}),\frac{ib_1(\mathcal{I})}{3})$.
+  $dwi_{\RI}(\mathcal{I})$      & $ \ge $ & $\max(IR(\mathcal{I}),\frac{ib_1(\mathcal{I})}{2})$ e \\ 
+  $dwi_{\RTI}(\mathcal{I})$     & $ \ge $ & $\max(IR(\mathcal{I}),\frac{ib_1(\mathcal{I})}{3})$.
 \end{tabular}
 \begin{proof}
 Diretamente pelo Teorema~\ref{theorem:MPFPKHQO} e pelo custo mínimo de $IR(\mathcal{I})$ discutido anteriormente.
@@ -1393,8 +1395,8 @@ Diretamente pelo Teorema~\ref{theorem:MPFPKHQO} e pelo custo mínimo de $IR(\mat
 Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$  uma instância intergênica rígida com sinais. Com base na função de custo $W_1$, temos que:
 
 \begin{tabular}{lll}
-  $dwi_{\RI}(\mathcal{I})$      & $ \ge $ & $\max(IR(\mathcal{I}),\frac{ib_2(\mathcal{I})}{2})$ \\ 
-  e $dwi_{\RTI}(\mathcal{I})$     & $ \ge $ & $\max(IR(\mathcal{I}),\frac{ib_2(\mathcal{I})}{3})$.
+  $dwi_{\RI}(\mathcal{I})$      & $ \ge $ & $\max(IR(\mathcal{I}),\frac{ib_2(\mathcal{I})}{2})$ e \\ 
+  $dwi_{\RTI}(\mathcal{I})$     & $ \ge $ & $\max(IR(\mathcal{I}),\frac{ib_2(\mathcal{I})}{3})$.
 \end{tabular}
 \begin{proof}
 Diretamente pelo Teorema~\ref{theorem:NFVKZGKW} e pelo custo mínimo de $IR(\mathcal{I})$ discutido anteriormente.
@@ -1441,7 +1443,7 @@ O Algoritmo~\ref{algorithm:EQALRDVE}, com base na função de custo $W_1$, é um
 A prova é similar à descrita no Teorema~\ref{theorem:YATYVCZX}, mas considerando o Algoritmo~\ref{algorithm:EQALRDVE}, que utiliza o Algoritmo~\ref{algorithm:YIZYUGZZ} em parte de sua execução, e o limitante inferior apresentado no Teorema~\ref{theorem:BOZETXBS}.
 \end{proof}
 
-A segunda função de custo, chamada de $W_2$, é baseada no fato de que um indel afeta apenas uma região intergênica do genoma. Dessa forma, consideramos que o evento de indel possui a metade do custo de um evento de reversão ou transposição. A seguir, descrevemos formalmente a função de custo $W_2$.
+A segunda função de custo, chamada de $W_2$, é baseada no fato de que um indel afeta apenas uma região intergênica do genoma e não altera a ordem dos genes. Dessa forma, consideramos que o evento de indel possui a metade do custo de um evento de reversão ou transposição. A seguir, descrevemos formalmente a função de custo $W_2$.
 
 $$
   W_2(\beta) = \begin{cases}

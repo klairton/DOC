@@ -23,11 +23,11 @@ Note que nesses dois últimos problemas, tanto o evento de transposição interg
 
 Neste capítulo, iremos referenciar aos eventos de rearranjo de reversão intergênica, transposição intergênica, move intergênico e indel intergênico simplesmente por reversão, transposição, move e indel, respectivamente. Além disso, referiremos a um breakpoint intergênico simplesmente por breakpoint. Dada uma sequência de eventos de rearranjo $S$, denotamos por $|S|$ o tamanho da sequência $S$, ou seja, a quantidade de eventos em $S$.
 
-Dada uma instância intergênica flexível com ou sem sinais $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$, a \emph{distância flexível} entre $(\pi,\breve\pi)$ e $(\iota,\breve\iota^{\min},\breve\iota^{\max})$, denotada por $dfi_{\mathcal{M}}(\mathcal{I})$, é o tamanho da menor sequência de eventos de rearranjo $S$, tal que todo evento de $S$ pertence ao modelo $\mathcal{M}$ e $(\pi,\breve\pi) \cdot S = (\iota,\breve\pi^{\prime})$, onde $\breve\iota^{\min}_i \le \breve\pi^{\prime}_i \le \breve\iota^{\max}_i$ para $i \in [1..n+1]$. Os modelos de rearranjo considerados neste capítulo são identificados por siglas apresentadas na Tabela~\ref{table:CGOLSOYF}.
+Dada uma instância intergênica flexível com ou sem sinais $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$, a \emph{distância flexível} entre $(\pi,\breve\pi)$ e $(\iota,\breve\iota^{\min},\breve\iota^{\max})$, denotada por $dfi_{\mathcal{M}}(\mathcal{I})$, é o tamanho da menor sequência de eventos de rearranjo $S$, tal que todo evento de $S$ pertence ao modelo $\mathcal{M}$ e $(\pi,\breve\pi) \cdot S = (\iota,\breve\pi^{\prime})$, onde $\breve\iota^{\min}_i \le \breve\pi^{\prime}_i \le \breve\iota^{\max}_i$ para $i \in [1..n+1]$. Os modelos de rearranjo considerados neste capítulo são identificados pelas siglas apresentadas na Tabela~\ref{table:CGOLSOYF}.
 
 \input{tables/CGOLSOYF}
 
-Dada uma instância intergênica flexível com ou sem sinais $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$, utilizaremos as expressões \emph{atingir o genoma alvo} ou \emph{alcançar o genoma alvo} quando $\pi = \iota$ e $\forall i \in \{1,2,\dots,({n+1})\}: \breve\iota^{\min}_i \le \breve\pi_i \le \breve\iota^{\max}_i$.
+Dada uma instância intergênica flexível com ou sem sinais $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$, utilizaremos as expressões \emph{atingir o genoma alvo} ou \emph{alcançar o genoma alvo} quando $\pi$ é transformado em $\iota$ e para toda região intergênica $\breve\pi_i$ em $\breve\pi$, temos que $\breve\iota^{\min}_i \le \breve\pi_i \le \breve\iota^{\max}_i$.
 
 Parte dos resultados que serão apresentados neste capítulo foram aceitos para publicação na revista \emph{IEEE/ACM Transactions on Computational Biology and Bioinformatics}~\cite{2022a-brito-etal} em 2022.
 
@@ -72,39 +72,39 @@ Nesta seção, apresentaremos limitantes inferiores para as variações com e se
 Para a variação sem sinais dos problemas \SbFIR{}, \SbFIRI{}, \SbFIRM{}, \SbFIRMI{}, \SbFIRT{}, \SbFIRTI{}, \SbFIRTM{} e  \SbFIRTMI{} utilizaremos o conceito de região intergênica flexível (Seção~\ref{section:JISAQWNF}). Note que os eventos de rearranjo de reversão, transposição, move e indel afetam, respectivamente, as seguintes quantidades de regiões intergênicas: duas, três, duas e uma. No melhor cenário, cada uma das regiões intergênicas afetadas pode ser instável ou auxiliar, e são removidas após a aplicação do evento de rearranjo. Com isso, obtemos os lemas descritos na sequência.
 
 \begin{lemma}\label{lemma:VJKGLBQG}
-Dada uma instância intergênica flexível sem sinais $\mathcal{I}$, para qualquer reversão $\rho$ temos que $\Delta ir_i(\mathcal{I}, S = (\rho)) \ge -2$.
+Seja $\mathcal{I}$ uma instância intergênica flexível sem sinais. Para qualquer reversão $\rho$ temos que $\Delta ir_i(\mathcal{I}, S = (\rho)) \ge -2$.
 \end{lemma}
 
 \begin{lemma}\label{lemma:XLUTQDGV}
-Dada uma instância intergênica flexível sem sinais $\mathcal{I}$, para qualquer transposição $\tau$ temos que $\Delta ir_i(\mathcal{I}, S = (\tau)) \ge -3$.
+Seja $\mathcal{I}$ uma instância intergênica flexível sem sinais. Para qualquer transposição $\tau$ temos que $\Delta ir_i(\mathcal{I}, S = (\tau)) \ge -3$.
 \end{lemma}
 
 \begin{lemma}\label{lemma:ZOCGWWGV}
-Dada uma instância intergênica flexível sem sinais $\mathcal{I}$, para qualquer move $\mu$ temos que $\Delta ir_i(\mathcal{I}, S = (\mu)) \ge -2$.
+Seja $\mathcal{I}$ uma instância intergênica flexível sem sinais. Para qualquer move $\mu$ temos que $\Delta ir_i(\mathcal{I}, S = (\mu)) \ge -2$.
 \end{lemma}
 
 \begin{lemma}\label{lemma:HQJMMZCU}
-Dada uma instância intergênica flexível sem sinais $\mathcal{I}$, para qualquer indel $\delta$ temos que $\Delta ir_i(\mathcal{I}, S = (\delta)) \ge -1$.
+Seja $\mathcal{I}$ uma instância intergênica flexível sem sinais. Para qualquer indel $\delta$ temos que $\Delta ir_i(\mathcal{I}, S = (\delta)) \ge -1$.
 \end{lemma}
 
 Além disso, considerando uma instância intergênica flexível balanceada sem sinais e com base em um modelo composto exclusivamente por eventos conservativos, temos os seguintes lemas:
 
 \begin{lemma}\label{lemma:IERALSKC}
-Dada uma instância intergênica flexível balanceada sem sinais $\mathcal{I}$, para qualquer reversão $\rho$ temos que $\Delta ir_i(\mathcal{I}, S = (\rho)) + \Delta ir_a(\mathcal{I}, S = (\rho)) \ge -2$.
+Seja $\mathcal{I}$ uma instância intergênica flexível balanceada sem sinais. Para qualquer reversão $\rho$ temos que $\Delta ir_i(\mathcal{I}, S = (\rho)) + \Delta ir_a(\mathcal{I}, S = (\rho)) \ge -2$.
 \end{lemma}
 
 \begin{lemma}\label{lemma:FOXQSODF}
-Dada uma instância intergênica flexível balanceada sem sinais $\mathcal{I}$, para qualquer transposição $\tau$ temos que $\Delta ir_i(\mathcal{I}, S = (\tau)) + \Delta ir_a(\mathcal{I}, S = (\tau)) \ge -3$.
+Seja $\mathcal{I}$ uma instância intergênica flexível balanceada sem sinais. Para qualquer transposição $\tau$ temos que $\Delta ir_i(\mathcal{I}, S = (\tau)) + \Delta ir_a(\mathcal{I}, S = (\tau)) \ge -3$.
 \end{lemma}
 
 \begin{lemma}\label{lemma:AXMNYRLB}
-Dada uma instância intergênica flexível balanceada sem sinais $\mathcal{I}$, para qualquer move $\mu$ temos que $\Delta ir_i(\mathcal{I}, S = (\mu)) + \Delta ir_a(\mathcal{I}, S = (\mu)) \ge -2$.
+Seja $\mathcal{I}$ uma instância intergênica flexível balanceada sem sinais. Para qualquer move $\mu$ temos que $\Delta ir_i(\mathcal{I}, S = (\mu)) + \Delta ir_a(\mathcal{I}, S = (\mu)) \ge -2$.
 \end{lemma}
 
 Com base na quantidade máxima de regiões intergênicas instáveis e auxiliares que cada evento pode remover de uma instância intergênica flexível, obtemos os  limitantes inferiores descritos a seguir.
 
 \begin{theorem}\label{theorem:BOTBXFZQ}
-Dada uma instância intergênica flexível sem sinais $\mathcal{I}$, temos que:
+Seja $\mathcal{I}$ uma instância intergênica flexível sem sinais. Temos que:
 
 \begin{tabular}{lll}
   $dfi_{\RI}(\mathcal{I})$     & $ \ge $ & $\frac{ir_i(\mathcal{I})}{2}$,  \\
@@ -118,7 +118,7 @@ Pela Observação~\ref{remark:EUSNDMWS}, temos que todas as regiões intergênic
 \end{proof}
 
 \begin{theorem}\label{theorem:KKKUCDHN}
-Dada uma instância intergênica flexível balanceada sem sinais $\mathcal{I}$, temos que:
+Seja $\mathcal{I}$ uma instância intergênica flexível balanceada sem sinais. Temos que:
 
 \begin{tabular}{lll}
   $dfi_{\R}(\mathcal{I})$      & $ \ge $ & $\frac{ir_i(\mathcal{I}) + ir_a(\mathcal{I})}{2}$,  \\ 
@@ -138,7 +138,7 @@ Note que os eventos de reversão e transposição afetam, respectivamente, duas 
 Dessa forma, dada uma instância intergênica flexível $\mathcal{I}$, considerando a variação no número de ciclos ($\Delta c$), a variação no número ciclos estáveis ($\Delta c_e$) e a variação no número ciclos definitivos ($\Delta c_d$), temos que para qualquer reversão $\rho$, $\Delta c(G(\mathcal{I}), S=(\rho)) \in \{1,0,-1\}$, $\Delta c_e(G(\mathcal{I}), S=(\rho)) \in \{1,0,-1\}$ e $\Delta c_d(G(\mathcal{I}), S=(\rho)) \in \{1,0,-1\}$. Para qualquer transposição $\tau$, temos que $\Delta c(G(\mathcal{I}), S=(\tau)) \in \{2,0,-2\}$, $\Delta c_e(G(\mathcal{I}), S=(\tau)) \in \{2,1,0,-1,-2\}$ e $\Delta c_d(G(\mathcal{I}), S=(\tau)) \in \{2,1,0,-1,-2\}$. Para qualquer move $\mu$, temos que $\Delta c(G(\mathcal{I}), S=(\mu)) = 0$, $\Delta c_e(G(\mathcal{I}), S=(\mu)) \in \{2,1,0,-1,-2\}$ e $\Delta c_d(G(\mathcal{I}), S=(\mu)) \in \{2,1,0,-1,-2\}$. Por fim, para qualquer indel $\delta$, temos que $\Delta c(G(\mathcal{I}), S=(\delta)) = 0$ e $\Delta c_e(G(\mathcal{I}), S=(\delta)) \in \{1,0,{-1}\}$. Com isso, obtemos os seguintes limitantes inferiores:
 
 \begin{theorem}\label{theorem:PQQUYBMS}
-Dada uma instância intergênica flexível balanceada sem sinais $\mathcal{I}$, temos que:
+Seja $\mathcal{I}$ uma instância intergênica flexível balanceada sem sinais. Temos que:
 
 \begin{tabular}{lll}
   $dfi_{\T}(\mathcal{I})$      & $ \ge $ & $\frac{{n+1} - c_d(G(\mathcal{I} ))}{2}$ e \\
@@ -150,14 +150,14 @@ Pela Observação~\ref{remark:HLVDQLCE}, temos que, para atingir o genoma alvo, 
 \end{proof}
 
 \begin{theorem}\label{theorem:EUNBEQEX}
-Dada uma instância intergênica flexível balanceada com sinais $\mathcal{I}$, temos que: $dfi_{\R}(\mathcal{I}) \ge {n+1} - c_d(G(\mathcal{I} ))$.
+Seja $\mathcal{I}$ uma instância intergênica flexível balanceada com sinais. Temos que: $dfi_{\R}(\mathcal{I}) \ge {n+1} - c_d(G(\mathcal{I} ))$.
 \end{theorem}
 \begin{proof}
 A prova é similar à apresentada no Teorema~\ref{theorem:PQQUYBMS} considerando que o evento de reversão pode aumentar o número de ciclos definitivos, no máximo, em uma unidade.
 \end{proof}
 
 \begin{theorem}\label{theorem:SZNBDWOM}
-Dada uma instância intergênica flexível com sinais $\mathcal{I}$, temos que:
+Seja $\mathcal{I}$ uma instância intergênica flexível com sinais. Temos que:
 
 \begin{tabular}{lll}
   $dfi_{\RI}(\mathcal{I})$       & $ \ge $ & ${n+1} - c_e(G(\mathcal{I} ))$,            \\
@@ -170,21 +170,21 @@ Pela Observação~\ref{remark:IRNWKUZA}, temos que, para atingir o genoma alvo, 
 \end{proof}
 
 \begin{theorem}\label{theorem:CNMFNKPK}
-Dada uma instância intergênica flexível balanceada com sinais $\mathcal{I}$, temos que: $dfi_{\RM}(\mathcal{I}) \ge {n+1} - \frac{c(G(\mathcal{I} )) + c_d(G(\mathcal{I} ))}{2}$.
+Seja $\mathcal{I}$ uma instância intergênica flexível balanceada com sinais. Temos que: $dfi_{\RM}(\mathcal{I}) \ge {n+1} - \frac{c(G(\mathcal{I} )) + c_d(G(\mathcal{I} ))}{2}$.
 \end{theorem}
 \begin{proof}
 Pela Observação~\ref{remark:HLVDQLCE}, temos que, para atingir o genoma alvo, é necessário que $c(G(\mathcal{I})) = c_d(G(\mathcal{I})) = n+1$. Logo, temos que aumentar a quantidade de ciclos e ciclos definitivos em ${n+1} - c(G(\mathcal{I}))$ e ${n+1} - c_d(G(\mathcal{I}))$ unidades, respectivamente. Totalizando a quantidade de ciclos e ciclos definitivos que precisam ser criados temos o seguinte valor: $2(n+1) - (c(G(\mathcal{I})) + c_b(G(\mathcal{I})))$. Considerando os eventos de reversão e move, temos que para qualquer evento $\gamma \in \{\rho, \mu\}$ é verdade que $\Delta c(G(\mathcal{I}), S=(\gamma)) + \Delta c_d(G(\mathcal{I}), S=(\gamma)) \le 2$. Dessa forma, são necessárias pelo menos $\frac{2({n+1}) - (c(G(\mathcal{I})) + c_d(G(\mathcal{I})))}{2} = {n+1} - \frac{c(G(\mathcal{I} )) + c_d(G(\mathcal{I} ))}{2}$ operações de reversão ou move para atingir o genoma alvo, e o teorema segue. 
 \end{proof}
 
 \begin{theorem}\label{theorem:XQPRYMFX}
-Dada uma instância intergênica flexível com sinais $\mathcal{I}$, temos que:\break $dfi_{\RMI}(\mathcal{I}) \ge {n+1} - \frac{c(G(\mathcal{I} )) + c_e(G(\mathcal{I} ))}{2}$.
+Seja $\mathcal{I}$ uma instância intergênica flexível com sinais. Temos que:\break $dfi_{\RMI}(\mathcal{I}) \ge {n+1} - \frac{c(G(\mathcal{I} )) + c_e(G(\mathcal{I} ))}{2}$.
 \end{theorem}
 \begin{proof}
 A prova é similar à apresentada no Teorema~\ref{theorem:CNMFNKPK} considerando que, para qualquer evento $\gamma \in \{\rho, \mu\,\delta\}$, é verdade que $\Delta c(G(\mathcal{I}), S=(\gamma)) + \Delta c_e(G(\mathcal{I}), S=(\gamma)) \le 2$.
 \end{proof}
 
 \begin{theorem}\label{theorem:HELIIGVZ}
-Dada uma instância intergênica flexível balanceada com sinais $\mathcal{I}$, temos que:
+Seja $\mathcal{I}$ uma instância intergênica flexível balanceada com sinais. Temos que:
 
 \begin{tabular}{lll}
   $dfi_{\RT}(\mathcal{I})$     & $ \ge $ & $\frac{{n+1} - c_d(G(\mathcal{I} ))}{2}$ e \\
@@ -218,14 +218,14 @@ O Exemplo~\ref{example:DXEJSITZ} apresenta uma instância intergênica rígida s
 \input{examples/DXEJSITZ}
 
 \begin{lemma}\label{lemma:UFTVNRSX}
-Seja $\mathcal{I'} = ((\pi',\breve\pi'),(\iota',\breve\iota'))$ uma instância intergênica rígida sem sinais tal que $\mathcal{I'} = \mathcal{F}_{ir}^{'}(\mathcal{I})$, onde $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$ é uma instância intergênica flexível sem sinais, então temos que $ir_i(\mathcal{I}) = ib_1(\mathcal{I'})$.
+Seja $\mathcal{I'} = ((\pi',\breve\pi'),(\iota',\breve\iota'))$ uma instância intergênica rígida sem sinais tal que $\mathcal{I'} = \mathcal{F}_{ir}^{'}(\mathcal{I})$, onde $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$ é uma instância intergênica flexível sem sinais. Vale que $ir_i(\mathcal{I}) = ib_1(\mathcal{I'})$.
 \end{lemma}
 \begin{proof}
 Pela construção da função $\mathcal{F}_{ir}^{'}$ temos que cada região intergênica estável em $\mathcal{I}$ é mapeada em uma adjacência intergênica em $\mathcal{I'}$. Além disso, cada região intergênica instável acaba tornando-se um breakpoint tipo um em $\mathcal{I'}$, seja porque os elementos antes e depois da região intergênica não são adjacentes no genoma alvo ou porque o tamanho da região intergênica é menor que o mínimo ou maior que o máximo permitido no genoma alvo. Logo, $ir_i(\mathcal{I}) = ib_1(\mathcal{I'})$ e o lema segue.
 \end{proof}
 
 \begin{lemma}\label{lemma:SVKOAOXA}
-Seja $\mathcal{I'} = ((\pi',\breve\pi'),(\iota',\breve\iota'))$ uma instância intergênica rígida sem sinais tal que $\mathcal{I'} = \mathcal{F}_{ir}^{'}(\mathcal{I})$, onde $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$ é uma instância intergênica flexível sem sinais, e seja $S'$ uma sequência de eventos de rearranjo tal que $(\pi',\breve\pi') \cdot S' = (\iota',\breve\iota')$, então $S'$ é uma sequência que faz com que o genoma alvo em $\mathcal{I}$ seja atingido.
+Seja $\mathcal{I'} = ((\pi',\breve\pi'),(\iota',\breve\iota'))$ uma instância intergênica rígida sem sinais tal que $\mathcal{I'} = \mathcal{F}_{ir}^{'}(\mathcal{I})$, onde $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$ é uma instância intergênica flexível sem sinais, e seja $S'$ uma sequência de eventos de rearranjo tal que $(\pi',\breve\pi') \cdot S' = (\iota',\breve\iota')$. Então $S'$ é uma sequência que faz com que o genoma alvo em $\mathcal{I}$ seja atingido.
 \end{lemma}
 \begin{proof}
 Diretamente pela construção da função $\mathcal{F}_{ir}^{'}$. Note que $(\pi',\breve\pi') = (\pi,\breve\pi)$, $\iota' = \iota$ e $\forall i \in \{1,2,\dots,({n+1})\}: \breve\iota^{\min}_i \le \breve\iota'_i \le \breve\iota^{\max}_i$.
@@ -265,14 +265,14 @@ O Exemplo~\ref{example:OQWFSAKO} mostra uma instância intergênica rígida bala
 \input{examples/OQWFSAKO}
 
 \begin{lemma}\label{lemma:KPGCUTDM}
-Seja $\mathcal{I'} = ((\pi',\breve\pi'),(\iota',\breve\iota'))$ uma instância intergênica rígida balanceada sem sinais tal que $\mathcal{I'} = \mathcal{F}_{ir}^{''}(\mathcal{I})$, onde $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$ é uma instância intergênica flexível balanceada sem sinais, então temos que $ir_i(\mathcal{I}) + ir_a(\mathcal{I}) = ib_1(\mathcal{I'})$.
+Seja $\mathcal{I'} = ((\pi',\breve\pi'),(\iota',\breve\iota'))$ uma instância intergênica rígida balanceada sem sinais tal que $\mathcal{I'} = \mathcal{F}_{ir}^{''}(\mathcal{I})$, onde $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$ é uma instância intergênica flexível balanceada sem sinais. Vale que $ir_i(\mathcal{I}) + ir_a(\mathcal{I}) = ib_1(\mathcal{I'})$.
 \end{lemma}
 \begin{proof}
 Pela construção da função $\mathcal{F}_{1}^{''}$ temos que cada região intergênica definitiva tipo $\mathcal{I}$ é mapeada em uma adjacência intergênica em $\mathcal{I'}$. Além disso, cada região intergênica instável e auxiliar acaba tornando-se um breakpoint tipo um em $\mathcal{I'}$, seja porque os elementos antes e depois da região intergênica não são adjacentes no genoma alvo ou porque o tamanho da região intergênica é menor que o mínimo ou maior que o máximo permitido no genoma alvo. Logo, $ir_i(\mathcal{I}) + ir_a(\mathcal{I}) = ib_1(\mathcal{I'})$ e o lema segue.
 \end{proof}
 
 \begin{lemma}\label{lemma:KIVEWTOR}
-Seja $\mathcal{I'} = ((\pi',\breve\pi'),(\iota',\breve\iota'))$ uma instância intergênica rígida balanceada sem sinais tal que $\mathcal{I'} = \mathcal{F}_{ir}^{''}(\mathcal{I})$, onde $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$ é uma instância intergênica flexível balanceada sem sinais, e seja $S'$ uma sequência de eventos de rearranjo tal que $(\pi',\breve\pi') \cdot S' = (\iota',\breve\iota')$, então $S'$ é uma sequência que faz com que o genoma alvo em $\mathcal{I}$ seja atingido.
+Seja $\mathcal{I'} = ((\pi',\breve\pi'),(\iota',\breve\iota'))$ uma instância intergênica rígida balanceada sem sinais tal que $\mathcal{I'} = \mathcal{F}_{ir}^{''}(\mathcal{I})$, onde $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$ é uma instância intergênica flexível balanceada sem sinais, e seja $S'$ uma sequência de eventos de rearranjo tal que $(\pi',\breve\pi') \cdot S' = (\iota',\breve\iota')$. Então $S'$ é uma sequência que faz com que o genoma alvo em $\mathcal{I}$ seja atingido.
 \end{lemma}
 \begin{proof}
 Diretamente pela construção da função $\mathcal{F}_{ir}^{''}$. Note que $(\pi',\breve\pi') = (\pi,\breve\pi)$, $\iota' = \iota$ e $\forall i \in \{1,2,\dots,({n+1})\}: \breve\iota^{\min}_i \le \breve\iota'_i \le \breve\iota^{\max}_i$.
@@ -298,14 +298,14 @@ O Exemplo~\ref{example:MYLRZMXK} mostra uma instância intergênica rígida com 
 \input{examples/MYLRZMXK}
 
 \begin{lemma}\label{lemma:AOKHMVAY}
-Seja $\mathcal{I'} = ((\pi',\breve\pi'),(\iota',\breve\iota'))$ uma instância intergênica rígida tal que $\mathcal{I'} = \mathcal{F}_{c}^{'}(\mathcal{I})$, onde $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$ é uma instância intergênica flexível, então temos que $c(G(\mathcal{I})) = c(G(\mathcal{I}'))$ e $c_e(G(\mathcal{I})) = c_b(G(\mathcal{I}'))$.
+Seja $\mathcal{I'} = ((\pi',\breve\pi'),(\iota',\breve\iota'))$ uma instância intergênica rígida tal que $\mathcal{I'} = \mathcal{F}_{c}^{'}(\mathcal{I})$, onde $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$ é uma instância intergênica flexível. Vale que $c(G(\mathcal{I})) = c(G(\mathcal{I}'))$ e $c_e(G(\mathcal{I})) = c_b(G(\mathcal{I}'))$.
 \end{lemma}
 \begin{proof}
 Diretamente pela construção da função $\mathcal{F}_{c}^{'}$.
 \end{proof}
 
 \begin{lemma}\label{lemma:TQUNQUGX}
-Seja $\mathcal{I'} = ((\pi',\breve\pi'),(\iota',\breve\iota'))$ uma instância intergênica rígida tal que $\mathcal{I'} = \mathcal{F}_{c}^{'}(\mathcal{I})$, onde $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$ é uma instância intergênica flexível, e seja $S'$ uma sequência de eventos de rearranjo tal que $(\pi',\breve\pi') \cdot S' = (\iota',\breve\iota')$, então $S'$ é uma sequência que faz com que o genoma alvo em $\mathcal{I}$ seja atingido.
+Seja $\mathcal{I'} = ((\pi',\breve\pi'),(\iota',\breve\iota'))$ uma instância intergênica rígida tal que $\mathcal{I'} = \mathcal{F}_{c}^{'}(\mathcal{I})$, onde $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$ é uma instância intergênica flexível, e seja $S'$ uma sequência de eventos de rearranjo tal que $(\pi',\breve\pi') \cdot S' = (\iota',\breve\iota')$. Então $S'$ é uma sequência que faz com que o genoma alvo em $\mathcal{I}$ seja atingido.
 \end{lemma}
 \begin{proof}
 Note que, para uma aresta cinza $e^{\prime}_i$ em $G(\mathcal{I}')$, temos um peso $w_c(e^{\prime}_i)$ associado. Para a mesma aresta cinza $e^{\prime}_i$, mas em $G(\mathcal{I})$, temos os pesos mínimo $w^{\min}_c(e^{\prime}_i)$ e máximo $w^{\max}_c(e^{\prime}_i)$ associados. Pela forma como os pesos foram atribuídos em cada aresta cinza $e^{\prime}_i$ de $G(\mathcal{I}')$, temos a garantia de que $w^{\min}_c(e^{\prime}_i) \le w_c(e^{\prime}_i) \le w^{\max}_c(e^{\prime}_i)$. Isso implica que $\forall i \in \{1,2,\dots,({n+1})\}: \breve\iota^{\min}_i \le \breve\iota'_i \le \breve\iota^{\max}_i$. Além disso, o peso em cada aresta preta de $G(\mathcal{I}')$ é igual ao peso da mesma aresta preta em $G(\mathcal{I})$, com os conjuntos de vértices e arestas sendo os mesmos em $G(\mathcal{I})$ e $G(\mathcal{I}')$. Logo, $(\pi',\breve\pi') = (\pi,\breve\pi)$, $\iota' = \iota$ e o lema segue.
@@ -346,14 +346,14 @@ O Exemplo~\ref{example:XQPNLJUW} mostra uma instância intergênica rígida bala
 \input{examples/XQPNLJUW}
 
 \begin{lemma}\label{lemma:PSGXFVHD}
-Seja $\mathcal{I'} = ((\pi',\breve\pi'),(\iota',\breve\iota'))$ uma instância intergênica rígida balanceada tal que $\mathcal{I'} = \mathcal{F}_{c}^{''}(\mathcal{I})$, onde $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$ é uma instância intergênica flexível balanceada, então temos que $c(G(\mathcal{I})) = c(G(\mathcal{I}'))$ e $c_d(G(\mathcal{I})) = c_b(G(\mathcal{I}'))$.
+Seja $\mathcal{I'} = ((\pi',\breve\pi'),(\iota',\breve\iota'))$ uma instância intergênica rígida balanceada tal que $\mathcal{I'} = \mathcal{F}_{c}^{''}(\mathcal{I})$, onde $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$ é uma instância intergênica flexível balanceada. Vale que $c(G(\mathcal{I})) = c(G(\mathcal{I}'))$ e $c_d(G(\mathcal{I})) = c_b(G(\mathcal{I}'))$.
 \end{lemma}
 \begin{proof}
 Diretamente pela construção da função $\mathcal{F}_{c}^{''}$.
 \end{proof}
 
 \begin{lemma}\label{lemma:WQOEFBXP}
-Seja $\mathcal{I'} = ((\pi',\breve\pi'),(\iota',\breve\iota'))$ uma instância intergênica rígida balanceada tal que $\mathcal{I'} = \mathcal{F}_{c}^{'}(\mathcal{I})$, onde $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$ é uma instância intergênica flexível balanceada, e seja $S'$ uma sequência de eventos de rearranjo tal que $(\pi',\breve\pi') \cdot S' = (\iota',\breve\iota')$, então $S'$ é uma sequência que faz com que o genoma alvo em $\mathcal{I}$ seja atingido.
+Seja $\mathcal{I'} = ((\pi',\breve\pi'),(\iota',\breve\iota'))$ uma instância intergênica rígida balanceada tal que $\mathcal{I'} = \mathcal{F}_{c}^{'}(\mathcal{I})$, onde $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$ é uma instância intergênica flexível balanceada, e seja $S'$ uma sequência de eventos de rearranjo tal que $(\pi',\breve\pi') \cdot S' = (\iota',\breve\iota')$. Então $S'$ é uma sequência que faz com que o genoma alvo em $\mathcal{I}$ seja atingido.
 \end{lemma}
 \begin{proof}
 A prova é similar à descrita no Lema~\ref{lemma:TQUNQUGX}.
@@ -374,7 +374,7 @@ Nesta seção, apresentaremos um algoritmo de aproximação com fator $4$ para a
 \input{algorithms/BSOTINLZ}
 
 \begin{theorem}\label{theorem:WKATVVBS}
-Dada uma instância intergênica flexível balanceada sem sinais $\mathcal{I}$, o Algoritmo~\ref{algorithm:BSOTINLZ} é uma $4$-aproximação para o problema \SbFIR{}.
+Seja $\mathcal{I}$ uma instância intergênica flexível balanceada sem sinais. O Algoritmo~\ref{algorithm:BSOTINLZ} é uma $4$-aproximação para o problema \SbFIR{}.
 \end{theorem}
 \begin{proof}
 Pelo Lema~\ref{lemma:KIVEWTOR}, temos que a sequência fornecida pelo Algoritmo~\ref{algorithm:AKKUXQNR} para a instância intergênica rígida balanceada sem sinais $\mathcal{I'}$, se aplicada no genoma de origem $(\pi,\breve\pi)$ da instância intergênica flexível balanceada sem sinais $\mathcal{I}$, faz com que o genoma alvo seja alcançado. Além disso, note que os problemas \SbIR{} e \SbFIR{} compartilham o mesmo modelo de rearranjo. Logo, a sequência $S'$ utiliza apenas eventos permitidos pelo modelo de rearranjo do problema \SbFIR{}. Pelo Lema~\ref{lemma:RBHACFIP}, temos que $|S'| \le 2ib_1(\mathcal{I'})$. Entretanto, pelo Lema~\ref{lemma:KPGCUTDM}, temos que $ir_i(\mathcal{I}) + ir_a(\mathcal{I}) = ib_1(\mathcal{I'})$. Logo, $|S'| \le 2(ir_i(\mathcal{I}) + ir_a(\mathcal{I}))$. Pelo Teorema~\ref{theorem:KKKUCDHN}, temos o seguinte limitante inferior: $dfi_{\R}(\mathcal{I}) \ge \frac{ir_i(\mathcal{I}) + ir_a(\mathcal{I})}{2}$, e o teorema segue.
@@ -389,7 +389,7 @@ Nesta seção, apresentaremos um algoritmo de aproximação com fator $4$ para a
 \input{algorithms/ODSKKWNP}
 
 \begin{theorem}\label{theorem:LXPAWAPW}
-Dada uma instância intergênica flexível sem sinais $\mathcal{I}$, o Algoritmo~\ref{algorithm:ODSKKWNP} é uma $4$-aproximação para o problema \SbFIRI{}.
+Seja $\mathcal{I}$ uma instância intergênica flexível sem sinais. O Algoritmo~\ref{algorithm:ODSKKWNP} é uma $4$-aproximação para o problema \SbFIRI{}.
 \end{theorem}
 \begin{proof}
 Pelo Lema~\ref{lemma:SVKOAOXA}, temos que a sequência fornecida pelo Algoritmo~\ref{algorithm:LHOPSFVN} para a instância intergênica rígida sem sinais $\mathcal{I'}$, se aplicada no genoma de origem $(\pi,\breve\pi)$ da instância intergênica flexível sem sinais $\mathcal{I}$, faz com que o genoma alvo seja alcançado. Além disso, note que os problemas \SbIRI{} e \SbFIRI{} compartilham o mesmo modelo de rearranjo. Logo, a sequência $S'$ utiliza apenas eventos permitidos pelo modelo de rearranjo do problema \SbFIRI{}. Pelo Lema~\ref{lemma:XUDIVWPC}, temos que $|S'| \le 2ib_1(\mathcal{I'})$. Entretanto, pelo Lema~\ref{lemma:UFTVNRSX}, temos que $ir_i(\mathcal{I}) = ib_1(\mathcal{I'})$. Logo, $|S'| \le 2ir_i(\mathcal{I})$. Pelo Teorema~\ref{theorem:BOTBXFZQ}, temos o seguinte limitante inferior: $dfi_{\RI}(\mathcal{I}) \ge \frac{ir_i(\mathcal{I})}{2}$, e o teorema segue.
@@ -404,7 +404,7 @@ Nesta seção, apresentaremos um algoritmo de aproximação com fator $4$ para a
 \input{algorithms/DYDJWEUH}
 
 \begin{theorem}\label{theorem:MALFMHVQ}
-Dada uma instância intergênica flexível balanceada sem sinais $\mathcal{I}$, o Algoritmo~\ref{algorithm:DYDJWEUH} é uma $4$-aproximação para o problema \SbFIRM{}.
+Seja $\mathcal{I}$ uma instância intergênica flexível balanceada sem sinais. O Algoritmo~\ref{algorithm:DYDJWEUH} é uma $4$-aproximação para o problema \SbFIRM{}.
 \end{theorem}
 \begin{proof}
 Pelo Lema~\ref{lemma:KIVEWTOR}, temos que a sequência fornecida pelo Algoritmo~\ref{algorithm:OLSRUEFZ} para a instância intergênica rígida balanceada sem sinais $\mathcal{I'}$, se aplicada no genoma de origem $(\pi,\breve\pi)$ da instância intergênica flexível balanceada sem sinais $\mathcal{I}$, faz com que o genoma alvo seja alcançado. Além disso, note que os problemas \SbIRM{} e \SbFIRM{} compartilham o mesmo modelo de rearranjo. Logo, a sequência $S'$ utiliza apenas eventos permitidos pelo modelo de rearranjo do problema \SbFIRM{}. Pelo Lema~\ref{lemma:TZYVWBRT}, temos que $|S'| \le 2ib_1(\mathcal{I'})$. Entretanto, pelo Lema~\ref{lemma:KPGCUTDM}, temos que $ir_i(\mathcal{I}) + ir_a(\mathcal{I}) = ib_1(\mathcal{I'})$. Logo, $|S'| \le 2(ir_i(\mathcal{I}) + ir_a(\mathcal{I}))$. Pelo Teorema~\ref{theorem:KKKUCDHN}, temos o seguinte limitante inferior: $dfi_{\RM}(\mathcal{I}) \ge \frac{ir_i(\mathcal{I}) + ir_a(\mathcal{I})}{2}$, e o teorema segue.
@@ -419,7 +419,7 @@ Nesta seção, apresentaremos um algoritmo de aproximação com fator $4$ para a
 \input{algorithms/MODRXVSQ}
 
 \begin{theorem}\label{theorem:BSLEJJVB}
-Dada uma instância intergênica flexível sem sinais $\mathcal{I}$, o Algoritmo~\ref{algorithm:MODRXVSQ} é uma $4$-aproximação para o problema \SbFIRMI{}.
+Seja $\mathcal{I}$ uma instância intergênica flexível sem sinais. O Algoritmo~\ref{algorithm:MODRXVSQ} é uma $4$-aproximação para o problema \SbFIRMI{}.
 \end{theorem}
 \begin{proof}
 Pelo Lema~\ref{lemma:SVKOAOXA}, temos que a sequência fornecida pelo Algoritmo~\ref{algorithm:JAJGNYWD} para a instância intergênica rígida sem sinais $\mathcal{I'}$, se aplicada no genoma de origem $(\pi,\breve\pi)$ da instância intergênica flexível sem sinais $\mathcal{I}$, faz com que o genoma alvo seja alcançado. Além disso, note que os problemas \SbIRMI{} e \SbFIRMI{} compartilham o mesmo modelo de rearranjo. Logo, a sequência $S'$ utiliza apenas eventos permitidos pelo modelo de rearranjo do problema \SbFIRMI{}. Pelo Lema~\ref{lemma:SINGKSVU}, temos que $|S'| \le 2ib_1(\mathcal{I'})$. Entretanto, pelo Lema~\ref{lemma:UFTVNRSX}, temos que $ir_i(\mathcal{I}) = ib_1(\mathcal{I'})$. Logo, $|S'| \le 2ir_i(\mathcal{I})$. Pelo Teorema~\ref{theorem:BOTBXFZQ}, temos o seguinte limitante inferior: $dfi_{\RMI}(\mathcal{I}) \ge \frac{ir_i(\mathcal{I})}{2}$, e o teorema segue.
@@ -434,7 +434,7 @@ Nesta seção, apresentaremos um algoritmo de aproximação com fator $4$ para a
 \input{algorithms/KZFLZWRM}
 
 \begin{theorem}\label{theorem:DSCDQRUP}
-Dada uma instância intergênica flexível balanceada sem sinais $\mathcal{I}$, o Algoritmo~\ref{algorithm:KZFLZWRM} é uma $4$-aproximação para o problema \SbFIRT{}.
+Seja $\mathcal{I}$ uma instância intergênica flexível balanceada sem sinais. O Algoritmo~\ref{algorithm:KZFLZWRM} é uma $4$-aproximação para o problema \SbFIRT{}.
 \end{theorem}
 \begin{proof}
 Pelo Lema~\ref{lemma:KIVEWTOR}, temos que a sequência fornecida pelo Algoritmo~\ref{algorithm:LCPCUFNZ} para a instância intergênica rígida balanceada sem sinais $\mathcal{I'}$, se aplicada no genoma de origem $(\pi,\breve\pi)$ da instância intergênica flexível balanceada sem sinais $\mathcal{I}$, faz com que o genoma alvo seja alcançado. Além disso, note que os problemas \SbIRT{} e \SbFIRT{} compartilham o mesmo modelo de rearranjo. Logo, a sequência $S'$ utiliza apenas eventos permitidos pelo modelo de rearranjo do problema \SbFIRT{}. Pelo Lema~\ref{lemma:HIIRAXUH}, temos que $|S'| \le \frac{4ib_1(\mathcal{I}')}{3}$. Entretanto, pelo Lema~\ref{lemma:KPGCUTDM}, temos que $ir_i(\mathcal{I}) + ir_a(\mathcal{I}) = ib_1(\mathcal{I'})$. Logo, $|S'| \le \frac{4(ir_i(\mathcal{I}) + ir_a(\mathcal{I}))}{3}$. Pelo Teorema~\ref{theorem:KKKUCDHN}, temos o seguinte limitante inferior: $dfi_{\RT}(\mathcal{I}) \ge \frac{ir_i(\mathcal{I}) + ir_a(\mathcal{I})}{3}$, e o teorema segue.
@@ -449,7 +449,7 @@ Nesta seção, apresentaremos um algoritmo de aproximação assintótica para a 
 \input{algorithms/JSNLHIVA}
 
 \begin{theorem}\label{theorem:BBTWMULM}
-Dada uma instância intergênica flexível sem sinais $\mathcal{I}$, o Algoritmo~\ref{algorithm:JSNLHIVA} é uma $4$-aproximação assintótica para o problema \SbFIRTI{}.
+Seja $\mathcal{I}$ uma instância intergênica flexível sem sinais. O Algoritmo~\ref{algorithm:JSNLHIVA} é uma $4$-aproximação assintótica para o problema \SbFIRTI{}.
 \end{theorem}
 \begin{proof}
 Pelo Lema~\ref{lemma:SVKOAOXA}, temos que a sequência fornecida pelo Algoritmo~\ref{algorithm:YIZYUGZZ} para a instância intergênica rígida sem sinais $\mathcal{I'}$, se aplicada no genoma de origem $(\pi,\breve\pi)$ da instância intergênica flexível sem sinais $\mathcal{I}$, faz com que o genoma alvo seja alcançado. Além disso, note que os problemas \SbIRTI{} e \SbFIRTI{} compartilham o mesmo modelo de rearranjo. Logo, a sequência $S'$ utiliza apenas eventos permitidos pelo modelo de rearranjo do problema \SbFIRTI{}. Pelo Lema~\ref{lemma:MUTXDAUG}, temos que $|S'| \le \frac{4ib_1(\mathcal{I}')}{3} + 1$. Entretanto, pelo Lema~\ref{lemma:UFTVNRSX}, temos que $ir_i(\mathcal{I}) = ib_1(\mathcal{I'})$. Logo, $|S'| \le \frac{4ir_i(\mathcal{I})}{3} + 1$. Pelo Teorema~\ref{theorem:BOTBXFZQ}, temos o seguinte limitante inferior: $dfi_{\RTI}(\mathcal{I}) \ge \frac{ir_i(\mathcal{I})}{3}$. Com isso, temos que, no pior caso, o fator de aproximação do Algoritmo~\ref{algorithm:JSNLHIVA} é de $4dfi_{\RTI}(\mathcal{I}) + 1$, e o teorema segue.
@@ -464,7 +464,7 @@ Nesta seção, apresentaremos um algoritmo de aproximação com fator $3$ para a
 \input{algorithms/JRHFSYXO}
 
 \begin{theorem}\label{theorem:YTAKVOTU}
-Dada uma instância intergênica flexível balanceada sem sinais $\mathcal{I}$, o Algoritmo~\ref{algorithm:JRHFSYXO} é uma $3$-aproximação para o problema \SbFIRTM{}.
+Seja $\mathcal{I}$ uma instância intergênica flexível balanceada sem sinais. O Algoritmo~\ref{algorithm:JRHFSYXO} é uma $3$-aproximação para o problema \SbFIRTM{}.
 \end{theorem}
 \begin{proof}
 Pelo Lema~\ref{lemma:KIVEWTOR}, temos que a sequência fornecida pelo Algoritmo~\ref{algorithm:UZWADMNZ} para a instância intergênica rígida balanceada sem sinais $\mathcal{I'}$, se aplicada no genoma de origem $(\pi,\breve\pi)$ da instância intergênica flexível balanceada sem sinais $\mathcal{I}$, faz com que o genoma alvo seja alcançado. Além disso, note que os problemas \SbIRTM{} e \SbFIRTM{} compartilham o mesmo modelo de rearranjo. Logo, a sequência $S'$ utiliza apenas eventos permitidos pelo modelo de rearranjo do problema \SbFIRTM{}. Pelo Lema~\ref{lemma:UUWLBHHA}, temos que $|S'| \le ib_1(\mathcal{I}')$. Entretanto, pelo Lema~\ref{lemma:KPGCUTDM}, temos que $ir_i(\mathcal{I}) + ir_a(\mathcal{I}) = ib_1(\mathcal{I'})$. Logo, $|S'| \le ir_i(\mathcal{I}) + ir_a(\mathcal{I})$. Pelo Teorema~\ref{theorem:KKKUCDHN}, temos o seguinte limitante inferior: $dfi_{\RTM}(\mathcal{I}) \ge \frac{ir_i(\mathcal{I}) + ir_a(\mathcal{I})}{3}$, e o teorema segue.
@@ -479,7 +479,7 @@ Nesta seção, apresentaremos um algoritmo de aproximação com fator $3$ para a
 \input{algorithms/PJTWIANQ}
 
 \begin{theorem}\label{theorem:TYVMEDAI}
-Dada uma instância intergênica flexível sem sinais $\mathcal{I}$, o Algoritmo~\ref{algorithm:PJTWIANQ} é uma $3$-aproximação para o problema \SbFIRTMI{}.
+Seja $\mathcal{I}$ uma instância intergênica flexível sem sinais. O Algoritmo~\ref{algorithm:PJTWIANQ} é uma $3$-aproximação para o problema \SbFIRTMI{}.
 \end{theorem}
 \begin{proof}
 Pelo Lema~\ref{lemma:SVKOAOXA}, temos que a sequência fornecida pelo Algoritmo~\ref{algorithm:FMDPGQTJ} para a instância intergênica rígida sem sinais $\mathcal{I'}$, se aplicada no genoma de origem $(\pi,\breve\pi)$ da instância intergênica flexível sem sinais $\mathcal{I}$, faz com que o genoma alvo seja alcançado. Além disso, note que os problemas \SbIRTMI{} e \SbFIRTMI{} compartilham o mesmo modelo de rearranjo. Logo, a sequência $S'$ utiliza apenas eventos permitidos pelo modelo de rearranjo do problema \SbFIRTMI{}. Pelo Lema~\ref{lemma:GCEWGEBP}, temos que $|S'| \le ib_1(\mathcal{I}')$. Entretanto, pelo Lema~\ref{lemma:UFTVNRSX}, temos que $ir_i(\mathcal{I}) = ib_1(\mathcal{I'})$. Logo, $|S'| \le ir_i(\mathcal{I})$. Pelo Teorema~\ref{theorem:BOTBXFZQ}, temos o seguinte limitante inferior: $dfi_{\RTMI}(\mathcal{I}) \ge \frac{ir_i(\mathcal{I})}{3}$, e o teorema segue.
@@ -491,10 +491,10 @@ Pelo Lema~\ref{lemma:SVKOAOXA}, temos que a sequência fornecida pelo Algoritmo~
 
 Nesta seção, apresentaremos um algoritmo de aproximação com fator $3.5$ para a variação sem sinais do problema \SbFIT{}. 
 
-Note que a versão rígida do problema \SbFIT{}, chamado de Ordenação de Permutações por Transposições Intergênicas (\SbIT), possui um algoritmo de aproximação com um fator de $3.5$, que chamaremos de $3.5$-\SbIT{}. Além disso, temos o seguinte lema:
+Note que a versão rígida do problema \SbFIT{}, chamado de Ordenação de Permutações por Transposições Intergênicas (\SbIT), possui um algoritmo de aproximação com um fator de $3.5$, que chamaremos de $3.5$-\SbIT{}. Além disso, temos o lema a seguir.
 
 \begin{lemma}\label{lemma:EIGSYNDP}
-Seja $\mathcal{I}' = ((\pi',\breve\pi'),(\iota',\breve\iota'))$ uma instância intergênica rígida balanceada sem sinais, o algoritmo $3.5$-\SbIT{} transforma $(\pi',\breve\pi')$ em $(\iota',\breve\iota')$ utilizando uma sequência de eventos de transposição $S'$, tal que $|S'| \le \frac{7({n+1} - c_b(G(\mathcal{I}')))}{4}$.
+Seja $\mathcal{I}' = ((\pi',\breve\pi'),(\iota',\breve\iota'))$ uma instância intergênica rígida balanceada sem sinais. O algoritmo $3.5$-\SbIT{} transforma $(\pi',\breve\pi')$ em $(\iota',\breve\iota')$ utilizando uma sequência de eventos de transposição $S'$, tal que $|S'| \le \frac{7({n+1} - c_b(G(\mathcal{I}')))}{4}$.
 \end{lemma}
 \begin{proof}
 Diretamente pelo Lema 5.1 de Oliveira \textit{et al.}~\cite{2021a-oliveira-etal}.
@@ -505,7 +505,7 @@ Agora considere o Algoritmo~\ref{algorithm:UMNIXZHY}.
 \input{algorithms/UMNIXZHY}
 
 \begin{theorem}\label{theorem:PSELGHNY}
-Dada uma instância intergênica flexível balanceada sem sinais $\mathcal{I}$, o Algoritmo~\ref{algorithm:UMNIXZHY} é uma $3.5$-aproximação para o problema \SbFIT{}.
+Seja $\mathcal{I}$ uma instância intergênica flexível balanceada sem sinais. O Algoritmo~\ref{algorithm:UMNIXZHY} é uma $3.5$-aproximação para o problema \SbFIT{}.
 \end{theorem}
 \begin{proof}
 Pelo Lema~\ref{lemma:WQOEFBXP}, temos que a sequência fornecida pelo algoritmo $3.5$-\SbIT{} para a instância intergênica rígida balanceada sem sinais $\mathcal{I'}$, se aplicada no genoma de origem $(\pi,\breve\pi)$ da instância intergênica flexível balanceada sem sinais $\mathcal{I}$, faz com que o genoma alvo seja alcançado. Além disso, note que os problemas \SbIT{} e \SbFIT{} compartilham o mesmo modelo de rearranjo. Logo, a sequência $S'$ utiliza apenas eventos permitidos pelo modelo de rearranjo do problema \SbFIT{}. Pelo Lema~\ref{lemma:EIGSYNDP}, temos que $|S'| \le \frac{7({n+1} - c_b(G(\mathcal{I}')))}{4}$. Entretanto, pelo Lema~\ref{lemma:PSGXFVHD}, temos que $c_d(G(\mathcal{I})) = c_b(G(\mathcal{I}'))$. Logo, $|S'| \le \frac{7({n+1} - c_d(G(\mathcal{I})))}{4}$. Pelo Teorema~\ref{theorem:PQQUYBMS}, temos o seguinte limitante inferior: $dfi_{\T}(\mathcal{I}) \ge \frac{{n+1} - c_d(G(\mathcal{I}))}{2}$, e o teorema segue.
@@ -517,10 +517,10 @@ Pelo Lema~\ref{lemma:WQOEFBXP}, temos que a sequência fornecida pelo algoritmo 
 
 Nesta seção, apresentaremos um algoritmo de aproximação com fator $2.5$ para a variação sem sinais do problema \SbFITM{}. 
 
-Note que a versão rígida do problema \SbFITM{}, chamado de Ordenação de Permutações por Operações Intergênicas de Transposição e Move (\SbITM), possui um algoritmo de aproximação com um fator de $2.5$, que chamaremos de $2.5$-\SbITM{}. Além disso, temos o seguinte lema:
+Note que a versão rígida do problema \SbFITM{}, chamado de Ordenação de Permutações por Operações Intergênicas de Transposição e Move (\SbITM), possui um algoritmo de aproximação com um fator de $2.5$, que chamaremos de $2.5$-\SbITM{}. Além disso, temos o lema a seguir.
 
 \begin{lemma}\label{lemma:PDDYJXYT}
-Seja $\mathcal{I}' = ((\pi',\breve\pi'),(\iota',\breve\iota'))$ uma instância intergênica rígida balanceada sem sinais, o algoritmo $2.5$-\SbITM{} transforma $(\pi',\breve\pi')$ em $(\iota',\breve\iota')$ utilizando uma sequência de eventos de transposição e move $S'$, tal que $|S'| \le \frac{5({n+1} - c_b(G(\mathcal{I})))}{4}$.
+Seja $\mathcal{I}' = ((\pi',\breve\pi'),(\iota',\breve\iota'))$ uma instância intergênica rígida balanceada sem sinais. O algoritmo $2.5$-\SbITM{} transforma $(\pi',\breve\pi')$ em $(\iota',\breve\iota')$ utilizando uma sequência de eventos de transposição e move $S'$, tal que $|S'| \le \frac{5({n+1} - c_b(G(\mathcal{I})))}{4}$.
 \end{lemma}
 \begin{proof}
 Diretamente pelo Lema 7.10 de Oliveira \textit{et al.}~\cite{2021a-oliveira-etal}.
@@ -531,7 +531,7 @@ Agora considere o Algoritmo~\ref{algorithm:UEBBPCAK}.
 \input{algorithms/UEBBPCAK}
 
 \begin{theorem}\label{theorem:DWYTBIPX}
-Dada uma instância intergênica flexível balanceada sem sinais $\mathcal{I}$, o Algoritmo~\ref{algorithm:UEBBPCAK} é uma $2.5$-aproximação para o problema \SbFITM{}.
+Seja $\mathcal{I}$ uma instância intergênica flexível balanceada sem sinais. O Algoritmo~\ref{algorithm:UEBBPCAK} é uma $2.5$-aproximação para o problema \SbFITM{}.
 \end{theorem}
 \begin{proof}
 Pelo Lema~\ref{lemma:WQOEFBXP}, temos que a sequência fornecida pelo algoritmo $2.5$-\SbITM{} para a instância intergênica rígida balanceada sem sinais $\mathcal{I'}$, se aplicada no genoma de origem $(\pi,\breve\pi)$ da instância intergênica flexível balanceada sem sinais $\mathcal{I}$, faz com que o genoma alvo seja alcançado. Além disso, note que os problemas \SbITM{} e \SbFITM{} compartilham o mesmo modelo de rearranjo. Logo, a sequência $S'$ utiliza apenas eventos permitidos pelo modelo de rearranjo do problema \SbFITM{}. Pelo Lema~\ref{lemma:PDDYJXYT}, temos que $|S'| \le \frac{5({n+1} - c_b(G(\mathcal{I}')))}{4}$. Entretanto, pelo Lema~\ref{lemma:PSGXFVHD}, temos que $c_d(G(\mathcal{I})) = c_b(G(\mathcal{I}'))$. Logo, $|S'| \le \frac{5({n+1} - c_d(G(\mathcal{I})))}{4}$. Pelo Teorema~\ref{theorem:PQQUYBMS}, temos o seguinte limitante inferior: $dfi_{\TM}(\mathcal{I}) \ge \frac{{n+1} - c_d(G(\mathcal{I}))}{2}$, e o teorema segue.
@@ -567,7 +567,7 @@ A criação de uma instância na base dados $U_{C}$ é similar ao processo descr
 
 A base de dados $U_{IR}$ foi criada para ser utilizada pelos algoritmos da variação sem sinais dos problemas $\SbFIR{}$, $\SbFIRM{}$, $\SbFIRT{}$ e $\SbFIRTM{}$. Similarmente, a base de dados $U_{C}$ foi criada para ser utilizada pelos algoritmos da variação sem sinais dos problemas $\SbFIT{}$ e $\SbFITM{}$.
 
-A seguir, apresentamos os resultados obtidos pelos algoritmos propostos para a variação sem sinais dos problemas investigados neste capítulo. Nas tabelas apresentadas a seguir temos a informação por grupo do grau de flexibilização adotado e as métricas de distância e aproximação, sendo que para ambas temos a informação sobre o menor e o maior valor registrado, além da média dos valores do grupo.
+A seguir, apresentamos os resultados obtidos pelos algoritmos propostos para a variação sem sinais dos problemas investigados neste capítulo. Nas tabelas apresentadas a seguir temos a informação por grupo do grau de flexibilização adotado e as métricas de distância e aproximação, sendo que para ambas temos a informação sobre o menor e o maior valor registrado, além da média dos valores do grupo. As colunas Distância e Aproximação indicam a quantidade de operações e o fator de aproximação para uma solução fornecida por um algoritmo.
 
 A Tabela~\ref{table:APQPJYRX} apresenta os resultados do Algoritmo~\ref{algorithm:BSOTINLZ} utilizando as bases de dados $U_\SbFIR{}$ e $U_{\text{IR}}$. A razão de aproximação obtida pelo algoritmo para cada instância foi computada utilizando o limitante inferior apresentado no Teorema~\ref{theorem:KKKUCDHN}.
 
@@ -643,10 +643,10 @@ Nesta seção, apresentaremos algoritmos de aproximação para a variação com 
 
 Nesta seção, apresentaremos um algoritmo de aproximação com fator $2$ para a variação com sinais do problema \SbFIR{}. 
 
-Note que a variação com sinais do problema \SbIR{} possui um algoritmo de aproximação com um fator de $2$~\cite{2021a-oliveira-etal}, que chamaremos de $2$-\SbIR{}. Além disso, temos o seguinte lema:
+Note que a variação com sinais do problema \SbIR{} possui um algoritmo de aproximação com um fator de $2$~\cite{2021a-oliveira-etal}, que chamaremos de $2$-\SbIR{}. Além disso, temos o lema a seguir.
 
 \begin{lemma}\label{lemma:XMVOFRZM}
-Seja $\mathcal{I}' = ((\pi',\breve\pi'),(\iota',\breve\iota'))$ uma instância intergênica rígida balanceada com sinais, o algoritmo $2$-\SbIR{} transforma $(\pi',\breve\pi')$ em $(\iota',\breve\iota')$ utilizando uma sequência de eventos de reversão $S'$, tal que $|S'| \le 2({n+1} - c_b(G(\mathcal{I})))$.
+Seja $\mathcal{I}' = ((\pi',\breve\pi'),(\iota',\breve\iota'))$ uma instância intergênica rígida balanceada com sinais. O algoritmo $2$-\SbIR{} transforma $(\pi',\breve\pi')$ em $(\iota',\breve\iota')$ utilizando uma sequência de eventos de reversão $S'$, tal que $|S'| \le 2({n+1} - c_b(G(\mathcal{I})))$.
 \end{lemma}
 \begin{proof}
 Diretamente pelo Algoritmo 1 de Oliveira \textit{et al.}~\cite{2021b-oliveira-etal}.
@@ -657,7 +657,7 @@ Agora considere o Algoritmo~\ref{algorithm:HSDBEFII}.
 \input{algorithms/HSDBEFII}
 
 \begin{theorem}\label{theorem:GTWKCOJR}
-Dada uma instância intergênica flexível balanceada com sinais $\mathcal{I}$, o Algoritmo~\ref{algorithm:HSDBEFII} é uma $2$-aproximação para o problema \SbFIR{}.
+Seja $\mathcal{I}$ uma instância intergênica flexível balanceada com sinais. O Algoritmo~\ref{algorithm:HSDBEFII} é uma $2$-aproximação para o problema \SbFIR{}.
 \end{theorem}
 \begin{proof}
 Pelo Lema~\ref{lemma:WQOEFBXP}, temos que a sequência fornecida pelo algoritmo $2$-\SbIR{} para a instância intergênica rígida balanceada com sinais $\mathcal{I'}$, se aplicada no genoma de origem $(\pi,\breve\pi)$ da instância intergênica flexível balanceada com sinais $\mathcal{I}$, faz com que o genoma alvo seja alcançado. Além disso, note que os problemas \SbIR{} e \SbFIR{} compartilham o mesmo modelo de rearranjo. Logo, a sequência $S'$ utiliza apenas eventos permitidos pelo modelo de rearranjo do problema \SbFIR{}. Pelo Lema~\ref{lemma:XMVOFRZM}, temos que $|S'| \le 2({n+1} - c_b(G(\mathcal{I})))$. Entretanto, pelo Lema~\ref{lemma:PSGXFVHD}, temos que $c_d(G(\mathcal{I})) = c_b(G(\mathcal{I}'))$. Logo, $|S'| \le 2({n+1} - c_d(G(\mathcal{I})))$. Pelo Teorema~\ref{theorem:EUNBEQEX}, temos o seguinte limitante inferior: $dfi_{\R}(\mathcal{I}) \ge {n+1} - c_d(G(\mathcal{I}))$, e o teorema segue.
@@ -669,10 +669,10 @@ Pelo Lema~\ref{lemma:WQOEFBXP}, temos que a sequência fornecida pelo algoritmo 
 
 Nesta seção, apresentaremos um algoritmo de aproximação com fator $2$ para a variação com sinais do problema \SbFIRI{}. 
 
-Note que a variação com sinais do problema \SbIRI{} possui um algoritmo de aproximação com um fator de $2$~\cite{2021b-oliveira-etal}, que chamaremos de $2$-\SbIRI{}. Além disso, temos o seguinte lema:
+Note que a variação com sinais do problema \SbIRI{} possui um algoritmo de aproximação com um fator de $2$~\cite{2021b-oliveira-etal}, que chamaremos de $2$-\SbIRI{}. Além disso, temos o lema a seguir.
 
 \begin{lemma}\label{lemma:FZWPBXFK}
-Seja $\mathcal{I}' = ((\pi',\breve\pi'),(\iota',\breve\iota'))$ uma instância intergênica rígida com sinais, o algoritmo $2$-\SbIRI{} transforma $(\pi',\breve\pi')$ em $(\iota',\breve\iota')$ utilizando uma sequência de eventos de reversão e indel $S'$, tal que $|S'| \le 2({n+1} - c_b(G(\mathcal{I})))$.
+Seja $\mathcal{I}' = ((\pi',\breve\pi'),(\iota',\breve\iota'))$ uma instância intergênica rígida com sinais. O algoritmo $2$-\SbIRI{} transforma $(\pi',\breve\pi')$ em $(\iota',\breve\iota')$ utilizando uma sequência de eventos de reversão e indel $S'$, tal que $|S'| \le 2({n+1} - c_b(G(\mathcal{I})))$.
 \end{lemma}
 \begin{proof}
 Diretamente pelo Algoritmo 2 de Oliveira \textit{et al.}~\cite{2021b-oliveira-etal}.
@@ -683,7 +683,7 @@ Agora considere o Algoritmo~\ref{algorithm:ZCBCGAUW}.
 \input{algorithms/ZCBCGAUW}
 
 \begin{theorem}\label{theorem:UEOFTCVZ}
-Dada uma instância intergênica flexível com sinais $\mathcal{I}$, o Algoritmo~\ref{algorithm:ZCBCGAUW} é uma $2$-aproximação para o problema \SbFIRI{}.
+Seja $\mathcal{I}$ uma instância intergênica flexível com sinais. O Algoritmo~\ref{algorithm:ZCBCGAUW} é uma $2$-aproximação para o problema \SbFIRI{}.
 \end{theorem}
 \begin{proof}
 Pelo Lema~\ref{lemma:TQUNQUGX}, temos que a sequência fornecida pelo algoritmo $2$-\SbIRI{} para a instância intergênica rígida com sinais $\mathcal{I'}$, se aplicada no genoma de origem $(\pi,\breve\pi)$ da instância intergênica flexível com sinais $\mathcal{I}$, faz com que o genoma alvo seja alcançado. Além disso, note que os problemas \SbIRI{} e \SbFIRI{} compartilham o mesmo modelo de rearranjo. Logo, a sequência $S'$ utiliza apenas eventos permitidos pelo modelo de rearranjo do problema \SbFIRI{}. Pelo Lema~\ref{lemma:FZWPBXFK}, temos que $|S'| \le 2({n+1} - c_b(G(\mathcal{I})))$. Entretanto, pelo Lema~\ref{lemma:AOKHMVAY}, temos que $c_e(G(\mathcal{I})) = c_b(G(\mathcal{I}'))$. Logo, $|S'| \le 2({n+1} - c_e(G(\mathcal{I})))$. Pelo Teorema~\ref{theorem:SZNBDWOM}, temos o seguinte limitante inferior: $dfi_{\RI}(\mathcal{I}) \ge {n+1} - c_e(G(\mathcal{I}))$, e o teorema segue.
@@ -698,7 +698,7 @@ Nesta seção, apresentaremos um algoritmo de aproximação com fator $2$ para a
 \input{algorithms/VOHUBSMM}
 
 \begin{theorem}\label{theorem:NBFXUXJG}
-Dada uma instância intergênica flexível balanceada com sinais $\mathcal{I}$, o Algoritmo~\ref{algorithm:VOHUBSMM} é uma $2$-aproximação para o problema \SbFIRM{}.
+Seja $\mathcal{I}$ uma instância intergênica flexível balanceada com sinais. O Algoritmo~\ref{algorithm:VOHUBSMM} é uma $2$-aproximação para o problema \SbFIRM{}.
 \end{theorem}
 \begin{proof}
 Pelo Lema~\ref{lemma:WQOEFBXP}, temos que a sequência fornecida pelo Algoritmo~\ref{algorithm:EHDLZXJA} para a instância intergênica rígida balanceada com sinais $\mathcal{I'}$, se aplicada no genoma de origem $(\pi,\breve\pi)$ da instância intergênica flexível balanceada com sinais $\mathcal{I}$, faz com que o genoma alvo seja alcançado. Além disso, note que os problemas \SbIRM{} e \SbFIRM{} compartilham o mesmo modelo de rearranjo. Logo, a sequência $S'$ utiliza apenas eventos permitidos pelo modelo de rearranjo do problema \SbFIRM{}. Pelo Lema~\ref{lemma:APHTXLZC}, temos que $|S'| \le 2(n + 1) - (c(G(\mathcal{I}')) + c_b(G(\mathcal{I}')))$. Entretanto, pelo Lema~\ref{lemma:PSGXFVHD}, temos que $c(G(\mathcal{I})) = c(G(\mathcal{I}'))$ e $c_d(G(\mathcal{I})) = c_b(G(\mathcal{I}'))$. Logo, $|S'| \le 2(n + 1) - (c(G(\mathcal{I})) + c_d(G(\mathcal{I})))$. Pelo Teorema~\ref{theorem:CNMFNKPK}, temos o seguinte limitante inferior: $dfi_{\RM}(\mathcal{I}) \ge {n+1} - \frac{(c(G(\mathcal{I})) + c_d(G(\mathcal{I})))}{2}$, e o teorema segue.
@@ -713,7 +713,7 @@ Nesta seção, apresentaremos um algoritmo de aproximação com fator $2$ para a
 \input{algorithms/TAJJYPTG}
 
 \begin{theorem}\label{theorem:PQWPQJDG}
-Dada uma instância intergênica flexível com sinais $\mathcal{I}$, o Algoritmo~\ref{algorithm:TAJJYPTG} é uma $2$-aproximação para o problema \SbFIRMI{}.
+Seja $\mathcal{I}$ uma instância intergênica flexível com sinais. O Algoritmo~\ref{algorithm:TAJJYPTG} é uma $2$-aproximação para o problema \SbFIRMI{}.
 \end{theorem}
 \begin{proof}
 Pelo Lema~\ref{lemma:TQUNQUGX}, temos que a sequência fornecida pelo Algoritmo~\ref{algorithm:RYNLKYUJ} para a instância intergênica rígida com sinais $\mathcal{I'}$, se aplicada no genoma de origem $(\pi,\breve\pi)$ da instância intergênica flexível com sinais $\mathcal{I}$, faz com que o genoma alvo seja alcançado. Além disso, note que os problemas \SbIRMI{} e \SbFIRMI{} compartilham o mesmo modelo de rearranjo. Logo, a sequência $S'$ utiliza apenas eventos permitidos pelo modelo de rearranjo do problema \SbFIRMI{}. Pelo Lema~\ref{lemma:PBDEKMXG}, temos que $|S'| \le 2(n + 1) - (c(G(\mathcal{I}')) + c_b(G(\mathcal{I}')))$. Entretanto, pelo Lema~\ref{lemma:AOKHMVAY}, temos que $c(G(\mathcal{I})) = c(G(\mathcal{I}'))$ e $c_e(G(\mathcal{I})) = c_b(G(\mathcal{I}'))$. Logo, $|S'| \le 2(n + 1) - (c(G(\mathcal{I})) + c_e(G(\mathcal{I})))$. Pelo Teorema~\ref{theorem:XQPRYMFX}, temos o seguinte limitante inferior: $dfi_{\RMI}(\mathcal{I}) \ge {n+1} - \frac{c(G(\mathcal{I})) + c_e(G(\mathcal{I}))}{2}$, e o teorema segue.
@@ -725,10 +725,10 @@ Pelo Lema~\ref{lemma:TQUNQUGX}, temos que a sequência fornecida pelo Algoritmo~
 
 Nesta seção, apresentaremos um algoritmo de aproximação com fator $3$ para a variação com sinais do problema \SbFIRT{}. 
 
-Note que a variação com sinais do problema \SbIRT{} possui um algoritmo de aproximação com um fator de $3$~\cite{2021a-oliveira-etal}, que chamaremos de $3$-\SbIRT{}. Além disso, temos o seguinte lema:
+Note que a variação com sinais do problema \SbIRT{} possui um algoritmo de aproximação com um fator de $3$~\cite{2021a-oliveira-etal}, que chamaremos de $3$-\SbIRT{}. Além disso, temos o lema a seguir.
 
 \begin{lemma}\label{lemma:MNQTVIRT}
-Seja $\mathcal{I}' = ((\pi',\breve\pi'),(\iota',\breve\iota'))$ uma instância intergênica rígida balanceada com sinais, o algoritmo $3$-\SbIRT{} transforma $(\pi',\breve\pi')$ em $(\iota',\breve\iota')$ utilizando uma sequência de eventos de reversão e transposição $S'$, tal que $|S'| \le \frac{3({n+1} - c_b(G(\mathcal{I}')))}{2}$.
+Seja $\mathcal{I}' = ((\pi',\breve\pi'),(\iota',\breve\iota'))$ uma instância intergênica rígida balanceada com sinais. O algoritmo $3$-\SbIRT{} transforma $(\pi',\breve\pi')$ em $(\iota',\breve\iota')$ utilizando uma sequência de eventos de reversão e transposição $S'$, tal que $|S'| \le \frac{3({n+1} - c_b(G(\mathcal{I}')))}{2}$.
 \end{lemma}
 \begin{proof}
 Diretamente pelo Lema 6.3 de Oliveira \textit{et al.}~\cite{2021a-oliveira-etal}.
@@ -739,7 +739,7 @@ Agora considere o Algoritmo~\ref{algorithm:EMLPACHB}.
 \input{algorithms/EMLPACHB}
 
 \begin{theorem}\label{theorem:QISZKAHW}
-Dada uma instância intergênica flexível balanceada com sinais $\mathcal{I}$, o Algoritmo~\ref{algorithm:EMLPACHB} é uma $3$-aproximação para o problema \SbFIRT{}.
+Seja $\mathcal{I}$ uma instância intergênica flexível balanceada com sinais. O Algoritmo~\ref{algorithm:EMLPACHB} é uma $3$-aproximação para o problema \SbFIRT{}.
 \end{theorem}
 \begin{proof}
 Pelo Lema~\ref{lemma:WQOEFBXP}, temos que a sequência fornecida pelo algoritmo $3$-\SbIRT{} para a instância intergênica rígida balanceada com sinais $\mathcal{I'}$, se aplicada no genoma de origem $(\pi,\breve\pi)$ da instância intergênica flexível balanceada com sinais $\mathcal{I}$, faz com que o genoma alvo seja alcançado. Além disso, note que os problemas \SbIRT{} e \SbFIRT{} compartilham o mesmo modelo de rearranjo. Logo, a sequência $S'$ utiliza apenas eventos permitidos pelo modelo de rearranjo do problema \SbFIRT{}. Pelo Lema~\ref{lemma:MNQTVIRT}, temos que $|S'| \le \frac{3({n+1} - c_b(G(\mathcal{I}')))}{2}$. Entretanto, pelo Lema~\ref{lemma:PSGXFVHD}, temos que $c_d(G(\mathcal{I})) = c_b(G(\mathcal{I}'))$. Logo, $|S'| \le \frac{3({n+1} - c_d(G(\mathcal{I})))}{2}$. Pelo Teorema~\ref{theorem:HELIIGVZ}, temos o seguinte limitante inferior: $dfi_{\RT}(\mathcal{I}) \ge \frac{{n+1} - c_d(G(\mathcal{I}))}{2}$, e o teorema segue.
@@ -754,7 +754,7 @@ Nesta seção, apresentaremos um algoritmo de aproximação com fator $3$ para a
 \input{algorithms/WWDUHPBG}
 
 \begin{theorem}\label{theorem:IRGQGPKZ}
-Dada uma instância intergênica flexível com sinais $\mathcal{I}$, o Algoritmo~\ref{algorithm:WWDUHPBG} é uma $3$-aproximação para o problema \SbFIRTI{}.
+Seja $\mathcal{I}$ uma instância intergênica flexível com sinais. O Algoritmo~\ref{algorithm:WWDUHPBG} é uma $3$-aproximação para o problema \SbFIRTI{}.
 \end{theorem}
 \begin{proof}
 Pelo Lema~\ref{lemma:TQUNQUGX}, temos que a sequência fornecida pelo Algoritmo~\ref{algorithm:YMHYMYQC} para a instância intergênica rígida com sinais $\mathcal{I'}$, se aplicada no genoma de origem $(\pi,\breve\pi)$ da instância intergênica flexível com sinais $\mathcal{I}$, faz com que o genoma alvo seja alcançado. Além disso, note que os problemas \SbIRTI{} e \SbFIRTI{} compartilham o mesmo modelo de rearranjo. Logo, a sequência $S'$ utiliza apenas eventos permitidos pelo modelo de rearranjo do problema \SbFIRTI{}. Pelo Lema~\ref{lemma:TKRHFREQ}, temos que $|S'| \le \frac{3(n+1 - c_b(G(\mathcal{I})))}{2}$. Entretanto, pelo Lema~\ref{lemma:AOKHMVAY}, temos que $c(G(\mathcal{I})) = c(G(\mathcal{I}'))$ e $c_e(G(\mathcal{I})) = c_b(G(\mathcal{I}'))$. Logo, $|S'| \le \frac{3(n+1 - c_e(G(\mathcal{I})))}{2}$. Pelo Teorema~\ref{theorem:SZNBDWOM}, temos o seguinte limitante inferior: $dfi_{\RTI}(\mathcal{I}) \ge \frac{n+1 - c_e(G(\mathcal{I}))}{2}$, e o teorema segue.
@@ -766,10 +766,10 @@ Pelo Lema~\ref{lemma:TQUNQUGX}, temos que a sequência fornecida pelo Algoritmo~
 
 Nesta seção, apresentaremos um algoritmo de aproximação com fator $2.5$ para a variação com sinais do problema \SbFIRTM{}. 
 
-Note que a variação com sinais do problema \SbIRTM{} possui um algoritmo de aproximação com um fator de $2.5$~\cite{2021a-oliveira-etal}, que chamaremos de $2.5$-\SbIRTM{}. Além disso, temos o seguinte lema:
+Note que a variação com sinais do problema \SbIRTM{} possui um algoritmo de aproximação com um fator de $2.5$~\cite{2021a-oliveira-etal}, que chamaremos de $2.5$-\SbIRTM{}. Além disso, temos o lema a seguir.
 
 \begin{lemma}\label{lemma:TPROVWMO}
-Seja $\mathcal{I}' = ((\pi',\breve\pi'),(\iota',\breve\iota'))$ uma instância intergênica rígida balanceada com sinais, o algoritmo $2.5$-\SbIRTM{} transforma $(\pi',\breve\pi')$ em $(\iota',\breve\iota')$ utilizando uma sequência de eventos de reversão, transposição e move $S'$, tal que $|S'| \le \frac{5({n+1} - c_b(G(\mathcal{I}')))}{4}$.
+Seja $\mathcal{I}' = ((\pi',\breve\pi'),(\iota',\breve\iota'))$ uma instância intergênica rígida balanceada com sinais. O algoritmo $2.5$-\SbIRTM{} transforma $(\pi',\breve\pi')$ em $(\iota',\breve\iota')$ utilizando uma sequência de eventos de reversão, transposição e move $S'$, tal que $|S'| \le \frac{5({n+1} - c_b(G(\mathcal{I}')))}{4}$.
 \end{lemma}
 \begin{proof}
 Diretamente pelo Lema 7.11 de Oliveira \textit{et al.}~\cite{2021a-oliveira-etal}.
@@ -780,7 +780,7 @@ Agora considere o Algoritmo~\ref{algorithm:XXIGKPAV}.
 \input{algorithms/XXIGKPAV}
 
 \begin{theorem}\label{theorem:BZSXXPYW}
-Dada uma instância intergênica flexível balanceada com sinais $\mathcal{I}$, o Algoritmo~\ref{algorithm:XXIGKPAV} é uma $2.5$-aproximação para o problema \SbFIRTM{}.
+Seja $\mathcal{I}$ uma instância intergênica flexível balanceada com sinais. O Algoritmo~\ref{algorithm:XXIGKPAV} é uma $2.5$-aproximação para o problema \SbFIRTM{}.
 \end{theorem}
 \begin{proof}
 Pelo Lema~\ref{lemma:WQOEFBXP}, temos que a sequência fornecida pelo algoritmo $2.5$-\SbIRTM{} para a instância intergênica rígida balanceada com sinais $\mathcal{I'}$, se aplicada no genoma de origem $(\pi,\breve\pi)$ da instância intergênica flexível balanceada com sinais $\mathcal{I}$, faz com que o genoma alvo seja alcançado. Além disso, note que os problemas \SbIRTM{} e \SbFIRTM{} compartilham o mesmo modelo de rearranjo. Logo, a sequência $S'$ utiliza apenas eventos permitidos pelo modelo de rearranjo do problema \SbFIRTM{}. Pelo Lema~\ref{lemma:TPROVWMO}, temos que $|S'| \le \frac{5({n+1} - c_b(G(\mathcal{I}')))}{4}$. Entretanto, pelo Lema~\ref{lemma:PSGXFVHD}, temos que $c_d(G(\mathcal{I})) = c_b(G(\mathcal{I}'))$. Logo, $|S'| \le \frac{5({n+1} - c_d(G(\mathcal{I})))}{4}$. Pelo Teorema~\ref{theorem:HELIIGVZ}, temos o seguinte limitante inferior: $dfi_{\RTM}(\mathcal{I}) \ge \frac{{n+1} - c_d(G(\mathcal{I}))}{2}$, e o teorema segue.
@@ -795,7 +795,7 @@ Nesta seção, apresentaremos um algoritmo de aproximação com fator $3$ para a
 \input{algorithms/JBNSEPGG}
 
 \begin{theorem}\label{theorem:AKZNNSGT}
-Dada uma instância intergênica flexível com sinais $\mathcal{I}$, o Algoritmo~\ref{algorithm:JBNSEPGG} é uma $3$-aproximação para o problema \SbFIRTMI{}.
+Seja $\mathcal{I}$ uma instância intergênica flexível com sinais. O Algoritmo~\ref{algorithm:JBNSEPGG} é uma $3$-aproximação para o problema \SbFIRTMI{}.
 \end{theorem}
 \begin{proof}
 Pelo Lema~\ref{lemma:TQUNQUGX}, temos que a sequência fornecida pelo Algoritmo~\ref{algorithm:EIFZNOAH} para a instância intergênica rígida com sinais $\mathcal{I'}$, se aplicada no genoma de origem $(\pi,\breve\pi)$ da instância intergênica flexível com sinais $\mathcal{I}$, faz com que o genoma alvo seja alcançado. Além disso, note que os problemas \SbIRTMI{} e \SbFIRTMI{} compartilham o mesmo modelo de rearranjo. Logo, a sequência $S'$ utiliza apenas eventos permitidos pelo modelo de rearranjo do problema \SbFIRTMI{}. Pelo Lema~\ref{lemma:TEVTTPGB}, temos que $|S'| \le \frac{3(n+1 - c_b(G(\mathcal{I})))}{2}$. Entretanto, pelo Lema~\ref{lemma:AOKHMVAY}, temos que $c(G(\mathcal{I})) = c(G(\mathcal{I}'))$ e $c_e(G(\mathcal{I})) = c_b(G(\mathcal{I}'))$. Logo, $|S'| \le \frac{3(n+1 - c_e(G(\mathcal{I})))}{2}$. Pelo Teorema~\ref{theorem:SZNBDWOM}, temos o seguinte limitante inferior: $dfi_{\RTMI}(\mathcal{I}) \ge \frac{n+1 - c_e(G(\mathcal{I}))}{2}$, e o teorema segue.
@@ -813,7 +813,7 @@ Utilizando a estrutura de grafo de ciclos ponderado flexível e considerando tod
 
 Para garantir uma proporcionalidade entre os possíveis cenários nos problemas que utilizam um modelo de rearranjo composto exclusivamente por eventos conservativos, criamos a bases de dados $S_{C}$. A base de dados possui cinco grupos, sendo que cada grupo possui 3000 instâncias intergênicas flexíveis balanceadas com sinais de tamanho 100 e é identificado pelo grau de flexibilização máxima das instâncias contidas nele. Os identificadores dos grupos são 10\%, 20\%, 30\%, 40\% e 50\%. Utilizando a estrutura de grafo de ciclos ponderado flexível, cada grupo possui 1000 instâncias em cada cenário: equilíbrio, fonte e sorvedouro. O processo de criação de uma instância da base de dados $S_{C}$ é semelhante ao utilizado pela base de dados $U_{C}$, descrito na Seção~\ref{subsubsection:PWLZZAVH}, diferenciando apenas pelo fato de que cada instância foi criada a partir das representações intergênicas rígida e flexível com sinais e que a operação de troca também altera a orientação dos elementos afetados. A base de dados $S_{C}$ foi criada para ser utilizada pelos algoritmos da variação com sinais dos problemas $\SbFIR{}$, $\SbFIRM{}$, $\SbFIRT{}$ e $\SbFIRTM{}$.
 
-A seguir, apresentamos os resultados obtidos pelos algoritmos propostos para a variação com sinais dos problemas investigados neste capítulo. Nas tabelas que serão utilizadas a seguir temos a informação, por grupo, do grau de flexibilização adotado e as métricas de distância e aproximação, sendo que para ambas as métricas temos a informação sobre o menor e o maior valor registrado, além da média dos valores do grupo.
+A seguir, apresentamos os resultados obtidos pelos algoritmos propostos para a variação com sinais dos problemas investigados neste capítulo. Nas tabelas que serão utilizadas a seguir temos a informação, por grupo, do grau de flexibilização adotado e as métricas de distância e aproximação, sendo que para ambas as métricas temos a informação sobre o menor e o maior valor registrado, além da média dos valores do grupo. As colunas Distância e Aproximação indicam a quantidade de operações e o fator de aproximação para uma solução fornecida por um algoritmo.
 
 A Tabela~\ref{table:MGYFELVA} apresenta os resultados do Algoritmo~\ref{algorithm:HSDBEFII} utilizando as bases de dados $S_\SbFIR{}$ e $S_{\text{C}}$. A razão de aproximação obtida pelo algoritmo para cada instância foi computada utilizando o limitante inferior apresentado no Teorema~\ref{theorem:EUNBEQEX}.
 
@@ -873,4 +873,4 @@ Neste capítulo, estudamos uma generalização dos problemas que consideram tant
 
 O grau de flexibilidade possibilita agregar uma importância maior para a ordem e orientação dos genes, em comparação com o tamanho das regiões intergênicas. Considerando um intervalo de valores permitidos para o tamanho de cada região intergênica no genoma alvo, ampliou-se as possibilidades de configuração para os tamanhos das regiões intergênicas de modo que todas as restrições do modelo fossem atendidas.
 
-Para as variações com e sem sinais dos problemas investigados neste capítulo, apresentamos algoritmos de aproximação com um fator constante. Os algoritmos foram derivados de um processo de redução que permite o uso de resultados que foram apresentados para as respectivas versões rígidas dos problemas. Por fim, realizamos testes computacionais para verificar o desempenho prático dos algoritmos em diferentes cenários de flexibilização.
+Para as variações com e sem sinais dos problemas investigados neste capítulo, apresentamos algoritmos de aproximação com fator constante. Os algoritmos foram derivados de um processo de redução que permite o uso de resultados que foram apresentados para as respectivas versões rígidas dos problemas. Por fim, realizamos testes computacionais para verificar o desempenho prático dos algoritmos em diferentes cenários de flexibilização.

@@ -1,11 +1,11 @@
 
 Os problemas de distância entre genomas podem utilizar uma abordagem \emph{não ponderada}, ou seja, cada evento de rearranjo utilizado para transformar o genoma de origem no genoma alvo contribui em uma unidade para a distância. Essa abordagem tem como característica que cada tipo de evento de rearranjo pertencente ao modelo de rearranjo adotado possui a mesma probabilidade de ocorrer em um cenário evolutivo. Outra abordagem que surgiu para possibilitar uma contribuição diferente para cada evento de rearranjo é chamada de \emph{ponderada}. Nessa abordagem, cada tipo de evento de rearranjo possui um peso associado que é contabilizado na distância evolutiva entre os genomas, onde busca-se minimizar a soma total dos pesos. A abordagem ponderada geralmente é utilizada para mapear um cenário em que queremos que determinados eventos de rearranjo tenham uma probabilidade maior de ocorrer do que outros. Para isso, basta atribuir um peso menor para os eventos de rearranjo mais frequentes. Esses pesos podem ser atribuídos com base em observações empíricas de determinados organismos ou através de análises realizadas especificamente para esse objetivo~\cite{2008-bader-etal,2001-eriksen}. 
 
-Os eventos de rearranjo de reversão e transposição são dois dos eventos mais estudados na literatura~\cite{2002-berman-etal,2006-elias-hartman,2022-silva-etal}. Considerando uma representação clássica e uma abordagem não ponderada, temos o problema de Ordenação de Permutações por Reversões e Transposições (\SbRT), sendo que o problema possui a variação com e sem sinais. Ambas as variações pertencem à classe NP-difícil de problemas~\cite{2019b-oliveira-etal}. Para a variação com sinais do problema existe um algoritmo de aproximação com fator 2~\cite{1998-walter-etal}, enquanto para a variação sem sinais existe um algoritmo de aproximação com fator $2\alpha$~\cite{2008-rahman-etal}, onde $\alpha$ é o fator de aproximação do algoritmo utilizado para a decomposição de ciclos do Grafo de Ciclos~\cite{1999a-caprara,2013-chen}.
+Os eventos de rearranjo de reversão e transposição são dois dos eventos mais estudados na literatura~\cite{2002-berman-etal,2006-elias-hartman,2022-silva-etal}. Considerando uma representação clássica e uma abordagem não ponderada, temos o problema de Ordenação de Permutações por Reversões e Transposições (\SbRT), sendo que o problema possui a variação com e sem sinais. Ambas as variações pertencem à classe NP-difícil de problemas~\cite{2019b-oliveira-etal}. Para a variação com sinais do problema existe um algoritmo de aproximação com fator 2~\cite{1998-walter-etal}, enquanto para a variação sem sinais existe um algoritmo de aproximação com fator $2\alpha$~\cite{2008-rahman-etal}, onde $\alpha$ é o fator de aproximação do algoritmo utilizado para a decomposição em ciclos do grafo de ciclos~\cite{1999a-caprara,2013-chen}.
 
-Considerando uma abordagem ponderada, temos o problema de Ordenação de Permutações por Reversões e Transposições Ponderadas (\SbWRT) na variação com e sem sinais. Em 2002, Eriksen~\cite{2002-eriksen} apresentou um algoritmo com fator de aproximação de $\frac{7}{6}$ para a variação com sinais do problema, utilizando os pesos $1$ e $2$ para os eventos de reversão e transposição, respectivamente. Oliveira \textit{et al.}\cite{2019a-oliveira-etal} desenvolveram um algoritmo de aproximação com fator $1.5$ para a variação com sinais do problema \SbWRT{}, adotando os pesos $2$ e $3$ para os eventos de reversão e transposição, respectivamente. Além disso, os autores mostraram que as variações com e sem sinais do problema \SbWRT{} pertencem à classe NP-difícil quando a razão entre os pesos dos eventos de transposição e reversão é maior ou igual a $1.5$.  
+Considerando uma abordagem ponderada, temos o problema de Ordenação de Permutações por Reversões e Transposições Ponderadas (\SbWRT) na variação com e sem sinais. Em 2002, Eriksen~\cite{2002-eriksen} apresentou um algoritmo com fator de aproximação $\frac{7}{6}$ para a variação com sinais do problema, utilizando os pesos $1$ e $2$ para os eventos de reversão e transposição, respectivamente. Oliveira \textit{et al.}\cite{2019a-oliveira-etal} desenvolveram um algoritmo de aproximação com fator $1.5$ para a variação com sinais do problema \SbWRT{}, adotando os pesos $2$ e $3$ para os eventos de reversão e transposição, respectivamente. Além disso, os autores mostraram que as variações com e sem sinais do problema \SbWRT{} pertencem à classe NP-difícil quando a razão entre os pesos dos eventos de transposição e reversão é maior ou igual a $1.5$.  
 
-Em 2007, Bader e Ohlebusch~\cite{2007-bader-ohlebusch} apresentaram o problema de Ordenação de Permutações por Reversões, Transposições e Transposições Inversa Ponderadas (\SbWRTIT). A transposição inversa é um evento similar ao evento de transposição, mas com um dos segmentos afetados sendo invertido. Para a variação com sinais do problema os autores apresentaram um algoritmo de aproximação com fator $1.5$, utilizando o peso $1$ para o evento de reversão e o mesmo peso para os eventos de transposição e transposição inversa no intervalo $[1..2]$. Em 2020, Alexandrino \textit{et al.}\cite{2020c-alexandrino-etal} mostraram que as variações com e sem sinais do problema \SbWRTIT{} pertencem à classe NP-difícil quando os eventos de transposição e transposição inversa possuem o mesmo peso e a razão entre os pesos dos eventos de transposição e reversão é maior ou igual a $1.5$.
+Em 2007, Bader e Ohlebusch~\cite{2007-bader-ohlebusch} apresentaram o problema de Ordenação de Permutações por Reversões, Transposições e Transposições Inversa Ponderadas (\SbWRTIT). A \emph{transposição inversa} é um evento similar ao evento de transposição, mas com um dos segmentos afetados sendo invertido. Para a variação com sinais do problema os autores apresentaram um algoritmo de aproximação com fator $1.5$, utilizando o peso $1$ para o evento de reversão e o mesmo peso para os eventos de transposição e transposição inversa no intervalo $[1..2]$. Em 2020, Alexandrino \textit{et al.}\cite{2020c-alexandrino-etal} mostraram que as variações com e sem sinais do problema \SbWRTIT{} pertencem à classe NP-difícil quando os eventos de transposição e transposição inversa possuem o mesmo peso e a razão entre os pesos dos eventos de transposição e reversão é maior ou igual a $1.5$.
 
 A abordagem ponderada possui vantagens em comparação com a abordagem não ponderada quando queremos mapear um cenário evolutivo dando maior prioridade para determinados tipos de eventos de rearranjo. Entretanto, ela não garante que os rearranjos de menor peso, supostamente os mais frequentes em um cenário evolutivo, serão realmente os mais utilizados pelos algoritmos. Para contornar esse obstáculo, propomos e investigamos o problema de Ordenação de Permutações por Reversões e Transposições com Restrição de Proporção (\SbPRT) em instâncias clássicas com e sem sinais. Nesse cenário, buscamos uma sequência de reversões e transposições $S$, capaz de transformar o genoma de origem no genoma alvo, com uma restrição adicional na qual a relação entre o número de reversões e o tamanho da sequência $S$ deve ser maior ou igual a um determinado parâmetro $k \in [0..1]$. 
 
@@ -28,7 +28,7 @@ Dada uma sequência de eventos de rearranjo $S$, denotamos por $|S|$ o tamanho d
   \problemtask{Com base no modelo de rearranjo $\mathcal{M}=\{\rho,\tau\}$, determinar uma sequência de eventos de rearranjo $S$ de tamanho mínimo capaz de transformar $\pi$ em $\iota$, tal que $\frac{|S_{\rho}|}{|S|} \ge k$.}
 \end{task}
 
-Dada uma instância clássica com ou sem sinais $\mathcal{I}=(\pi,\iota)$ e um número racional $k \in [0..1]$, a \emph{distância de proporção} entre $\pi$ e $\iota$, denotada por $dp_{k}(\mathcal{I})$, é o tamanho da menor sequência de eventos de rearranjo $S$, tal que todo evento de $S$ pertence ao modelo $\mathcal{M}=\{\rho,\tau\}$, $\pi \cdot S = \iota$ e $\frac{|S_{\rho}|}{|S|} \ge k$. Por praticidade, neste capítulo, referiremos a um breakpoint clássico simplesmente por breakpoint. Além disso, faremos uso do grafo de ciclos clássico.
+Dada uma instância clássica com ou sem sinais $\mathcal{I}=(\pi,\iota)$ e um número racional $k \in [0..1]$, a \emph{distância de proporção} entre $\pi$ e $\iota$, denotada por $dp_{k}(\mathcal{I})$, é o tamanho da menor sequência de eventos de rearranjo $S$ tal que todo evento de $S$ pertence ao modelo $\mathcal{M}=\{\rho,\tau\}$, $\pi \cdot S = \iota$ e $\frac{|S_{\rho}|}{|S|} \ge k$. Por praticidade, neste capítulo nos referiremos a um breakpoint clássico simplesmente por breakpoint. Além disso, faremos uso do grafo de ciclos clássico.
 
 Neste capítulo, provaremos que o problema \SbPRT{} pertence à classe NP-difícil em instâncias clássicas sem sinais para qualquer valor de $k$. Em instâncias clássicas com sinais, mostraremos que existe um algoritmo exato polinomial para o problema quando $k=1$ e provaremos que o problema pertence à classe NP-difícil quando $k < 1$. Para as variações com e sem sinais do problema \SbPRT{}, apresentaremos algoritmos de aproximação com fatores $3 - \frac{3k}{2}$ e $3-k$, respectivamente. Além disso, apresentaremos um algoritmo de aproximação assintótico com um fator teórico melhor para instâncias clássicas com sinais. Por fim, realizaremos experimentos comparando o desempenho prático dos algoritmos propostos.
 
@@ -41,15 +41,15 @@ Os resultados apresentados neste capítulo foram publicados em 2021 na revista \
 Nesta seção, apresentaremos limitantes inferiores para as variações com e sem sinais do problema \SbPRT{}. Os limitantes inferiores fazem uso do conceito de breakpoint clássico (Seção~\ref{subsection:POEFMSHU}) e da estrutura do grafo de ciclos clássico (Seção~\ref{subsection:LSNDQWPI}).
 
 \begin{lemma}[Kececioglu e Sankoff~\cite{1995-kececioglu-sankoff}]\label{lemma:QIRAVPQT}
-Dada uma instância clássica sem sinais $\mathcal{I}$, para qualquer reversão $\rho$ temos que $\Delta b_1(\mathcal{I}, S = (\rho)) \ge -2$.
+Seja $\mathcal{I}$ uma instância clássica sem sinais. Para qualquer reversão $\rho$ temos que $\Delta b_1(\mathcal{I}, S = (\rho)) \ge -2$.
 \end{lemma}
 
 \begin{lemma}[Walter \textit{et al.}~\cite{1998-walter-etal}]\label{lemma:NJATEDCC}
-Dada uma instância clássica sem sinais $\mathcal{I}$, para qualquer transposição $\tau$ temos que $\Delta b_1(\mathcal{I}, S = (\tau)) \ge -3$.
+Seja $\mathcal{I}$ uma instância clássica sem sinais. Para qualquer transposição $\tau$ temos que $\Delta b_1(\mathcal{I}, S = (\tau)) \ge -3$.
 \end{lemma}
 
 \begin{lemma}\label{lemma:JYYZBREC}
-Dada uma instância clássica sem sinais $\mathcal{I}$ para o problema $\SbPRT{}$ considerando a proporção $k \in [0..1]$, e seja $S$ uma sequência ótima de eventos de rearranjo para o problema. O número de breakpoints tipo um removidos por cada evento de $S$, em média, é menor ou igual a $3-k$.
+Seja $\mathcal{I}$ uma instância clássica sem sinais para o problema $\SbPRT{}$ considerando a proporção $k \in [0..1]$, e seja $S$ uma sequência ótima de eventos de rearranjo para o problema. O número de breakpoints tipo um removidos por cada evento de $S$, em média, é menor ou igual a $3-k$.
 \end{lemma}
 \begin{proof}
 Como $S$ é uma sequência ótima para a instância $\mathcal{I}$ com base na proporção $k$, temos que pelo menos $|S|k$ eventos presentes em $S$ são reversões. Pelos lemas~\ref{lemma:QIRAVPQT} e \ref{lemma:NJATEDCC}, temos que uma reversão pode remover até dois breakpoints tipo um enquanto uma transposição pode remover até três. Seja $\phi b(S)$ o número médio de breakpoints tipo um removidos por um evento de $S$, temos que:
@@ -57,33 +57,33 @@ $$\phi b(S) \le \frac{(2 |S| k) + (3 |S| (1 - k))}{|S|} = 2k + 3(1 - k) = 3 - k.
 \end{proof}
 
 \begin{lemma}[Hannenhalli e Pevzner~\cite{1999-hannenhalli-pevzner}]\label{lemma:MYFTFTWE}
-Dada uma instância clássica com sinais $\mathcal{I}$, para qualquer reversão $\rho$ temos que $\Delta b_2(\mathcal{I}, S = (\rho)) \ge -2$.
+Seja $\mathcal{I}$ uma instância clássica com sinais. Para qualquer reversão $\rho$ temos que $\Delta b_2(\mathcal{I}, S = (\rho)) \ge -2$.
 \end{lemma}
 
 \begin{lemma}\label{lemma:AKEQRMOY}
-Dada uma instância clássica com sinais $\mathcal{I}$, para qualquer transposição $\tau$ temos que $\Delta b_2(\mathcal{I}, S = (\tau)) \ge -3$.
+Seja $\mathcal{I}$ uma instância clássica com sinais. Para qualquer transposição $\tau$ temos que $\Delta b_2(\mathcal{I}, S = (\tau)) \ge -3$.
 \end{lemma}
 \begin{proof}
 Note que uma transposição pode afetar no máximo três breakpoints tipo dois de $\mathcal{I}$. Logo, no melhor cenário, os três breakpoints são removidos e o lema segue.
 \end{proof}
 
 \begin{lemma}\label{lemma:ZZLNPRWJ}
-Dada uma instância clássica com sinais $\mathcal{I}$ para o problema $\SbPRT{}$ considerando a proporção $k \in [0..1]$, e seja $S$ uma sequência ótima de eventos de rearranjo para o problema. O número de breakpoints tipo dois removidos por cada evento de $S$, em média, é menor ou igual a $3-k$.
+Seja $\mathcal{I}$ uma instância clássica com sinais para o problema $\SbPRT{}$ considerando a proporção $k \in [0..1]$, e seja $S$ uma sequência ótima de eventos de rearranjo para o problema. O número de breakpoints tipo dois removidos por cada evento de $S$, em média, é menor ou igual a $3-k$.
 \end{lemma}
 \begin{proof}
 A prova é similar à descrita no Lema~\ref{lemma:JYYZBREC}, mas considerando os lemas~\ref{lemma:MYFTFTWE} e \ref{lemma:AKEQRMOY}.
 \end{proof}
 
 \begin{lemma}[Hannenhalli e Pevzner~\cite{1999-hannenhalli-pevzner}]\label{lemma:WMUBEYJS}
-Dada uma instância clássica com sinais $\mathcal{I}$, para qualquer reversão $\rho$ temos que $\Delta c(G(\mathcal{I}), S = (\rho)) \le 1$.
+Seja $\mathcal{I}$ uma instância clássica com sinais. Para qualquer reversão $\rho$ temos que $\Delta c(G(\mathcal{I}), S = (\rho)) \le 1$.
 \end{lemma}
 
 \begin{lemma}[Bafna e Pevzner~\cite{1995b-bafna-pevzner}; Walter \textit{et al.}~\cite{1998-walter-etal}]\label{lemma:WITSEXYZ}
-Dada uma instância clássica com ou sem sinais $\mathcal{I}$, para qualquer transposição $\tau$ temos que $\Delta c(G(\mathcal{I}), S = (\tau)) \le 2$.
+Seja $\mathcal{I}$ uma instância clássica com ou sem sinais $\mathcal{I}$. Para qualquer transposição $\tau$ temos que $\Delta c(G(\mathcal{I}), S = (\tau)) \le 2$.
 \end{lemma}
 
 \begin{lemma}\label{lemma:IMSCPWKN}
-Dada uma instância clássica com sinais $\mathcal{I}$ para o problema $\SbPRT{}$ considerando a proporção $k \in [0..1]$, e seja $S$ uma sequência ótima de eventos de rearranjo para o problema. A variação no número de ciclos para cada evento de $S$, em média, é menor ou igual a $2-k$.
+Seja $\mathcal{I}$ uma instância clássica com sinais para o problema $\SbPRT{}$ considerando a proporção $k \in [0..1]$, e seja $S$ uma sequência ótima de eventos de rearranjo para o problema. A variação no número de ciclos para cada evento de $S$, em média, é menor ou igual a $2-k$.
 \end{lemma}
 \begin{proof}
 Como $S$ é uma sequência ótima para a instância $\mathcal{I}$ com base na proporção $k$, temos que pelo menos $|S|k$ eventos presentes em $S$ são reversões. Pelos lemas~\ref{lemma:WMUBEYJS} e \ref{lemma:WITSEXYZ}, temos que uma reversão pode criar até um novo ciclo, enquanto uma transposição pode criar até dois. Seja $\phi c(S)$ o número médio de ciclos criados por um evento de $S$, temos que:
@@ -91,21 +91,21 @@ $$\phi c(S) \leq \frac{(1 |S| k) + (2 |S| (1 - k))}{|S|} = 1k + 2(1 - k) = 2 - k
 \end{proof}
 
 \begin{theorem}\label{theorem:KJXGKJIP}
-Dada uma instância clássica sem sinais $\mathcal{I}$ para o problema $\SbPRT{}$ e uma proporção $k \in [0..1]$, temos que $dp_{k}(\mathcal{I}) \ge \frac{b_1(\mathcal{I})}{3-k}$.
+Seja $\mathcal{I}$ uma instância clássica sem sinais para o problema $\SbPRT{}$ considerando uma proporção $k \in [0..1]$. Temos que $dp_{k}(\mathcal{I}) \ge \frac{b_1(\mathcal{I})}{3-k}$.
 \end{theorem}
 \begin{proof}
 Note que, pela Observação~\ref{remark:AEYJTIDG}, $b_1(\mathcal{I})$ breakpoints tipo um devem ser removidos para transformar $\pi$ em $\iota$ e, pelo Lema~\ref{lemma:JYYZBREC}, até $3-k$ breakpoints tipo um são removidos, em média, por cada operação de uma sequência ótima para o problema. Logo, o teorema segue.
 \end{proof}
 
 \begin{theorem}\label{theorem:ABGZQHIL}
-Dada uma instância clássica com sinais $\mathcal{I}$ para o problema $\SbPRT{}$ e uma proporção $k \in [0..1]$, temos que $dp_{k}(\mathcal{I}) \ge \frac{b_2(\mathcal{I})}{3-k}$.
+Seja $\mathcal{I}$ uma instância clássica com sinais para o problema $\SbPRT{}$ considerando uma proporção $k \in [0..1]$. Temos que $dp_{k}(\mathcal{I}) \ge \frac{b_2(\mathcal{I})}{3-k}$.
 \end{theorem}
 \begin{proof}
 A prova é similar à descrita no Teorema~\ref{theorem:KJXGKJIP}, mas considerando o número de breakpoints tipo dois em $\mathcal{I}$ e o Lema~\ref{lemma:ZZLNPRWJ}.
 \end{proof}
 
 \begin{theorem}\label{theorem:WSTPPSMD}
-Dada uma instância clássica com sinais $\mathcal{I}$ para o problema $\SbPRT{}$ e uma proporção $k \in [0..1]$, temos que $dp_{k}(\mathcal{I}) \ge \frac{n + 1 - c(G(\mathcal{I}))}{2-k}$.
+Seja $\mathcal{I}$ uma instância clássica com sinais para o problema $\SbPRT{}$ considerando uma proporção $k \in [0..1]$. Temos que $dp_{k}(\mathcal{I}) \ge \frac{n + 1 - c(G(\mathcal{I}))}{2-k}$.
 \end{theorem}
 \begin{proof}
 Note que, pela Observação~\ref{remark:OYRVGHTB}, $n+1 - c(G(\mathcal{I}))$ novos ciclos precisam ser criados para transformar $\pi$ em $\iota$. Pelo Lema~\ref{lemma:IMSCPWKN}, até $2-k$ novos ciclos são criados, em média, por cada operação de uma sequência ótima para o problema. Logo, o teorema segue.
@@ -115,7 +115,7 @@ Note que, pela Observação~\ref{remark:OYRVGHTB}, $n+1 - c(G(\mathcal{I}))$ nov
 \section{Análise de Complexidade}
 % ------------------------------------------------------------------ %
 
-Nesta seção, apresentamos uma análise de complexidade do problema \SbPRT{} em instâncias clássicas com e sem sinais para todos os possíveis valores de $k$. A seguir, descrevemos formalmente a versão de decisão do problema \SbPRT{}.
+Nesta seção, apresentamos uma análise de complexidade do problema \SbPRT{} em instâncias clássicas com e sem sinais para todos os possíveis valores de $k$. Os problemas citados e investigados nessa seção referem-se a suas respectivas versões de decisão. A seguir, descrevemos formalmente a versão de decisão do problema \SbPRT{}.
 
 \begin{decision}
   \problemtitle{\SbPRT{} (Versão de Decisão)}
@@ -278,10 +278,10 @@ Nesta seção, apresentamos algoritmos de aproximação para as variações com 
 \subsection{Instâncias Clássicas sem Sinais}
 % ------------------------------------------------------------------ %
 
-Com base no conceito de breakpoint, apresentamos algoritmos de aproximação com fatores de $3-k$ para o problema \SbPRT{} em instâncias clássicas sem sinais.
+Com base no conceito de breakpoint, apresentamos algoritmos de aproximação com fatores $3-k$ para o problema \SbPRT{} em instâncias clássicas sem sinais.
 
 \begin{lemma}[Kececioglu e Sankoff~\cite{1995-kececioglu-sankoff}]\label{lemma:PZWHPXFL}
-Dada uma instância clássica sem sinais $\mathcal{I} = (\pi,\iota)$, é possível transformar $\pi$ em $\iota$ utilizando no máximo $b_1(\mathcal{I})$ reversões.
+Seja $\mathcal{I} = (\pi,\iota)$ uma instância clássica sem sinais. É possível transformar $\pi$ em $\iota$ utilizando no máximo $b_1(\mathcal{I})$ reversões.
 \end{lemma}
 
 \begin{theorem}\label{theorem:FTRSGXOZ}
@@ -291,40 +291,40 @@ Existe um algoritmo de aproximação com fator $3-k$ para o problema \SbPRT{} em
 Pelo Lema~\ref{lemma:PZWHPXFL}, dada uma instância clássica sem sinais $\mathcal{I} = (\pi,\iota)$, é possível transformar $\pi$ em $\iota$ utilizando no máximo $b_1(\mathcal{I})$ reversões. Como somente reversões são utilizadas na sequência de rearranjo $S$, então a restrição $\frac{|S_{\rho}|}{|S|} \ge k$ nunca é violada. Além disso, pelo Teorema~\ref{theorem:KJXGKJIP}, temos que $dp_{k}(\mathcal{I}) \ge \frac{b_1(\mathcal{I})}{3-k}$. Logo, $\frac{b_1(\mathcal{I})}{\frac{b_1(\mathcal{I})}{3-k}} = 3-k$, e o teorema segue.
 \end{proof}
 
-Note que o algoritmo de aproximação resultante do Teorema~\ref{theorem:FTRSGXOZ} utiliza somente reversões. Para evitar que as soluções sejam compostas exclusivamente por reversões, nós propomos o Algoritmo~\ref{algorithm:INBRWKCH}. Esse algoritmo também garante um fator de aproximação de $3-k$ para instâncias clássicas sem sinais do problema \SbPRT{} e para qualquer valor de $k$. Além disso, a proporção entre a quantidade de reversões e o tamanho da sequência de eventos de rearranjo fornecida pelo algoritmo tende a ser um valor próximo de $k$.
+Note que o algoritmo de aproximação resultante do Teorema~\ref{theorem:FTRSGXOZ} utiliza somente reversões. Para evitar que as soluções sejam compostas exclusivamente por reversões, nós propomos o Algoritmo~\ref{algorithm:INBRWKCH}. Esse algoritmo também garante o fator de aproximação $3-k$ para instâncias clássicas sem sinais do problema \SbPRT{} e para qualquer valor de $k$. Além disso, a proporção entre a quantidade de reversões e o tamanho da sequência de eventos de rearranjo fornecida pelo algoritmo tende a ser um valor próximo de $k$.
 
 \input{algorithms/INBRWKCH}
 
-Observe que o Algoritmo~\ref{algorithm:INBRWKCH} aplica uma transposição $\tau$ se duas restrições forem satisfeitas: (i) $\frac{|S_{\rho}|}{|S| + 1} \ge k$, que garante que a sequência de eventos de rearranjo $S$ construída pelo algoritmo obedecerá à restrição do problema que $\frac{|S_{\rho}|}{|S|} \ge k$; e (ii) $\Delta b_1(\mathcal{I}, (\tau)) \le -1$, que garante que a sequência de ordenação conterá, no máximo, $b_1(\mathcal{I})$ operações, pois cada sequência de reversões adicionada da sequência $S$ remove, em média, um ou mais breakpoints tipo um por operação. Como o Algoritmo~\ref{algorithm:INBRWKCH} remove, em média, um ou mais breakpoints tipo um por iteração, ele garante que $\pi$ será transformada em $\iota$. Além disso, não mais do que $b_1(\mathcal{I})$ operações serão usadas para isso, mantendo o fator de aproximação de $3-k$. Como a transposição $\tau$ (linhas 3-5) e a sequência de no máximo duas reversões $S^{\prime}$ (linhas 6-9) podem ser encontradas em tempo linear, o tempo de execução do Algoritmo~\ref{algorithm:INBRWKCH} é $\mathcal{O}(n^2)$, considerando que $|S|~\le~b_1(\pi)~\le~{n + 1}$.
+Observe que o Algoritmo~\ref{algorithm:INBRWKCH} aplica uma transposição $\tau$ se duas restrições forem satisfeitas: (i) $\frac{|S_{\rho}|}{|S| + 1} \ge k$, que garante que a sequência de eventos de rearranjo $S$ construída pelo algoritmo obedecerá à restrição do problema que $\frac{|S_{\rho}|}{|S|} \ge k$; e (ii) $\Delta b_1(\mathcal{I}, (\tau)) \le -1$, que garante que a sequência de ordenação conterá, no máximo, $b_1(\mathcal{I})$ operações, pois cada sequência de reversões adicionada da sequência $S$ remove, em média, um ou mais breakpoints tipo um por operação. Como o Algoritmo~\ref{algorithm:INBRWKCH} remove, em média, um ou mais breakpoints tipo um por iteração, ele garante que $\pi$ será transformada em $\iota$. Além disso, não mais do que $b_1(\mathcal{I})$ operações serão usadas para isso, mantendo o fator de aproximação $3-k$. Como a transposição $\tau$ (linhas 3-5) e a sequência de no máximo duas reversões $S^{\prime}$ (linhas 6-9) podem ser encontradas em tempo linear, o tempo de execução do Algoritmo~\ref{algorithm:INBRWKCH} é $\mathcal{O}(n^2)$, considerando que $|S|~\le~b_1(\mathcal{I})~\le~{n + 1}$.
 
 % ------------------------------------------------------------------ %
 \subsection{Instâncias Clássicas com Sinais}
 % ------------------------------------------------------------------ %
 
-Com base na estrutura de grafo de ciclos clássico, apresentamos um algoritmo de aproximação com fator de $3-\frac{3k}{2}$ para o problema \SbPRT{} em instâncias clássicas com sinais.
+Com base na estrutura de grafo de ciclos clássico, apresentamos um algoritmo de aproximação com fator $3-\frac{3k}{2}$ para o problema \SbPRT{} em instâncias clássicas com sinais.
 
 \begin{lemma}\label{lemma:ZUHMXSRH}
-Dada uma instância clássica com sinais $\mathcal{I}$, existe uma sequência de reversões $S$ em que o número de ciclos criados por cada reversão, em média, é maior ou igual a $2/3$.
+Seja $\mathcal{I}=(\pi,\iota)$ uma instância clássica com sinais. Existe uma sequência de reversões $S$ que transforma $\pi$ em $\iota$ e que o número de ciclos criados por cada reversão, em média, é maior ou igual a $\frac{2}{3}$.
 \end{lemma}
 \begin{proof}
-Se $G(\mathcal{I})$ possuir um ciclo divergente $C$, então existe uma reversão que, quando aplicada em $C$, aumenta o número de ciclos em uma unidade (Teorema 5 de~\cite{1998-walter-etal}). Caso contrário, todos os ciclos não triviais devem ser convergentes. Isso significa que um dos seguintes cenários deve ocorrer obrigatoriamente~\cite{2019a-oliveira-etal}:
+Se $G(\mathcal{I})$ possuir um ciclo divergente $C$, então existe uma reversão que, quando aplicada, aumenta o número de ciclos em uma unidade (Teorema 5 de~\cite{1998-walter-etal}). Caso contrário, todos os ciclos não triviais devem ser convergentes. Isso significa que um dos seguintes cenários deve ocorrer obrigatoriamente~\cite{2019a-oliveira-etal}:
 \begin{itemize}
   \item Existe em $G(\mathcal{I})$ um ciclo longo e orientado $C$ (Figura~\ref{figure:CQQWYGKH}, Caso 1);
-  \item Existe em $G(\mathcal{I})$ um ciclo curto $C$ tal que os open gates são fechados por outro ciclo não trivial $D$ (Figura~\ref{figure:CQQWYGKH}, Caso 2);
-  \item Existe em $G(\mathcal{I})$ um ciclo longo não orientado $C$ tal que os open gates são fechados por um ou mais ciclos não triviais (Figura~\ref{figure:CQQWYGKH}, Caso 3);
+  \item Existe em $G(\mathcal{I})$ um ciclo curto $C$ tal que os \emph{open gates} são fechados por outro ciclo não trivial $D$ (Figura~\ref{figure:CQQWYGKH}, Caso 2);
+  \item Existe em $G(\mathcal{I})$ um ciclo longo não orientado $C$ tal que os \emph{open gates} são fechados por um ou mais ciclos não triviais (Figura~\ref{figure:CQQWYGKH}, Caso 3);
 \end{itemize}
 
 Se $G(\mathcal{I})$ possui um ciclo longo e orientado $C$, então podemos aplicar uma reversão em suas arestas pretas de maneira que $C$ é transformado em divergente. Como $C$ é um ciclo longo, então é possível aplicar, pelo menos, duas reversões de forma que cada uma aumenta o número de ciclos em uma unidade (Figura~\ref{figure:CQQWYGKH}, Caso 1).
 
-Se algum dos outros casos ocorrer, então podemos tornar o ciclo $C$ divergente após aplicar uma reversão no(s) ciclo(s) que fecham os open gates de $C$. Se $C$ for um ciclo curto, então podemos aplicar uma reversão em suas arestas pretas quebrando-o em dois ciclos triviais, o que aumenta o número de ciclos em uma unidade. Como resultado da segunda reversão, o ciclo $D$ também passa a ser divergente, o que nos garante aplicar uma terceira reversão que aumenta o número de ciclos em uma unidade (Figura~\ref{figure:CQQWYGKH}, Caso 2). Se $C$ for um ciclo longo, então é possível aplicar pelo menos duas reversões de forma que cada uma aumenta o número de ciclos em uma unidade (Figura~\ref{figure:CQQWYGKH}, Caso 3)
+Se algum dos outros casos ocorrer, então podemos tornar o ciclo $C$ divergente após aplicar uma reversão no(s) ciclo(s) que fecham os open gates de $C$. Se $C$ for um ciclo curto, então podemos aplicar uma reversão em suas arestas pretas quebrando-o em dois ciclos triviais, o que aumenta o número de ciclos em uma unidade. Como resultado da segunda reversão, o ciclo $D$ também passa a ser divergente, o que nos garante aplicar uma terceira reversão que aumenta o número de ciclos em uma unidade (Figura~\ref{figure:CQQWYGKH}, Caso 2). Se $C$ for um ciclo longo, então é possível aplicar pelo menos duas reversões de forma que cada uma aumenta o número de ciclos em uma unidade (Figura~\ref{figure:CQQWYGKH}, Caso 3).
 
-Nos três casos mencionados acima, aplicamos três reversões que aumentam, em pelo menos, duas unidades o número de ciclos, e o lema segue.
+Nos três casos mencionados acima, aplicamos três reversões que aumentam em pelo menos duas unidades o número de ciclos, e o lema segue.
 \end{proof}
 
 \input{figures/CQQWYGKH}
 
 \begin{lemma}\label{lemma:KZHQWACX}
-Dada uma instância clássica com sinais $\mathcal{I} = (\pi,\iota)$, é possível transformar $\pi$ em $\iota$ utilizando, no máximo, $\frac{3(n + 1 -c(G(\mathcal{I})))}{2}$ reversões.
+Seja $\mathcal{I} = (\pi,\iota)$ uma instância clássica com sinais. É possível transformar $\pi$ em $\iota$ utilizando no máximo $\frac{3(n + 1 -c(G(\mathcal{I})))}{2}$ reversões.
 \end{lemma}
 \begin{proof}
 O Lema~\ref{lemma:ZUHMXSRH} resulta em uma sequência de reversões que sempre aumenta o número de ciclos. Logo, podemos aplicar o Lema~\ref{lemma:ZUHMXSRH} até que $c(G(\mathcal{I}))$ seja igual a ${n+1}$. Consequentemente, $\pi$ será transformada em $\iota$. Além disso, cada sequência de reversões $S$ obtidas através do Lema~\ref{lemma:ZUHMXSRH} garante que o número de ciclos criados por cada reversão de $S$ é, em média, maior ou igual a $\frac{2}{3}$. Logo, não mais do que $\frac{3(n + 1 -c(G(\mathcal{I})))}{2}$ reversões são utilizadas para transformar $\pi$ em $\iota$, e o lema segue.
@@ -339,7 +339,7 @@ $$\frac{\frac{3(n + 1 - c(G(\mathcal{I})))}{2}}{\frac{n + 1 - c(G(\mathcal{I}))}
 \end{proof}
 
 
-Note que o algoritmo de aproximação resultante do Teorema~\ref{theorem:HYRUPXPH} aplica somente reversões. Para evitar que as soluções sejam compostas exclusivamente por reversões, nós propomos o Algoritmo~\ref{algorithm:TNMWZNZU}. Esse algoritmo também garante um fator de aproximação de $3-\frac{3k}{2}$ para instâncias clássicas com sinais do problema \SbPRT{} e para qualquer valor de $k$.
+Note que o algoritmo de aproximação resultante do Teorema~\ref{theorem:HYRUPXPH} aplica somente reversões. Para evitar que as soluções sejam compostas exclusivamente por reversões, nós propomos o Algoritmo~\ref{algorithm:TNMWZNZU}. Esse algoritmo também garante um fator de aproximação de $3-\frac{3k}{2}$ para instâncias clássicas com sinais do problema \SbPRT{} e para qualquer valor de~$k$.
 
 \input{algorithms/TNMWZNZU}
 
@@ -349,13 +349,13 @@ Observe que o Algoritmo~\ref{algorithm:TNMWZNZU} aplica uma transposição $\tau
 \subsubsection{Algoritmo de Aproximação Assintótica}
 % ------------------------------------------------------------------ %
 
-Nesta seção, apresentamos um algoritmo de aproximação assintótica com fator de $\frac{2-k}{1-k/3}$ para o problema \SbPRT{} em instâncias clássicas com sinais.
+Nesta seção, apresentamos um algoritmo de aproximação assintótica com fator $\frac{2-k}{1-k/3}$ para o problema \SbPRT{} em instâncias clássicas com sinais.
 
 \begin{definition}
-Dada uma instância clássica com sinais $\mathcal{I} = (\pi,\iota)$, seja $\mathcal{A}_\rho$ o algoritmo descrito no Teorema~\ref{theorem:HYRUPXPH} que transforma $\pi$ em $\iota$ utilizando, no máximo, $\frac{3(n + 1 -c(G(\mathcal{I})))}{2}$ reversões. Denotamos por $\mathcal{A}_\rho(\mathcal{I})$ a sequência de reversões obtidas através de $\mathcal{A}_\rho$ e que transforma $\pi$ em $\iota$.
+Seja $\mathcal{I} = (\pi,\iota)$ uma instância clássica com sinais e seja $\mathcal{A}_\rho$ o algoritmo descrito no Teorema~\ref{theorem:HYRUPXPH} que transforma $\pi$ em $\iota$ utilizando, no máximo, $\frac{3(n + 1 -c(G(\mathcal{I})))}{2}$ reversões. Denotamos por $\mathcal{A}_\rho(\mathcal{I})$ a sequência de reversões obtidas através de $\mathcal{A}_\rho$ e que transforma $\pi$ em $\iota$.
 \end{definition}
 
-Note que o algoritmo exato para o problema \SbR{} em instâncias clássicas com sinais~\cite{1999-hannenhalli-pevzner}, com complexidade subquadrática ($\mathcal{O}(n^{\frac{3}{2}}\sqrt(\log n))$~\cite{2007-tannier-etal}) para obter uma sequência ótima de reversões e com complexidade linear caso apenas a distância seja desejada~\cite{2001-bader-etal}, também pode ser utilizado como o algoritmo $\mathcal{A}_\rho$, uma vez que, para uma mesma instância, o tamanho da sequência de reversões obtida por tal algoritmo é menor ou igual ao tamanho da sequência de reversões dada por um algoritmo de acordo com o Teorema~\ref{theorem:HYRUPXPH}. Consequentemente, no máximo, $\frac{3(n + 1 -c(G(\mathcal{I})))}{2}$ reversões serão utilizadas.
+Note que o algoritmo exato para o problema \SbR{} em instâncias clássicas com sinais~\cite{1999-hannenhalli-pevzner}, com complexidade subquadrática ($\mathcal{O}(n^{\frac{3}{2}}\sqrt(\log n))$~\cite{2007-tannier-etal}) para obter uma sequência ótima de reversões e com complexidade linear caso apenas a distância seja desejada~\cite{2001-bader-etal}, também pode ser utilizado como o algoritmo $\mathcal{A}_\rho$, uma vez que, para uma mesma instância, o tamanho da sequência de reversões obtida por tal algoritmo é menor ou igual ao tamanho da sequência de reversões dada por um algoritmo de acordo com o Teorema~\ref{theorem:HYRUPXPH}. Consequentemente, no máximo $\frac{3(n + 1 -c(G(\mathcal{I})))}{2}$ reversões serão utilizadas.
 
 \begin{remark}[Oliveira \textit{et al.}~\cite{2019a-oliveira-etal}]\label{remark:DNLEDNKT}
 Dada uma representação clássica $\pi$, uma transposição $\tau^{(i,j,k)}$ pode ser reproduzida por uma sequência de três reversões consecutivas $S=(\rho^{(i,{j-1})},\rho^{(j,{k-1})},\rho^{(i,{k-1})})$, ou seja, $\pi \cdot \tau^{(i,j,k)} = \pi \cdot S$. 
@@ -366,7 +366,7 @@ Agora considere o Algoritmo~\ref{algorithm:NTMUPIXY}. Note que podemos fazer uma
 \input{algorithms/NTMUPIXY}
 
 \begin{lemma}\label{lemma:THMUHLVK}
-Dada uma instância clássica com sinais $\mathcal{I} = (\pi,\iota)$ e um valor $k \in [0..1]$, o Algoritmo~\ref{algorithm:NTMUPIXY} fornece uma sequência de operações $S$ com, no máximo, $(n+1-c(G(\mathcal{I}))) / (1-k/3) + 4$ operações de reversões e transposições, tal que $\pi \cdot S = \iota$ e $\frac{|S_{\rho}|}{|S|} \ge k$. 
+Seja $\mathcal{I} = (\pi,\iota)$ uma instância clássica com sinais e um valor $k \in [0..1]$. O Algoritmo~\ref{algorithm:NTMUPIXY} fornece uma sequência de operações $S$ com, no máximo, $(n+1-c(G(\mathcal{I}))) / (1-k/3) + 4$ operações de reversões e transposições, tal que $\pi \cdot S = \iota$ e $\frac{|S_{\rho}|}{|S|} \ge k$. 
 \end{lemma}
 \begin{proof}
 Note que a sequência fornecida pelo algoritmo $\mathcal{A}_\rho$ (linha 12) transforma $\pi$ em $\iota$. Consequentemente, o Algoritmo~\ref{algorithm:NTMUPIXY} também transforma $\pi$ em $\iota$.
@@ -416,7 +416,7 @@ O processo de modificação realizado na sequência de eventos de rearranjo para
 Para verificar o desempenho dos algoritmos em diferentes cenários, criamos bases de dados de instâncias clássicas para simular cenários com proporções fixas entre eventos de reversão e transposição:
 
 \begin{itemize}
-  \item DB1: Esta base de dados é dividida em grupos. Cada grupo tem um total de 10000 instâncias clássicas de tamanho 200 (ou seja, $\pi$ e $\iota$ tem 200 elementos cada) e é identificado pela proporção $k$ adotada para criar as instâncias. Uma sequência com 40 operações é gerada de forma que seja composta por $40k$ de reversões e $40(1-k)$ de transposições. Os parâmetros das reversões e transposições geradas são escolhidos aleatoriamente entre os valores possíveis. Em seguida, a sequência de operações é embaralhada e aplicada na permutação identidade $\iota$. A permutação resultante $\pi$, a permutação identidade $\iota$ e a proporção $k$, formam uma instância do grupo. Esse processo é repetido até que o grupo tenha um total de 10000 instâncias. As proporções utilizadas variaram de 0 a 1, em intervalos de 0.1, totalizando 11 grupos. Essa base de dados tem as versões com instâncias clássicas com e sem sinais. Considerando instâncias clássicas com e sem sinais, essa base de dados possui um total de 220000 instâncias.
+  \item DB1: Esta base de dados é dividida em grupos. Cada grupo tem um total de 10000 instâncias clássicas de tamanho 200 (ou seja, $\pi$ e $\iota$ tem 200 elementos cada) e é identificado pela proporção $k$ adotada para criar as instâncias. Uma sequência com 40 operações é gerada de forma que seja composta por $40k$ de reversões e $40(1-k)$ de transposições. Os índices das reversões e transposições geradas são escolhidos aleatoriamente entre os valores possíveis. Em seguida, a sequência de operações é embaralhada e aplicada na permutação identidade $\iota$. A permutação resultante $\pi$, a permutação identidade $\iota$ e a proporção $k$, formam uma instância do grupo. Esse processo é repetido até que o grupo tenha um total de 10000 instâncias. As proporções utilizadas variaram de 0 a 1, em intervalos de 0.1, totalizando 11 grupos. Essa base de dados tem as versões com instâncias clássicas com e sem sinais. Considerando instâncias clássicas com e sem sinais, essa base de dados possui um total de 220000 instâncias.
 
   \item DB2: Esta base de dados foi desenvolvida para refletir cenários onde o número de reversões é 50\% maior que o número de transposições. Assim, no processo de criação das instâncias, foi mantida uma proporção de $k = 0.6$. A base de dados é dividida em grupos com 10000 instâncias cada. Além disso, o identificador do grupo indica o tamanho das instâncias contidas nele e o número de operações utilizadas para criar as instâncias. Os tamanhos usados para as instâncias foram 100, 200, 300, 400 e 500. O número de operações foi baseado em uma porcentagem do tamanho da instância, sendo adotados: 10\%, 20\%, 30\%, 40\% e 50\%. As etapas finais do processo são semelhantes ao que descrevemos anteriormente na base de dados DB1. Essa base de dados possui uma versão apenas para instâncias clássicas com sinais e um total de 250000 instâncias.
 \end{itemize}
@@ -425,7 +425,7 @@ Para verificar o desempenho dos algoritmos em diferentes cenários, criamos base
 \subsection{Comparação dos Algoritmos}
 % ------------------------------------------------------------------ %
 
-Nesta seção, apresentamos os resultados fornecidos pelos algoritmos utilizando as bases de dados DB1 e DB2. Nas tabelas~\ref{table:AELVTSMQ}, \ref{table:CLTLBDUJ}, \ref{table:GZLFZWZB} e \ref{table:YDCKQRVK}, as colunas Min, Avg e Max representam valores de mínimo, média e máximo, respectivamente.
+Nesta seção, apresentamos os resultados fornecidos pelos algoritmos utilizando as bases de dados DB1 e DB2. Nas tabelas~\ref{table:AELVTSMQ}, \ref{table:CLTLBDUJ}, \ref{table:GZLFZWZB} e \ref{table:YDCKQRVK}, as colunas Min, Avg e Max representam valores de mínimo, média e máximo, respectivamente. As colunas Proporção, Distância e Aproximação indicam a proporção obtida nas soluções, a estimativa para a distância de proporção fornecida pelos algoritmos e o fator de aproximação computado com base nos limitantes inferiores, respectivamente.
 
 O objetivo principal dos testes experimentais é a análise do desempenho prático dos algoritmos propostos, comparando-os com as aproximações teóricas e com resultados fornecidos por outros algoritmos da literatura. As tabelas~\ref{table:AELVTSMQ} e~\ref{table:CLTLBDUJ} mostram os resultados dos algoritmos considerando diferentes cenários de proporção, o que é útil para estudar o comportamento dos algoritmos variando a proporção desejada. As siglas UPRT e SPRT referem-se aos algoritmos~\ref{algorithm:INBRWKCH} e~\ref{algorithm:TNMWZNZU}, respectivamente. O Algoritmo~\ref{algorithm:TNMWZNZU} foi utilizado, ao invés do Algoritmo~\ref{algorithm:NTMUPIXY}, por possuir uma característica de decisão semelhante a do Algoritmo~\ref{algorithm:INBRWKCH}, diferenciando-se apenas pela estrutura considerada (ciclos ao invés de breakpoints). Dessa forma, é possível obter um comparativo mais justo entre esses dois algoritmos. 
 

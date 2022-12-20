@@ -133,7 +133,7 @@ Os problemas investigados nesta tese têm como principal objetivo transformar um
 \item Uma \emph{instância intergênica flexível} é caracterizada por um par de representações de genomas $((\pi,\breve\pi),(\iota,\breve\iota^{\min},\breve\iota^{\max}))$ que compartilham o mesmo conjunto de genes, sendo a primeira representação intergênica rígida e a segunda intergênica flexível. Ambas as representações podem ser com ou sem sinais. Por padrão, em uma instância intergênica flexível utilizaremos $(\pi,\breve\pi)$ e $(\iota,\breve\iota^{\min},\breve\iota^{\max})$ como as representações dos genomas de origem e alvo, respectivamente. O objetivo principal dos problemas que utilizam esse tipo de instância consiste em transformar $(\pi,\breve\pi)$ em $(\iota,\breve\iota^{\prime})$, tal que $\forall i \in \{1,2,\dots,{n+1}\}: \breve\iota^{\min}_i \le \breve\iota^{\prime}_i \le \breve\iota^{\max}_i$.
 \end{itemize}
 
-Pelo fato dos genes serem representados por uma permutação e os genomas origem e alvo compartilharem o mesmo conjunto de genes, podemos determinar uma permutação padrão $\iota$ para os genes do genoma alvo e mapear a permutação do genoma de origem $\pi$ de acordo com os valores utilizados em $\iota$. A permutação padrão para os genes do genoma alvo é $\iota=({+1}~{+2}~\dots~{+n})$ para uma representação com sinais e $\iota=(1~2~\dots~n)$ para uma representação sem sinais. Os elementos $\breve\iota$, $\breve\iota^{\min}$ e $\breve\iota^{\max}$ não possuem uma característica padrão, com seus valores sendo definidos em cada instância. 
+Pelo fato dos genes serem representados por uma permutação e os genomas origem e alvo compartilharem o mesmo conjunto de genes, podemos determinar uma permutação padrão $\iota$ para os genes do genoma alvo e mapear a permutação do genoma de origem $\pi$ de acordo com os valores utilizados em $\iota$. A permutação padrão para os genes do genoma alvo é $\iota=({+1}~{+2}~\dots~{+n})$ para uma representação com sinais e $\iota=(1~2~\dots~n)$ para uma representação sem sinais. Os elementos $\breve\iota$, $\breve\iota^{\min}$ e $\breve\iota^{\max}$ podem assumir quaisquer valores inteiros não negativos, sendo seus valores definidos a cada instância.
 
 O Exemplo~\ref{example:OZBJAPOZ} mostra uma instância clássica com sinais.
 
@@ -173,11 +173,11 @@ Nesta seção, apresentamos os conceitos de \emph{breakpoints} em instâncias cl
 
 Nesta seção, apresentamos o conceito de breakpoint para instâncias clássicas.
 
-\begin{definition}
+\begin{definition}[Breakpoint Clássico Tipo Um]
   Dada uma instância clássica $\mathcal{I} = (\pi,\iota)$, um par de elementos $(\pi_{i}, \pi_{i+1})$, de forma que $0 \le i \le n$, é um \emph{breakpoint clássico tipo um} se $|\pi_{i+1} - \pi_{i}| \ne 1$.
 \end{definition}
 
-\begin{definition}
+\begin{definition}[Breakpoint Clássico Tipo Dois]
   Dada uma instância clássica $\mathcal{I} = (\pi,\iota)$, um par de elementos $(\pi_{i}, \pi_{i+1})$, de forma que $0 \le i \le n$, é um \emph{breakpoint clássico tipo dois} se $\pi_{i+1} - \pi_{i} \ne 1$.
 \end{definition}
 
@@ -187,7 +187,7 @@ Dada uma instância clássica $\mathcal{I} = (\pi,\iota)$, o número total de br
   A única instância clássica $\mathcal{I}$ com $b_1(\mathcal{I}) = 0$ ou $b_2(\mathcal{I}) = 0$ é $\mathcal{I} = (\iota,\iota)$.
 \end{remark}
 
-\begin{definition}
+\begin{definition}[Strip]
   Dada uma instância clássica $\mathcal{I} = (\pi,\iota)$, \emph{strips} são sequências maximais de elementos de $\pi$ sem breakpoints clássicos.
 \end{definition}
 
@@ -241,7 +241,7 @@ Observe que um breakpoint intergênico sobrecarregado é formado por um par de g
 
 Note que um breakpoint intergênico super forte está em uma das extremidades do genoma de origem ou imediatamente antes ou depois existe um breakpoint intergênico forte ou uma adjacência intergênica.
 
-\begin{definition}\label{definition:SUHDBNQI}[Par Conectado de Breakpoints Intergênicos]
+\begin{definition}[Par Conectado de Breakpoints Intergênicos]\label{definition:SUHDBNQI}
   Dada uma instância intergênica rígida $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$, um par de breakpoints intergênicos tipo um $(\pi_{i},\pi_{i+1})$ e $(\pi_{j},\pi_{j+1})$ é chamado de \emph{conectado} se ambas as condições a seguir são satisfeitas:
   \begin{enumerate}
     \item Existe um par de elementos dentre $(\pi_{i},\pi_{i+1})$, $(\pi_{j},\pi_{j+1})$, $(\pi_{i},\pi_{j})$, $(\pi_{i},\pi_{j+1})$, $(\pi_{i+1},\pi_{j})$ e $(\pi_{i+1},\pi_{j+1})$ que são consecutivos em $\iota$ e tal par não forma uma adjacência intergênica.
@@ -255,7 +255,7 @@ Um par de breakpoints intergênicos conectados indica a possibilidade de criar u
 Dada uma instância intergênica rígida $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$, um par de breakpoints intergênicos conectados $(\pi_{i},\pi_{i+1})$ e $(\pi_{j},\pi_{j+1})$ é chamado de \emph{suavemente conectado} se ambos os breakpoints intergênicos são suaves.
 \end{definition}
 
-\begin{definition}[Strips Suaves]
+\begin{definition}[Strip Suave]
   Seja $\mathcal{I} = ((\pi,\breve\pi),(\iota,\breve\iota))$ uma instância intergênica rígida, \emph{strips suaves} são sequências maximais de elementos de $\pi$ sem breakpoints intergênicos suaves.
 \end{definition}
 
